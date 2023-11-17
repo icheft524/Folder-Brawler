@@ -5,16 +5,31 @@ extends CharacterBody2D
 @export var hp = 2
 
 var mouse_in = false
+var target_position
+var direction
 
 
 func _ready():
 	pass
 
+func _physics_process(delta):
+	movement()
+
+func movement():
+	if target:
+		return
+	if target != null:
+		target_position = target.position
+		direction = ( target_position - self.position).normalized()
+		if direction.x > 0:
+			$Sprite2D.flip_h = true
+		elif direction.x < 0:
+			$Sprite2D.flip_h = false
+		velocity = Vector2(direction).rotated(rotation) * speed * 1
+		move_and_slide()
+
+
 func _process(delta):
-	target = %folder
-	
-	look_at(target.global_position)
-	position += transform.x * speed * delta
 	dead()
 	
 	$hp.text = "normal" + str(hp)
