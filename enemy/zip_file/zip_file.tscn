@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://c76fdqn24ggef"]
+
+[ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_gmkwd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjo4c"]
+radius = 50.0899
+
+[node name="zipFile" type="CharacterBody2D"]
+script = ExtResource("1_ppmwp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gmkwd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jjo4c")
+
+[node name="hp" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 71.0
+offset_right = 20.0
+offset_bottom = 94.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="top" type="Marker2D" parent="."]
+position = Vector2(-2, -78)
+
+[node name="center" type="Marker2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="bottom" type="Marker2D" parent="."]
+position = Vector2(-5, 81)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
