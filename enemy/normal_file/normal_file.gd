@@ -11,6 +11,8 @@ func _ready():
 	pass
 
 func _process(delta):
+	target = %folder
+	
 	look_at(target.global_position)
 	position += transform.x * speed * delta
 	dead()

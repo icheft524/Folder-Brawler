@@ -34,6 +34,6 @@ func dead():
 		var filespawn = global_position
 		var file = normal_file.instantiate()
 		file.position = filespawn
-		get_tree().get_root().add_child(file)
+		get_parent().add_child(file)
 		queue_free()
 	
