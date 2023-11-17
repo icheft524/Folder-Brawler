@@ -12,7 +12,7 @@ position = Vector2(812, 356)
 
 [node name="zipFile" parent="." instance=ExtResource("3_vqyii")]
 unique_name_in_owner = true
-position = Vector2(146, 91)
+position = Vector2(167, 117)
 
 [node name="normalFile" parent="." instance=ExtResource("2_s62h6")]
 unique_name_in_owner = true
