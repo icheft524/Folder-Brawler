@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1vhh0gbxm27"]
+[gd_scene load_steps=7 format=3 uid="uid://b1vhh0gbxm27"]
 
 [ext_resource type="Script" path="res://enemy/normal_file/normal_file.gd" id="1_6aj4h"]
+[ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_1hj5p"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_rbvut"]
+[ext_resource type="Texture2D" uid="uid://xk5xakv8njmn" path="res://folder/HextechGunblade - Copy.png" id="3_mneyw"]
+
+[sub_resource type="Resource" id="Resource_vyk3c"]
+script = ExtResource("2_1hj5p")
+name = "Normal"
+texture = ExtResource("3_mneyw")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l8qm"]
 radius = 45.0444
 
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")
+file = SubResource("Resource_vyk3c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_rbvut")
@@ -29,5 +37,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

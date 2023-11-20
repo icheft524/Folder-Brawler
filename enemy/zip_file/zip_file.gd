@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var speed = 50
 @export var hp = 2
 
+@export var file: InvItem
+
 var mouse_in = false
 var target_position
 var direction
@@ -52,4 +54,9 @@ func dead():
 		file.position = filespawn
 		get_parent().add_child(file)
 		queue_free()
-	
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("folder"):
+		target.collect(file)
+		target.hp -= 1
+		queue_free()
