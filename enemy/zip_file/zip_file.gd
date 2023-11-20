@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var target = %folder
+@onready var target = $"../folder"
 @export var speed = 50
 @export var hp = 2
 
@@ -13,6 +13,7 @@ const normal_file = preload("res://enemy/normal_file/normal_file.tscn")
 
 func _physics_process(delta):
 	movement()
+	pass
 
 func movement():
 	target_position = target.position

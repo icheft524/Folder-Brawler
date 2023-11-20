@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var target = %folder
+@onready var target = $"../folder"
 @export var speed = 100
 @export var hp = 2
 
@@ -14,6 +14,7 @@ func _ready():
 
 func _physics_process(delta):
 	movement()
+	pass
 
 func movement():
 	target_position = target.position
