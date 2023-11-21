@@ -1,14 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c76fdqn24ggef"]
+[gd_scene load_steps=6 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_gmkwd"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
-[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://folder/GuinsoosRageblade-copy.png" id="3_n82sm"]
+[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_qr6br"]
 
 [sub_resource type="Resource" id="Resource_lgouq"]
 script = ExtResource("2_k2wnp")
 name = "ZIP"
-texture = ExtResource("3_n82sm")
+texture = ExtResource("3_qr6br")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjo4c"]
 radius = 56.0089
@@ -18,7 +17,8 @@ script = ExtResource("1_ppmwp")
 file = SubResource("Resource_lgouq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gmkwd")
+scale = Vector2(3.9, 3.9)
+texture = ExtResource("3_qr6br")
 
 [node name="Area2D" type="Area2D" parent="."]
 

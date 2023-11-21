@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqa0p4irvbig6"
-path="res://.godot/imported/GuinsoosRageblade-copy.png-0a48cd09069b47cea9c5b9e41d4e15b9.ctex"
+uid="uid://cu753cmbls1m1"
+path="res://.godot/imported/DragonsClawcopy.png-ccad364f6bc9278809b0a218237c05fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://folder/GuinsoosRageblade-copy.png"
-dest_files=["res://.godot/imported/GuinsoosRageblade-copy.png-0a48cd09069b47cea9c5b9e41d4e15b9.ctex"]
+source_file="res://enemy/ads_file/DragonsClawcopy.png"
+dest_files=["res://.godot/imported/DragonsClawcopy.png-ccad364f6bc9278809b0a218237c05fa.ctex"]
 
 [params]
 

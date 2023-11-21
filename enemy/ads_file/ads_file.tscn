@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1qdehqlqfqlu"]
 
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="1_prxut"]
+[ext_resource type="Texture2D" uid="uid://cu753cmbls1m1" path="res://enemy/ads_file/DragonsClawcopy.png" id="2_5ct76"]
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
-[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://folder/GuinsoosRageblade-copy.png" id="3_tm2f2"]
+[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_ou47p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
 size = Vector2(206, 55)
@@ -11,13 +11,13 @@ size = Vector2(206, 55)
 script = ExtResource("2_7jcnh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.64063, 1.64063)
-texture = ExtResource("1_prxut")
+scale = Vector2(9.1, 9.1)
+texture = ExtResource("2_5ct76")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(-5.5, -70)
 scale = Vector2(10.25, 2.7)
-texture = ExtResource("3_tm2f2")
+texture = ExtResource("3_ou47p")
 
 [node name="drag_area" type="Area2D" parent="."]
 
