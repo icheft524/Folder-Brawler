@@ -11,4 +11,4 @@ func update(slot: InvSlot):
 		file_visual.visible = true
 		file_visual.texture = slot.item.texture
 		name_text.visible = true
-		name_text.text = str(slot.item.name)
+		name_text.text = str(slot.hp)

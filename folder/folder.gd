@@ -34,6 +34,7 @@ func _input(event):
 		if dragging_folder:
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 			
+			
 	if event is InputEventMouseButton:
 		if event.is_double_click() && mouse_in:
 			inventory.open()
@@ -54,5 +55,5 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group('enemy'):
 		pass
 		
-func collect(file):
-	inv.insert(file)
+func collect(file,enemy_hp):
+	inv.insert(file,enemy_hp)

@@ -6,7 +6,7 @@ signal update
 
 @export var slots: Array[InvSlot]
 
-func insert(item: InvItem):
+func insert(item: InvItem,enemy_hp):
 	var itemslots = slots.filter(func(slot): return slot.item == item)
 	#if !itemslots.is_empty():
 		#itemslots[0].amount += 1
@@ -14,5 +14,5 @@ func insert(item: InvItem):
 	var emptyslots = slots.filter(func(slot): return slot.item == null)
 	if !emptyslots.is_empty():
 		emptyslots[0].item = item
-		emptyslots[0].amount = 1
+		emptyslots[0].hp = enemy_hp
 	update.emit()
