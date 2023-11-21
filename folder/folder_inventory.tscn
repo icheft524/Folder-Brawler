@@ -1,17 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://d26xg6dvehwx2"]
+[gd_scene load_steps=6 format=3 uid="uid://d26xg6dvehwx2"]
 
 [ext_resource type="Script" path="res://folder/folder_inventory.gd" id="1_pwu5y"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ownvl"]
 [ext_resource type="PackedScene" uid="uid://55hrfbgbqdsg" path="res://folder/slot.tscn" id="3_sbfi1"]
 [ext_resource type="Script" path="res://folder/esc_button.gd" id="4_vyla5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1exvd"]
+size = Vector2(711, 35)
+
 [node name="folder_inventory" type="Control"]
+z_index = 1
 custom_minimum_size = Vector2(719, 410)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 719.0
 offset_bottom = 410.0
 script = ExtResource("1_pwu5y")
+
+[node name="esc_button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 639.0
+offset_top = 12.0
+offset_right = 703.0
+offset_bottom = 76.0
+script = ExtResource("4_vyla5")
+
+[node name="Sprite2D" type="Sprite2D" parent="esc_button"]
+modulate = Color(1, 0.00784314, 0, 1)
+z_index = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ownvl")
+centered = false
+
+[node name="tab" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="tab"]
+self_modulate = Color(0, 0.192157, 0.423529, 1)
+z_index = 1
+position = Vector2(356, 19)
+scale = Vector2(5.59375, 0.328125)
+texture = ExtResource("2_ownvl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tab"]
+position = Vector2(356.5, 18.5)
+shape = SubResource("RectangleShape2D_1exvd")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -102,19 +135,8 @@ layout_mode = 2
 [node name="Panel21" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sbfi1")]
 layout_mode = 2
 
-[node name="esc_button" type="Button" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 639.0
-offset_top = 12.0
-offset_right = 703.0
-offset_bottom = 76.0
-script = ExtResource("4_vyla5")
-
-[node name="Sprite2D" type="Sprite2D" parent="esc_button"]
-modulate = Color(1, 0.00784314, 0, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ownvl")
-centered = false
-
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="esc_button" to="." method="_on_esc_button_pressed"]
+[connection signal="mouse_entered" from="tab" to="." method="_on_tab_mouse_entered"]
+[connection signal="mouse_exited" from="tab" to="." method="_on_tab_mouse_exited"]

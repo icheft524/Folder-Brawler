@@ -5,6 +5,7 @@ extends Panel
 @onready var name_text: Label = $CenterContainer/Panel/file_display/ename
 @onready var drop = $"../../../../enemy_spawner"
 @onready var player = $"../../../../folder"
+@onready var inventory = $"../../../../folder_inventory"
 
 @export var inv: Inv
 
@@ -13,6 +14,7 @@ var mouse_in
 var slot_num
 var origin
 var ehp
+var occupied
 
 func update(slot: InvSlot):
 	if !slot.item:
@@ -27,6 +29,7 @@ func update(slot: InvSlot):
 		health_text.text = str(slot.ehp)
 		name_text.text = slot.ename
 		ehp = slot.ehp
+		occupied = true
 		slot_num = slot.slot_num
 		origin = $Sprite2D.position
 		
@@ -38,19 +41,27 @@ func _physics_process(delta):
 func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		#file_visual.position = origin
-		if event.is_pressed() && mouse_in:
+		if event.is_pressed() && mouse_in && occupied:
 			dragging = true
+			$CenterContainer/Panel/file_display.z_index = 2
 			print('Slot number',slot_num)
-		else:
+			
+		elif occupied:
 			dragging = false
-			if name_text.text == 'normal':
+			$CenterContainer/Panel/file_display.z_index = 1
+			file_visual.position = origin
+			
+			if name_text.text == 'normal' and !inventory.mouse_in:
 				file_visual.visible = false
 				file_visual.position = origin
+				occupied = false
 				inv.removed(slot_num)
 				drop.respawn_normal(ehp)
-			if name_text.text == 'zip':
+				
+			if name_text.text == 'zip' and !inventory.mouse_in:
 				file_visual.visible = false
 				file_visual.position = origin
+				occupied = false
 				inv.removed(slot_num)
 				drop.respawn_zip(ehp)
 

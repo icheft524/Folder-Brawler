@@ -29,6 +29,7 @@ offset_bottom = 40.0
 layout_mode = 2
 
 [node name="file_display" type="Sprite2D" parent="CenterContainer/Panel"]
+z_index = 1
 
 [node name="ehp" type="Label" parent="CenterContainer/Panel/file_display"]
 custom_minimum_size = Vector2(41, 23)
