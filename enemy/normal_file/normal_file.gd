@@ -52,7 +52,7 @@ func dead():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder"):
-		target.collect(file,hp)
+		target.collect(file,hp,'normal')
 		target.hp -= 1
 		queue_free()
 

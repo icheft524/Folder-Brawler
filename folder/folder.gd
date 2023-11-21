@@ -55,5 +55,5 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group('enemy'):
 		pass
 		
-func collect(file,enemy_hp):
-	inv.insert(file,enemy_hp)
+func collect(file,hp,enemy_name):
+	inv.insert(file,hp,enemy_name)
