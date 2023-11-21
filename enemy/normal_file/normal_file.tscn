@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1vhh0gbxm27"]
+[gd_scene load_steps=7 format=3 uid="uid://b1vhh0gbxm27"]
 
 [ext_resource type="Script" path="res://enemy/normal_file/normal_file.gd" id="1_6aj4h"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_1hj5p"]
 [ext_resource type="Texture2D" uid="uid://xk5xakv8njmn" path="res://enemy/normal_file/HextechGunblade - Copy.png" id="3_qmyit"]
+[ext_resource type="Texture2D" uid="uid://dyvdnvjmp6q61" path="res://enemy/normal_file/normalfile.PNG" id="4_i6mna"]
 
 [sub_resource type="Resource" id="Resource_vyk3c"]
 script = ExtResource("2_1hj5p")
@@ -17,8 +18,8 @@ script = ExtResource("1_6aj4h")
 file = SubResource("Resource_vyk3c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4.8, 4.8)
-texture = ExtResource("3_qmyit")
+scale = Vector2(0.309677, 0.309677)
+texture = ExtResource("4_i6mna")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -37,7 +38,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 autostart = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

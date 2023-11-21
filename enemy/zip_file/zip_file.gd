@@ -21,10 +21,10 @@ func _physics_process(delta):
 func movement():
 	target_position = target.position
 	direction = ( target_position - self.position).normalized()
-	if direction.x > 0:
-		$Sprite2D.flip_h = true
-	elif direction.x < 0:
-		$Sprite2D.flip_h = false
+	#if direction.x > 0:
+		#$Sprite2D.flip_h = true
+	#elif direction.x < 0:
+		#$Sprite2D.flip_h = false
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
 

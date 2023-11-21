@@ -9,6 +9,20 @@ extends Node2D
 #var time = 0
 func _ready():
 	global.time = 0
+	
+func respawn_normal(ehp):
+	var normal_enemy = load("res://enemy/normal_file/normal_file.tscn")
+	var enemy_spawn = normal_enemy.instantiate()
+	enemy_spawn.hp = ehp
+	enemy_spawn.global_position = get_global_mouse_position()
+	add_child(enemy_spawn)
+	
+func respawn_zip(ehp):
+	var zip_enemy = load("res://enemy/normal_file/normal_file.tscn")
+	var enemy_spawn = zip_enemy.instantiate()
+	enemy_spawn.hp = ehp
+	enemy_spawn.global_position = get_global_mouse_position()
+	add_child(enemy_spawn)
 
 func _on_timer_timeout():
 	global.time += 1
@@ -25,10 +39,10 @@ func _on_timer_timeout():
 				var counter = 0
 				while counter < i.enemy_num:
 					#var enemy_spawn = new_enemy.instantiate()
-					if global.time >= enemy_upgrade_time:
-						enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))
-						if enemy_spawn.hp > enemyhpcap:
-							enemy_spawn.hp = enemyhpcap
+					#if global.time >= enemy_upgrade_time:
+						#enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))
+						#if enemy_spawn.hp > enemyhpcap:
+							#enemy_spawn.hp = enemyhpcap
 					enemy_spawn.global_position = get_random_position()
 					add_child(enemy_spawn)
 					

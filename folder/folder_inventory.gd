@@ -6,9 +6,10 @@ extends Control
 var isOpen: bool = false
 
 func _ready():
+	close()
 	Inv.update.connect(update_slots)
 	update_slots()
-	close()
+	
 
 func update_slots():
 	for i in range(min(Inv.slots.size(), slots.size())):

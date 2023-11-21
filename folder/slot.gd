@@ -3,11 +3,16 @@ extends Panel
 @onready var file_visual: Sprite2D = $CenterContainer/Panel/file_display
 @onready var health_text: Label = $CenterContainer/Panel/file_display/ehp
 @onready var name_text: Label = $CenterContainer/Panel/file_display/ename
-@onready var drop_normal = $"../../../../normalFile"
-@onready var drop_zip = $"../../../../zipFile"
+@onready var drop = $"../../../../enemy_spawner"
+@onready var player = $"../../../../folder"
+
+@export var inv: Inv
 
 var dragging
 var mouse_in
+var slot_num
+var origin
+var ehp
 
 func update(slot: InvSlot):
 	if !slot.item:
@@ -21,6 +26,9 @@ func update(slot: InvSlot):
 		health_text.visible = true
 		health_text.text = str(slot.ehp)
 		name_text.text = slot.ename
+		ehp = slot.ehp
+		slot_num = slot.slot_num
+		origin = file_visual.position
 		
 func _physics_process(delta):
 	if dragging:
@@ -30,14 +38,19 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
 			dragging = true
+			print('Slot number',slot_num)
 		else:
 			dragging = false
 			if name_text.text == 'normal':
 				file_visual.visible = false
-				drop_normal.respawn()
+				file_visual.position = origin
+				inv.removed(slot_num)
+				drop.respawn_normal(ehp)
 			if name_text.text == 'zip':
 				file_visual.visible = false
-				drop_zip.respawn()
+				file_visual.position = origin
+				inv.removed(slot_num)
+				drop.respawn_zip(ehp)
 
 func _on_mouse_entered():
 	mouse_in = true

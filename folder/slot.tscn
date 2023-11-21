@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://55hrfbgbqdsg"]
+[gd_scene load_steps=4 format=3 uid="uid://55hrfbgbqdsg"]
 
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="1_0nvpi"]
 [ext_resource type="Script" path="res://folder/slot.gd" id="1_l3b1d"]
+[ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/playerInv.tres" id="2_fwwxw"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -10,6 +11,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2.74374, 2.74374)
 script = ExtResource("1_l3b1d")
+inv = ExtResource("2_fwwxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.466667, 0, 0.466667, 1)
@@ -40,10 +42,13 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="ename" type="Label" parent="CenterContainer/Panel/file_display"]
-offset_left = -15.533
-offset_top = 1.46699
-offset_right = 24.467
-offset_bottom = 24.467
+custom_minimum_size = Vector2(40, 23)
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

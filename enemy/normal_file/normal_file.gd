@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target = global.target
 @export var speed = 500
 @export var hp = 2
-@export var stop = randf_range(0,2)
+@export var stop = 2 #randf_range(0,2)
 
 @export var file: InvItem
 
@@ -24,10 +24,10 @@ func _physics_process(delta):
 func movement():
 	target_position = delay_pos
 	direction = ( target_position - self.position).normalized()
-	if direction.x > 0:
-		$Sprite2D.flip_h = true
-	elif direction.x < 0:
-		$Sprite2D.flip_h = false
+	#if direction.x > 0:
+		#$Sprite2D.flip_h = true
+	#elif direction.x < 0:
+		#$Sprite2D.flip_h = false
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
 	
