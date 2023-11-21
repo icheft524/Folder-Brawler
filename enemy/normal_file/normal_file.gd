@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@onready var target = $"../folder"
-@export var speed = 100
+@onready var target = global.target
+@export var speed = 500
 @export var hp = 2
 @export var stop = randf_range(0,2)
 
@@ -69,5 +69,5 @@ func _on_timer_timeout():
 	delay_pos = target.position
 	speed = 0
 	await get_tree().create_timer(stop,false).timeout
-	speed = 100
+	speed = 500
 

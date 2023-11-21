@@ -15,6 +15,7 @@ var newPosition = Vector2()
 var mouse_in = false
 
 func _ready():
+	global.target = self
 	pass
 
 func _process(delta):

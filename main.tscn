@@ -1,24 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://de8dur0jvngm2"]
+[gd_scene load_steps=10 format=3 uid="uid://de8dur0jvngm2"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://b1vhh0gbxm27" path="res://enemy/normal_file/normal_file.tscn" id="2_s62h6"]
 [ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="3_vqyii"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="4_1k5gq"]
 [ext_resource type="PackedScene" uid="uid://b1qdehqlqfqlu" path="res://enemy/ads_file/ads_file.tscn" id="5_74sol"]
+[ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="6_4wbkf"]
+[ext_resource type="Script" path="res://enemy/spawner/spawninfo.gd" id="7_lip1f"]
+
+[sub_resource type="Resource" id="Resource_k5rc0"]
+script = ExtResource("7_lip1f")
+time_start = 0
+time_end = 300
+enemy = ExtResource("2_s62h6")
+enemy_num = 10
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_rhfm3"]
+script = ExtResource("7_lip1f")
+time_start = 0
+time_end = 300
+enemy = ExtResource("3_vqyii")
+enemy_num = 10
+enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
 
 [node name="folder" parent="." instance=ExtResource("1_enwj4")]
-unique_name_in_owner = true
 position = Vector2(812, 356)
-
-[node name="zipFile" parent="." instance=ExtResource("3_vqyii")]
-unique_name_in_owner = true
-position = Vector2(167, 117)
-
-[node name="normalFile" parent="." instance=ExtResource("2_s62h6")]
-unique_name_in_owner = true
-position = Vector2(147, 381)
 
 [node name="folder_inventory" parent="." instance=ExtResource("4_1k5gq")]
 offset_left = 499.0
@@ -26,9 +35,8 @@ offset_top = 455.0
 offset_right = 1218.0
 offset_bottom = 865.0
 
-[node name="zipFile2" parent="." instance=ExtResource("3_vqyii")]
-
-[node name="normalFile2" parent="." instance=ExtResource("2_s62h6")]
-
 [node name="ads_file" parent="." instance=ExtResource("5_74sol")]
 position = Vector2(431, 238)
+
+[node name="enemy_spawner" parent="." instance=ExtResource("6_4wbkf")]
+spawns = Array[ExtResource("7_lip1f")]([SubResource("Resource_k5rc0"), SubResource("Resource_rhfm3")])

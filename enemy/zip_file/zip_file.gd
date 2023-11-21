@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var target = $"../folder"
+@onready var target = global.target
 @export var speed = 50
 @export var hp = 2
 
