@@ -39,20 +39,9 @@ func _input(event):
 			self.queue_free()
 
 func _physics_process(delta):
-	movement()
 	if dragging_folder:
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
 		move_and_slide()
-
-func movement():
-	target_position = target.position
-	direction = ( target_position - self.position).normalized()
-	if direction.x > 0:
-		$Sprite2D.flip_h = true
-	elif direction.x < 0:
-		$Sprite2D.flip_h = false
-	velocity = Vector2(direction).rotated(rotation) * speed * 1
-	move_and_slide()
 
 func _on_drag_area_mouse_entered():
 	mouse_in = true
