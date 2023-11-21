@@ -31,3 +31,4 @@ offset_bottom = 865.0
 [node name="normalFile2" parent="." instance=ExtResource("2_s62h6")]
 
 [node name="ads_file" parent="." instance=ExtResource("5_74sol")]
+position = Vector2(431, 238)
