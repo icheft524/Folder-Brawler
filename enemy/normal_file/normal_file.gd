@@ -3,15 +3,18 @@ extends CharacterBody2D
 @onready var target = $"../folder"
 @export var speed = 100
 @export var hp = 2
+@export var stop = randf_range(0,2)
 
 @export var file: InvItem
 
 var mouse_in = false
 var target_position
 var direction
+var delay_pos
 
 
 func _ready():
+	delay_pos = target.position
 	pass
 
 func _physics_process(delta):
@@ -19,7 +22,7 @@ func _physics_process(delta):
 	pass
 
 func movement():
-	target_position = target.position
+	target_position = delay_pos
 	direction = ( target_position - self.position).normalized()
 	if direction.x > 0:
 		$Sprite2D.flip_h = true
@@ -27,6 +30,7 @@ func movement():
 		$Sprite2D.flip_h = false
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
+	
 
 
 func _process(delta):
@@ -61,4 +65,9 @@ func respawn():
 	position = get_global_mouse_position()
 
 
-		
+func _on_timer_timeout():
+	delay_pos = target.position
+	speed = 0
+	await get_tree().create_timer(stop,false).timeout
+	speed = 100
+
