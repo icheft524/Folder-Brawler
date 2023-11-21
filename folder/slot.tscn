@@ -28,9 +28,8 @@ layout_mode = 2
 
 [node name="file_display" type="Sprite2D" parent="CenterContainer/Panel"]
 
-[node name="ehp" type="Label" parent="CenterContainer/Panel"]
+[node name="ehp" type="Label" parent="CenterContainer/Panel/file_display"]
 custom_minimum_size = Vector2(41, 23)
-layout_mode = 0
 offset_left = -15.533
 offset_top = 1.46699
 offset_right = 25.467
@@ -40,12 +39,15 @@ theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ename" type="Label" parent="CenterContainer/Panel"]
+[node name="ename" type="Label" parent="CenterContainer/Panel/file_display"]
 custom_minimum_size = Vector2(40, 23)
-layout_mode = 0
 offset_left = -20.0
 offset_top = -19.0
 offset_right = 20.0
 offset_bottom = 4.0
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

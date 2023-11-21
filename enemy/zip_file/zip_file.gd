@@ -69,7 +69,11 @@ func dead():
 		
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("folder"):
+	if area.is_in_group("folder") and visible:
 		target.collect(file,hp,'zip')
 		target.hp -= 1
-		queue_free()
+		visible = false
+		
+func respawn():
+	visible = true
+	position = get_global_mouse_position()
