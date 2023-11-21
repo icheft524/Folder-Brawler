@@ -18,7 +18,7 @@ func respawn_normal(ehp):
 	add_child(enemy_spawn)
 	
 func respawn_zip(ehp):
-	var zip_enemy = load("res://enemy/normal_file/normal_file.tscn")
+	var zip_enemy = load("res://enemy/zip_file/zip_file.tscn")
 	var enemy_spawn = zip_enemy.instantiate()
 	enemy_spawn.hp = ehp
 	enemy_spawn.global_position = get_global_mouse_position()

@@ -28,14 +28,16 @@ func update(slot: InvSlot):
 		name_text.text = slot.ename
 		ehp = slot.ehp
 		slot_num = slot.slot_num
-		origin = file_visual.position
+		origin = $CenterContainer/Panel.position
 		
 func _physics_process(delta):
 	if dragging:
 		file_visual.position = get_local_mouse_position()
+		
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton:
+		#file_visual.position = origin
 		if event.is_pressed() && mouse_in:
 			dragging = true
 			print('Slot number',slot_num)

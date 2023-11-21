@@ -13,7 +13,7 @@ script = ExtResource("7_lip1f")
 time_start = 0
 time_end = 300
 enemy = ExtResource("2_s62h6")
-enemy_num = 10
+enemy_num = 3
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_rhfm3"]
@@ -21,7 +21,7 @@ script = ExtResource("7_lip1f")
 time_start = 0
 time_end = 300
 enemy = ExtResource("3_vqyii")
-enemy_num = 10
+enemy_num = 3
 enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
