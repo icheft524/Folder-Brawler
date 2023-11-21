@@ -11,7 +11,7 @@ name = "Normal"
 texture = ExtResource("3_mneyw")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l8qm"]
-radius = 78.2304
+radius = 50.04
 
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")

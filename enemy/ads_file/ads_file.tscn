@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1qdehqlqfqlu"]
+
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="1_prxut"]
+[ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
+[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://folder/GuinsoosRageblade-copy.png" id="3_tm2f2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
+size = Vector2(206, 55)
+
+[node name="ads_file" type="CharacterBody2D"]
+script = ExtResource("2_7jcnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.64063, 1.64063)
+texture = ExtResource("1_prxut")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-5.5, -70)
+scale = Vector2(10.25, 2.7)
+texture = ExtResource("3_tm2f2")
+
+[node name="drag_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drag_area"]
+position = Vector2(-1, -71.5)
+shape = SubResource("RectangleShape2D_2dk1o")
+
+[connection signal="mouse_entered" from="drag_area" to="." method="_on_drag_area_mouse_entered"]
+[connection signal="mouse_exited" from="drag_area" to="." method="_on_drag_area_mouse_exited"]

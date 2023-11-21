@@ -50,11 +50,23 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp == 0:
-		var filespawn = global_position
-		var file = normal_file.instantiate()
-		file.position = filespawn
-		get_parent().add_child(file)
 		queue_free()
+		var filespawn_top = $top.global_position
+		var file_top = normal_file.instantiate()
+		file_top.position = filespawn_top
+		get_parent().add_child(file_top)
+		
+		var filespawn_mid = $mid.global_position
+		var file_mid = normal_file.instantiate()
+		file_mid.position = filespawn_mid
+		get_parent().add_child(file_mid)
+		
+		var filespawn_bot = $bot.global_position
+		var file_bot = normal_file.instantiate()
+		file_bot.position = filespawn_bot
+		get_parent().add_child(file_bot)
+		
+		
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder"):
