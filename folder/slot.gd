@@ -28,7 +28,7 @@ func update(slot: InvSlot):
 		name_text.text = slot.ename
 		ehp = slot.ehp
 		slot_num = slot.slot_num
-		origin = $CenterContainer/Panel.position
+		origin = $Sprite2D.position
 		
 func _physics_process(delta):
 	if dragging:
