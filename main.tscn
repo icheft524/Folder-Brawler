@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://de8dur0jvngm2"]
+[gd_scene load_steps=12 format=3 uid="uid://de8dur0jvngm2"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://b1vhh0gbxm27" path="res://enemy/normal_file/normal_file.tscn" id="2_s62h6"]
 [ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="3_vqyii"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="4_1k5gq"]
+[ext_resource type="Texture2D" uid="uid://ccrr3pn6tjue" path="res://upgrade/ads1.png" id="4_hwu5c"]
 [ext_resource type="PackedScene" uid="uid://b1qdehqlqfqlu" path="res://enemy/ads_file/ads_file.tscn" id="5_74sol"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="6_4wbkf"]
 [ext_resource type="Script" path="res://enemy/spawner/spawninfo.gd" id="7_lip1f"]
+[ext_resource type="Script" path="res://upgrade/ads_spawner.gd" id="8_l6fom"]
 
 [sub_resource type="Resource" id="Resource_k5rc0"]
 script = ExtResource("7_lip1f")
@@ -36,7 +38,17 @@ offset_right = 1218.0
 offset_bottom = 865.0
 
 [node name="ads_file" parent="." instance=ExtResource("5_74sol")]
-position = Vector2(431, 238)
+position = Vector2(340, 234)
+metadata/Image = ExtResource("4_hwu5c")
 
 [node name="enemy_spawner" parent="." instance=ExtResource("6_4wbkf")]
 spawns = Array[ExtResource("7_lip1f")]([SubResource("Resource_k5rc0"), SubResource("Resource_rhfm3")])
+
+[node name="ads_spawner" type="Node2D" parent="."]
+script = ExtResource("8_l6fom")
+
+[node name="ads_time" type="Timer" parent="ads_spawner"]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="ads_spawner/ads_time" to="ads_spawner" method="_on_ads_time_timeout"]

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = %folder
+@onready var image = $"Panel/Texture"
 var draggingDistance
 var dir
 var dragging_folder
@@ -15,6 +16,7 @@ var target_position
 var direction
 
 func _ready():
+	image.set_texture(get_meta("Image"))
 	pass
 
 
