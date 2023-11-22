@@ -10,11 +10,11 @@ extends CharacterBody2D
 var mouse_in = false
 var target_position
 var direction
-var delay_pos
+#var delay_pos
 
 
 func _ready():
-	delay_pos = target.position
+	#delay_pos = target.position
 	pass
 
 func _physics_process(delta):
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	pass
 
 func movement():
-	target_position = delay_pos
+	target_position = target.position
 	direction = ( target_position - self.position).normalized()
 	#if direction.x > 0:
 		#$Sprite2D.flip_h = true
@@ -61,11 +61,4 @@ func _on_area_2d_area_entered(area):
 		queue_free()
 		
 
-
-
-func _on_timer_timeout():
-	delay_pos = target.position
-	speed = 0
-	await get_tree().create_timer(stop,false).timeout
-	speed = 500
 
