@@ -1,29 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1qdehqlqfqlu"]
+[gd_scene load_steps=7 format=3 uid="uid://b1qdehqlqfqlu"]
 
 [ext_resource type="Texture2D" uid="uid://cu753cmbls1m1" path="res://enemy/ads_file/DragonsClawcopy.png" id="2_5ct76"]
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="3_7btu0"]
 [ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_ou47p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
-size = Vector2(206, 55)
+size = Vector2(212, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70vib"]
+size = Vector2(35, 42)
 
 [node name="ads_file" type="CharacterBody2D"]
 script = ExtResource("2_7jcnh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(9.1, 9.1)
+position = Vector2(-6, 0)
+scale = Vector2(10.4, 9.1)
 texture = ExtResource("2_5ct76")
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-7, -67)
+scale = Vector2(1.60938, 0.375)
+texture = ExtResource("3_7btu0")
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-5.5, -70)
-scale = Vector2(10.25, 2.7)
+position = Vector2(80, -70)
+scale = Vector2(1.7, 2.7)
 texture = ExtResource("3_ou47p")
 
 [node name="drag_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="drag_area"]
-position = Vector2(-1, -71.5)
+position = Vector2(-4, -68.5)
 shape = SubResource("RectangleShape2D_2dk1o")
+
+[node name="close_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close_area"]
+position = Vector2(79, -70)
+shape = SubResource("RectangleShape2D_70vib")
 
 [connection signal="mouse_entered" from="drag_area" to="." method="_on_drag_area_mouse_entered"]
 [connection signal="mouse_exited" from="drag_area" to="." method="_on_drag_area_mouse_exited"]
+[connection signal="mouse_entered" from="close_area" to="." method="_on_close_area_mouse_entered"]
+[connection signal="mouse_exited" from="close_area" to="." method="_on_close_area_mouse_exited"]

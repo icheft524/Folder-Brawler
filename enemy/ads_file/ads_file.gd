@@ -5,6 +5,7 @@ var draggingDistance
 var dir
 var dragging_folder
 var newPosition = Vector2()
+var closing_folder
 @export var speed_x = 7
 @export var speed_y = 7
 @export var speed = 200
@@ -33,7 +34,7 @@ func _input(event):
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 			
 			
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and closing_folder == true:
 		if event.is_double_click() && mouse_in:
 			get_parent().remove_child(self)
 			self.queue_free()
@@ -49,3 +50,13 @@ func _on_drag_area_mouse_entered():
 
 func _on_drag_area_mouse_exited():
 	mouse_in = false
+
+
+func _on_close_area_mouse_entered():
+	mouse_in = true
+	closing_folder = true
+
+
+func _on_close_area_mouse_exited():
+	mouse_in = false
+	closing_folder = true
