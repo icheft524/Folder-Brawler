@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxx8mcln0m5xm"]
+
+[ext_resource type="Script" path="res://folder/upgrade/itemoption.gd" id="1_jm3ba"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_6xvr0"]
+
+[node name="itemoption" type="ColorRect"]
+offset_right = 333.0
+offset_bottom = 400.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_jm3ba")
+
+[node name="Label_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 131.0
+offset_right = 332.0
+offset_bottom = 189.0
+text = "Kuy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_level" type="Label" parent="."]
+layout_mode = 0
+offset_top = 179.0
+offset_right = 333.0
+offset_bottom = 218.0
+text = "Level1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_description" type="Label" parent="."]
+layout_mode = 0
+offset_top = 230.0
+offset_right = 333.0
+offset_bottom = 269.0
+text = "Humyai"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 26.0
+offset_right = 216.0
+offset_bottom = 126.0
+texture = ExtResource("2_6xvr0")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
