@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://b1vhh0gbxm27" path="res://enemy/normal_file/normal_file.tscn" id="2_s62h6"]
 [ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="3_vqyii"]
-[ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="4_1k5gq"]
+[ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/inventory/folder_inventory.tscn" id="4_1k5gq"]
 [ext_resource type="PackedScene" uid="uid://b1qdehqlqfqlu" path="res://enemy/ads_file/ads_file.tscn" id="5_74sol"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="6_4wbkf"]
 [ext_resource type="Script" path="res://enemy/spawner/spawninfo.gd" id="7_lip1f"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://55hrfbgbqdsg"]
 
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="1_0nvpi"]
-[ext_resource type="Script" path="res://folder/slot.gd" id="1_l3b1d"]
-[ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/playerInv.tres" id="2_fwwxw"]
+[ext_resource type="Script" path="res://folder/inventory/slot.gd" id="1_oi71h"]
+[ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/inventory/playerInv.tres" id="2_d0tcx"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="3_dyq6m"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -10,13 +10,13 @@ custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2.74374, 2.74374)
-script = ExtResource("1_l3b1d")
-inv = ExtResource("2_fwwxw")
+script = ExtResource("1_oi71h")
+inv = ExtResource("2_d0tcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.466667, 0, 0.466667, 1)
 scale = Vector2(0.309982, 0.309982)
-texture = ExtResource("1_0nvpi")
+texture = ExtResource("3_dyq6m")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

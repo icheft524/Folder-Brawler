@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://folder/folder.gd" id="1_jar6q"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_jomv1"]
-[ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/playerInv.tres" id="2_m3wq1"]
+[ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/inventory/playerInv.tres" id="2_wswvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgl3m"]
 size = Vector2(128, 127)
 
 [node name="folder" type="CharacterBody2D"]
 script = ExtResource("1_jar6q")
-inv = ExtResource("2_m3wq1")
+inv = ExtResource("2_wswvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jomv1")

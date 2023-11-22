@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d26xg6dvehwx2"]
 
-[ext_resource type="Script" path="res://folder/folder_inventory.gd" id="1_pwu5y"]
+[ext_resource type="Script" path="res://folder/inventory/folder_inventory.gd" id="1_hxues"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ownvl"]
 [ext_resource type="PackedScene" uid="uid://55hrfbgbqdsg" path="res://folder/slot.tscn" id="3_sbfi1"]
 [ext_resource type="Script" path="res://folder/esc_button.gd" id="4_vyla5"]
@@ -15,7 +15,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 719.0
 offset_bottom = 410.0
-script = ExtResource("1_pwu5y")
+script = ExtResource("1_hxues")
 
 [node name="esc_button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)

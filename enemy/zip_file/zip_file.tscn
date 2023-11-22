@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
-[ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
+[ext_resource type="Script" path="res://folder/inventory/inventory_file.gd" id="2_ypcbb"]
 [ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_qr6br"]
 
 [sub_resource type="Resource" id="Resource_lgouq"]
-script = ExtResource("2_k2wnp")
+script = ExtResource("2_ypcbb")
 name = "ZIP"
 texture = ExtResource("3_qr6br")
 
