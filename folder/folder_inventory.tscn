@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d26xg6dvehwx2"]
+[gd_scene load_steps=5 format=3 uid="uid://d26xg6dvehwx2"]
 
 [ext_resource type="Script" path="res://folder/folder_inventory.gd" id="1_pwu5y"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ownvl"]
 [ext_resource type="PackedScene" uid="uid://55hrfbgbqdsg" path="res://folder/slot.tscn" id="3_sbfi1"]
-[ext_resource type="Script" path="res://folder/esc_button.gd" id="4_vyla5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1exvd"]
 size = Vector2(711, 35)
@@ -24,7 +23,6 @@ offset_left = 639.0
 offset_top = 12.0
 offset_right = 703.0
 offset_bottom = 76.0
-script = ExtResource("4_vyla5")
 
 [node name="Sprite2D" type="Sprite2D" parent="esc_button"]
 modulate = Color(1, 0.00784314, 0, 1)

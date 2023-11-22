@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxx8mcln0m5xm"]
+[gd_scene load_steps=3 format=3 uid="uid://c7n7l7u22qa23"]
 
 [ext_resource type="Script" path="res://folder/upgrade/itemoption.gd" id="1_jm3ba"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_6xvr0"]
