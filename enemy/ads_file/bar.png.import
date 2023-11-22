@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s4mwir27727l"
-path="res://.godot/imported/ads2.png-20e5326a890807a9c074b001b0b56515.ctex"
+uid="uid://c2dw0wr7oh4m4"
+path="res://.godot/imported/bar.png-20cc342e9ad8807c85c0898cb90e2bbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://upgrade/ads2.png"
-dest_files=["res://.godot/imported/ads2.png-20e5326a890807a9c074b001b0b56515.ctex"]
+source_file="res://enemy/ads_file/bar.png"
+dest_files=["res://.godot/imported/bar.png-20cc342e9ad8807c85c0898cb90e2bbb.ctex"]
 
 [params]
 

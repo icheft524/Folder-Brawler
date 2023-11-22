@@ -7,8 +7,8 @@ var ad = preload("res://enemy/ads_file/ads_file.tscn")
 var offset = 100
 
 var ad_im = [
-	preload("res://upgrade/ads1.png"),
-	preload("res://upgrade/ads2.png")
+	preload("res://enemy/ads_file/ads1.png"),
+	preload("res://enemy/ads_file/ads2.png")
 	]
 
 func _ready():
