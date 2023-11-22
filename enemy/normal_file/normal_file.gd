@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 500
+@export var speed = 350
 @export var hp = 2
 @export var file_size = 1
 @export var stop = 2 #randf_range(0,2)
@@ -11,19 +11,14 @@ extends CharacterBody2D
 var mouse_in = false
 var target_position
 var direction
-var delay_pos
 
-
-func _ready():
-	delay_pos = target.position
-	pass
 
 func _physics_process(delta):
 	movement()
 	pass
 
 func movement():
-	target_position = delay_pos
+	target_position = target.position
 	direction = ( target_position - self.position).normalized()
 	#if direction.x > 0:
 		#$Sprite2D.flip_h = true
@@ -64,10 +59,4 @@ func _on_area_2d_area_entered(area):
 		
 
 
-
-func _on_timer_timeout():
-	delay_pos = target.position
-	speed = 0
-	await get_tree().create_timer(stop,false).timeout
-	speed = 500
 

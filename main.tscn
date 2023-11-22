@@ -1,8 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=12 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
 [ext_resource type="PackedScene" uid="uid://exlqvn6q53hi" path="res://enemy/ads_file/adsSpawner.tscn" id="3_31pho"]
+[ext_resource type="PackedScene" uid="uid://b1vhh0gbxm27" path="res://enemy/normal_file/normal_file.tscn" id="3_csoof"]
+[ext_resource type="Script" path="res://enemy/spawner/spawninfo.gd" id="4_ojwon"]
+[ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="5_5xetf"]
+[ext_resource type="PackedScene" uid="uid://dqf8xs8frecuw" path="res://enemy/encrypted/encrypted_file.tscn" id="6_4ht4q"]
+[ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="8_jr5b5"]
+
+[sub_resource type="Resource" id="Resource_dmm1q"]
+script = ExtResource("4_ojwon")
+time_start = 0
+time_end = 300
+enemy = ExtResource("3_csoof")
+enemy_num = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_o1mwg"]
+script = ExtResource("4_ojwon")
+time_start = 0
+time_end = 300
+enemy = ExtResource("5_5xetf")
+enemy_num = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_l7ruf"]
+script = ExtResource("4_ojwon")
+time_start = 0
+time_end = 300
+enemy = ExtResource("6_4ht4q")
+enemy_num = 2
+enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
 
@@ -10,5 +39,14 @@
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
+spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_o1mwg"), SubResource("Resource_l7ruf")])
 
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
+
+[node name="folder_inventory" parent="." instance=ExtResource("8_jr5b5")]
+offset_left = 215.0
+offset_top = 351.0
+offset_right = 934.0
+offset_bottom = 761.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
