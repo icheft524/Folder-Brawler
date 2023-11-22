@@ -16,11 +16,14 @@ var origin
 var ehp
 var occupied
 
+
+
 func update(slot: InvSlot):
 	if !slot.item:
 		file_visual.visible = false
 		name_text.visible = false
 		health_text.visible = false
+		
 	else:
 		file_visual.visible = true
 		file_visual.texture = slot.item.texture
@@ -33,13 +36,15 @@ func update(slot: InvSlot):
 		slot_num = slot.slot_num
 		origin = $Sprite2D.position
 		
+		
+		
 func _physics_process(delta):
 	if dragging:
 		file_visual.position = get_local_mouse_position()
-		
+
 
 func _on_gui_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and !(name_text.text == 'encrypted'):
 		#file_visual.position = origin
 		if event.is_pressed() && mouse_in && occupied:
 			dragging = true

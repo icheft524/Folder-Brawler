@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target = global.target
 @export var speed = 50
 @export var hp = 2
-
+@export var file_size = 1
 @export var file: InvItem
 
 
@@ -70,8 +70,9 @@ func dead():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
-		target.collect(file,hp,'zip')
+		target.collect(file,hp,file_size,'zip')
 		target.hp -= 1
+		target.capacity += file_size
 		queue_free()
 		
 func respawn():

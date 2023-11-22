@@ -6,4 +6,5 @@ class_name InvSlot
 @export var ehp: int
 @export var ename: String
 @export var slot_num: int
+@export var file_size: int
 @export var dropped: bool

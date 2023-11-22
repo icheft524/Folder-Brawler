@@ -9,6 +9,7 @@ var newPosition = Vector2()
 @export var speed_y = 7
 @export var hp = 10
 @export var inv: Inv
+@export var capacity = 0
 
 @onready var inventory = $"../folder_inventory"
 
@@ -19,7 +20,8 @@ func _ready():
 	pass
 
 func _process(delta):
-	$hp.text = "folder" + str(hp)
+	check_cap()
+	$hp.text = "CAP: " + str(capacity)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -45,6 +47,13 @@ func _physics_process(delta):
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
 		move_and_slide()
 
+func check_cap():
+	if capacity < 4:
+		$Sprite2D.texture = load("res://folder/folder_empty.png2.png")
+	elif capacity < 10:
+		$Sprite2D.texture = load("res://folder/folder_half.png2.png")
+	else:
+		$Sprite2D.texture = load("res://folder/folder_full.png2.png")
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
@@ -56,5 +65,5 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group('enemy'):
 		pass
 		
-func collect(file,ehp,enemy_name):
-	inv.insert(file,ehp,enemy_name)
+func collect(file,ehp,file_size,enemy_name):
+	inv.insert(file,ehp,file_size,enemy_name)

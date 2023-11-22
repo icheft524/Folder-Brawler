@@ -7,7 +7,7 @@ signal update
 @export var slots: Array[InvSlot]
 var slot_count
 
-func insert(item: InvItem,enemy_hp,enemy_name):
+func insert(item: InvItem,enemy_hp,file_size,enemy_name):
 	#var itemslots = slots.filter(func(slot): return slot.item == item)
 	#if !itemslots.is_empty():
 		#itemslots[0].slot_num += 1
@@ -20,7 +20,7 @@ func insert(item: InvItem,enemy_hp,enemy_name):
 		emptyslots[0].ehp = enemy_hp
 		emptyslots[0].ename = enemy_name
 		emptyslots[0].slot_num = slot_count
-		
+		emptyslots[0].file_size = file_size
 	update.emit()
 	
 func removed(slot_num):

@@ -15,6 +15,7 @@ func respawn_normal(ehp):
 	var enemy_spawn = normal_enemy.instantiate()
 	enemy_spawn.hp = ehp
 	enemy_spawn.global_position = get_global_mouse_position()
+	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
 	
 func respawn_zip(ehp):
@@ -22,11 +23,12 @@ func respawn_zip(ehp):
 	var enemy_spawn = zip_enemy.instantiate()
 	enemy_spawn.hp = ehp
 	enemy_spawn.global_position = get_global_mouse_position()
+	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
 
 func _on_timer_timeout():
 	global.time += 1
-	print(global.time)
+	#print(global.time)
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
 		if global.time >= i.time_start and global.time <= i.time_end:

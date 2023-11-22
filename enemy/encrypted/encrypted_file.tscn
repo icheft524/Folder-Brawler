@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqf8xs8frecuw"]
+
+[ext_resource type="Script" path="res://enemy/encrypted/encrypted_file.gd" id="1_1xyex"]
+[ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_8jeey"]
+[ext_resource type="Texture2D" uid="uid://cu753cmbls1m1" path="res://enemy/ads_file/DragonsClawcopy.png" id="3_0a4ht"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="4_am7vn"]
+
+[sub_resource type="Resource" id="Resource_d6nso"]
+script = ExtResource("2_8jeey")
+name = "encrypted"
+texture = ExtResource("3_0a4ht")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpddq"]
+radius = 42.0119
+
+[node name="encryptedFile" type="CharacterBody2D"]
+script = ExtResource("1_1xyex")
+file = SubResource("Resource_d6nso")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("4_am7vn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_wpddq")
+
+[node name="hp" type="Label" parent="."]
+offset_left = -22.0
+offset_top = 34.0
+offset_right = 18.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
