@@ -6,7 +6,8 @@ extends Control
 var isOpen: bool = false
 var mouse_in 
 var mouse_in_tab
-
+var dragging 
+var dir 
 var dragging_folder
 
 
@@ -25,13 +26,17 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in_tab:
 			dragging_folder = true
+			dragging = position.distance_to(get_global_mouse_position())
+			dir = (get_global_mouse_position() - position).normalized()
 		else:
 			dragging_folder = false
 			
 
 func _physics_process(delta):
+
 	if dragging_folder:
-		position  =  position.move_toward(get_global_mouse_position(),75)
+		position =  position.move_toward(get_global_mouse_position()-(dragging*dir),70)
+		#position =  get_global_mouse_position()-(dragging*dir)
 		
 
 
