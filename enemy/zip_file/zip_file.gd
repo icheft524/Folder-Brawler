@@ -72,7 +72,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
 		target.collect(file,hp,'zip')
 		target.hp -= 1
-		visible = false
+		queue_free()
 		
 func respawn():
 	visible = true
