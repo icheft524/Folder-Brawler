@@ -87,17 +87,17 @@ func upgrade_character(upgrade):
 	print("upgrade")
 	match upgrade:
 		"Adblocker1":
-			pass
+			global.adstimelock += 20
 		"Adblocker2":
-			pass
+			global.adstimelock += 2
 		"Adblocker3":
-			pass
+			global.adstimelock += 2
 		"Antivirus1":
-			pass
+			global.crit_chance -= 0.9
 		"Antivirus2":
-			pass
+			global.crit_chance -= 0.10
 		"Antivirus3":
-			pass
+			global.crit_chance -= 0.15
 		"Harddisk1":
 			pass
 		"Harddisk2":
@@ -119,7 +119,7 @@ func upgrade_character(upgrade):
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
 	_Upgrade.visible = false
-	_Upgrade.position = Vector2(2000,150)
+	_Upgrade.position = Vector2(1000,500)
 	get_tree().paused = false
 
 func levelup():

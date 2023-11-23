@@ -34,14 +34,14 @@ const UPGRADES = {
 		'displayname': adblocker_displayename,
 		'details': adblocker_details,
 		'level': 'level: 2',
-		'prerequisite': []
+		'prerequisite': ["Adblocker1"]
 	},
 	"Adblocker3": {
 		"icon": ICON_Path + "adblocker.png",
 		'displayname': adblocker_displayename,
 		'details': adblocker_details,
 		'level': 'level: 3',
-		'prerequisite': []
+		'prerequisite': ["Adblocker2"]
 	},
 	"Antivirus1": {
 		"icon": ICON_Path + "antivirus.png",
@@ -55,14 +55,14 @@ const UPGRADES = {
 		'displayname': antivirus_displayname,
 		'details': antivirus_details,
 		'level': 'level: 2',
-		'prerequisite': []
+		'prerequisite': ["Antivirus1"]
 	},
 	"Antivirus3": {
 		"icon": ICON_Path + "antivirus.png",
 		'displayname': antivirus_displayname,
 		'details': antivirus_details,
 		'level': 'level: 3',
-		'prerequisite': []
+		'prerequisite': ["Antivirus2"]
 	},
 	"Harddisk1": {
 		"icon": ICON_Path + "harddisk.png",
@@ -76,14 +76,14 @@ const UPGRADES = {
 		'displayname': harddisk_displayname,
 		'details': harddisk_details,
 		'level': 'level: 2',
-		'prerequisite': []
+		'prerequisite': ["Harddisk1"]
 	},
 	"Harddisk3": {
 		"icon": ICON_Path + "harddisk.png",
 		'displayname': harddisk_displayname,
 		'details': harddisk_details,
 		'level': 'level: 3',
-		'prerequisite': []
+		'prerequisite': ["Harddisk2"]
 	},
 	"increasedpi": {
 		"icon": ICON_Path + "increasedpi.png",
@@ -97,14 +97,14 @@ const UPGRADES = {
 		'displayname': increasedpi_displayname,
 		'details': increasedpi_details,
 		'level': 'level: 2',
-		'prerequisite': []
+		'prerequisite': ["increasedpi"]
 	},
 	"increasedp3": {
 		"icon": ICON_Path + "increasedpi.png",
 		'displayname': increasedpi_displayname,
 		'details': increasedpi_details,
 		'level': 'level: 3',
-		'prerequisite': []
+		'prerequisite': ["increasedp2"]
 	},
 	"shock1": {
 		"icon": ICON_Path + "shock.png",
@@ -118,14 +118,14 @@ const UPGRADES = {
 		'displayname': shock_displayname,
 		'details': shock_details,
 		'level': 'level: 2',
-		'prerequisite': []
+		'prerequisite': ["shock1"]
 	},
 	"shock3": {
 		"icon": ICON_Path + "shock.png",
 		'displayname': shock_displayname,
 		'details': shock_details,
 		'level': 'level: 3',
-		'prerequisite': []
+		'prerequisite': ["shock2"]
 	},
 	"Endtask": {
 		"icon": ICON_Path + "endtask.png",

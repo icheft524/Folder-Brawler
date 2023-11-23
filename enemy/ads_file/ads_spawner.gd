@@ -22,6 +22,7 @@ func _process(delta):
 
 func _on_ads_time_timeout():
 	_spawn()
+	await get_tree().create_timer(global.adstimelock,false).timeout
 	timer.start()
 	pass
 

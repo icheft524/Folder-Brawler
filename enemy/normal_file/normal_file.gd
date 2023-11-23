@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var hp = 3
 @export var file_size = 1
 @export var stop = 2 #randf_range(0,2)
+@export var take_normal_dmg = 1
+@export var take_crit_dmg = 2
+var percent = 2
 
 @export var file: InvItem
 
@@ -32,6 +35,7 @@ func movement():
 
 
 func _process(delta):
+
 	dead()
 	
 	$hp.text = "normal" + str(hp)
@@ -57,7 +61,10 @@ func dead():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
 		target.collect(file,hp,file_size,'normal')
-		target.hp -= 1
+		if percent > global.crit_chance:
+			target.hp -= take_crit_dmg
+		elif percent <= global.crit_chance:
+			target.hp -= take_normal_dmg
 		sound.playerhit()
 		target.capacity += file_size
 		queue_free()
