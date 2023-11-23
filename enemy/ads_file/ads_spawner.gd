@@ -4,7 +4,6 @@ extends Node2D
 @onready var main = $"../.."
 
 var ad = preload("res://enemy/ads_file/ads_file.tscn")
-@onready var ads = get_tree().get_nodes_in_group("res://enemy/ads_file/ads_file.tscn")
 var offset = 100
 
 var ad_im = [
@@ -13,8 +12,6 @@ var ad_im = [
 	]
 
 func _ready():
-	for ads in get_tree().get_nodes_in_group("ads"):
-		ads.connect("adsclick", _spawn()) #not spawn
 	timer.start()
 	pass
 
