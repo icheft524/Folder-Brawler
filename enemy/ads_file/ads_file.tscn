@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1qdehqlqfqlu"]
+[gd_scene load_steps=8 format=3 uid="uid://b1qdehqlqfqlu"]
 
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
 [ext_resource type="Texture2D" uid="uid://c2dw0wr7oh4m4" path="res://enemy/ads_file/bar.png" id="2_bw22w"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="3_irob5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_84udr"]
 
@@ -9,6 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
 size = Vector2(206, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35kej"]
+size = Vector2(43.5, 40)
 
 [node name="ads_file" type="CharacterBody2D"]
 z_index = 5
@@ -52,5 +56,18 @@ expand_mode = 2
 position = Vector2(-1, -71.5)
 shape = SubResource("RectangleShape2D_2dk1o")
 
+[node name="close_area" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="close_area"]
+position = Vector2(75, -72)
+scale = Vector2(0.289063, 0.289063)
+texture = ExtResource("3_irob5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close_area"]
+position = Vector2(75.25, -73)
+shape = SubResource("RectangleShape2D_35kej")
+
 [connection signal="mouse_entered" from="drag_area" to="." method="_on_drag_area_mouse_entered"]
 [connection signal="mouse_exited" from="drag_area" to="." method="_on_drag_area_mouse_exited"]
+[connection signal="mouse_entered" from="close_area" to="." method="_on_close_area_mouse_entered"]
+[connection signal="mouse_exited" from="close_area" to="." method="_on_close_area_mouse_exited"]
