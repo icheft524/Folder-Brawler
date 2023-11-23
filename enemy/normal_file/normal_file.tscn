@@ -15,6 +15,7 @@ radius = 78.2304
 
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")
+hp = 2
 file = SubResource("Resource_vyk3c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

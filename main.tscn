@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=17 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -14,26 +14,50 @@
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
 time_start = 0
-time_end = 300
+time_end = 20
 enemy = ExtResource("3_csoof")
 enemy_num = 2
 enemy_spawn_delay = 1
 
+[sub_resource type="Resource" id="Resource_rta2e"]
+script = ExtResource("4_ojwon")
+time_start = 25
+time_end = 50
+enemy = ExtResource("3_csoof")
+enemy_num = 0
+enemy_spawn_delay = 0
+
 [sub_resource type="Resource" id="Resource_o1mwg"]
 script = ExtResource("4_ojwon")
-time_start = 0
-time_end = 300
+time_start = 25
+time_end = 50
 enemy = ExtResource("5_5xetf")
-enemy_num = 2
-enemy_spawn_delay = 1
+enemy_num = 1
+enemy_spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_u05jr"]
+script = ExtResource("4_ojwon")
+time_start = 55
+time_end = 135
+enemy = ExtResource("3_csoof")
+enemy_num = 0
+enemy_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_l7ruf"]
 script = ExtResource("4_ojwon")
-time_start = 0
-time_end = 300
+time_start = 55
+time_end = 135
 enemy = ExtResource("6_4ht4q")
-enemy_num = 2
-enemy_spawn_delay = 1
+enemy_num = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_b1x1l"]
+script = ExtResource("4_ojwon")
+time_start = 55
+time_end = 135
+enemy = ExtResource("5_5xetf")
+enemy_num = 1
+enemy_spawn_delay = 3
 
 [node name="main" type="Node2D"]
 
@@ -41,7 +65,7 @@ enemy_spawn_delay = 1
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
-spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_o1mwg"), SubResource("Resource_l7ruf")])
+spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_o1mwg"), SubResource("Resource_u05jr"), SubResource("Resource_l7ruf"), SubResource("Resource_b1x1l")])
 
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
 
