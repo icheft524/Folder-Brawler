@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c76fdqn24ggef"]
+[gd_scene load_steps=7 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
 [ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_qr6br"]
+[ext_resource type="Texture2D" uid="uid://d3wsggic5wgue" path="res://enemy/zip_file/enemy_zip.png" id="4_qrx0s"]
 
 [sub_resource type="Resource" id="Resource_lgouq"]
 script = ExtResource("2_k2wnp")
@@ -17,8 +18,8 @@ script = ExtResource("1_ppmwp")
 file = SubResource("Resource_lgouq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.9, 3.9)
-texture = ExtResource("3_qr6br")
+scale = Vector2(0.452632, 0.452632)
+texture = ExtResource("4_qrx0s")
 
 [node name="Area2D" type="Area2D" parent="."]
 
