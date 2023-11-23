@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1qdehqlqfqlu"]
+[gd_scene load_steps=9 format=3 uid="uid://b1qdehqlqfqlu"]
 
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
 [ext_resource type="Texture2D" uid="uid://c2dw0wr7oh4m4" path="res://enemy/ads_file/bar.png" id="2_bw22w"]
@@ -14,6 +14,9 @@ size = Vector2(206, 55)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35kej"]
 size = Vector2(43.5, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0cha"]
+size = Vector2(205, 109)
+
 [node name="ads_file" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("2_7jcnh")
@@ -25,9 +28,8 @@ scale = Vector2(0.197156, 0.283871)
 texture = ExtResource("2_bw22w")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -105.0
@@ -67,7 +69,18 @@ texture = ExtResource("3_irob5")
 position = Vector2(75.25, -73)
 shape = SubResource("RectangleShape2D_35kej")
 
+[node name="ads_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ads_area"]
+position = Vector2(-1.5, 11.5)
+shape = SubResource("RectangleShape2D_p0cha")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(136, 96)
+
 [connection signal="mouse_entered" from="drag_area" to="." method="_on_drag_area_mouse_entered"]
 [connection signal="mouse_exited" from="drag_area" to="." method="_on_drag_area_mouse_exited"]
 [connection signal="mouse_entered" from="close_area" to="." method="_on_close_area_mouse_entered"]
 [connection signal="mouse_exited" from="close_area" to="." method="_on_close_area_mouse_exited"]
+[connection signal="mouse_entered" from="ads_area" to="." method="_on_ads_area_mouse_entered"]
+[connection signal="mouse_exited" from="ads_area" to="." method="_on_ads_area_mouse_exited"]
