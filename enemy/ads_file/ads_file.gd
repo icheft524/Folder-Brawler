@@ -12,6 +12,7 @@ var newPosition = Vector2()
 
 
 var mouse_in = false
+var mouse_close_in = false
 var target_position
 var direction
 
@@ -37,7 +38,7 @@ func _input(event):
 			
 			
 	if event is InputEventMouseButton:
-		if event.is_double_click() && mouse_in:
+		if event.is_pressed() && mouse_close_in:
 			get_parent().remove_child(self)
 			self.queue_free()
 
@@ -52,3 +53,11 @@ func _on_drag_area_mouse_entered():
 
 func _on_drag_area_mouse_exited():
 	mouse_in = false
+
+
+func _on_close_area_mouse_entered():
+	mouse_close_in = true
+
+
+func _on_close_area_mouse_exited():
+	mouse_close_in = false
