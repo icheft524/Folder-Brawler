@@ -16,6 +16,7 @@ var target_position
 var direction
 
 func _ready():
+	sound.adspawn()
 	image.set_texture(get_meta("Image"))
 	pass
 

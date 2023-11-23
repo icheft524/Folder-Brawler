@@ -1,8 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=10 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
+[ext_resource type="AudioStream" uid="uid://ccyllmv1h4r20" path="res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav" id="1_hc4b2"]
+[ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
+[ext_resource type="AudioStream" uid="uid://ducgh4krk2aqv" path="res://sound/enemy/enemySpawn.wav" id="4_bd2mb"]
+[ext_resource type="AudioStream" uid="uid://pah72impy6ul" path="res://sound/adSpawn_01.wav" id="5_mp3xx"]
+[ext_resource type="AudioStream" uid="uid://d2opbvvoig2aa" path="res://sound/adSpawn_02.wav" id="6_k8vkq"]
+[ext_resource type="AudioStream" uid="uid://dbit5g3ibssj4" path="res://sound/adSpawn_03.wav" id="7_4e5op"]
+[ext_resource type="AudioStream" uid="uid://dxth0ljc20lhw" path="res://sound/player/Player_Grab.wav" id="7_pnrr1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlsv1"]
+streams_count = 3
+stream_0/stream = ExtResource("5_mp3xx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_k8vkq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_4e5op")
+stream_2/weight = 1.0
 
 [node name="sound" type="Node2D"]
+script = ExtResource("1_i0xcs")
+
+[node name="gametheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_hc4b2")
+volume_db = -15.0
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_6pbvo")
+
+[node name="enemyspawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bd2mb")
+volume_db = -15.0
+
+[node name="enemyhit" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jlsv1")
+volume_db = -15.0
+
+[node name="adspawn" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jlsv1")
+volume_db = -15.0
+
+[node name="playerhit" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jlsv1")
+volume_db = -15.0
+
+[node name="playergrab" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pnrr1")
+volume_db = -5.0

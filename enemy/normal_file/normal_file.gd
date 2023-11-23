@@ -12,6 +12,8 @@ var mouse_in = false
 var target_position
 var direction
 
+func _ready():
+	sound.enemyspawn()
 
 func _physics_process(delta):
 	movement()
@@ -37,6 +39,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			sound.enemyhit()
 			hp -= 1
 
 func _on_area_2d_mouse_entered():

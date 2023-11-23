@@ -16,6 +16,7 @@ var newPosition = Vector2()
 var mouse_in = false
 
 func _ready():
+	sound.play_gametheme()
 	global.target = self
 	pass
 
@@ -26,6 +27,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			sound.playergrab()
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
 			dir = (get_viewport().get_mouse_position() - position).normalized()
 			dragging_folder = true

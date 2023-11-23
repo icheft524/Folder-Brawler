@@ -1,0 +1,25 @@
+extends Node2D
+
+var music = load("res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav")
+
+func play_gametheme():
+	$gametheme.stream = music
+	$gametheme.play()
+
+func click():
+	$click.play()
+
+func enemyspawn():
+	$enemyspawn.play()
+
+func enemyhit():
+	$enemyhit.play()
+
+func playerhit():
+	$playerhit.play()
+
+func playergrab():
+	$playergrab.play()
+
+func adspawn():
+	$adspawn.play()

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 global="*res://global.gd"
 UpgradeDb="*res://folder/upgrade/upgrade_db.tscn"
+sound="*res://sound.tscn"
 
 [display]
 
