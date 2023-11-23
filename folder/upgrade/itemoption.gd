@@ -22,13 +22,12 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action("left_click"):
+	if event.is_action("leftclick"):
 		if mouse_over == true:
 			emit_signal("selected_upgrade",item)
 
 func _on_mouse_entered():
-	pass # Replace with function body.
-
+	mouse_over = true
 
 func _on_mouse_exited():
-	pass # Replace with function body.
+	mouse_over = false

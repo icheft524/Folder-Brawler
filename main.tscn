@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=13 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="5_5xetf"]
 [ext_resource type="PackedScene" uid="uid://dqf8xs8frecuw" path="res://enemy/encrypted/encrypted_file.tscn" id="6_4ht4q"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="8_jr5b5"]
+[ext_resource type="PackedScene" uid="uid://de1rsafpaq381" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
 
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
@@ -35,7 +36,7 @@ enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
 
-[node name="folder" parent="." instance=ExtResource("1_enwj4")]
+[node name="folder" parent="." groups=["folder"] instance=ExtResource("1_enwj4")]
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
@@ -50,3 +51,10 @@ offset_right = 934.0
 offset_bottom = 761.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
+visible = false
+offset_left = 1282.0
+offset_top = 532.0
+offset_right = 1472.0
+offset_bottom = 643.0

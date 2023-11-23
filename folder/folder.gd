@@ -12,6 +12,13 @@ var newPosition = Vector2()
 @export var capacity = 0
 
 @onready var inventory = $"../folder_inventory"
+@onready var _Upgrade = $"../upgrade"
+@onready var upgradeOptions = _Upgrade.get_node("%UpgradeOptions")
+
+var itemOptions = preload("res://folder/upgrade/itemoption.tscn")
+
+var collected_upgrades = []
+var upgrade_options = []
 
 var mouse_in = false
 
@@ -46,7 +53,10 @@ func _input(event):
 		if event.is_double_click() && mouse_in:
 			inventory.open()
 			sound.playeropenfolder()
-
+	
+	if event.is_action_pressed("ui_accept"):
+		levelup()
+	pass
 func _physics_process(delta):
 	if dragging_folder:
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
@@ -72,3 +82,78 @@ func _on_area_2d_area_entered(area):
 		
 func collect(file,ehp,file_size,enemy_name):
 	inv.insert(file,ehp,file_size,enemy_name)
+
+func upgrade_character(upgrade):
+	print("upgrade")
+	match upgrade:
+		"Adblocker1":
+			pass
+		"Adblocker2":
+			pass
+		"Adblocker3":
+			pass
+		"Antivirus1":
+			pass
+		"Antivirus2":
+			pass
+		"Antivirus3":
+			pass
+		"Harddisk1":
+			pass
+		"Harddisk2":
+			pass
+		"Harddisk3":
+			pass
+		"increasedpi":
+			pass
+		"increasedp2":
+			pass
+		"increasedp3":
+			pass
+		"Endtask":
+			pass
+	
+	var option_children = upgradeOptions.get_children()
+	for i in option_children:
+		i.queue_free()
+	upgrade_options.clear()
+	collected_upgrades.append(upgrade)
+	_Upgrade.visible = false
+	_Upgrade.position = Vector2(2000,150)
+	get_tree().paused = false
+
+func levelup():
+	get_tree().paused = true
+	#var tween = levelPanel.create_tween()
+	#tween.tween_property(levelPanel,"position",Vector2(positionx,positiony),0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	#tween.play()
+	_Upgrade.visible = true
+	var options = 0
+	var optionsmax = 2
+	while  options < optionsmax:
+		var option_choice = itemOptions.instantiate()
+		option_choice.item = get_random_item()
+		upgradeOptions.add_child(option_choice)
+		options += 1
+
+func get_random_item():
+	var dblist = []
+	for i in UpgradeDb.UPGRADES:
+		if i in collected_upgrades: #Find already upgrades
+			pass
+		elif i in upgrade_options: #if upgrades is already options
+			pass
+		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #Check for PreRequisites
+			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:
+				if not n in collected_upgrades:
+					pass 
+				else:
+					dblist.append(i)
+		else:
+			dblist.append(i)
+	if dblist.size() > 0:
+		var randomitem = dblist.pick_random()
+		upgrade_options.append(randomitem)
+		return randomitem
+	else:
+		return null

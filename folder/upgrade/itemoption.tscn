@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_6xvr0"]
 
 [node name="itemoption" type="ColorRect"]
+custom_minimum_size = Vector2(333, 400)
 offset_right = 333.0
 offset_bottom = 400.0
 color = Color(1, 1, 1, 0)
