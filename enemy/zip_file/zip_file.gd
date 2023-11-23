@@ -13,6 +13,8 @@ var direction
 
 const normal_file = preload("res://enemy/normal_file/normal_file.tscn")
 
+func _ready():
+	sound.zipspawn()
 
 func _physics_process(delta):
 	movement()
@@ -38,6 +40,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			sound.enemyhit()
 			hp -= 1
 
 
@@ -73,6 +76,7 @@ func _on_area_2d_area_entered(area):
 		target.collect(file,hp,file_size,'zip')
 		target.hp -= 1
 		target.capacity += file_size
+		sound.playerhit()
 		queue_free()
 		
 func respawn():

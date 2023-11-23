@@ -12,11 +12,17 @@ func click():
 func enemyspawn():
 	$enemyspawn.play()
 
+func zipspawn():
+	$zipspawn.play()
+
 func enemyhit():
 	$enemyhit.play()
 
 func enemydeath():
 	$enemydeath.play()
+
+func zipdeath():
+	$zipdeath.play()
 
 func playerhit():
 	$playerhit.play()

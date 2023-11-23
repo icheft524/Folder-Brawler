@@ -1,15 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=23 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="AudioStream" uid="uid://ccyllmv1h4r20" path="res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav" id="1_hc4b2"]
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
 [ext_resource type="AudioStream" uid="uid://ducgh4krk2aqv" path="res://sound/enemy/enemySpawn.wav" id="4_bd2mb"]
+[ext_resource type="AudioStream" uid="uid://dvnl1ae2rhevp" path="res://sound/zipSpawn.wav" id="5_ews0g"]
 [ext_resource type="AudioStream" uid="uid://pah72impy6ul" path="res://sound/adSpawn_01.wav" id="5_mp3xx"]
 [ext_resource type="AudioStream" uid="uid://d2opbvvoig2aa" path="res://sound/adSpawn_02.wav" id="6_k8vkq"]
+[ext_resource type="AudioStream" uid="uid://cqvytf0du782m" path="res://sound/enemy/Enemy_Get_Hit_01.wav" id="6_notwe"]
+[ext_resource type="AudioStream" uid="uid://yqrxm08e2egy" path="res://sound/player/Player_Get_hit_01_Light_Damage.wav" id="6_pn7ry"]
 [ext_resource type="AudioStream" uid="uid://dbit5g3ibssj4" path="res://sound/adSpawn_03.wav" id="7_4e5op"]
+[ext_resource type="AudioStream" uid="uid://b52j2v70tbq0y" path="res://sound/player/Player_Get_hit_02_Light_Damage.wav" id="7_ame8g"]
+[ext_resource type="AudioStream" uid="uid://da6guymohlxyj" path="res://sound/enemy/Enemy_Get_Hit_02.wav" id="7_iaw3r"]
 [ext_resource type="AudioStream" uid="uid://dxth0ljc20lhw" path="res://sound/player/Player_Grab.wav" id="7_pnrr1"]
 [ext_resource type="AudioStream" uid="uid://bfdx88065j25r" path="res://sound/enemy/enemyDeath.wav" id="8_ghmmj"]
+[ext_resource type="AudioStream" uid="uid://bjp1m4krsiat3" path="res://sound/enemy/Enemy_Get_Hit_03.wav" id="8_y85uy"]
+[ext_resource type="AudioStream" uid="uid://doamu62b4cnt7" path="res://sound/enemy/Enemy_Get_Hit_04.wav" id="9_pbnat"]
+[ext_resource type="AudioStream" uid="uid://et4o046dhslv" path="res://sound/Unzip_Extracted.wav" id="9_yfubi"]
 [ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
+[ext_resource type="AudioStream" uid="uid://cfwxrsig65tcg" path="res://sound/Cant_Delete.wav" id="13_cs5gl"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1i1y4"]
+streams_count = 4
+stream_0/stream = ExtResource("6_notwe")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_iaw3r")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_y85uy")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_pbnat")
+stream_3/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlsv1"]
 streams_count = 3
@@ -20,6 +40,13 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("7_4e5op")
 stream_2/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bit5y"]
+streams_count = 2
+stream_0/stream = ExtResource("6_pn7ry")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_ame8g")
+stream_1/weight = 1.0
+
 [node name="sound" type="Node2D"]
 script = ExtResource("1_i0xcs")
 
@@ -29,25 +56,29 @@ volume_db = -15.0
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_6pbvo")
-volume_db = -15.0
+volume_db = -20.0
 
 [node name="enemyspawn" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_bd2mb")
 volume_db = -15.0
 
+[node name="zipspawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ews0g")
+volume_db = -25.0
+
 [node name="enemyhit" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_jlsv1")
-volume_db = -10.0
+stream = SubResource("AudioStreamRandomizer_1i1y4")
+volume_db = -15.0
 
 [node name="enemydeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ghmmj")
 volume_db = -10.0
 
-[node name="adspawn" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_jlsv1")
-volume_db = -15.0
+[node name="zipdeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_yfubi")
+volume_db = -10.0
 
-[node name="playerhit" type="AudioStreamPlayer2D" parent="."]
+[node name="adspawn" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_jlsv1")
 volume_db = -15.0
 
@@ -60,5 +91,9 @@ stream = ExtResource("10_7ho6v")
 volume_db = -5.0
 
 [node name="cantdelete" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_7ho6v")
+stream = ExtResource("13_cs5gl")
 volume_db = -5.0
+
+[node name="playerhit" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bit5y")
+volume_db = -10.0
