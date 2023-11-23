@@ -23,6 +23,8 @@ func _ready():
 func _process(delta):
 	check_cap()
 	$hp.text = "CAP: " + str(capacity)
+	if Input.is_action_just_pressed("leftclick"):
+		sound.click()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -43,6 +45,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_double_click() && mouse_in:
 			inventory.open()
+			sound.playeropenfolder()
 
 func _physics_process(delta):
 	if dragging_folder:

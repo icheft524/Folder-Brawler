@@ -15,11 +15,20 @@ func enemyspawn():
 func enemyhit():
 	$enemyhit.play()
 
+func enemydeath():
+	$enemydeath.play()
+
 func playerhit():
 	$playerhit.play()
+
+func playeropenfolder():
+	$playeropenfolder.play()
 
 func playergrab():
 	$playergrab.play()
 
 func adspawn():
 	$adspawn.play()
+
+func cantdelete():
+	$cantdelete.play()

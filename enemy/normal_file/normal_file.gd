@@ -51,6 +51,7 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp == 0:
+		#sound.enemydeath()
 		queue_free()
 
 func _on_area_2d_area_entered(area):

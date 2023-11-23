@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=12 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="AudioStream" uid="uid://ccyllmv1h4r20" path="res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav" id="1_hc4b2"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://d2opbvvoig2aa" path="res://sound/adSpawn_02.wav" id="6_k8vkq"]
 [ext_resource type="AudioStream" uid="uid://dbit5g3ibssj4" path="res://sound/adSpawn_03.wav" id="7_4e5op"]
 [ext_resource type="AudioStream" uid="uid://dxth0ljc20lhw" path="res://sound/player/Player_Grab.wav" id="7_pnrr1"]
+[ext_resource type="AudioStream" uid="uid://bfdx88065j25r" path="res://sound/enemy/enemyDeath.wav" id="8_ghmmj"]
+[ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlsv1"]
 streams_count = 3
@@ -27,6 +29,7 @@ volume_db = -15.0
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_6pbvo")
+volume_db = -15.0
 
 [node name="enemyspawn" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_bd2mb")
@@ -34,7 +37,11 @@ volume_db = -15.0
 
 [node name="enemyhit" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_jlsv1")
-volume_db = -15.0
+volume_db = -10.0
+
+[node name="enemydeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ghmmj")
+volume_db = -10.0
 
 [node name="adspawn" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_jlsv1")
@@ -46,4 +53,12 @@ volume_db = -15.0
 
 [node name="playergrab" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_pnrr1")
+volume_db = -5.0
+
+[node name="playeropenfolder" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7ho6v")
+volume_db = -5.0
+
+[node name="cantdelete" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7ho6v")
 volume_db = -5.0
