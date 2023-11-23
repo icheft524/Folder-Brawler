@@ -38,7 +38,7 @@ func _input(event):
 			
 			
 	if event is InputEventMouseButton:
-		if event.is_double_click() && mouse_close_in:
+		if event.is_pressed() && mouse_close_in:
 			get_parent().remove_child(self)
 			self.queue_free()
 
