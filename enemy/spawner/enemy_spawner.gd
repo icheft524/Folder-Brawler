@@ -61,10 +61,10 @@ func _on_timer_timeout():
 					
 func get_random_position():
 	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
-	var top_left = Vector2(player.position.x - vpr.x/2, player.position.y - vpr.y/2)
-	var top_right = Vector2(player.position.x + vpr.x/2, player.position.y - vpr.y/2)
-	var bot_left = Vector2(player.position.x - vpr.x/2, player.position.y + vpr.y/2)
-	var bot_right = Vector2(player.position.x + vpr.x/2, player.position.y + vpr.y/2)
+	var top_left = Vector2(player.position.x - vpr.x/4, player.position.y - vpr.y/4)
+	var top_right = Vector2(player.position.x + vpr.x/4, player.position.y - vpr.y/4)
+	var bot_left = Vector2(player.position.x - vpr.x/4, player.position.y + vpr.y/4)
+	var bot_right = Vector2(player.position.x + vpr.x/4, player.position.y + vpr.y/4)
 	
 	var pos_side = ['up','down','right','left'].pick_random()
 	var spawn_pos1 = Vector2.ZERO
