@@ -25,8 +25,11 @@ func insert(item: InvItem,enemy_hp,file_size,enemy_name):
 	
 func removed(slot_num):
 	#update.emit()
-	var itemslots = slots.filter(func(slot): return slot.item != null)
 	slots[slot_num].item = null
 	#if !itemslots.is_empty():
 		#itemslots.pop_front()
 		#print(itemslots)
+		
+func allremoved():
+	for i in range(21):
+		slots[i].item = null

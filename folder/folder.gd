@@ -7,9 +7,9 @@ var dragging_folder
 var newPosition = Vector2()
 @export var speed_x = 7
 @export var speed_y = 7
-@export var hp = 10
 @export var inv: Inv
 @export var capacity = 0
+@export var slowness = 0.75
 
 @onready var inventory = $"../folder_inventory"
 @onready var _Upgrade = $"../upgrade"
@@ -21,6 +21,7 @@ var collected_upgrades = []
 var upgrade_options = []
 
 var mouse_in = false
+var end_task = false
 
 func _ready():
 	sound.play_gametheme()
@@ -64,7 +65,7 @@ func _physics_process(delta):
 		move_and_slide()
 		
 	if global.slot_dragging:
-		Engine.time_scale = 0.05
+		Engine.time_scale = slowness
 	elif !global.slot_dragging:
 		Engine.time_scale = 1
 
@@ -120,13 +121,15 @@ func upgrade_character(upgrade):
 			speed_x = speed_x * 1.40
 			speed_y = speed_y * 1.40
 		"shock1":
-			pass
+			slowness -= 0.25
 		"shock2":
-			pass
+			slowness -= 0.25
 		"shock3":
-			pass
+			slowness -= 0.25
 		"Endtask":
-			pass
+			end_task = true
+			inv.allremoved()
+			capacity = 0
 	
 	var option_children = upgradeOptions.get_children()
 	for i in option_children:

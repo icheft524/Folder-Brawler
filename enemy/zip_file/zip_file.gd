@@ -75,7 +75,6 @@ func dead():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
 		target.collect(file,hp,file_size,'zip')
-		target.hp -= 1
 		target.capacity += file_size
 		sound.playerhit()
 		queue_free()

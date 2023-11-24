@@ -2,6 +2,7 @@ extends Control
 
 @onready var Inv = preload("res://folder/playerInv.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var player = $"../folder"
 
 var isOpen: bool = false
 var mouse_in 
@@ -10,6 +11,7 @@ var mouse_in_esc
 var dragging 
 var dir 
 var dragging_folder
+#@onready var file_visual = $NinePatchRect/GridContainer.get_children()
 
 
 func _ready():
@@ -40,7 +42,12 @@ func _input(event):
 			
 
 func _physics_process(delta):
-
+	
+	if player.end_task == true:
+		for i in slots:
+			i.visible = false
+		player.end_task = false
+		
 	if dragging_folder:
 		position =  position.move_toward(get_global_mouse_position()-(dragging*dir),70)
 		#position =  get_global_mouse_position()-(dragging*dir)

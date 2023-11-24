@@ -23,6 +23,7 @@ func update(slot: InvSlot):
 		health_text.visible = false
 		
 	else:
+		$".".visible = true
 		file_visual.visible = true
 		file_visual.texture = slot.item.texture
 		name_text.visible = true
@@ -35,6 +36,7 @@ func update(slot: InvSlot):
 		origin = $Sprite2D.position
 
 func _physics_process(delta):
+	
 	if dragging == true:
 		file_visual.position = get_local_mouse_position()
 		
