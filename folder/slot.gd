@@ -58,6 +58,7 @@ func _on_gui_input(event):
 			
 			if name_text.text == 'normal' and !inventory.mouse_in:
 				file_visual.visible = false
+				$".".visible = false
 				file_visual.position = origin
 				occupied = false
 				inv.removed(slot_num)
@@ -65,6 +66,7 @@ func _on_gui_input(event):
 				
 			if name_text.text == 'zip' and !inventory.mouse_in:
 				file_visual.visible = false
+				$".".visible = false
 				file_visual.position = origin
 				occupied = false
 				inv.removed(slot_num)

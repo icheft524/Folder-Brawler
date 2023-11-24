@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/playerInv.tres" id="2_fwwxw"]
 
 [node name="Panel" type="Panel"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
