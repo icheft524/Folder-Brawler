@@ -43,6 +43,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			get_viewport().set_input_as_handled()
 			sound.enemyhit()
 			#hp -= 1
 			if percent > global.crit_chance:

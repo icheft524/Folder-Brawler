@@ -6,6 +6,7 @@ extends Control
 var isOpen: bool = false
 var mouse_in 
 var mouse_in_tab
+var mouse_in_esc
 var dragging 
 var dir 
 var dragging_folder
@@ -25,11 +26,17 @@ func update_slots():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in_tab:
+			get_viewport().set_input_as_handled()
 			dragging_folder = true
 			dragging = position.distance_to(get_global_mouse_position())
 			dir = (get_global_mouse_position() - position).normalized()
 		else:
 			dragging_folder = false
+			
+		if event.is_pressed() && mouse_in_esc:
+			get_viewport().set_input_as_handled()
+			mouse_in_esc = false
+			close()
 			
 
 func _physics_process(delta):
@@ -49,10 +56,6 @@ func close():
 	isOpen = false
 
 
-func _on_esc_button_pressed():
-	close()
-
-
 func _on_mouse_entered():
 	mouse_in = true
 
@@ -68,3 +71,11 @@ func _on_tab_mouse_entered():
 
 func _on_tab_mouse_exited():
 	mouse_in_tab = false
+
+
+func _on_esc_button_mouse_entered():
+	mouse_in_esc = true
+
+
+func _on_esc_button_mouse_exited():
+	mouse_in_esc = false

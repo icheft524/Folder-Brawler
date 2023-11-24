@@ -25,6 +25,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			get_viewport().set_input_as_handled()
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
 			dir = (get_viewport().get_mouse_position() - position).normalized()
 			dragging_folder = true
@@ -39,6 +40,7 @@ func _input(event):
 			
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_close_in:
+			get_viewport().set_input_as_handled()
 			get_parent().remove_child(self)
 			self.queue_free()
 
