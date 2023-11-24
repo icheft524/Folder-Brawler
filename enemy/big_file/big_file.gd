@@ -49,6 +49,10 @@ func _input(event):
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
+			#speed = speed * 0.5
+			#await get_tree().create_timer(0.2,false).timeout
+			#speed = speed / 0.5
+
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

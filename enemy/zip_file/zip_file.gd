@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var hp = 2
 @export var file_size = 1
 @export var file: InvItem
+@export var take_normal_dmg = 1
+@export var take_crit_dmg = 2
+var percent = randf_range(0,1)
 
 
 var mouse_in = false
@@ -42,7 +45,13 @@ func _input(event):
 		if event.is_pressed() && mouse_in:
 			get_viewport().set_input_as_handled()
 			sound.enemyhit()
-			hp -= 1
+			if percent > global.crit_chance:
+				hp -= take_crit_dmg
+			elif percent <= global.crit_chance:
+				hp -= take_normal_dmg
+			speed = speed * 0.5
+			await get_tree().create_timer(0.2,false).timeout
+			speed = speed / 0.5
 
 
 func _on_area_2d_mouse_entered():
