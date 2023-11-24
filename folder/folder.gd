@@ -105,10 +105,19 @@ func upgrade_character(upgrade):
 		"Harddisk3":
 			pass
 		"increasedpi":
-			pass
+			speed_x = speed_x * 1.15
+			speed_y = speed_y * 1.15
 		"increasedp2":
-			pass
+			speed_x = speed_x * 1.25
+			speed_y = speed_y * 1.25
 		"increasedp3":
+			speed_x = speed_x * 1.40
+			speed_y = speed_y * 1.40
+		"shock1":
+			pass
+		"shock2":
+			pass
+		"shock3":
 			pass
 		"Endtask":
 			pass
