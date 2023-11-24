@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=19 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://enemy/spawner/spawninfo.gd" id="4_ojwon"]
 [ext_resource type="PackedScene" uid="uid://c76fdqn24ggef" path="res://enemy/zip_file/zip_file.tscn" id="5_5xetf"]
 [ext_resource type="PackedScene" uid="uid://dqf8xs8frecuw" path="res://enemy/encrypted/encrypted_file.tscn" id="6_4ht4q"]
+[ext_resource type="PackedScene" uid="uid://boie4qqfj5t4x" path="res://enemy/big_file/big_file.tscn" id="7_7xii8"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="8_jr5b5"]
 [ext_resource type="PackedScene" uid="uid://de1rsafpaq381" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
 [ext_resource type="PackedScene" uid="uid://jxmqkfjngr0t" path="res://hud.tscn" id="10_02sxe"]
@@ -16,7 +17,7 @@ script = ExtResource("4_ojwon")
 time_start = 0
 time_end = 20
 enemy = ExtResource("3_csoof")
-enemy_num = 2
+enemy_num = 10
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_rta2e"]
@@ -59,13 +60,21 @@ enemy = ExtResource("5_5xetf")
 enemy_num = 1
 enemy_spawn_delay = 3
 
+[sub_resource type="Resource" id="Resource_ug5jq"]
+script = ExtResource("4_ojwon")
+time_start = 0
+time_end = 20
+enemy = ExtResource("7_7xii8")
+enemy_num = 3
+enemy_spawn_delay = 1
+
 [node name="main" type="Node2D"]
 
 [node name="folder" parent="." groups=["folder"] instance=ExtResource("1_enwj4")]
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
-spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_o1mwg"), SubResource("Resource_u05jr"), SubResource("Resource_l7ruf"), SubResource("Resource_b1x1l")])
+spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_o1mwg"), SubResource("Resource_u05jr"), SubResource("Resource_l7ruf"), SubResource("Resource_b1x1l"), SubResource("Resource_ug5jq")])
 
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
 

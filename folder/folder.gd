@@ -10,6 +10,8 @@ var newPosition = Vector2()
 @export var inv: Inv
 @export var capacity = 0
 @export var slowness = 0.75
+@export var mid_fat = 0.7
+@export var extreme_fat = 0.3
 
 @onready var inventory = $"../folder_inventory"
 @onready var _Upgrade = $"../upgrade"
@@ -22,6 +24,7 @@ var upgrade_options = []
 
 var mouse_in = false
 var end_task = false
+var fatness
 
 func _ready():
 	sound.play_gametheme()
@@ -63,7 +66,7 @@ func _input(event):
 	
 func _physics_process(delta):
 	if dragging_folder:
-		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
+		velocity = (newPosition - position) * Vector2(speed_x, speed_y) * fatness
 		move_and_slide()
 		
 		
@@ -75,10 +78,13 @@ func _physics_process(delta):
 
 func check_cap():
 	if capacity < 4:
+		fatness = 1
 		$Sprite2D.texture = load("res://folder/folder_empty.png2.png")
 	elif capacity < 10:
+		fatness = mid_fat
 		$Sprite2D.texture = load("res://folder/folder_half.png2.png")
 	else:
+		fatness = extreme_fat
 		$Sprite2D.texture = load("res://folder/folder_full.png2.png")
 
 func _on_area_2d_mouse_entered():

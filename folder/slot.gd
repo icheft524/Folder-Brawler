@@ -71,6 +71,14 @@ func _on_gui_input(event):
 				occupied = false
 				inv.removed(slot_num)
 				drop.respawn_zip(ehp)
+			
+			if name_text.text == 'big' and !inventory.mouse_in:
+				file_visual.visible = false
+				$".".visible = false
+				file_visual.position = origin
+				occupied = false
+				inv.removed(slot_num)
+				drop.respawn_big(ehp)
 
 func _on_mouse_entered():
 	mouse_in = true

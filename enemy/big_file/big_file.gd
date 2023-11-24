@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 150
-@export var hp = 3
-@export var file_size = 1
+@export var speed = 80
+@export var hp = 4
+@export var file_size = 3
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
+@export var fat = 0.5
 var percent = randf_range(0,1)
-
 @export var file: InvItem
 
 var mouse_in = false
@@ -64,11 +64,7 @@ func dead():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
-		target.collect(file,hp,file_size,'normal')
+		target.collect(file,hp,file_size,'big')
 		sound.playerhit()
 		target.capacity += file_size
 		queue_free()
-		
-
-
-

@@ -26,6 +26,14 @@ func respawn_zip(ehp):
 	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
 
+func respawn_big(ehp):
+	var big_enemy = load("res://enemy/big_file/big_file.tscn")
+	var enemy_spawn = big_enemy.instantiate()
+	enemy_spawn.hp = ehp
+	enemy_spawn.global_position = get_global_mouse_position()
+	player.capacity -= enemy_spawn.file_size
+	add_child(enemy_spawn)
+
 func _on_timer_timeout():
 	global.time += 1
 	#print(global.time)
