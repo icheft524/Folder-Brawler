@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var stop = 2 #randf_range(0,2)
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
-var percent = 2
+var percent = randf_range(0,1)
 
 @export var file: InvItem
 
@@ -44,7 +44,11 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
 			sound.enemyhit()
-			hp -= 1
+			#hp -= 1
+			if percent > global.crit_chance:
+				hp -= take_crit_dmg
+			elif percent <= global.crit_chance:
+				hp -= take_normal_dmg
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
@@ -61,10 +65,7 @@ func dead():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible:
 		target.collect(file,hp,file_size,'normal')
-		if percent > global.crit_chance:
-			target.hp -= take_crit_dmg
-		elif percent <= global.crit_chance:
-			target.hp -= take_normal_dmg
+		target.hp -= 1
 		sound.playerhit()
 		target.capacity += file_size
 		queue_free()

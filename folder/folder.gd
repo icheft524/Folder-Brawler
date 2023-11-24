@@ -93,7 +93,7 @@ func upgrade_character(upgrade):
 		"Adblocker3":
 			global.adstimelock += 2
 		"Antivirus1":
-			global.crit_chance -= 0.9
+			global.crit_chance -= 0.10
 		"Antivirus2":
 			global.crit_chance -= 0.10
 		"Antivirus3":
