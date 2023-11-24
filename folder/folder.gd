@@ -62,6 +62,11 @@ func _physics_process(delta):
 	if dragging_folder:
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
 		move_and_slide()
+		
+	if global.slot_dragging:
+		Engine.time_scale = 0.05
+	elif !global.slot_dragging:
+		Engine.time_scale = 1
 
 func check_cap():
 	if capacity < 4:

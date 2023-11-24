@@ -37,20 +37,20 @@ func update(slot: InvSlot):
 func _physics_process(delta):
 	if dragging == true:
 		file_visual.position = get_local_mouse_position()
-		Engine.time_scale = 0.05
-	elif dragging == false:
-		Engine.time_scale = 1
+		
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and !(name_text.text == 'encrypted'):
 		#file_visual.position = origin
 		if event.is_pressed() && mouse_in && occupied:
 			dragging = true
+			global.slot_dragging = true
 			$CenterContainer/Panel/file_display.z_index = 2
 			print('Slot number',slot_num)
 			
 		elif occupied:
 			dragging = false
+			global.slot_dragging = false
 			$CenterContainer/Panel/file_display.z_index = 1
 			file_visual.position = origin
 			
