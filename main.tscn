@@ -113,6 +113,14 @@ enemy_spawn_delay = 5
 
 [node name="main" type="Node2D"]
 
+[node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
+visible = false
+z_index = 6
+offset_left = 700.0
+offset_top = 700.0
+offset_right = 890.0
+offset_bottom = 811.0
+
 [node name="folder" parent="." groups=["folder"] instance=ExtResource("1_enwj4")]
 position = Vector2(458, 239)
 
@@ -128,13 +136,6 @@ offset_right = 934.0
 offset_bottom = 761.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
-visible = false
-offset_left = 700.0
-offset_top = 700.0
-offset_right = 890.0
-offset_bottom = 811.0
 
 [node name="hud" parent="." instance=ExtResource("10_02sxe")]
 z_index = 1

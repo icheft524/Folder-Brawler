@@ -30,6 +30,11 @@ var fatness
 @export var positionx = 700
 @export var positiony = 300
 
+var wave2 = true
+var wave3 = true
+var wave4 = true
+var wave5 = true
+
 func _ready():
 	sound.play_gametheme()
 	global.target = self
@@ -67,6 +72,18 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): #change to global.time
 		levelup()
 	
+	if global.time == 21 and wave2 == true: #wave2
+		levelup()
+		wave2 = false
+	elif global.time == 41 and wave3 == true: #wave3
+		levelup()
+		wave3 = false
+	elif global.time == 61 and wave4 == true: #wave4
+		levelup()
+		wave4 = false
+	elif global.time == 81 and wave5 == true: #wave5
+		levelup()
+		wave5 = false
 	
 func _physics_process(delta):
 	if dragging_folder:

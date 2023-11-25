@@ -20,8 +20,8 @@ script = ExtResource("1_xgmhb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 253.0
-offset_bottom = 90.0
+offset_right = 481.0
+offset_bottom = 530.0
 texture = SubResource("GradientTexture2D_fl2ph")
 
 [node name="time" type="Label" parent="TextureRect"]
@@ -32,5 +32,18 @@ offset_right = 173.0
 offset_bottom = 102.0
 theme_override_fonts/font = ExtResource("2_atgct")
 theme_override_font_sizes/font_size = 100
+text = "time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="wave" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 96.0
+offset_right = 173.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("2_atgct")
+theme_override_font_sizes/font_size = 100
+text = "wave"
 horizontal_alignment = 1
 vertical_alignment = 1
