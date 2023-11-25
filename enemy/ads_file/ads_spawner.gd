@@ -17,7 +17,9 @@ func _ready():
 	pass
 
 func _process(delta):
-	pass
+	if global.ad_clicked:
+		_spawn()
+		global.ad_clicked = false
 
 
 func _on_ads_time_timeout():

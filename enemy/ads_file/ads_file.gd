@@ -15,6 +15,7 @@ var newPosition = Vector2()
 
 var mouse_in = false
 var mouse_close_in = false
+var mouse_in_ad = false
 var target_position
 var direction
 
@@ -29,7 +30,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in:
+		if event.is_pressed() && mouse_in && !mouse_close_in:
 			get_viewport().set_input_as_handled()
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
 			dir = (get_viewport().get_mouse_position() - position).normalized()
@@ -45,6 +46,7 @@ func _input(event):
 			
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_close_in:
+			get_viewport().set_input_as_handled()
 			var tween_close = create_tween()
 			tween_close.tween_property(self,"scale",close,0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 			tween_close.play()
@@ -74,3 +76,18 @@ func _on_close_area_mouse_entered():
 
 func _on_close_area_mouse_exited():
 	mouse_close_in = false
+
+
+func _on_panel_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed() && mouse_in_ad:
+			get_viewport().set_input_as_handled()
+			global.ad_clicked = true
+
+
+func _on_panel_mouse_entered():
+	mouse_in_ad = true
+
+
+func _on_panel_mouse_exited():
+	mouse_in_ad = false
