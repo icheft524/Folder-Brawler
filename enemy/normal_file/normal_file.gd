@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 175
+@export var normal_speed = 175
 @export var hp = 2
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
+#var slow_speed = normal_speed * 0.5
 var percent = randf_range(0,1)
+var speed = normal_speed
 
 @export var file: InvItem
 
@@ -42,11 +44,12 @@ func movement():
 func _process(delta):
 	dead()
 	$hp.text = "normal" + str(hp)
+	$speed.text = str(speed)
 
 func speeddown():
-	speed = speed * 0.5
+	speed = normal_speed * global.slow_speed
 	await get_tree().create_timer(0.2,false).timeout
-	speed = speed / 0.5
+	speed = normal_speed
 
 func _input(event):
 	if event is InputEventMouseButton:

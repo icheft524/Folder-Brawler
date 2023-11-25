@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 125
+@export var normal_speed = 125
 @export var hp = 4
 @export var file_size = 3
 @export var take_normal_dmg = 1
@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var fat = 0.5
 var percent = randf_range(0,1)
 @export var file: InvItem
+var speed = normal_speed
 
 var mouse_in = false
 var target_position
@@ -49,9 +50,9 @@ func _input(event):
 			speeddown()
 
 func speeddown():
-	speed = speed * 0.5
+	speed = normal_speed * global.slow_speed
 	await get_tree().create_timer(0.2,false).timeout
-	speed = speed / 0.5
+	speed = normal_speed
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

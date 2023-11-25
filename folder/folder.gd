@@ -8,7 +8,8 @@ var newPosition = Vector2()
 @export var speed_x = 7
 @export var speed_y = 7
 @export var inv: Inv
-@export var capacity = 0
+var capacity = 0
+@export var max_capacity = 10
 @export var slowness = 0.75
 @export var mid_fat = 0.7
 @export var extreme_fat = 0.3
@@ -83,12 +84,14 @@ func check_cap():
 	if capacity < 4:
 		fatness = 1
 		$Sprite2D.texture = load("res://folder/folder_empty.png2.png")
-	elif capacity < 10:
+	elif capacity < 8:
 		fatness = mid_fat
 		$Sprite2D.texture = load("res://folder/folder_half.png2.png")
-	else:
+	elif capacity < max_capacity:
 		fatness = extreme_fat
 		$Sprite2D.texture = load("res://folder/folder_full.png2.png")
+	else:
+		get_tree().reload_current_scene()
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
@@ -118,11 +121,11 @@ func upgrade_character(upgrade):
 		"Antivirus3":
 			global.crit_chance -= 0.15
 		"Harddisk1":
-			pass
+			max_capacity += 2
 		"Harddisk2":
-			pass
+			max_capacity += 2
 		"Harddisk3":
-			pass
+			max_capacity += 2
 		"increasedpi":
 			speed_x = speed_x * 1.15
 			speed_y = speed_y * 1.15
@@ -133,11 +136,11 @@ func upgrade_character(upgrade):
 			speed_x = speed_x * 1.40
 			speed_y = speed_y * 1.40
 		"shock1":
-			slowness -= 0.25
+			global.slow_speed -= 0.25
 		"shock2":
-			slowness -= 0.25
+			global.slow_speed -= 0.25
 		"shock3":
-			slowness -= 0.25
+			global.slow_speed -= 0.25
 		"Endtask":
 			end_task = true
 			inv.allremoved()

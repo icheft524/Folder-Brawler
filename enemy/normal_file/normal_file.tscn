@@ -127,6 +127,12 @@ libraries = {
 "": SubResource("AnimationLibrary_e8wc4")
 }
 
+[node name="speed" type="Label" parent="."]
+offset_left = -21.0
+offset_top = 108.0
+offset_right = 19.0
+offset_bottom = 131.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

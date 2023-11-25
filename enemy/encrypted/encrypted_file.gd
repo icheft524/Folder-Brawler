@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 150
+@export var normal_speed = 150
 @export var hp = 2
 @export var file_size = 1
 
 @export var file: InvItem
+var speed = normal_speed
 
 var mouse_in = false
 var target_position
@@ -29,9 +30,9 @@ func movement():
 	move_and_slide()
 	
 func speeddown():
-	speed = speed * 0.5
+	speed = normal_speed * global.slow_speed
 	await get_tree().create_timer(0.2,false).timeout
-	speed = speed / 0.5
+	speed = normal_speed
 
 func _process(delta):
 	dead()
