@@ -94,3 +94,12 @@ offset_right = 890.0
 offset_bottom = 811.0
 
 [node name="hud" parent="." instance=ExtResource("10_02sxe")]
+z_index = 1
+offset_left = 1412.0
+offset_right = 1412.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1400.0
+offset_right = 2171.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)

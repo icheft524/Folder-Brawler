@@ -1,6 +1,6 @@
 extends Node2D
 
-var music = load("res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav")
+var music = load("res://sound/Folder_Brawler_25_11_23.wav")
 
 func play_gametheme():
 	$gametheme.stream = music
