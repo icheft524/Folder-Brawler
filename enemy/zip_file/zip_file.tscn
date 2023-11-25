@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
-[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_qr6br"]
+[ext_resource type="Texture2D" uid="uid://cpaa3bmk0xr1o" path="res://art/zipicon.png" id="3_tj173"]
 [ext_resource type="Texture2D" uid="uid://d3wsggic5wgue" path="res://enemy/zip_file/enemy_zip.png" id="4_qrx0s"]
 
 [sub_resource type="Resource" id="Resource_lgouq"]
 script = ExtResource("2_k2wnp")
 name = "ZIP"
-texture = ExtResource("3_qr6br")
+texture = ExtResource("3_tj173")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjo4c"]
 radius = 56.0089

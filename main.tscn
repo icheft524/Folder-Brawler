@@ -33,7 +33,7 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_ug5jq"]
 script = ExtResource("4_ojwon")
 name = "Wave 2 - Big"
-time_start = 21
+time_start = 22
 time_end = 40
 enemy = ExtResource("7_7xii8")
 enemy_num = 1
@@ -51,7 +51,7 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_o1mwg"]
 script = ExtResource("4_ojwon")
 name = "Wave 3 - Zip"
-time_start = 41
+time_start = 42
 time_end = 60
 enemy = ExtResource("5_5xetf")
 enemy_num = 1
@@ -60,7 +60,7 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_l7ruf"]
 script = ExtResource("4_ojwon")
 name = "Wave 4 - Lock"
-time_start = 61
+time_start = 62
 time_end = 80
 enemy = ExtResource("6_4ht4q")
 enemy_num = 1
@@ -69,7 +69,7 @@ enemy_spawn_delay = 1
 [sub_resource type="Resource" id="Resource_7baam"]
 script = ExtResource("4_ojwon")
 name = "Wave 4 - Big"
-time_start = 61
+time_start = 62
 time_end = 80
 enemy = ExtResource("7_7xii8")
 enemy_num = 1
@@ -78,7 +78,7 @@ enemy_spawn_delay = 4
 [sub_resource type="Resource" id="Resource_qrhdn"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 - Lock"
-time_start = 81
+time_start = 82
 time_end = 130
 enemy = ExtResource("6_4ht4q")
 enemy_num = 1
@@ -87,7 +87,7 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_u05jr"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 Ramp - Normal"
-time_start = 81
+time_start = 82
 time_end = 130
 enemy = ExtResource("3_csoof")
 enemy_num = 1
@@ -105,7 +105,7 @@ enemy_spawn_delay = 3
 [sub_resource type="Resource" id="Resource_2r7ty"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 - Big"
-time_start = 81
+time_start = 82
 time_end = 130
 enemy = ExtResource("7_7xii8")
 enemy_num = 1

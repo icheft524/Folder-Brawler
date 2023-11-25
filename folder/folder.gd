@@ -36,6 +36,7 @@ var wave4 = true
 var wave5 = true
 
 func _ready():
+	inv.allremoved()
 	sound.play_gametheme()
 	global.target = self
 	pass
