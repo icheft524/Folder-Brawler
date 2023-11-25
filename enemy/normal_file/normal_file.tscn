@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1vhh0gbxm27"]
+[gd_scene load_steps=12 format=3 uid="uid://b1vhh0gbxm27"]
 
 [ext_resource type="Script" path="res://enemy/normal_file/normal_file.gd" id="1_6aj4h"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_1hj5p"]
@@ -12,6 +12,52 @@ texture = ExtResource("3_qmyit")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l8qm"]
 radius = 78.2304
+
+[sub_resource type="Animation" id="Animation_sasmg"]
+resource_name = "hit"
+length = 0.2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpfo"]
+_data = {
+"hit": SubResource("Animation_sasmg")
+}
+
+[sub_resource type="Animation" id="Animation_g6jbl"]
+resource_name = "spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.15, 0.15), Vector2(0.3, 0.25), Vector2(0.202151, 0.202151)]
+}
+
+[sub_resource type="Animation" id="Animation_u2ke4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.202151, 0.202151)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xps0h"]
+_data = {
+"RESET": SubResource("Animation_u2ke4"),
+"spawn": SubResource("Animation_g6jbl")
+}
 
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")
@@ -38,6 +84,17 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="hitanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mhpfo")
+}
+
+[node name="spawnanim" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
+libraries = {
+"": SubResource("AnimationLibrary_xps0h")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

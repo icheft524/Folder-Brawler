@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=5 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
+[ext_resource type="FontFile" uid="uid://cnj24b0oilxro" path="res://font/VT323-Regular.ttf" id="2_atgct"]
 
 [sub_resource type="Gradient" id="Gradient_yughb"]
 offsets = PackedFloat32Array(0.991031, 1)
@@ -19,7 +20,7 @@ script = ExtResource("1_xgmhb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 183.0
+offset_right = 253.0
 offset_bottom = 90.0
 texture = SubResource("GradientTexture2D_fl2ph")
 
@@ -28,7 +29,8 @@ layout_mode = 0
 offset_left = 3.0
 offset_top = 2.0
 offset_right = 173.0
-offset_bottom = 83.0
-theme_override_font_sizes/font_size = 30
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_atgct")
+theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 vertical_alignment = 1

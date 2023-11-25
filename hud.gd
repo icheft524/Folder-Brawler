@@ -8,4 +8,4 @@ func _ready():
 
 
 func _process(delta):
-	$TextureRect/time.text = "timer" + str(global.time)
+	$TextureRect/time.text = "Timer: " + str(global.time)
