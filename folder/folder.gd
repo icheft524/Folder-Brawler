@@ -26,6 +26,9 @@ var mouse_in = false
 var end_task = false
 var fatness
 
+@export var positionx = 700
+@export var positiony = 300
+
 func _ready():
 	sound.play_gametheme()
 	global.target = self
@@ -101,7 +104,6 @@ func collect(file,ehp,file_size,enemy_name):
 	inv.insert(file,ehp,file_size,enemy_name)
 
 func upgrade_character(upgrade):
-	print("upgrade")
 	match upgrade:
 		"Adblocker1":
 			global.adstimelock += 20
@@ -140,21 +142,21 @@ func upgrade_character(upgrade):
 			end_task = true
 			inv.allremoved()
 			capacity = 0
-	
+	print("get: " + upgrade)
 	var option_children = upgradeOptions.get_children()
 	for i in option_children:
 		i.queue_free()
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
 	_Upgrade.visible = false
-	_Upgrade.position = Vector2(1000,500)
+	_Upgrade.position = Vector2(700,700)
 	get_tree().paused = false
 
 func levelup():
 	get_tree().paused = true
-	#var tween = levelPanel.create_tween()
-	#tween.tween_property(levelPanel,"position",Vector2(positionx,positiony),0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
-	#tween.play()
+	var tween = _Upgrade.create_tween()
+	tween.tween_property(_Upgrade,"position",Vector2(positionx,positiony),0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 	_Upgrade.visible = true
 	var options = 0
 	var optionsmax = 2

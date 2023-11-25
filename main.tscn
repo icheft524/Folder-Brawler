@@ -88,9 +88,9 @@ size_flags_vertical = 4
 
 [node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
 visible = false
-offset_left = 1282.0
-offset_top = 532.0
-offset_right = 1472.0
-offset_bottom = 643.0
+offset_left = 700.0
+offset_top = 700.0
+offset_right = 890.0
+offset_bottom = 811.0
 
 [node name="hud" parent="." instance=ExtResource("10_02sxe")]

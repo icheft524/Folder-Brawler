@@ -5,10 +5,11 @@ extends Node2D
 
 var ad = preload("res://enemy/ads_file/ads_file.tscn")
 var offset = 100
+const art_Path = "res://art/ad/"
 
 var ad_im = [
-	preload("res://enemy/ads_file/ads1.png"),
-	preload("res://enemy/ads_file/ads2.png")
+	"ads1.png",
+	"ads2.png"
 	]
 
 func _ready():
@@ -16,7 +17,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	print()
 	pass
 
 
@@ -28,7 +28,7 @@ func _on_ads_time_timeout():
 
 func _spawn():
 	var ins_ad = ad.instantiate()
-	ins_ad.set_meta("Image",ad_im[randi() % ad_im.size()])
+	ins_ad.set_meta("Image",load(art_Path + ad_im[randi() % ad_im.size()]))
 	ins_ad.global_position = _postion_random_srceen(offset)
 	get_parent().add_child(ins_ad)
 

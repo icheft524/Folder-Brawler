@@ -14,7 +14,6 @@ offset_bottom = 418.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3xxge")
 
 [node name="BgUpgrade" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(338, 213.5)
 scale = Vector2(5.28125, 3.22656)
 texture = ExtResource("1_rr38k")
