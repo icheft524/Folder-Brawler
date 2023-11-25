@@ -17,6 +17,7 @@ radius = 78.2304
 script = ExtResource("1_6aj4h")
 hp = 2
 file = SubResource("Resource_vyk3c")
+metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.202151, 0.202151)

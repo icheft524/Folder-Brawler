@@ -15,6 +15,11 @@ var target_position
 var direction
 
 func _ready():
+	if not (get_meta("broken_pos") == Vector2.ZERO):
+		var tween = create_tween()
+		tween.tween_property(self,"position",get_meta("broken_pos"),1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
+		pass
 	sound.enemyspawn()
 
 func _physics_process(delta):

@@ -34,15 +34,6 @@ offset_bottom = 94.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="top" type="Marker2D" parent="."]
-position = Vector2(78, -142)
-
-[node name="mid" type="Marker2D" parent="."]
-position = Vector2(0, 2)
-
-[node name="bot" type="Marker2D" parent="."]
-position = Vector2(144, 121)
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
