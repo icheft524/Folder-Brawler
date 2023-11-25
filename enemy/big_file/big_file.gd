@@ -46,7 +46,7 @@ func _input(event):
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
-		speeddown()
+			speeddown()
 
 func speeddown():
 	speed = speed * 0.5
