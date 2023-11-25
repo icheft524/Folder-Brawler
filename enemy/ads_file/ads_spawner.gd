@@ -36,5 +36,6 @@ func _spawn():
 
 func _postion_random_srceen(set_offset: int):
 	var randomx = get_viewport_rect().size.x
+	#var randomx = get_viewport_rect().size.x
 	var randomy = get_viewport_rect().size.y
-	return Vector2(randf_range(offset,randomx-offset),randf_range(offset,randomy-offset))
+	return Vector2(randf_range(0,1300),randf_range(offset,randomy-offset))
