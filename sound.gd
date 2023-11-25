@@ -38,3 +38,6 @@ func adspawn():
 
 func cantdelete():
 	$cantdelete.play()
+
+func critical():
+	$critical.play()

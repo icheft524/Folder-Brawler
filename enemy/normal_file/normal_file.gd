@@ -55,12 +55,13 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
 			get_viewport().set_input_as_handled()
-			sound.enemyhit()
 			#hp -= 1
 			if percent > global.crit_chance:
+				sound.critical()
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
+				sound.enemyhit()
 			speeddown()
 
 func _on_area_2d_mouse_entered():

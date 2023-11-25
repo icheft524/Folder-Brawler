@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=26 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="AudioStream" uid="uid://ccyllmv1h4r20" path="res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav" id="1_hc4b2"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://et4o046dhslv" path="res://sound/Unzip_Extracted.wav" id="9_yfubi"]
 [ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
 [ext_resource type="AudioStream" uid="uid://cfwxrsig65tcg" path="res://sound/Cant_Delete.wav" id="13_cs5gl"]
+[ext_resource type="AudioStream" uid="uid://80muqof6raso" path="res://sound/Player_Get_hit_01_Big_Damage.wav" id="20_yvasg"]
+[ext_resource type="AudioStream" uid="uid://b52k5ylf5b0kg" path="res://sound/Player_Get_hit_02_Big_Damage.wav" id="21_qt2s4"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1i1y4"]
 streams_count = 4
@@ -45,6 +47,13 @@ streams_count = 2
 stream_0/stream = ExtResource("6_pn7ry")
 stream_0/weight = 1.0
 stream_1/stream = ExtResource("7_ame8g")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dr8l8"]
+streams_count = 2
+stream_0/stream = ExtResource("20_yvasg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("21_qt2s4")
 stream_1/weight = 1.0
 
 [node name="sound" type="Node2D"]
@@ -96,4 +105,8 @@ volume_db = -5.0
 
 [node name="playerhit" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_bit5y")
+volume_db = -10.0
+
+[node name="critical" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_dr8l8")
 volume_db = -10.0
