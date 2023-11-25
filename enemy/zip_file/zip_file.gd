@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target = global.target
 @export var speed = 100
 @export var hp = 2
-@export var file_size = 1
+@export var file_size = 3
 @export var file: InvItem
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
