@@ -33,6 +33,6 @@ func _spawn():
 	get_parent().add_child(ins_ad)
 
 func _postion_random_srceen(set_offset: int):
-	var randomx = get_viewport().size.x
-	var randomy = get_viewport().size.y
-	return Vector2(randi_range(offset,randomx-offset),randi_range(offset,randomy-offset))
+	var randomx = get_viewport_rect().size.x
+	var randomy = get_viewport_rect().size.y
+	return Vector2(randf_range(offset,randomx-offset),randf_range(offset,randomy-offset))
