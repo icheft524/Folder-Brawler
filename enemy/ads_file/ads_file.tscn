@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1qdehqlqfqlu"]
+[gd_scene load_steps=9 format=3 uid="uid://b1qdehqlqfqlu"]
 
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="2_7jcnh"]
 [ext_resource type="Texture2D" uid="uid://c2dw0wr7oh4m4" path="res://enemy/ads_file/bar.png" id="2_bw22w"]
+[ext_resource type="Texture2D" uid="uid://ccrr3pn6tjue" path="res://art/ad/ads1.png" id="3_amyrs"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="3_irob5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_84udr"]
@@ -47,7 +48,7 @@ offset_left = -96.016
 offset_top = 11.0
 offset_right = 102.984
 offset_bottom = 122.0
-texture = SubResource("CompressedTexture2D_84udr")
+texture = ExtResource("3_amyrs")
 expand_mode = 2
 
 [node name="drag_area" type="Area2D" parent="."]

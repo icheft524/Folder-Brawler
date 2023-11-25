@@ -9,6 +9,8 @@ var newPosition = Vector2()
 @export var speed_x = 7
 @export var speed_y = 7
 @export var speed = 200
+@export var pop =  Vector2(1.5,1.5)
+@export var close =  Vector2(0.8,0.8)
 
 
 var mouse_in = false
@@ -19,6 +21,9 @@ var direction
 func _ready():
 	sound.adspawn()
 	image.set_texture(get_meta("Image"))
+	var tween = create_tween()
+	tween.tween_property(self,"scale",pop,0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 	pass
 
 
@@ -40,14 +45,20 @@ func _input(event):
 			
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_close_in:
-			get_viewport().set_input_as_handled()
-			get_parent().remove_child(self)
-			self.queue_free()
+			var tween_close = create_tween()
+			tween_close.tween_property(self,"scale",close,0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+			tween_close.play()
 
 func _physics_process(delta):
 	if dragging_folder:
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
 		move_and_slide()
+
+func _process(delta):
+	if scale < Vector2(1,1):
+		get_viewport().set_input_as_handled()
+		get_parent().remove_child(self)
+		self.queue_free()
 
 func _on_drag_area_mouse_entered():
 	mouse_in = true
