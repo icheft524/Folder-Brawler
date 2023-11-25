@@ -22,23 +22,7 @@ _data = {
 "hit": SubResource("Animation_sasmg")
 }
 
-[sub_resource type="Animation" id="Animation_g6jbl"]
-resource_name = "spawn"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0.15, 0.15), Vector2(0.3, 0.25), Vector2(0.202151, 0.202151)]
-}
-
-[sub_resource type="Animation" id="Animation_u2ke4"]
+[sub_resource type="Animation" id="Animation_usl4e"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -53,15 +37,30 @@ tracks/0/keys = {
 "values": [Vector2(0.202151, 0.202151)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xps0h"]
+[sub_resource type="Animation" id="Animation_rh5h6"]
+resource_name = "spawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.202, 0.01), Vector2(0.195, 0.25), Vector2(0.202151, 0.202151)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8wc4"]
 _data = {
-"RESET": SubResource("Animation_u2ke4"),
-"spawn": SubResource("Animation_g6jbl")
+"RESET": SubResource("Animation_usl4e"),
+"spawn": SubResource("Animation_rh5h6")
 }
 
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")
-hp = 2
 file = SubResource("Resource_vyk3c")
 metadata/broken_pos = Vector2(0, 0)
 
@@ -93,7 +92,7 @@ libraries = {
 [node name="spawnanim" type="AnimationPlayer" parent="."]
 autoplay = "spawn"
 libraries = {
-"": SubResource("AnimationLibrary_xps0h")
+"": SubResource("AnimationLibrary_e8wc4")
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

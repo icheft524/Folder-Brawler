@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 150
-@export var hp = 3
+@export var speed = 175
+@export var hp = 2
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -16,9 +16,10 @@ var direction
 
 func _ready():
 	sound.enemyspawn()
+	speeddown()
 	if not (get_meta("broken_pos") == Vector2.ZERO):
 		var tween = create_tween()
-		tween.tween_property(self,"position",get_meta("broken_pos"),1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self,"position",get_meta("broken_pos"),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.play()
 		pass
 
@@ -39,10 +40,13 @@ func movement():
 
 
 func _process(delta):
-
 	dead()
-	
 	$hp.text = "normal" + str(hp)
+
+func speeddown():
+	speed = speed * 0.5
+	await get_tree().create_timer(0.2,false).timeout
+	speed = speed / 0.5
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -54,9 +58,7 @@ func _input(event):
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
-			speed = speed * 0.5
-			await get_tree().create_timer(0.2,false).timeout
-			speed = speed / 0.5
+			speeddown()
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

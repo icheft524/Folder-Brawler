@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 50
+@export var speed = 100
 @export var hp = 2
 @export var file_size = 1
 @export var file: InvItem
@@ -19,6 +19,7 @@ const normal_file = preload("res://enemy/normal_file/normal_file.tscn")
 
 func _ready():
 	sound.zipspawn()
+	speeddown()
 
 func _physics_process(delta):
 	movement()
@@ -34,12 +35,14 @@ func movement():
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
 
-
 func _process(delta):
 	dead()
-	
 	$hp.text = "zip" + str(hp)
 
+func speeddown():
+	speed = speed * 0.5
+	await get_tree().create_timer(0.2,false).timeout
+	speed = speed / 0.5
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -50,9 +53,7 @@ func _input(event):
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
-			speed = speed * 0.5
-			await get_tree().create_timer(0.2,false).timeout
-			speed = speed / 0.5
+			speeddown()
 
 
 func _on_area_2d_mouse_entered():

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 80
+@export var speed = 125
 @export var hp = 4
 @export var file_size = 3
 @export var take_normal_dmg = 1
@@ -15,6 +15,7 @@ var target_position
 var direction
 
 func _ready():
+	speeddown()
 	sound.enemyspawn()
 
 func _physics_process(delta):
@@ -31,12 +32,8 @@ func movement():
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
 	
-
-
 func _process(delta):
-
 	dead()
-	
 	$hp.text = "normal" + str(hp)
 
 func _input(event):
@@ -49,10 +46,12 @@ func _input(event):
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
-			#speed = speed * 0.5
-			#await get_tree().create_timer(0.2,false).timeout
-			#speed = speed / 0.5
+		speeddown()
 
+func speeddown():
+	speed = speed * 0.5
+	await get_tree().create_timer(0.2,false).timeout
+	speed = speed / 0.5
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

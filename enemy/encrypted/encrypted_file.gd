@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var speed = 125
+@export var speed = 150
 @export var hp = 2
 @export var file_size = 1
 
@@ -11,7 +11,8 @@ var mouse_in = false
 var target_position
 var direction
 
-
+func _ready():
+	speeddown()
 
 func _physics_process(delta):
 	movement()
@@ -27,7 +28,10 @@ func movement():
 	velocity = Vector2(direction).rotated(rotation) * speed * 1
 	move_and_slide()
 	
-
+func speeddown():
+	speed = speed * 0.5
+	await get_tree().create_timer(0.2,false).timeout
+	speed = speed / 0.5
 
 func _process(delta):
 	dead()
@@ -40,6 +44,7 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 			sound.enemyhit()
 			hp -= 1
+			speeddown()
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
