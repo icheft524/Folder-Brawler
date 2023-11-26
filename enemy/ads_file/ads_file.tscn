@@ -54,16 +54,16 @@ expand_mode = 2
 [node name="close_area" type="Area2D" parent="."]
 z_index = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="close_area"]
-position = Vector2(75, -72)
-scale = Vector2(0.289063, 0.289063)
-texture = ExtResource("3_irob5")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="close_area"]
 position = Vector2(75.25, -73)
 shape = SubResource("RectangleShape2D_35kej")
 
 [node name="drag_area" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="drag_area"]
+position = Vector2(75, -72)
+scale = Vector2(0.289063, 0.289063)
+texture = ExtResource("3_irob5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="drag_area"]
 position = Vector2(-1, -71.5)
