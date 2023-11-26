@@ -53,7 +53,7 @@ func _on_timer_timeout():
 						#enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))
 						#if enemy_spawn.hp > enemyhpcap:
 							#enemy_spawn.hp = enemyhpcap
-					enemy_spawn.global_position = get_random_position()
+					enemy_spawn.global_position = Vector2(randf_range(0,1920),randf_range(0,1080))
 					add_child(enemy_spawn)
 					
 					counter += 1
