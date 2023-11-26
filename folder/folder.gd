@@ -24,6 +24,10 @@ var collected_upgrades = []
 var upgrade_options = []
 
 var mouse_in = false
+var drag_back_left = false
+var drag_back_right = false
+var drag_back_top = false
+var drag_back_bottom = false
 var end_task = false
 var fatness
 
@@ -61,6 +65,16 @@ func _input(event):
 	elif event is InputEventMouseMotion:
 		if dragging_folder:
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
+	
+	if event is InputEventMouseMotion:
+		if event.relative.x < 0:
+			drag_back_left = true
+		if event.relative.x > 0:
+			drag_back_right = true
+		if event.relative.y < 0:
+			drag_back_top = true
+		if event.relative.y > 0:
+			drag_back_bottom = true
 			
 			
 	if event is InputEventMouseButton:
@@ -86,15 +100,41 @@ func _input(event):
 		wave5 = false
 	
 func _physics_process(delta):
+	print(self.global_position)
+	
 	if dragging_folder:
+		if self.global_position.x >= 1350 :
+			speed_x = 0
+			if drag_back_left and get_global_mouse_position().x <= 1350:
+				drag_back_left = false 
+				speed_x = 7
+				
+		if self.global_position.x <= 50:
+			speed_x = 0
+			if drag_back_right and get_global_mouse_position().x >= 50:
+				drag_back_right = false 
+				speed_x = 7
+				
+		if self.global_position.y >= 1100:
+			speed_y = 0
+			if drag_back_top and get_global_mouse_position().x <= 1100:
+				drag_back_top = false 
+				speed_y = 7
+				
+		if self.global_position.y <= 0:
+			speed_y = 0
+			if drag_back_bottom and get_global_mouse_position().x >= 0:
+				drag_back_bottom = false 
+				speed_y = 7
+
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y) * fatness
 		move_and_slide()
 		
 		
-	if global.slot_dragging:
-		Engine.time_scale = slowness
-	elif !global.slot_dragging:
-		Engine.time_scale = 1
+	#if global.slot_dragging:
+		#Engine.time_scale = slowness
+	#elif !global.slot_dragging:
+		#Engine.time_scale = 1
 
 
 func check_cap():

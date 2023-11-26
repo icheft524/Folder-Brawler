@@ -45,6 +45,7 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton and !(name_text.text == 'encrypted'):
 		#file_visual.position = origin
 		if event.is_pressed() && mouse_in && occupied:
+			get_viewport().set_input_as_handled()
 			dragging = true
 			global.slot_dragging = true
 			$CenterContainer/Panel/file_display.z_index = 2

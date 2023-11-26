@@ -7,6 +7,7 @@
 [node name="Panel" type="Panel"]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
+z_index = 12
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -27,6 +28,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
+z_index = 20
 layout_mode = 2
 
 [node name="file_display" type="Sprite2D" parent="CenterContainer/Panel"]

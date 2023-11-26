@@ -7,16 +7,16 @@
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_84udr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubrfx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64s1n"]
+size = Vector2(202, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35kej"]
 size = Vector2(43.5, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
-size = Vector2(206, 55)
+size = Vector2(201, 41)
 
 [node name="ads_file" type="CharacterBody2D"]
-z_index = 5
 script = ExtResource("2_7jcnh")
 metadata/Image = SubResource("CompressedTexture2D_84udr")
 
@@ -25,31 +25,19 @@ position = Vector2(-1.7941e-05, -76)
 scale = Vector2(0.197156, 0.283871)
 texture = ExtResource("2_bw22w")
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -74.0
-offset_right = 99.0
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ubrfx")
+[node name="Panel" type="Area2D" parent="."]
 
-[node name="Texture" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.488
-anchor_right = 0.488
-offset_left = -96.016
-offset_top = 11.0
-offset_right = 102.984
-offset_bottom = 122.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel"]
+z_index = 2
+position = Vector2(0.999992, -5.5)
+shape = SubResource("RectangleShape2D_64s1n")
+
+[node name="ads" type="Sprite2D" parent="Panel"]
+show_behind_parent = true
+z_as_relative = false
+position = Vector2(0, -5)
+scale = Vector2(0.289941, 0.289941)
 texture = ExtResource("3_amyrs")
-expand_mode = 2
 
 [node name="close_area" type="Area2D" parent="."]
 z_index = 1
@@ -66,10 +54,11 @@ scale = Vector2(0.289063, 0.289063)
 texture = ExtResource("3_irob5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="drag_area"]
-position = Vector2(-1, -71.5)
+position = Vector2(-0.5, -73.5)
 shape = SubResource("RectangleShape2D_2dk1o")
 
-[connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
+[connection signal="area_entered" from="Panel" to="." method="_on_panel_area_entered"]
+[connection signal="area_exited" from="Panel" to="." method="_on_panel_area_exited"]
 [connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
 [connection signal="mouse_entered" from="close_area" to="." method="_on_close_area_mouse_entered"]

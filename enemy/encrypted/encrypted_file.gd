@@ -51,7 +51,7 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in && indicator_finished:
+		if event.is_pressed() && mouse_in && indicator_finished && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			if percent > global.crit_chance:
 				sound.critical()

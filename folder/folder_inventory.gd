@@ -39,6 +39,9 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 			mouse_in_esc = false
 			close()
+		
+		if event.is_pressed() && !mouse_in:
+			close()
 			
 
 func _physics_process(delta):
@@ -55,13 +58,17 @@ func _physics_process(delta):
 
 
 func open():
+	self.global_position = Vector2(400,370)
 	visible = true
 	isOpen = true
+	global.inv_open = true
+	Engine.time_scale = 0.05
 	
 func close():
 	visible = false
 	isOpen = false
-
+	global.inv_open = false
+	Engine.time_scale = 1
 
 func _on_mouse_entered():
 	mouse_in = true
