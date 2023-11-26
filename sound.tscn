@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=27 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
-[ext_resource type="AudioStream" uid="uid://ccyllmv1h4r20" path="res://sound/Folder_Brawler_OST_DEMO_23_11_23.wav" id="1_hc4b2"]
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
+[ext_resource type="AudioStream" uid="uid://cgid62ndys1hp" path="res://sound/Folder_Brawler_25_11_23.wav" id="2_5m3is"]
+[ext_resource type="AudioStream" uid="uid://bx6up0yik0uyp" path="res://sound/Menu_Music_25_11_23.wav" id="2_sa6y7"]
 [ext_resource type="AudioStream" uid="uid://ducgh4krk2aqv" path="res://sound/enemy/enemySpawn.wav" id="4_bd2mb"]
 [ext_resource type="AudioStream" uid="uid://dvnl1ae2rhevp" path="res://sound/zipSpawn.wav" id="5_ews0g"]
 [ext_resource type="AudioStream" uid="uid://pah72impy6ul" path="res://sound/adSpawn_01.wav" id="5_mp3xx"]
@@ -57,10 +58,15 @@ stream_1/stream = ExtResource("21_qt2s4")
 stream_1/weight = 1.0
 
 [node name="sound" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_i0xcs")
 
+[node name="menumusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sa6y7")
+volume_db = -10.0
+
 [node name="gametheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_hc4b2")
+stream = ExtResource("2_5m3is")
 volume_db = -15.0
 
 [node name="click" type="AudioStreamPlayer" parent="."]

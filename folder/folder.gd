@@ -37,7 +37,6 @@ var wave5 = true
 
 func _ready():
 	inv.allremoved()
-	sound.play_gametheme()
 	global.target = self
 	pass
 
@@ -73,16 +72,16 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): #change to global.time
 		levelup()
 	
-	if global.time == 25 and wave2 == true: #wave2
+	if global.time == 22 and wave2 == true: #wave2
 		levelup()
 		wave2 = false
-	elif global.time == 45 and wave3 == true: #wave3
+	elif global.time == 47 and wave3 == true: #wave3
 		levelup()
 		wave3 = false
-	elif global.time == 65 and wave4 == true: #wave4
+	elif global.time == 72 and wave4 == true: #wave4
 		levelup()
 		wave4 = false
-	elif global.time == 85 and wave5 == true: #wave5
+	elif global.time == 97 and wave5 == true: #wave5
 		levelup()
 		wave5 = false
 	

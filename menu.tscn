@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://08qmvcofwiok"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
+[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_7tlck"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_pxkw2")
+
+[node name="Button" type="TextureButton" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("2_7tlck")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
