@@ -16,10 +16,12 @@ var newPosition = Vector2()
 var mouse_in = false
 var mouse_close_in = false
 var mouse_in_ad = false
+var already_clicked = false
 var target_position
 var direction
 
 func _ready():
+	already_clicked = false
 	sound.adspawn()
 	image.set_texture(get_meta("Image"))
 	var tween = create_tween()
@@ -45,7 +47,8 @@ func _input(event):
 			
 			
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_close_in:
+		if event.is_pressed() && mouse_close_in && !already_clicked:
+			already_clicked = true
 			get_viewport().set_input_as_handled()
 			var tween_close = create_tween()
 			tween_close.tween_property(self,"scale",close,0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
