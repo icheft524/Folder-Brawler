@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var player = global.target
 
 func _ready():
 	pass # Replace with function body.
@@ -8,14 +8,16 @@ func _ready():
 
 
 func _process(delta):
-	$TextureRect/time.text = "Timer: " + str(global.time)
+	$VBoxContainer/capacity.value = player.capacity
+	$VBoxContainer/capacity.max_value = player.max_capacity
+	$VBoxContainer/time.text = "Timer: " + str(global.time)
 	
-	$TextureRect/wave.text = "Wave: " + str(1)
+	$VBoxContainer/wave.text = "Wave: " + str(1)
 	if global.time >= 21: #wave2
-		$TextureRect/wave.text = "Wave: " + str(2)
+		$VBoxContainer/wave.text = "Wave: " + str(2)
 	if global.time >= 41: #wave3
-		$TextureRect/wave.text = "Wave: " + str(3)
+		$VBoxContainer/wave.text = "Wave: " + str(3)
 	if global.time >= 61: #wave4
-		$TextureRect/wave.text = "Wave: " + str(4)
+		$VBoxContainer/wave.text = "Wave: " + str(4)
 	if global.time >= 81: #wave5
-		$TextureRect/wave.text = "Wave: " + str(5)
+		$VBoxContainer/wave.text = "Wave: " + str(5)
