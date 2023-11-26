@@ -23,9 +23,10 @@ func _ready():
 		indicating()
 	else:
 		indicator_finished = true
+		$spawnanim.play("spawn")
+		sound.enemyspawn()
+		speeddown()
 	global.enemy_file_drop = false
-	sound.enemyspawn()
-	speeddown()
 	if not (get_meta("broken_pos") == Vector2.ZERO):
 		var tween = create_tween()
 		tween.tween_property(self,"position",get_meta("broken_pos"),0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
@@ -93,6 +94,9 @@ func indicating():
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true
+	$spawnanim.play("spawn")
+	sound.enemyspawn()
+	speeddown()
 
 
 func _on_area_2d_area_entered(area):

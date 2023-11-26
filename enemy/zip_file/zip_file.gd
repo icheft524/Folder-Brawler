@@ -25,9 +25,10 @@ func _ready():
 		indicating()
 	else:
 		indicator_finished = true
+		sound.zipspawn()
+		speeddown()
 	global.enemy_file_drop = false
-	sound.zipspawn()
-	speeddown()
+	
 
 func _physics_process(delta):
 	if indicator_finished:
@@ -81,6 +82,7 @@ func dead():
 func _spawn_file(count: int):
 	for i in range(count):
 		var fileins = normal_file.instantiate()
+		global.enemy_file_drop = true
 		fileins.position = position
 		fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))
 		get_parent().add_child(fileins)
@@ -102,7 +104,8 @@ func indicating():
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true
-
+	sound.zipspawn()
+	speeddown()
 		
 func respawn():
 	visible = true

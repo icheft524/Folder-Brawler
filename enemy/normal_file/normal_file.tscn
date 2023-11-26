@@ -122,7 +122,6 @@ libraries = {
 }
 
 [node name="spawnanim" type="AnimationPlayer" parent="."]
-autoplay = "spawn"
 libraries = {
 "": SubResource("AnimationLibrary_e8wc4")
 }

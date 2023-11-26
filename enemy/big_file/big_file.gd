@@ -22,9 +22,9 @@ func _ready():
 		indicating()
 	else:
 		indicator_finished = true
+		speeddown()
+		sound.enemyspawn()
 	global.enemy_file_drop = false
-	speeddown()
-	sound.enemyspawn()
 
 func _physics_process(delta):
 	if indicator_finished:
@@ -91,3 +91,5 @@ func indicating():
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true
+	speeddown()
+	sound.enemyspawn()
