@@ -13,10 +13,17 @@ var speed = normal_speed
 @export var file: InvItem
 
 var mouse_in = false
+var indicator_finished = false
 var target_position
 var direction
 
 func _ready():
+	$indicator.visible = false
+	if !global.enemy_file_drop:
+		indicating()
+	else:
+		indicator_finished = true
+	global.enemy_file_drop = false
 	sound.enemyspawn()
 	speeddown()
 	if not (get_meta("broken_pos") == Vector2.ZERO):
@@ -26,8 +33,8 @@ func _ready():
 		pass
 
 func _physics_process(delta):
-	movement()
-	pass
+	if indicator_finished:
+		movement()
 
 func movement():
 	target_position = target.position
@@ -43,8 +50,9 @@ func movement():
 
 func _process(delta):
 	dead()
-	$hp.text = "normal" + str(hp)
-	$speed.text = str(speed)
+	if indicator_finished:
+		$hp.text = "normal" + str(hp)
+		$speed.text = str(speed)
 
 func speeddown():
 	speed = normal_speed * global.slow_speed
@@ -53,7 +61,7 @@ func speeddown():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in:
+		if event.is_pressed() && mouse_in && indicator_finished:
 			get_viewport().set_input_as_handled()
 			#hp -= 1
 			if percent > global.crit_chance:
@@ -75,13 +83,26 @@ func dead():
 	if hp <= 0:
 		#sound.enemydeath()
 		queue_free()
+		
+func indicating():
+	$indicator.visible = true
+	$Sprite2D.visible = false
+	$Area2D.monitoring = false
+	await get_tree().create_timer(1,false).timeout
+	indicator_finished = true
+	$Area2D.monitoring = true
+	$indicator.visible = false
+	$Sprite2D.visible = true
+
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("folder") and visible:
+	if area.is_in_group("folder") and visible and indicator_finished:
 		target.collect(file,hp,file_size,'normal')
 		sound.playerhit()
 		target.capacity += file_size
 		queue_free()
+	
+
 		
 
 

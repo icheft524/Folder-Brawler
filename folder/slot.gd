@@ -62,7 +62,7 @@ func _on_gui_input(event):
 				file_visual.position = origin
 				occupied = false
 				inv.removed(slot_num)
-				drop.respawn_normal(ehp)
+				drop.respawn_normal(ehp,get_global_mouse_position())
 				
 			if name_text.text == 'zip' and !inventory.mouse_in:
 				file_visual.visible = false
@@ -70,7 +70,7 @@ func _on_gui_input(event):
 				file_visual.position = origin
 				occupied = false
 				inv.removed(slot_num)
-				drop.respawn_zip(ehp)
+				drop.respawn_zip(ehp,get_global_mouse_position())
 			
 			if name_text.text == 'big' and !inventory.mouse_in:
 				file_visual.visible = false
@@ -78,7 +78,7 @@ func _on_gui_input(event):
 				file_visual.position = origin
 				occupied = false
 				inv.removed(slot_num)
-				drop.respawn_big(ehp)
+				drop.respawn_big(ehp,get_global_mouse_position())
 
 func _on_mouse_entered():
 	mouse_in = true

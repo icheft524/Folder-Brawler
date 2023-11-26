@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://boie4qqfj5t4x"]
+[gd_scene load_steps=8 format=3 uid="uid://boie4qqfj5t4x"]
 
 [ext_resource type="Script" path="res://enemy/big_file/big_file.gd" id="1_0mtu7"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_j22nk"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ng7xj"]
 [ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="3_8gost"]
+[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="5_jqdfj"]
 
 [sub_resource type="Resource" id="Resource_y44k8"]
 script = ExtResource("2_j22nk")
@@ -30,6 +31,10 @@ shape = SubResource("RectangleShape2D_37rn3")
 [node name="hp" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="indicator" type="Sprite2D" parent="."]
+scale = Vector2(5.6, 5.6)
+texture = ExtResource("5_jqdfj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

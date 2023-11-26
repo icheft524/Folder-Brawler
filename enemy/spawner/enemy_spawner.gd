@@ -6,33 +6,41 @@ extends Node2D
 @export var enemyhpcap = 30
 @onready var player = $"../folder"
 
+
+
 #var time = 0
 func _ready():
 	global.time = 0
 	
-func respawn_normal(ehp):
+func respawn_normal(ehp,pos):
 	var normal_enemy = load("res://enemy/normal_file/normal_file.tscn")
 	var enemy_spawn = normal_enemy.instantiate()
+	global.enemy_file_drop = true
 	enemy_spawn.hp = ehp
-	enemy_spawn.global_position = get_global_mouse_position()
+	enemy_spawn.global_position = pos
 	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
 	
-func respawn_zip(ehp):
+	
+func respawn_zip(ehp,pos):
 	var zip_enemy = load("res://enemy/zip_file/zip_file.tscn")
 	var enemy_spawn = zip_enemy.instantiate()
+	global.enemy_file_drop = true
 	enemy_spawn.hp = ehp
-	enemy_spawn.global_position = get_global_mouse_position()
+	enemy_spawn.global_position = pos
 	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
+	
 
-func respawn_big(ehp):
+func respawn_big(ehp,pos):
 	var big_enemy = load("res://enemy/big_file/big_file.tscn")
 	var enemy_spawn = big_enemy.instantiate()
+	global.enemy_file_drop = true
 	enemy_spawn.hp = ehp
-	enemy_spawn.global_position = get_global_mouse_position()
+	enemy_spawn.global_position = pos
 	player.capacity -= enemy_spawn.file_size
 	add_child(enemy_spawn)
+	
 
 func _on_timer_timeout():
 	global.time += 1
@@ -48,14 +56,14 @@ func _on_timer_timeout():
 				var enemy_spawn = new_enemy.instantiate()
 				var counter = 0
 				while counter < i.enemy_num:
+					var random_pos = Vector2(randf_range(0,1080),randf_range(0,1080))
 					#var enemy_spawn = new_enemy.instantiate()
 					#if global.time >= enemy_upgrade_time:
 						#enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))
 						#if enemy_spawn.hp > enemyhpcap:
 							#enemy_spawn.hp = enemyhpcap
-					enemy_spawn.global_position = Vector2(randf_range(0,1920),randf_range(0,1080))
-					add_child(enemy_spawn)
-					
+					enemy_spawn.global_position = random_pos
+					add_child(enemy_spawn)						
 					counter += 1
 					
 					
@@ -88,3 +96,6 @@ func get_random_position():
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos2.y)
 	
 	return Vector2(x_spawn,y_spawn)
+
+	
+	
