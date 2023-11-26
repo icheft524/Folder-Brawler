@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var normal_speed = 100
+@export var normal_speed = 50
 @export var hp = 2
 @export var file_size = 3
 @export var file: InvItem
@@ -66,7 +66,7 @@ func _on_area_2d_mouse_exited():
 	mouse_in = false
 
 func dead():
-	if hp == 0:
+	if hp <= 0:
 		queue_free()
 		_spawn_file(3)
 		

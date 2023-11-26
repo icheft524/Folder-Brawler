@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var normal_speed = 125
-@export var hp = 4
+@export var normal_speed = 100
+@export var hp = 3
 @export var file_size = 3
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -63,7 +63,7 @@ func _on_area_2d_mouse_exited():
 	mouse_in = false
 
 func dead():
-	if hp == 0:
+	if hp <= 0:
 		#sound.enemydeath()
 		queue_free()
 

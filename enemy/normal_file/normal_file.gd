@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @onready var target = global.target
-@export var normal_speed = 175
-@export var hp = 2
+@export var normal_speed = 150
+@export var hp = 1
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -21,7 +21,7 @@ func _ready():
 	speeddown()
 	if not (get_meta("broken_pos") == Vector2.ZERO):
 		var tween = create_tween()
-		tween.tween_property(self,"position",get_meta("broken_pos"),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.tween_property(self,"position",get_meta("broken_pos"),0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.play()
 		pass
 
@@ -72,7 +72,7 @@ func _on_area_2d_mouse_exited():
 	mouse_in = false
 
 func dead():
-	if hp == 0:
+	if hp <= 0:
 		#sound.enemydeath()
 		queue_free()
 

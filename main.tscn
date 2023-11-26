@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=24 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -16,7 +16,7 @@
 script = ExtResource("4_ojwon")
 name = "Everywave - Normal"
 time_start = 0
-time_end = 130
+time_end = 135
 enemy = ExtResource("3_csoof")
 enemy_num = 1
 enemy_spawn_delay = 1
@@ -33,8 +33,8 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_ug5jq"]
 script = ExtResource("4_ojwon")
 name = "Wave 2 - Big"
-time_start = 22
-time_end = 40
+time_start = 25
+time_end = 45
 enemy = ExtResource("7_7xii8")
 enemy_num = 1
 enemy_spawn_delay = 2
@@ -42,62 +42,53 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_hyrsx"]
 script = ExtResource("4_ojwon")
 name = "Wave 2 Ramp - Normal"
-time_start = 30
-time_end = 40
+time_start = 35
+time_end = 45
 enemy = ExtResource("3_csoof")
-enemy_num = 1
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_o1mwg"]
-script = ExtResource("4_ojwon")
-name = "Wave 3 - Zip"
-time_start = 42
-time_end = 60
-enemy = ExtResource("5_5xetf")
 enemy_num = 1
 enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_l7ruf"]
 script = ExtResource("4_ojwon")
-name = "Wave 4 - Lock"
-time_start = 62
-time_end = 80
+name = "Wave 3 - Lock"
+time_start = 50
+time_end = 65
 enemy = ExtResource("6_4ht4q")
 enemy_num = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_7baam"]
 script = ExtResource("4_ojwon")
-name = "Wave 4 - Big"
-time_start = 62
-time_end = 80
+name = "Wave 3 - Big"
+time_start = 50
+time_end = 65
 enemy = ExtResource("7_7xii8")
 enemy_num = 1
 enemy_spawn_delay = 4
 
+[sub_resource type="Resource" id="Resource_o1mwg"]
+script = ExtResource("4_ojwon")
+name = "Wave 4 - Zip"
+time_start = 70
+time_end = 90
+enemy = ExtResource("5_5xetf")
+enemy_num = 1
+enemy_spawn_delay = 3
+
 [sub_resource type="Resource" id="Resource_qrhdn"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 - Lock"
-time_start = 82
-time_end = 130
+time_start = 95
+time_end = 135
 enemy = ExtResource("6_4ht4q")
-enemy_num = 1
-enemy_spawn_delay = 2
-
-[sub_resource type="Resource" id="Resource_u05jr"]
-script = ExtResource("4_ojwon")
-name = "Wave 5 Ramp - Normal"
-time_start = 82
-time_end = 130
-enemy = ExtResource("3_csoof")
 enemy_num = 1
 enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_b1x1l"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 - Zip"
-time_start = 84
-time_end = 130
+time_start = 95
+time_end = 135
 enemy = ExtResource("5_5xetf")
 enemy_num = 1
 enemy_spawn_delay = 3
@@ -105,11 +96,29 @@ enemy_spawn_delay = 3
 [sub_resource type="Resource" id="Resource_2r7ty"]
 script = ExtResource("4_ojwon")
 name = "Wave 5 - Big"
-time_start = 82
-time_end = 130
+time_start = 95
+time_end = 135
 enemy = ExtResource("7_7xii8")
 enemy_num = 1
 enemy_spawn_delay = 5
+
+[sub_resource type="Resource" id="Resource_u05jr"]
+script = ExtResource("4_ojwon")
+name = "Wave 5 Ramp - Normal"
+time_start = 120
+time_end = 135
+enemy = ExtResource("3_csoof")
+enemy_num = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_c8y3o"]
+script = ExtResource("4_ojwon")
+name = "Wave 4 Ramp - Lock"
+time_start = 80
+time_end = 90
+enemy = ExtResource("6_4ht4q")
+enemy_num = 1
+enemy_spawn_delay = 2
 
 [node name="main" type="Node2D"]
 
@@ -125,7 +134,7 @@ offset_bottom = 811.0
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
-spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_ug5jq"), SubResource("Resource_hyrsx"), SubResource("Resource_o1mwg"), SubResource("Resource_l7ruf"), SubResource("Resource_7baam"), SubResource("Resource_qrhdn"), SubResource("Resource_u05jr"), SubResource("Resource_b1x1l"), SubResource("Resource_2r7ty")])
+spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_ug5jq"), SubResource("Resource_hyrsx"), SubResource("Resource_l7ruf"), SubResource("Resource_7baam"), SubResource("Resource_o1mwg"), SubResource("Resource_qrhdn"), SubResource("Resource_b1x1l"), SubResource("Resource_2r7ty"), SubResource("Resource_u05jr"), SubResource("Resource_c8y3o")])
 
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
 

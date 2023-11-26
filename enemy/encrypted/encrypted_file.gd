@@ -62,7 +62,7 @@ func _on_area_2d_mouse_exited():
 	mouse_in = false
 
 func dead():
-	if hp == 0:
+	if hp <= 0:
 		queue_free()
 
 func _on_area_2d_area_entered(area):

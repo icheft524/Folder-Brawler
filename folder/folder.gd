@@ -10,9 +10,9 @@ var newPosition = Vector2()
 @export var inv: Inv
 var capacity = 0
 @export var max_capacity = 10
-@export var slowness = 0.75
-@export var mid_fat = 0.7
-@export var extreme_fat = 0.3
+@export var slowness = 0.02
+@export var mid_fat = 0.8
+@export var extreme_fat = 0.4
 
 @onready var inventory = $"../folder_inventory"
 @onready var _Upgrade = $"../upgrade"
@@ -73,16 +73,16 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): #change to global.time
 		levelup()
 	
-	if global.time == 21 and wave2 == true: #wave2
+	if global.time == 25 and wave2 == true: #wave2
 		levelup()
 		wave2 = false
-	elif global.time == 41 and wave3 == true: #wave3
+	elif global.time == 45 and wave3 == true: #wave3
 		levelup()
 		wave3 = false
-	elif global.time == 61 and wave4 == true: #wave4
+	elif global.time == 65 and wave4 == true: #wave4
 		levelup()
 		wave4 = false
-	elif global.time == 81 and wave5 == true: #wave5
+	elif global.time == 85 and wave5 == true: #wave5
 		levelup()
 		wave5 = false
 	
