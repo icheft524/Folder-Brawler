@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1vhh0gbxm27"]
+[gd_scene load_steps=16 format=3 uid="uid://b1vhh0gbxm27"]
 
 [ext_resource type="Script" path="res://enemy/normal_file/normal_file.gd" id="1_6aj4h"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_1hj5p"]
@@ -91,6 +91,9 @@ _data = {
 "spawn": SubResource("Animation_rh5h6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i8ut"]
+radius = 52.6118
+
 [node name="normalFile" type="CharacterBody2D"]
 script = ExtResource("1_6aj4h")
 file = SubResource("Resource_vyk3c")
@@ -104,7 +107,6 @@ texture = ExtResource("4_i6mna")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3, 1)
 shape = SubResource("CircleShape2D_1l8qm")
 
 [node name="hp" type="Label" parent="."]
@@ -135,6 +137,9 @@ offset_bottom = 131.0
 [node name="indicator" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("6_qh6v3")
+
+[node name="body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7i8ut")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

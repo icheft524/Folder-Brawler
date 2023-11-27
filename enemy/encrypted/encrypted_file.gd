@@ -88,8 +88,10 @@ func indicating():
 	$indicator.visible = true
 	$Sprite2D.visible = false
 	$Area2D.monitoring = false
+	$body.disabled = true
 	await get_tree().create_timer(1,false).timeout
 	indicator_finished = true
+	$body.disabled = false
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true

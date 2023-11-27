@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://boie4qqfj5t4x"]
+[gd_scene load_steps=9 format=3 uid="uid://boie4qqfj5t4x"]
 
 [ext_resource type="Script" path="res://enemy/big_file/big_file.gd" id="1_0mtu7"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_j22nk"]
@@ -13,6 +13,9 @@ texture = ExtResource("3_8gost")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37rn3"]
 size = Vector2(115, 116)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fxbdd"]
+radius = 63.6946
 
 [node name="big_file" type="CharacterBody2D"]
 script = ExtResource("1_0mtu7")
@@ -35,6 +38,9 @@ offset_bottom = 23.0
 [node name="indicator" type="Sprite2D" parent="."]
 scale = Vector2(5.6, 5.6)
 texture = ExtResource("5_jqdfj")
+
+[node name="body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fxbdd")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

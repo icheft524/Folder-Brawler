@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c76fdqn24ggef"]
+[gd_scene load_steps=9 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
@@ -13,6 +13,9 @@ texture = ExtResource("3_tj173")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jjo4c"]
 radius = 56.0089
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjjfj"]
+radius = 44.0114
 
 [node name="zipFile" type="CharacterBody2D"]
 script = ExtResource("1_ppmwp")
@@ -38,6 +41,9 @@ vertical_alignment = 1
 [node name="indicator" type="Sprite2D" parent="."]
 scale = Vector2(4.1, 4.1)
 texture = ExtResource("5_76l86")
+
+[node name="body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjjfj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

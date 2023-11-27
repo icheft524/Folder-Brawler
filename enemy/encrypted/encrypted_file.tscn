@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqf8xs8frecuw"]
+[gd_scene load_steps=9 format=3 uid="uid://dqf8xs8frecuw"]
 
 [ext_resource type="Script" path="res://enemy/encrypted/encrypted_file.gd" id="1_1xyex"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_8jeey"]
@@ -13,6 +13,9 @@ texture = ExtResource("3_80tad")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpddq"]
 radius = 42.0119
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3klk"]
+radius = 36.3456
 
 [node name="encryptedFile" type="CharacterBody2D"]
 script = ExtResource("1_1xyex")
@@ -38,6 +41,9 @@ horizontal_alignment = 1
 [node name="indicator" type="Sprite2D" parent="."]
 scale = Vector2(0.578125, 0.578125)
 texture = ExtResource("5_dkotm")
+
+[node name="body" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x3klk")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
