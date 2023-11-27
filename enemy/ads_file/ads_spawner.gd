@@ -14,12 +14,12 @@ const art_Path = "res://art/ad/"
 
 
 var ad_im_m = [
-	"Ads_S_1.png",
-	"Ads_S_2.png"
+	"Ads_M_1.png",
+	"Ads_M_2.png"
 	]
 var ad_im_l = [
-	"Ads_M_2.png",
-	"Ads_M_2.png"
+	"Ads_L_1.png",
+	"Ads_L_2.png"
 	]
 var ad_im_s = [
 	"Ads_S_1.png",

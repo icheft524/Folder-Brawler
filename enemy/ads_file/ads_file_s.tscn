@@ -1,60 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlqri4tepttj5"]
+[gd_scene load_steps=7 format=3 uid="uid://dlqri4tepttj5"]
 
 [ext_resource type="Script" path="res://enemy/ads_file/ads_file.gd" id="1_f4kp4"]
-[ext_resource type="Texture2D" uid="uid://c2dw0wr7oh4m4" path="res://enemy/ads_file/bar.png" id="2_u4jv3"]
-[ext_resource type="Texture2D" uid="uid://c2vrehj5l6yfh" path="res://art/ad/ads3.png" id="3_fuuuv"]
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="4_c50ae"]
+[ext_resource type="Texture2D" uid="uid://jyq472fxhm2b" path="res://art/ad/Ads_S_1.png" id="2_8v71j"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_84udr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64s1n"]
-size = Vector2(114, 99)
+size = Vector2(190, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35kej"]
-size = Vector2(22.25, 21)
+size = Vector2(37.125, 34.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dk1o"]
-size = Vector2(115, 23)
+size = Vector2(158.5, 19)
 
 [node name="ads_file" type="CharacterBody2D"]
 script = ExtResource("1_f4kp4")
 metadata/Image = SubResource("CompressedTexture2D_84udr")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0.499996, -67)
-scale = Vector2(0.112796, 0.167742)
-texture = ExtResource("2_u4jv3")
-
 [node name="Panel" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel"]
 z_index = 2
-position = Vector2(-1.90735e-06, -5.5)
+position = Vector2(-3, -2)
 shape = SubResource("RectangleShape2D_64s1n")
 
 [node name="ads" type="Sprite2D" parent="Panel"]
 show_behind_parent = true
 z_as_relative = false
-position = Vector2(0, -5)
-scale = Vector2(0.289941, 0.289941)
-texture = ExtResource("3_fuuuv")
+position = Vector2(0, -17)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_8v71j")
 
 [node name="close_area" type="Area2D" parent="."]
 z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="close_area"]
-position = Vector2(40.875, -64)
+position = Vector2(79.5625, -91.25)
 shape = SubResource("RectangleShape2D_35kej")
 
 [node name="drag_area" type="Area2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="drag_area"]
-position = Vector2(40.875, -63.875)
-scale = Vector2(0.158203, 0.158203)
-texture = ExtResource("4_c50ae")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="drag_area"]
-position = Vector2(0.5, -66.5)
+position = Vector2(-18.75, -90.5)
 shape = SubResource("RectangleShape2D_2dk1o")
 
 [connection signal="area_entered" from="Panel" to="." method="_on_panel_area_entered"]
