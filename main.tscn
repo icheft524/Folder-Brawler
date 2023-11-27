@@ -191,7 +191,7 @@ offset_right = 1412.0
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 7
 offset_left = 1400.0
-offset_right = 2171.0
+offset_right = 2155.0
 offset_bottom = 1081.0
 color = Color(0, 0, 0, 1)
 

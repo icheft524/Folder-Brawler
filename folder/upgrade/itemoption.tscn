@@ -1,51 +1,98 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7n7l7u22qa23"]
+[gd_scene load_steps=10 format=3 uid="uid://c7n7l7u22qa23"]
 
 [ext_resource type="Script" path="res://folder/upgrade/itemoption.gd" id="1_jm3ba"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_6xvr0"]
+[ext_resource type="FontFile" uid="uid://cnj24b0oilxro" path="res://font/VT323-Regular.ttf" id="2_uxncl"]
+[ext_resource type="Texture2D" uid="uid://d3hkefryfdvxy" path="res://folder/upgrade/select.png" id="3_rvj11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivms6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6prv4"]
+line_spacing = 8.0
+font = ExtResource("2_uxncl")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_as3h6"]
+font = ExtResource("2_uxncl")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cl4w"]
+font = ExtResource("2_uxncl")
+font_size = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oc8"]
+size = Vector2(483, 300)
 
 [node name="itemoption" type="ColorRect"]
-custom_minimum_size = Vector2(333, 400)
-offset_right = 333.0
-offset_bottom = 400.0
+custom_minimum_size = Vector2(483, 300)
+offset_right = 483.0
+offset_bottom = 300.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_jm3ba")
 
-[node name="Label_name" type="Label" parent="."]
+[node name="box" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 131.0
-offset_right = 332.0
-offset_bottom = 189.0
+offset_right = 483.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ivms6")
+
+[node name="Label_name" type="Label" parent="box"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 160.0
+offset_top = 20.0
+offset_right = 460.0
+offset_bottom = 100.0
 text = "Kuy"
-horizontal_alignment = 1
-vertical_alignment = 1
+label_settings = SubResource("LabelSettings_6prv4")
 
-[node name="Label_level" type="Label" parent="."]
+[node name="Label_level" type="Label" parent="box"]
+texture_filter = 1
 layout_mode = 0
-offset_top = 179.0
-offset_right = 333.0
-offset_bottom = 218.0
+offset_left = 160.0
+offset_top = 81.0
+offset_right = 460.0
+offset_bottom = 120.0
 text = "Level1"
-horizontal_alignment = 1
-vertical_alignment = 1
+label_settings = SubResource("LabelSettings_as3h6")
+vertical_alignment = 2
 
-[node name="Label_description" type="Label" parent="."]
+[node name="Label_description" type="Label" parent="box"]
+texture_filter = 1
 layout_mode = 0
-offset_top = 230.0
-offset_right = 333.0
-offset_bottom = 269.0
+offset_left = 37.0
+offset_top = 150.0
+offset_right = 447.0
+offset_bottom = 280.0
 text = "Humyai"
-horizontal_alignment = 1
-vertical_alignment = 1
+label_settings = SubResource("LabelSettings_1cl4w")
+autowrap_mode = 1
 
-[node name="ItemIcon" type="TextureRect" parent="."]
+[node name="ItemIcon" type="TextureRect" parent="box"]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 26.0
-offset_right = 216.0
-offset_bottom = 126.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 144.0
+offset_bottom = 144.0
 texture = ExtResource("2_6xvr0")
 expand_mode = 1
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="outline" type="NinePatchRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 300)
+offset_right = 483.0
+offset_bottom = 300.0
+texture = ExtResource("3_rvj11")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(241.5, 150)
+shape = SubResource("RectangleShape2D_u7oc8")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -12,3 +12,4 @@ var enemy_file_drop = false
 var inv_open = false
 var shaking = false
 var big_shaking = false
+var on_upgrade = true

@@ -15,8 +15,11 @@ var capacity = 0
 @export var extreme_fat = 0.4
 
 @onready var inventory = $"../folder_inventory"
-@onready var _Upgrade = $"../upgrade"
-@onready var upgradeOptions = _Upgrade.get_node("%UpgradeOptions")
+@onready var hud = $"../hud"
+@onready var Upgrade = $"../hud/upgrade"
+@onready var UpgradeList = $"../hud/upgrade/list"
+#@onready var _Upgrade = $"../upgrade"
+#@onready var upgradeOptions = _Upgrade.get_node("%UpgradeOptions")
 
 var itemOptions = preload("res://folder/upgrade/itemoption.tscn")
 
@@ -100,8 +103,6 @@ func _input(event):
 		wave5 = false
 	
 func _physics_process(delta):
-	print(self.global_position)
-	
 	if dragging_folder:
 		if self.global_position.x >= 1350 :
 			speed_x = 0
@@ -202,29 +203,22 @@ func upgrade_character(upgrade):
 			end_task = true
 			inv.allremoved()
 			capacity = 0
-	print("get: " + upgrade)
-	var option_children = upgradeOptions.get_children()
+	var option_children = UpgradeList.get_children()
 	for i in option_children:
-		i.queue_free()
+		i.get_node("box").hide()
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
-	_Upgrade.visible = false
-	_Upgrade.position = Vector2(700,700)
 	get_tree().paused = false
 
+
+# delete order = _Upgrade , upgradeOptions
 func levelup():
+	global.on_upgrade = true
 	get_tree().paused = true
-	var tween = _Upgrade.create_tween()
-	tween.tween_property(_Upgrade,"position",Vector2(positionx,positiony),0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
-	_Upgrade.visible = true
-	var options = 0
-	var optionsmax = 2
-	while  options < optionsmax:
-		var option_choice = itemOptions.instantiate()
-		option_choice.item = get_random_item()
-		upgradeOptions.add_child(option_choice)
-		options += 1
+	var option_children = UpgradeList.get_children()
+	for i in option_children:
+		i.get_node("box").show()
+		i.item = get_random_item()
 
 func get_random_item():
 	var dblist = []

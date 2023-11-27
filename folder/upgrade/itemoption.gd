@@ -1,9 +1,13 @@
 extends ColorRect
 
-@onready var lblName = $Label_name
-@onready var lblDescription = $Label_description
-@onready var lblLevel = $Label_level
-@onready var itemIcon = $ItemIcon
+@onready var lblName = $"box/Label_name"
+@onready var lblDescription = $"box/Label_description"
+@onready var lblLevel = $"box/Label_level"
+@onready var itemIcon = $"box/ItemIcon"
+@onready var box = $box
+@onready var outline = $outline
+
+var unhighlight = 0.25
 
 var mouse_over = false
 var item = null
@@ -12,7 +16,11 @@ var item = null
 signal selected_upgrade(upgrade)
 
 func _ready():
+	outline.modulate.a = unhighlight
+	box.hide()
 	connect("selected_upgrade",Callable(player,"upgrade_character"))
+	
+func _process(delta):
 	if item == null:
 		item = "Endtask"
 	lblName.text = UpgradeDb.UPGRADES[item]["displayname"]
@@ -20,14 +28,22 @@ func _ready():
 	lblLevel.text = UpgradeDb.UPGRADES[item]["level"]
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 
-
 func _input(event):
 	if event.is_action("leftclick"):
 		if mouse_over == true:
+			global.on_upgrade = false
+			outline.modulate.a = unhighlight
 			emit_signal("selected_upgrade",item)
 
-func _on_mouse_entered():
+func _on_area_2d_mouse_entered():
 	mouse_over = true
+	if global.on_upgrade:
+		outline.modulate.a = 1
+	pass
 
-func _on_mouse_exited():
+
+func _on_area_2d_mouse_exited():
 	mouse_over = false
+	if global.on_upgrade:
+		outline.modulate.a = unhighlight
+	pass

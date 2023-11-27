@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=7 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
 [ext_resource type="FontFile" uid="uid://cnj24b0oilxro" path="res://font/VT323-Regular.ttf" id="2_atgct"]
 [ext_resource type="Texture2D" uid="uid://b0jip4121vgqx" path="res://art/progressbar.png" id="2_ymftb"]
 [ext_resource type="Texture2D" uid="uid://d5vm0t7puy67" path="res://art/progressbarin.png" id="3_3a5yf"]
+[ext_resource type="PackedScene" uid="uid://c7n7l7u22qa23" path="res://folder/upgrade/itemoption.tscn" id="5_y3dkf"]
+[ext_resource type="Texture2D" uid="uid://ruyi5641qddi" path="res://folder/upgrade/update.png" id="6_rkqmt"]
 
 [node name="hud" type="Control"]
 z_index = 10
@@ -21,12 +23,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="capacity" type="TextureProgressBar" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 max_value = 10.0
 texture_over = ExtResource("2_ymftb")
 texture_progress = ExtResource("3_3a5yf")
 
 [node name="time" type="Label" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_atgct")
 theme_override_font_sizes/font_size = 100
@@ -34,8 +38,47 @@ text = "time"
 vertical_alignment = 1
 
 [node name="wave" type="Label" parent="VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_atgct")
 theme_override_font_sizes/font_size = 100
 text = "wave"
 vertical_alignment = 1
+
+[node name="upgrade" type="Label" parent="."]
+process_mode = 2
+texture_filter = 1
+layout_mode = 2
+offset_top = 298.0
+offset_right = 480.0
+offset_bottom = 401.0
+theme_override_fonts/font = ExtResource("2_atgct")
+theme_override_font_sizes/font_size = 100
+text = "upgrade"
+vertical_alignment = 1
+
+[node name="list" type="VBoxContainer" parent="upgrade"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.165
+anchor_bottom = 1.165
+offset_top = 0.00498962
+offset_right = 482.0
+offset_bottom = 300.005
+
+[node name="itemoption" parent="upgrade/list" instance=ExtResource("5_y3dkf")]
+layout_mode = 2
+
+[node name="itemoption2" parent="upgrade/list" instance=ExtResource("5_y3dkf")]
+layout_mode = 2
+
+[node name="update" type="TextureRect" parent="upgrade"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 300.0
+offset_top = 27.0
+offset_right = 478.0
+offset_bottom = 95.0
+texture = ExtResource("6_rkqmt")
+expand_mode = 1
