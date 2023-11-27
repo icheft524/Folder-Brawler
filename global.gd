@@ -10,3 +10,5 @@ var ad_clicked = false
 var slow_speed = 0.75
 var enemy_file_drop = false
 var inv_open = false
+var shaking = false
+var big_shaking = false

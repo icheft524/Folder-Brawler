@@ -70,6 +70,7 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp <= 0:
+		global.shaking = true
 		queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -79,6 +80,7 @@ func _on_area_2d_area_entered(area):
 		target.collect(file,hp,file_size,'encrypted')
 		sound.playerhit()
 		target.capacity += file_size
+		global.shaking = true
 		queue_free()
 		
 func indicating():

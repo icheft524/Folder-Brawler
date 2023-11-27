@@ -76,6 +76,7 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp <= 0:
+		global.shaking = true
 		queue_free()
 		_spawn_file(3)
 		
@@ -94,6 +95,7 @@ func _on_area_2d_area_entered(area):
 		await get_tree().create_timer(0.2,false).timeout
 		target.collect(file,hp,file_size,'zip')
 		target.capacity += file_size
+		global.shaking = true
 		sound.playerhit()
 		queue_free()
 		
