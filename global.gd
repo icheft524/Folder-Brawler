@@ -13,3 +13,4 @@ var inv_open = false
 var shaking = false
 var big_shaking = false
 var on_upgrade = false
+var hand_mouse = false

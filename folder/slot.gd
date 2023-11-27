@@ -6,6 +6,7 @@ extends Panel
 @onready var drop = $"../../../../enemy_spawner"
 @onready var player = $"../../../../folder"
 @onready var inventory = $"../../../../folder_inventory"
+@onready var cam = $"../../../../cam"
 
 @export var inv: Inv
 
@@ -38,6 +39,7 @@ func update(slot: InvSlot):
 func _physics_process(delta):
 	
 	if dragging == true:
+		global.hand_mouse = true
 		file_visual.position = get_local_mouse_position()
 		
 
@@ -53,6 +55,7 @@ func _on_gui_input(event):
 			
 		elif occupied:
 			dragging = false
+			global.hand_mouse = false
 			global.slot_dragging = false
 			$CenterContainer/Panel/file_display.z_index = 1
 			file_visual.position = origin
@@ -83,7 +86,9 @@ func _on_gui_input(event):
 
 func _on_mouse_entered():
 	mouse_in = true
+	global.hand_mouse = true
 
 
 func _on_mouse_exited():
 	mouse_in = false
+	global.hand_mouse = false

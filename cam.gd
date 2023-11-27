@@ -13,6 +13,16 @@ func _ready():
 	curPos = offset
 
 func _process(delta):
+	if global.hand_mouse:
+		$hand_mouse.visible = true
+		$hand_mouse.global_position = get_global_mouse_position()
+	if !global.hand_mouse:
+		$hand_mouse.visible = false
+	if !$hand_mouse.visible:
+		$pointer_mouse.visible = true
+		$pointer_mouse.global_position = get_global_mouse_position()
+	else:
+		$pointer_mouse.visible = false
 	if global.shaking:
 		shake(delta)
 	if global.big_shaking:
