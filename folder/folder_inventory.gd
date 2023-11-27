@@ -62,7 +62,7 @@ func open():
 	visible = true
 	isOpen = true
 	global.inv_open = true
-	Engine.time_scale = 0.05
+	Engine.time_scale = 0.35
 	
 func close():
 	visible = false

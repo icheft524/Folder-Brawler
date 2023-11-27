@@ -46,3 +46,4 @@ ESC={
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.113725, 0.458824, 0.309804, 1)

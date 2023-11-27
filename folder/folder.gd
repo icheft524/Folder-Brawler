@@ -139,15 +139,15 @@ func _physics_process(delta):
 
 
 func check_cap():
-	if capacity < 4:
+	if capacity < 3:
 		fatness = 1
-		$Sprite2D.texture = load("res://folder/folder_empty.png2.png")
-	elif capacity < 8:
+		$Sprite2D.texture = load("res://art/playerfolder/s/playerbody_s_idle.png")
+	elif capacity < 6:
 		fatness = mid_fat
-		$Sprite2D.texture = load("res://folder/folder_half.png2.png")
+		$Sprite2D.texture = load("res://art/playerfolder/m/playerbody_m_idle.png")
 	elif capacity < max_capacity:
 		fatness = extreme_fat
-		$Sprite2D.texture = load("res://folder/folder_full.png2.png")
+		$Sprite2D.texture = load("res://art/playerfolder/l/playerbody_l_idle.png")
 	else:
 		get_tree().reload_current_scene()
 
