@@ -40,13 +40,12 @@ func _ready():
 	global.enemy_file_drop = false
 	
 
-
 func _process(delta):
 	dead()
 	if indicator_finished:
 		$hp.text = "boss" + str(hp)
 	
-	if hp == 20 && !phase2:
+	if hp <= 20 && !phase2:
 		phase2 = true
 		print('not res')
 		not_respond = true
@@ -54,7 +53,7 @@ func _process(delta):
 		await get_tree().create_timer(3,false).timeout
 		not_respond = false
 		
-	if hp == 10 && !phase3:
+	if hp <= 10 && !phase3:
 		phase3 = true
 		not_respond = true
 		_spawn_file(3)
@@ -86,10 +85,8 @@ func teleport():
 	indicating()
 	self.position = Vector2(_postion_random_srceen(offset))
 
-
 func _on_area_2d_mouse_entered():
 	mouse_in = true
-
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
