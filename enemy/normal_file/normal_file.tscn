@@ -19,7 +19,7 @@ shader_parameter/whiteflashed = true
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1l8qm"]
-radius = 78.2304
+radius = 56.0892
 
 [sub_resource type="Animation" id="Animation_sasmg"]
 resource_name = "hit"

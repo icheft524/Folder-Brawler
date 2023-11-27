@@ -77,6 +77,8 @@ func dead():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible and indicator_finished:
+		indicator_finished = false
+		await get_tree().create_timer(0.2,false).timeout
 		target.collect(file,hp,file_size,'big')
 		sound.playerhit()
 		target.capacity += file_size

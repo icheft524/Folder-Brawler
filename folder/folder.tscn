@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7m04qbyve7p" path="res://folder/folder_empty.png2.png" id="3_prygn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgl3m"]
-size = Vector2(166, 125)
+size = Vector2(128, 95)
 
 [sub_resource type="Animation" id="Animation_c62mh"]
 length = 0.001
@@ -55,7 +55,7 @@ texture = ExtResource("3_prygn")
 [node name="Area2D" type="Area2D" parent="." groups=["folder"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -4)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_pgl3m")
 
 [node name="hp" type="Label" parent="."]
