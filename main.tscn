@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=30 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b72g8055fh1f1" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
 [ext_resource type="PackedScene" uid="uid://jxmqkfjngr0t" path="res://hud.tscn" id="10_02sxe"]
 [ext_resource type="PackedScene" uid="uid://wgh1gsmpjc25" path="res://cam.tscn" id="12_0wdna"]
+[ext_resource type="PackedScene" uid="uid://c6u4yboym6qs8" path="res://enemy/boss/boss.tscn" id="13_15cqn"]
 
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
@@ -197,3 +198,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="cam" parent="." instance=ExtResource("12_0wdna")]
 anchor_mode = 0
+
+[node name="boss" parent="." instance=ExtResource("13_15cqn")]
+position = Vector2(1184, 151)

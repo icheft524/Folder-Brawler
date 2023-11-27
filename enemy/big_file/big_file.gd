@@ -26,6 +26,11 @@ func _ready():
 		speeddown()
 		sound.enemyspawn()
 	global.enemy_file_drop = false
+	if not (get_meta("broken_pos") == Vector2.ZERO):
+		var tween = create_tween()
+		tween.tween_property(self,"position",get_meta("broken_pos"),0.3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
+		pass
 
 func _physics_process(delta):
 	if indicator_finished:

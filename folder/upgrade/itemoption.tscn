@@ -80,6 +80,7 @@ expand_mode = 1
 [node name="outline" type="NinePatchRect" parent="."]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 300)
+layout_mode = 0
 offset_right = 483.0
 offset_bottom = 300.0
 texture = ExtResource("3_rvj11")

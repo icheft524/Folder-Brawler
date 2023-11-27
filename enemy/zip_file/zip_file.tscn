@@ -20,6 +20,7 @@ radius = 44.0114
 [node name="zipFile" type="CharacterBody2D"]
 script = ExtResource("1_ppmwp")
 file = SubResource("Resource_lgouq")
+metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.452632, 0.452632)
