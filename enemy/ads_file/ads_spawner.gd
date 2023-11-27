@@ -3,13 +3,27 @@ extends Node2D
 @onready var timer : Timer = $"ads_time"
 @onready var main = $"../.."
 
-var ad = preload("res://enemy/ads_file/ads_file.tscn")
-var offset = 100
+var ads = preload("res://enemy/ads_file/ads_file_s.tscn")
+var adm = preload("res://enemy/ads_file/ads_file_m.tscn")
+var adl = preload("res://enemy/ads_file/ads_file_l.tscn")
+
+var adscale = [ads,adm,adl]
+
+var offset = 200
 const art_Path = "res://art/ad/"
 
-var ad_im = [
+
+var ad_im_m = [
 	"ads1.png",
 	"ads2.png"
+	]
+var ad_im_l = [
+	"ads5.png",
+	"ads6.png"
+	]
+var ad_im_s = [
+	"ads3.png",
+	"ads4.png"
 	]
 
 func _ready():
@@ -29,8 +43,15 @@ func _on_ads_time_timeout():
 	pass
 
 func _spawn():
-	var ins_ad = ad.instantiate()
-	ins_ad.set_meta("Image",load(art_Path + ad_im[randi() % ad_im.size()]))
+	var random_ad = randi() % adscale.size()
+	var ins_ad = adscale[random_ad].instantiate()
+	match random_ad:
+		0:
+			ins_ad.set_meta("Image",load(art_Path + ad_im_s[randi() % ad_im_s.size()]))
+		1:
+			ins_ad.set_meta("Image",load(art_Path + ad_im_m[randi() % ad_im_m.size()]))
+		2:
+			ins_ad.set_meta("Image",load(art_Path + ad_im_l[randi() % ad_im_l.size()]))
 	ins_ad.global_position = _postion_random_srceen(offset)
 	get_parent().add_child(ins_ad)
 
