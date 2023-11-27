@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dqf8xs8frecuw" path="res://enemy/encrypted/encrypted_file.tscn" id="6_4ht4q"]
 [ext_resource type="PackedScene" uid="uid://boie4qqfj5t4x" path="res://enemy/big_file/big_file.tscn" id="7_7xii8"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="8_jr5b5"]
-[ext_resource type="PackedScene" uid="uid://de1rsafpaq381" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
+[ext_resource type="PackedScene" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
 [ext_resource type="PackedScene" uid="uid://jxmqkfjngr0t" path="res://hud.tscn" id="10_02sxe"]
 [ext_resource type="PackedScene" uid="uid://wgh1gsmpjc25" path="res://cam.tscn" id="12_0wdna"]
 

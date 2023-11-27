@@ -40,8 +40,8 @@ func _input(event):
 			mouse_in_esc = false
 			close()
 		
-		if event.is_pressed() && !mouse_in:
-			close()
+		if event.is_pressed() && global.inv_open && !mouse_in:
+			get_viewport().set_input_as_handled()
 			
 
 func _physics_process(delta):
