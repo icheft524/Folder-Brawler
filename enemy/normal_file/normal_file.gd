@@ -58,8 +58,8 @@ func _process(delta):
 
 func speeddown():
 	speed = normal_speed * global.slow_speed
-	await get_tree().create_timer(0.2,false).timeout
-	speed = normal_speed
+	await get_tree().create_timer(0.5,false).timeout
+	speed = randi_range(normal_speed,normal_speed+100)
 
 func _input(event):
 	if event is InputEventMouseButton:
