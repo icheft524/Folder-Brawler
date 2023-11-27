@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 150
-@export var speed_range = 100
+@export var speed_range = 25
 @export var hp = 1
 @export var file_size = 1
 @export var take_normal_dmg = 1
@@ -89,6 +89,7 @@ func dead():
 		queue_free()
 		
 func indicating():
+	$indicatoranim.play("indicate")
 	$indicator.visible = true
 	$Sprite2D.visible = false
 	$Area2D.monitoring = false
@@ -112,6 +113,7 @@ func _on_area_2d_area_entered(area):
 		sound.playerhit()
 		target.capacity += file_size
 		global.shaking = true
+		target.flash()
 		queue_free()
 		
 

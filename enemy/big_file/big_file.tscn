@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://boie4qqfj5t4x"]
+[gd_scene load_steps=15 format=3 uid="uid://boie4qqfj5t4x"]
 
 [ext_resource type="Script" path="res://enemy/big_file/big_file.gd" id="1_0mtu7"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_j22nk"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ng7xj"]
 [ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="3_8gost"]
-[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="5_jqdfj"]
+[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_2pwen"]
+[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_wwvry"]
+[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_gx8tn"]
+[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_h3c7c"]
 
 [sub_resource type="Resource" id="Resource_y44k8"]
 script = ExtResource("2_j22nk")
@@ -17,7 +20,44 @@ size = Vector2(115, 116)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxbdd"]
 radius = 63.6946
 
+[sub_resource type="Animation" id="Animation_83k0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2pwen")]
+}
+
+[sub_resource type="Animation" id="Animation_k3vnd"]
+resource_name = "indicate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 1,
+"values": [ExtResource("5_2pwen"), ExtResource("6_wwvry"), ExtResource("7_gx8tn"), ExtResource("8_h3c7c"), ExtResource("5_2pwen"), ExtResource("6_wwvry"), ExtResource("8_h3c7c"), ExtResource("5_2pwen"), ExtResource("7_gx8tn"), ExtResource("6_wwvry"), ExtResource("7_gx8tn")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8pdm"]
+_data = {
+"RESET": SubResource("Animation_83k0q"),
+"indicate": SubResource("Animation_k3vnd")
+}
+
 [node name="big_file" type="CharacterBody2D"]
+z_index = -1
 script = ExtResource("1_0mtu7")
 file = SubResource("Resource_y44k8")
 metadata/broken_pos = Vector2(0, 0)
@@ -37,11 +77,16 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="indicator" type="Sprite2D" parent="."]
-scale = Vector2(5.6, 5.6)
-texture = ExtResource("5_jqdfj")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_2pwen")
 
 [node name="body" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_fxbdd")
+
+[node name="indicatoranim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8pdm")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

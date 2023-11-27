@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c76fdqn24ggef"]
+[gd_scene load_steps=15 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
 [ext_resource type="Texture2D" uid="uid://cpaa3bmk0xr1o" path="res://art/zipicon.png" id="3_tj173"]
 [ext_resource type="Texture2D" uid="uid://d3wsggic5wgue" path="res://enemy/zip_file/enemy_zip.png" id="4_qrx0s"]
-[ext_resource type="Texture2D" uid="uid://xk5xakv8njmn" path="res://enemy/normal_file/HextechGunblade - Copy.png" id="5_76l86"]
+[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_1icfe"]
+[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_14rcp"]
+[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_ufjoe"]
+[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_2giee"]
 
 [sub_resource type="Resource" id="Resource_lgouq"]
 script = ExtResource("2_k2wnp")
@@ -17,12 +20,49 @@ radius = 56.0089
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjjfj"]
 radius = 44.0114
 
+[sub_resource type="Animation" id="Animation_83k0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1icfe")]
+}
+
+[sub_resource type="Animation" id="Animation_k3vnd"]
+resource_name = "indicate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 1,
+"values": [ExtResource("5_1icfe"), ExtResource("6_14rcp"), ExtResource("7_ufjoe"), ExtResource("8_2giee"), ExtResource("5_1icfe"), ExtResource("6_14rcp"), ExtResource("8_2giee"), ExtResource("5_1icfe"), ExtResource("7_ufjoe"), ExtResource("6_14rcp"), ExtResource("7_ufjoe")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8pdm"]
+_data = {
+"RESET": SubResource("Animation_83k0q"),
+"indicate": SubResource("Animation_k3vnd")
+}
+
 [node name="zipFile" type="CharacterBody2D"]
 script = ExtResource("1_ppmwp")
 file = SubResource("Resource_lgouq")
 metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(0.452632, 0.452632)
 texture = ExtResource("4_qrx0s")
 
@@ -40,11 +80,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="indicator" type="Sprite2D" parent="."]
-scale = Vector2(4.1, 4.1)
-texture = ExtResource("5_76l86")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_1icfe")
 
 [node name="body" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vjjfj")
+
+[node name="indicatoranim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8pdm")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

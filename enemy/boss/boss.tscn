@@ -1,11 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6u4yboym6qs8"]
+[gd_scene load_steps=11 format=3 uid="uid://c6u4yboym6qs8"]
 
 [ext_resource type="Script" path="res://enemy/boss/boss.gd" id="1_8o72f"]
 [ext_resource type="Texture2D" uid="uid://bsihhwsmbkbs5" path="res://folder/folder_full.png2.png" id="2_vntby"]
-[ext_resource type="Texture2D" uid="uid://cqa0p4irvbig6" path="res://enemy/zip_file/GuinsoosRageblade-copy.png" id="3_la2d3"]
+[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="3_p0wm4"]
+[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="4_8sd51"]
+[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="5_p1sdm"]
+[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="6_kr7fp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dprjq"]
 size = Vector2(126.5, 124)
+
+[sub_resource type="Animation" id="Animation_83k0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_p0wm4")]
+}
+
+[sub_resource type="Animation" id="Animation_k3vnd"]
+resource_name = "indicate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 1,
+"values": [ExtResource("3_p0wm4"), ExtResource("4_8sd51"), ExtResource("5_p1sdm"), ExtResource("6_kr7fp"), ExtResource("3_p0wm4"), ExtResource("4_8sd51"), ExtResource("6_kr7fp"), ExtResource("3_p0wm4"), ExtResource("5_p1sdm"), ExtResource("4_8sd51"), ExtResource("5_p1sdm")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8pdm"]
+_data = {
+"RESET": SubResource("Animation_83k0q"),
+"indicate": SubResource("Animation_k3vnd")
+}
 
 [node name="boss" type="CharacterBody2D"]
 script = ExtResource("1_8o72f")
@@ -20,12 +59,17 @@ position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_dprjq")
 
 [node name="indicator" type="Sprite2D" parent="."]
-scale = Vector2(3.3, 3.3)
-texture = ExtResource("3_la2d3")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_p0wm4")
 
 [node name="hp" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="indicatoranim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8pdm")
+}
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

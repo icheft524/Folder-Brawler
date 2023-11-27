@@ -11,8 +11,9 @@ var newPosition = Vector2()
 var capacity = 0
 @export var max_capacity = 10
 @export var slowness = 0.02
-@export var mid_fat = 0.8
-@export var extreme_fat = 0.4
+@export var m_fat = 0.8
+@export var l_fat = 0.5
+@export var xl_fat = 0.3
 
 @onready var inventory = $"../folder_inventory"
 @onready var hud = $"../hud"
@@ -56,6 +57,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() && mouse_in:
+			$shadow.visible = true
 			sound.playergrab()
 			get_viewport().set_input_as_handled()
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
@@ -64,6 +66,7 @@ func _input(event):
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 		else:
 			dragging_folder = false
+			$shadow.visible = false
 			
 	elif event is InputEventMouseMotion:
 		if dragging_folder:
@@ -139,23 +142,40 @@ func _physics_process(delta):
 
 
 func check_cap():
-	if capacity < 3:
+	if capacity < 2:
 		fatness = 1
 		$Sprite2D.texture = load("res://art/playerfolder/s/playerbody_s_idle.png")
-	elif capacity < 6:
-		fatness = mid_fat
+		$face.texture = load("res://art/playerfolder/s/playerface_S.png")
+		$outline.texture = load("res://art/playerfolder/s/playerbody_s_hover.png")
+		$shadow.texture = load("res://art/playerfolder/s/playerbody_s_dragging.png")
+	elif capacity < 4:
+		fatness = m_fat
 		$Sprite2D.texture = load("res://art/playerfolder/m/playerbody_m_idle.png")
-	elif capacity < max_capacity:
-		fatness = extreme_fat
+		$face.texture = load("res://art/playerfolder/m/playerface_M.png")
+		$outline.texture = load("res://art/playerfolder/m/playerbody_m_hover.png")
+		$shadow.texture = load("res://art/playerfolder/m/playerbody_m_dragging.png")
+	elif capacity < 6:
+		fatness = l_fat
 		$Sprite2D.texture = load("res://art/playerfolder/l/playerbody_l_idle.png")
+		$face.texture = load("res://art/playerfolder/l/playerface_L.png")
+		$outline.texture = load("res://art/playerfolder/l/playerbody_l_hover.png")
+		$shadow.texture = load("res://art/playerfolder/l/playerbody_l_dragging.png")
+	elif capacity < 8:
+		fatness = xl_fat
+		$Sprite2D.texture = load("res://art/playerfolder/xl/playerbody_xl_idle.png")
+		$face.texture = load("res://art/playerfolder/xl/playerface_XL.png")
+		$outline.texture = load("res://art/playerfolder/xl/playerbody_xl_hover.png")
+		$shadow.texture = load("res://art/playerfolder/xl/playerbody_xl_dragging.png")
 	else:
 		get_tree().reload_current_scene()
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
+	$outline.visible = true
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+	$outline.visible = false
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group('enemy'):
@@ -210,6 +230,8 @@ func upgrade_character(upgrade):
 	collected_upgrades.append(upgrade)
 	get_tree().paused = false
 
+func flash():
+	$flashanim.play("flash")
 
 # delete order = _Upgrade , upgradeOptions
 func levelup():

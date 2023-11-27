@@ -4,7 +4,6 @@
 
 [sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_7pnqo"]
 parameter_name = "whiteflashed"
-default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_jtv20"]
 parameter_name = "tint"
@@ -17,7 +16,7 @@ input_name = "color"
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
-uniform bool whiteflashed = false;
+uniform bool whiteflashed;
 uniform vec4 tint : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 
 
@@ -59,6 +58,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-271.656, -9.39256)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(300, 120)
@@ -70,4 +70,4 @@ nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_jtv20")
 nodes/fragment/4/position = Vector2(-200, 280)
 nodes/fragment/5/node = SubResource("VisualShaderNodeInput_5kcve")
 nodes/fragment/5/position = Vector2(-240, 480)
-nodes/fragment/connections = PackedInt32Array(4, 0, 2, 3, 5, 0, 2, 4, 5, 0, 2, 5, 3, 0, 2, 0, 2, 0, 0, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 3, 3, 0, 2, 0, 5, 0, 2, 4, 5, 0, 2, 5, 2, 0, 0, 0)

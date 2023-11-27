@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqf8xs8frecuw"]
+[gd_scene load_steps=15 format=3 uid="uid://dqf8xs8frecuw"]
 
 [ext_resource type="Script" path="res://enemy/encrypted/encrypted_file.gd" id="1_1xyex"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_8jeey"]
 [ext_resource type="Texture2D" uid="uid://dic1mirl72q1" path="res://art/lockicon.png" id="3_80tad"]
 [ext_resource type="Texture2D" uid="uid://ssxhl6wirwhd" path="res://enemy/encrypted/enemy_encrypted.png" id="4_h5u1o"]
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="5_dkotm"]
+[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_2kikq"]
+[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_wuuux"]
+[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_iqhag"]
+[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_3m13r"]
 
 [sub_resource type="Resource" id="Resource_d6nso"]
 script = ExtResource("2_8jeey")
@@ -17,11 +20,48 @@ radius = 42.0119
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3klk"]
 radius = 36.3456
 
+[sub_resource type="Animation" id="Animation_83k0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_2kikq")]
+}
+
+[sub_resource type="Animation" id="Animation_k3vnd"]
+resource_name = "indicate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("indicator:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 1,
+"values": [ExtResource("5_2kikq"), ExtResource("6_wuuux"), ExtResource("7_iqhag"), ExtResource("8_3m13r"), ExtResource("5_2kikq"), ExtResource("6_wuuux"), ExtResource("8_3m13r"), ExtResource("5_2kikq"), ExtResource("7_iqhag"), ExtResource("6_wuuux"), ExtResource("7_iqhag")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8pdm"]
+_data = {
+"RESET": SubResource("Animation_83k0q"),
+"indicate": SubResource("Animation_k3vnd")
+}
+
 [node name="encryptedFile" type="CharacterBody2D"]
 script = ExtResource("1_1xyex")
 file = SubResource("Resource_d6nso")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 scale = Vector2(0.357895, 0.357895)
 texture = ExtResource("4_h5u1o")
 
@@ -39,11 +79,16 @@ theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
 [node name="indicator" type="Sprite2D" parent="."]
-scale = Vector2(0.578125, 0.578125)
-texture = ExtResource("5_dkotm")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_2kikq")
 
 [node name="body" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x3klk")
+
+[node name="indicatoranim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8pdm")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -1,10 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr0dyvw0s0u0s"]
+[gd_scene load_steps=19 format=3 uid="uid://dr0dyvw0s0u0s"]
 
 [ext_resource type="Script" path="res://folder/folder.gd" id="1_jar6q"]
 [ext_resource type="Resource" uid="uid://x2k7tqvwb038" path="res://folder/playerInv.tres" id="2_m3wq1"]
 [ext_resource type="Texture2D" uid="uid://bcyr57w6f2ena" path="res://art/playerfolder/s/playerface_S.png" id="3_e387u"]
+[ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="4_iv7fj"]
 [ext_resource type="Texture2D" uid="uid://cvrdbpmwfd83f" path="res://art/playerfolder/s/playerbody_s_idle.png" id="4_wmins"]
 [ext_resource type="Texture2D" uid="uid://b4ybu2mw2gay4" path="res://art/playerfolder/foldername.png" id="4_ws5jq"]
+[ext_resource type="Texture2D" uid="uid://cjyegyrmwdfi7" path="res://art/playerfolder/s/playerbody_s_hover.png" id="6_66p6d"]
+[ext_resource type="Texture2D" uid="uid://bmu70vchvjrhw" path="res://art/playerfolder/s/playerbody_s_dragging.png" id="7_pwwhq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ud77s"]
+shader = ExtResource("4_iv7fj")
+shader_parameter/whiteflashed = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgl3m"]
 size = Vector2(128, 95)
@@ -18,6 +26,30 @@ tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("outline:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -40,6 +72,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.25, 0.275), Vector2(0.25, 0.238), Vector2(0.25, 0.25), Vector2(0.25, 0.25)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("outline:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0.25, 0.275), Vector2(0.25, 0.238), Vector2(0.25, 0.275), Vector2(0.25, 0.275)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shadow:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0.25, 0.275), Vector2(0.25, 0.238), Vector2(0.25, 0.275), Vector2(0.25, 0.275)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vfl81"]
 _data = {
@@ -47,17 +103,113 @@ _data = {
 "idle": SubResource("Animation_viyxo")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4vo1"]
+shader = ExtResource("4_iv7fj")
+shader_parameter/whiteflashed = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_el8gy"]
+shader = ExtResource("4_iv7fj")
+shader_parameter/whiteflashed = null
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_l2tjx"]
+resource_name = "flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("outline:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shadow:material:shader_parameter/whiteflashed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, true]
+}
+
+[sub_resource type="Animation" id="Animation_g12m3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("outline:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shadow:material:shader_parameter/whiteflashed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0jtm"]
+_data = {
+"RESET": SubResource("Animation_g12m3"),
+"flash": SubResource("Animation_l2tjx")
+}
+
 [node name="folder" type="CharacterBody2D"]
 script = ExtResource("1_jar6q")
 inv = ExtResource("2_m3wq1")
 
 [node name="face" type="Sprite2D" parent="."]
-position = Vector2(-5, 13)
+position = Vector2(-12, 13)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_e387u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
+material = SubResource("ShaderMaterial_ud77s")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_wmins")
 
@@ -87,6 +239,26 @@ vertical_alignment = 1
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_vfl81")
+}
+
+[node name="outline" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_y4vo1")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_66p6d")
+
+[node name="shadow" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+material = SubResource("ShaderMaterial_el8gy")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_pwwhq")
+
+[node name="flashanim" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+libraries = {
+"": SubResource("AnimationLibrary_a0jtm")
 }
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

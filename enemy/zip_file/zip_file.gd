@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 50
-@export var speed_range = 100
+@export var speed_range = 25
 @export var hp = 2
 @export var file_size = 3
 @export var file: InvItem
@@ -103,9 +103,11 @@ func _on_area_2d_area_entered(area):
 		target.capacity += file_size
 		global.shaking = true
 		sound.playerhit()
+		target.flash()
 		queue_free()
 		
 func indicating():
+	$indicatoranim.play("indicate")
 	$indicator.visible = true
 	$Sprite2D.visible = false
 	$Area2D.monitoring = false
