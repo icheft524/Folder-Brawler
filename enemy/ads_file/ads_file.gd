@@ -19,6 +19,10 @@ var mouse_in_ad = false
 var already_clicked = false
 var target_position
 var direction
+var drag_back_left = false
+var drag_back_right = false
+var drag_back_top = false
+var drag_back_bottom = false
 
 func _ready():
 	already_clicked = false
@@ -58,10 +62,45 @@ func _input(event):
 		if event.is_pressed() && mouse_in_ad && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			global.ad_clicked = true
+			
+	if event is InputEventMouseMotion:
+		if event.relative.x < 0:
+			drag_back_left = true
+		if event.relative.x > 0:
+			drag_back_right = true
+		if event.relative.y < 0:
+			drag_back_top = true
+		if event.relative.y > 0:
+			drag_back_bottom = true
 
 func _physics_process(delta):
 	
 	if dragging_folder:
+		
+		if self.global_position.x >= 1350 :
+			speed_x = 0
+			if drag_back_left and get_global_mouse_position().x <= 1350:
+				drag_back_left = false 
+				speed_x = 7
+				
+		if self.global_position.x <= 50:
+			speed_x = 0
+			if drag_back_right and get_global_mouse_position().x >= 50:
+				drag_back_right = false 
+				speed_x = 7
+				
+		if self.global_position.y >= 1100:
+			speed_y = 0
+			if drag_back_top and get_global_mouse_position().x <= 1100:
+				drag_back_top = false 
+				speed_y = 7
+				
+		if self.global_position.y <= 0:
+			speed_y = 0
+			if drag_back_bottom and get_global_mouse_position().x >= 0:
+				drag_back_bottom = false 
+				speed_y = 7
+		
 		velocity = (newPosition - position) * Vector2(speed_x, speed_y)
 		move_and_slide()
 

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d5vm0t7puy67" path="res://art/progressbarin.png" id="3_3a5yf"]
 
 [node name="hud" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
