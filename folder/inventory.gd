@@ -31,5 +31,5 @@ func removed(slot_num):
 		#print(itemslots)
 		
 func allremoved():
-	for i in range(21):
+	for i in range(12):
 		slots[i].item = null
