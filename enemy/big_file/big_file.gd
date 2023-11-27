@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 100
+@export var speed_range = 100
 @export var hp = 3
 @export var file_size = 3
 @export var take_normal_dmg = 1
@@ -61,7 +62,7 @@ func _input(event):
 func speeddown():
 	speed = normal_speed * global.slow_speed
 	await get_tree().create_timer(0.2,false).timeout
-	speed = randi_range(normal_speed,normal_speed+100)
+	speed = randi_range(normal_speed,normal_speed+speed_range)
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

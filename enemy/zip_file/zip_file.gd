@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 50
+@export var speed_range = 100
 @export var hp = 2
 @export var file_size = 3
 @export var file: InvItem
@@ -52,7 +53,7 @@ func _process(delta):
 func speeddown():
 	speed = normal_speed * global.slow_speed
 	await get_tree().create_timer(0.2,false).timeout
-	speed = randi_range(normal_speed,normal_speed+100)
+	speed = randi_range(normal_speed,normal_speed+speed_range)
 
 func _input(event):
 	if event is InputEventMouseButton:
