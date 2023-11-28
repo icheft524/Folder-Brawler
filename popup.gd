@@ -18,9 +18,11 @@ var wave5 = true
 var wave6 = true
 
 func _ready():
-	if tutorial == true:
-		get_tree().paused = true
-		normal.visible = true
+	already_clicked = false
+	
+	get_tree().paused = true
+	normal.visible = true
+
 		
 		
 
@@ -36,13 +38,17 @@ func _process(delta):
 	if global.time == 72 and wave4: #wave4 zip
 		get_tree().paused = true
 		zip.visible = true
-	
+	print(mouse_close_in, already_clicked, global.inv_open)
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_action_pressed("leftclick") && mouse_close_in && !already_clicked && !global.inv_open:
-			already_clicked = true
+			print("Hi")
 			get_viewport().set_input_as_handled()
+			mouse_close_in = false
+			#normal.visible = false
+			#ads.visible = true
+			already_clicked = true
 			#var tween_close = create_tween()
 			#tween_close.tween_property(self,"scale",close,0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 			#tween_close.play()
@@ -53,9 +59,12 @@ func _on_normal_mouse_entered():
 
 
 func _on_normal_mouse_exited():
-	mouse_close_in = false
-	normal.visible = false
-	ads.visible = true
+	if mouse_close_in == false:
+		normal.visible = false
+		ads.visible = true
+		mouse_close_in == true
+	
+	
 
 
 
@@ -64,9 +73,10 @@ func _on_ads_mouse_entered():
 
 
 func _on_ads_mouse_exited():
-	mouse_close_in = false
-	ads.visible = false
-	get_tree().paused = false
+	if mouse_close_in == false:
+		ads.visible = false
+		get_tree().paused = false
+		tutorial = false
 
 
 func _on_big_mouse_entered():
@@ -74,10 +84,10 @@ func _on_big_mouse_entered():
 
 
 func _on_big_mouse_exited():
-	mouse_close_in = false
-	big.visible = false
-	wave2 = false
-	get_tree().paused = false
+	if mouse_close_in == false:
+		big.visible = false
+		wave2 = false
+		get_tree().paused = false
 
 
 func _on_enc_mouse_entered():
@@ -85,10 +95,10 @@ func _on_enc_mouse_entered():
 
 
 func _on_enc_mouse_exited():
-	mouse_close_in = false
-	enc.visible = false
-	wave3 = false
-	get_tree().paused = false
+	if mouse_close_in == false:
+		enc.visible = false
+		wave3 = false
+		get_tree().paused = false
 
 
 func _on_zip_mouse_entered():
@@ -96,7 +106,8 @@ func _on_zip_mouse_entered():
 
 
 func _on_zip_mouse_exited():
-	mouse_close_in = false
-	zip.visible = false
-	wave4 = false
-	get_tree().paused = false
+	if mouse_close_in == false:
+		zip.visible = false
+		wave4 = false
+		get_tree().paused = false
+
