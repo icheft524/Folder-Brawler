@@ -18,7 +18,7 @@ var capacity = 0
 @onready var inventory = $"../folder_inventory"
 @onready var hud = $"../hud"
 @onready var Upgrade = $"../hud/upgrade"
-@onready var UpgradeList = $"../hud/upgrade/list"
+@onready var UpgradeList = $"../hud/list"
 #@onready var _Upgrade = $"../upgrade"
 #@onready var upgradeOptions = _Upgrade.get_node("%UpgradeOptions")
 
