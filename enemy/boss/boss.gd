@@ -27,6 +27,7 @@ var enc = preload("res://enemy/encrypted/encrypted_file.tscn")
 
 var mon = [big, zip, enc]
 var not_respond = false
+var teleport_ready
 
 func _ready():
 	$indicator.visible = false
@@ -41,6 +42,12 @@ func _ready():
 	
 
 func _process(delta):
+	
+	if teleport_ready == false:
+		teleport_ready = true
+		await get_tree().create_timer(5,false).timeout
+		teleport()
+	
 	dead()
 	if indicator_finished:
 		$hp.text = "boss" + str(hp)
@@ -84,6 +91,8 @@ func _input(event):
 func teleport():
 	indicating()
 	self.position = Vector2(_postion_random_srceen(offset))
+	teleport_ready = false
+	
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
