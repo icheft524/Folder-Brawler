@@ -14,3 +14,5 @@ var shaking = false
 var big_shaking = false
 var on_upgrade = false
 var hand_mouse = false
+var mouse_in_ads = false
+var mouse_in_enemy = false

@@ -123,27 +123,39 @@ func _process(delta):
 	if scale < Vector2(1,1):
 		get_viewport().set_input_as_handled()
 		get_parent().remove_child(self)
+		global.hand_mouse = false
+		global.mouse_in_ads = false
 		self.queue_free()
 
 func _on_drag_area_mouse_entered():
 	mouse_in = true
+	global.mouse_in_ads = true
 
 
 func _on_drag_area_mouse_exited():
 	mouse_in = false
+	global.mouse_in_ads = false
 
 
 func _on_close_area_mouse_entered():
 	mouse_close_in = true
+	if !global.inv_open:
+		global.hand_mouse = true
 
 
 func _on_close_area_mouse_exited():
 	mouse_close_in = false
+	if !global.inv_open && !global.mouse_in_enemy:
+		global.hand_mouse = false
 
 
 func _on_panel_mouse_entered():
 	mouse_in_ad = true
+	if !global.inv_open:
+		global.hand_mouse = true
 
 
 func _on_panel_mouse_exited():
 	mouse_in_ad = false
+	if !global.inv_open && !global.mouse_in_enemy:
+		global.hand_mouse = false

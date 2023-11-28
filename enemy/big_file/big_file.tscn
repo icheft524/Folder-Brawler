@@ -18,7 +18,7 @@ texture = ExtResource("3_8gost")
 size = Vector2(115, 116)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxbdd"]
-radius = 63.6946
+radius = 87.6926
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001

@@ -46,6 +46,7 @@ var wave5 = true
 func _ready():
 	inv.allremoved()
 	global.target = self
+	global.hand_mouse = false
 	pass
 
 func _process(delta):

@@ -89,7 +89,9 @@ func _on_tab_mouse_exited():
 
 func _on_esc_button_mouse_entered():
 	mouse_in_esc = true
+	global.hand_mouse = true
 
 
 func _on_esc_button_mouse_exited():
 	mouse_in_esc = false
+	global.hand_mouse = false

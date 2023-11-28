@@ -18,7 +18,7 @@ texture = ExtResource("3_tj173")
 radius = 56.0089
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjjfj"]
-radius = 44.0114
+radius = 69.4262
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001

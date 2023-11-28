@@ -71,15 +71,22 @@ func speeddown():
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
+	global.mouse_in_enemy = true
+	if !global.inv_open && !global.mouse_in_ads:	
+		global.hand_mouse = true
 
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+	global.mouse_in_enemy = false
+	if !global.inv_open && !global.mouse_in_ads:
+		global.hand_mouse = false
 
 func dead():
 	if hp <= 0:
 		#sound.enemydeath()
 		global.shaking = true
+		global.hand_mouse = false
 		queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -91,6 +98,8 @@ func _on_area_2d_area_entered(area):
 		target.capacity += file_size
 		target.flash()
 		global.big_shaking =true
+		if mouse_in:
+			global.hand_mouse = false
 		queue_free()
 		
 func indicating():

@@ -96,7 +96,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i8ut"]
-radius = 52.6118
+radius = 128.445
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001

@@ -75,14 +75,21 @@ func _input(event):
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
+	global.mouse_in_enemy = true
+	if !global.inv_open && !global.mouse_in_ads:
+		global.hand_mouse = true
 
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+	global.mouse_in_enemy = false
+	if !global.inv_open && !global.mouse_in_ads:
+		global.hand_mouse = false
 
 func dead():
 	if hp <= 0:
 		global.shaking = true
+		global.hand_mouse = false
 		queue_free()
 		_spawn_file(3)
 		
@@ -104,6 +111,8 @@ func _on_area_2d_area_entered(area):
 		global.shaking = true
 		sound.playerhit()
 		target.flash()
+		if mouse_in:
+			global.hand_mouse = false
 		queue_free()
 		
 func indicating():
