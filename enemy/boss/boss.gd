@@ -33,8 +33,9 @@ func _ready():
 	if !global.enemy_file_drop:
 		indicating()
 	else:
-		indicator_finished = true
 		$spawnanim.play("spawn")
+		indicator_finished = true
+
 		sound.enemyspawn()
 		#speeddown()
 	global.enemy_file_drop = false
