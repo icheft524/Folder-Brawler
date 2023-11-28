@@ -1,7 +1,7 @@
 extends Control
 
 @onready var player = global.target
-@onready var wavebar = $"wavebar"
+@onready var wavebar = $upgrade/wavebar
 
 var secs = 0
 var mins = 0
@@ -13,7 +13,7 @@ var wave5 = true
 var wave6 = true
 
 func _ready():
-	$VBoxContainer/wave.text = "Wave: " + str(1)
+	$wave.text = str(1)
 	pass # Replace with function body.
 
 
@@ -21,27 +21,27 @@ func _ready():
 func _process(delta):
 	secs = fmod(global.time,60)
 	mins = fmod(global.time,60*60) / 60
-	$VBoxContainer/capacity.value = player.capacity
-	$VBoxContainer/capacity.max_value = player.max_capacity
-	$VBoxContainer/time.text = "Timer: %02d:%02d" % [mins,secs]
+	$capacity.value = player.capacity
+	$capacity.max_value = player.max_capacity
+	$time.text = "%02d:%02d" % [mins,secs]
 	if global.time == 22 and wave2: #wave2
-		$VBoxContainer/wave.text = "Wave: " + str(2)
+		$wave.text = str(2)
 		wavebar.max_value = 47-22
 		wave2 = false
 	if global.time == 47 and wave3: #wave3
-		$VBoxContainer/wave.text = "Wave: " + str(3)
+		$wave.text = str(3)
 		wavebar.max_value = 72-47
 		wave3 = false
 	if global.time == 72 and wave4: #wave4
-		$VBoxContainer/wave.text = "Wave: " + str(4)
+		$wave.text = str(4)
 		wavebar.max_value = 97-72
 		wave4 = false
 	if global.time == 97 and wave5: #wave5
-		$VBoxContainer/wave.text = "Wave: " + str(5)
+		$wave.text = str(5)
 		wavebar.max_value = 132-97
 		wave5 = false
 	if global.time == 132 and wave6: #wave6
-		$VBoxContainer/wave.text = "Wave: " + str(5)
+		$wave.text = str(5)
 		wavebar.max_value = 1
 		wave6 = false
 		

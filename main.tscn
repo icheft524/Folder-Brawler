@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=31 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -158,6 +158,15 @@ enemy = ExtResource("3_csoof")
 enemy_num = 1
 enemy_spawn_delay = 2
 
+[sub_resource type="Resource" id="Resource_1q1cm"]
+script = ExtResource("4_ojwon")
+name = "boss"
+time_start = 135
+time_end = 136
+enemy = ExtResource("13_15cqn")
+enemy_num = 1
+enemy_spawn_delay = 1
+
 [node name="main" type="Node2D"]
 
 [node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
@@ -172,7 +181,7 @@ offset_bottom = 811.0
 position = Vector2(458, 239)
 
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
-spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_1krlh"), SubResource("Resource_ug5jq"), SubResource("Resource_hyrsx"), SubResource("Resource_1pqkq"), SubResource("Resource_l7ruf"), SubResource("Resource_7baam"), SubResource("Resource_58wyj"), SubResource("Resource_o1mwg"), SubResource("Resource_c8y3o"), SubResource("Resource_gii58"), SubResource("Resource_qrhdn"), SubResource("Resource_b1x1l"), SubResource("Resource_2r7ty"), SubResource("Resource_u05jr")])
+spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_1krlh"), SubResource("Resource_ug5jq"), SubResource("Resource_hyrsx"), SubResource("Resource_1pqkq"), SubResource("Resource_l7ruf"), SubResource("Resource_7baam"), SubResource("Resource_58wyj"), SubResource("Resource_o1mwg"), SubResource("Resource_c8y3o"), SubResource("Resource_gii58"), SubResource("Resource_qrhdn"), SubResource("Resource_b1x1l"), SubResource("Resource_2r7ty"), SubResource("Resource_u05jr"), SubResource("Resource_1q1cm")])
 
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
 
@@ -186,19 +195,18 @@ size_flags_vertical = 4
 
 [node name="hud" parent="." instance=ExtResource("10_02sxe")]
 z_index = 8
-offset_left = 1412.0
-offset_right = 1412.0
+offset_left = 1369.0
+offset_top = -1.0
+offset_right = 1369.0
+offset_bottom = -1.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 7
-offset_left = 1400.0
-offset_right = 2155.0
+offset_left = 1920.0
+offset_right = 2675.0
 offset_bottom = 1133.0
 color = Color(0, 0, 0, 1)
 
 [node name="cam" parent="." instance=ExtResource("12_0wdna")]
 process_mode = 3
 anchor_mode = 0
-
-[node name="boss" parent="." instance=ExtResource("13_15cqn")]
-position = Vector2(1184, 151)
