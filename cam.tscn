@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://wgh1gsmpjc25"]
 
 [ext_resource type="Script" path="res://cam.gd" id="1_vk4ox"]
-[ext_resource type="Texture2D" uid="uid://cbrdwi3v03adj" path="res://pointer.png" id="2_12e1e"]
-[ext_resource type="Texture2D" uid="uid://bd5fdwu2dlepj" path="res://hover_hand.png" id="3_53aej"]
+[ext_resource type="Texture2D" uid="uid://c8mwqta4uhfye" path="res://art/cursor/default.png" id="2_b57tt"]
+[ext_resource type="Texture2D" uid="uid://blo0s6oa1oou2" path="res://art/cursor/pointing.png" id="3_c0vbh"]
 
 [node name="cam" type="Camera2D"]
 z_index = 20
@@ -11,12 +11,12 @@ script = ExtResource("1_vk4ox")
 [node name="pointer_mouse" type="Sprite2D" parent="."]
 z_index = 12
 scale = Vector2(0.169811, 0.169811)
-texture = ExtResource("2_12e1e")
+texture = ExtResource("2_b57tt")
 centered = false
 
 [node name="hand_mouse" type="Sprite2D" parent="."]
 visible = false
 z_index = 20
 scale = Vector2(0.142857, 0.142857)
-texture = ExtResource("3_53aej")
+texture = ExtResource("3_c0vbh")
 centered = false

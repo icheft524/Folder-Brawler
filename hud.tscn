@@ -80,9 +80,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.165
 anchor_bottom = 1.165
-offset_top = -69.03
+offset_top = 79.77
 offset_right = 483.0
-offset_bottom = 604.005
+offset_bottom = 423.77
 
 [node name="itemoption" parent="upgrade/list" instance=ExtResource("5_y3dkf")]
 layout_mode = 2
