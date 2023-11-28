@@ -6,10 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dyvdnvjmp6q61" path="res://enemy/normal_file/normalfile.PNG" id="4_vtqjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvovk"]
-size = Vector2(241, 171)
+size = Vector2(166, 117.5)
 
 [node name="popup" type="Node2D"]
-process_mode = 2
 script = ExtResource("1_k3w5a")
 
 [node name="normal" type="Area2D" parent="."]
@@ -17,7 +16,7 @@ process_mode = 2
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="normal"]
-position = Vector2(400.5, 14.5)
+position = Vector2(406, 14.25)
 shape = SubResource("RectangleShape2D_pvovk")
 
 [node name="Sprite2D" type="Sprite2D" parent="normal"]
