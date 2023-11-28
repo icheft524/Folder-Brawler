@@ -10,6 +10,7 @@ var wave2 = true
 var wave3 = true
 var wave4 = true
 var wave5 = true
+var wave6 = true
 
 func _ready():
 	$VBoxContainer/wave.text = "Wave: " + str(1)
@@ -37,9 +38,16 @@ func _process(delta):
 		wave4 = false
 	if global.time == 97 and wave5: #wave5
 		$VBoxContainer/wave.text = "Wave: " + str(5)
-		wavebar.max_value = 1
+		wavebar.max_value = 132-97
 		wave5 = false
-	if not wave5:
+	if global.time == 132 and wave6: #wave6
+		$VBoxContainer/wave.text = "Wave: " + str(5)
+		wavebar.max_value = 1
+		wave6 = false
+		
+	if not wave6:
+		wavebar.value = global.time-132
+	elif not wave5:
 		wavebar.value = global.time-97
 	elif not wave4:
 		wavebar.value = global.time-72
