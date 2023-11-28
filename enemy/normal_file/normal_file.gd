@@ -77,10 +77,12 @@ func _input(event):
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
+	$Sprite2D.texture = load("res://art/enemy/enemywindow_click.png")
 
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+	$Sprite2D.texture = load("res://art/enemy/enemywindow.png")
 
 func dead():
 	if hp <= 0:
