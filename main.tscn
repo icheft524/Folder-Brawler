@@ -193,10 +193,11 @@ offset_right = 1412.0
 z_index = 7
 offset_left = 1400.0
 offset_right = 2155.0
-offset_bottom = 1081.0
+offset_bottom = 1133.0
 color = Color(0, 0, 0, 1)
 
 [node name="cam" parent="." instance=ExtResource("12_0wdna")]
+process_mode = 3
 anchor_mode = 0
 
 [node name="boss" parent="." instance=ExtResource("13_15cqn")]
