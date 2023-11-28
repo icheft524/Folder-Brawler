@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=9 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
 [ext_resource type="FontFile" uid="uid://cnj24b0oilxro" path="res://font/VT323-Regular.ttf" id="2_atgct"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://d5vm0t7puy67" path="res://art/progressbarin.png" id="3_3a5yf"]
 [ext_resource type="PackedScene" uid="uid://c7n7l7u22qa23" path="res://folder/upgrade/itemoption.tscn" id="5_y3dkf"]
 [ext_resource type="Texture2D" uid="uid://ruyi5641qddi" path="res://folder/upgrade/update.png" id="6_rkqmt"]
+[ext_resource type="Texture2D" uid="uid://4bp3f5mp1w0m" path="res://folder/upgrade/updatebar.png" id="7_xw1c6"]
+[ext_resource type="Texture2D" uid="uid://b3plh5exwuymd" path="res://folder/upgrade/updatebar_full.png" id="8_lywbj"]
 
 [node name="hud" type="Control"]
 z_index = 10
@@ -82,3 +84,13 @@ offset_right = 478.0
 offset_bottom = 95.0
 texture = ExtResource("6_rkqmt")
 expand_mode = 1
+
+[node name="wavebar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 290.0
+offset_right = 480.0
+offset_bottom = 306.0
+max_value = 22.0
+texture_over = ExtResource("7_xw1c6")
+texture_progress = ExtResource("8_lywbj")
