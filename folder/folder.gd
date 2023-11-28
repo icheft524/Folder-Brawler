@@ -57,7 +57,7 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in:
+		if event.is_action_pressed("leftclick") && mouse_in:
 			$shadow.visible = true
 			sound.playergrab()
 			get_viewport().set_input_as_handled()
@@ -84,7 +84,7 @@ func _input(event):
 			drag_back_bottom = true
 			
 			
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_double_click() && mouse_in:
 			inventory.open()
 			sound.playeropenfolder()

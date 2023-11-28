@@ -36,7 +36,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in && !mouse_close_in && !global.inv_open:
+		if event.is_action_pressed("leftclick") && mouse_in && !mouse_close_in && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
 			dir = (get_viewport().get_mouse_position() - position).normalized()
@@ -51,7 +51,7 @@ func _input(event):
 			
 			
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_close_in && !already_clicked && !global.inv_open:
+		if event.is_action_pressed("leftclick") && mouse_close_in && !already_clicked && !global.inv_open:
 			already_clicked = true
 			get_viewport().set_input_as_handled()
 			var tween_close = create_tween()
@@ -59,7 +59,7 @@ func _input(event):
 			tween_close.play()
 	
 	if event is InputEventMouseButton:
-		if event.is_pressed() && mouse_in_ad && !global.inv_open:
+		if event.is_action_pressed("leftclick") && mouse_in_ad && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			global.ad_clicked = true
 			
