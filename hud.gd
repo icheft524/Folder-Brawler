@@ -13,10 +13,15 @@ var wave5 = true
 var wave6 = true
 
 func _ready():
+	player.connect("selected_upgrade",upgraded)
 	$wave.text = str(1)
 	pass # Replace with function body.
 
+func upgraded():
+	$upgradeanim.play("")
 
+func upgradeready():
+	$upgrade/upgradeanim.play("upgradeready")
 
 func _process(delta):
 	secs = fmod(global.time,60)
@@ -25,6 +30,7 @@ func _process(delta):
 	$capacity.max_value = player.max_capacity
 	$time.text = "%02d:%02d" % [mins,secs]
 	if global.time == 22 and wave2: #wave2
+		upgradeready()
 		$wave.text = str(2)
 		wavebar.max_value = 47-22
 		wave2 = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=15 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
 [ext_resource type="Texture2D" uid="uid://d0casm37k6imv" path="res://art/ui/capbar.png" id="2_1vdmh"]
@@ -7,8 +7,101 @@
 [ext_resource type="Texture2D" uid="uid://bq6sa5ijln12a" path="res://art/ui/loadingupgrade.png" id="5_q2ntr"]
 [ext_resource type="PackedScene" uid="uid://c7n7l7u22qa23" path="res://folder/upgrade/itemoption.tscn" id="5_y3dkf"]
 [ext_resource type="Texture2D" uid="uid://ebxvqfdfoetx" path="res://art/ui/upgradebarempty.png" id="8_aef0s"]
+[ext_resource type="Texture2D" uid="uid://bha38weo7kyti" path="res://art/ui/upgradeready.png" id="9_dp33i"]
 [ext_resource type="Texture2D" uid="uid://cf6bij5ienwoi" path="res://art/ui/rightui.png" id="9_dr005"]
 [ext_resource type="Texture2D" uid="uid://bklyq2gfwsb4k" path="res://art/ui/upgradebarfull.png" id="9_s1n14"]
+
+[sub_resource type="Animation" id="Animation_lqmk0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_q2ntr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0iox0"]
+resource_name = "upgradeready"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_dp33i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.533333, 0.972549, 0.682353, 1), Color(1, 0.698039, 0, 1), Color(0.533333, 0.972549, 0.682353, 1), Color(0.533333, 0.972549, 0.682353, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_58ome"]
+resource_name = "loading"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_q2ntr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2t6b"]
+_data = {
+"RESET": SubResource("Animation_lqmk0"),
+"loading": SubResource("Animation_58ome"),
+"upgradeready": SubResource("Animation_0iox0")
+}
 
 [node name="hud" type="Control"]
 z_index = 10
@@ -89,6 +182,13 @@ layout_mode = 2
 
 [node name="itemoption2" parent="upgrade/list" instance=ExtResource("5_y3dkf")]
 layout_mode = 2
+
+[node name="upgradeanim" type="AnimationPlayer" parent="upgrade"]
+process_mode = 2
+autoplay = "loading"
+libraries = {
+"": SubResource("AnimationLibrary_y2t6b")
+}
 
 [node name="ui" type="Sprite2D" parent="."]
 z_index = -1

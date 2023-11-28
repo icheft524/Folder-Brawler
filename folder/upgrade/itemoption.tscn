@@ -21,12 +21,12 @@ font = ExtResource("2_uxncl")
 font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oc8"]
-size = Vector2(483, 170)
+size = Vector2(470, 170)
 
 [node name="itemoption" type="ColorRect"]
-custom_minimum_size = Vector2(483, 185)
-offset_right = 483.0
-offset_bottom = 170.0
+custom_minimum_size = Vector2(470, 185)
+offset_right = 470.0
+offset_bottom = 185.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("1_jm3ba")
 
@@ -49,12 +49,13 @@ label_settings = SubResource("LabelSettings_6prv4")
 [node name="Label_level" type="Label" parent="box"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 380.0
+offset_left = 367.0
 offset_top = 23.0
-offset_right = 458.0
+offset_right = 445.0
 offset_bottom = 62.0
 text = "Level1"
 label_settings = SubResource("LabelSettings_as3h6")
+horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Label_description" type="Label" parent="box"]
@@ -81,7 +82,7 @@ expand_mode = 1
 texture_filter = 1
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 0
-offset_right = 483.0
+offset_right = 470.0
 offset_bottom = 170.0
 texture = ExtResource("3_rvj11")
 patch_margin_left = 12
@@ -92,7 +93,7 @@ patch_margin_bottom = 12
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(241.5, 85)
+position = Vector2(235, 85)
 shape = SubResource("RectangleShape2D_u7oc8")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
