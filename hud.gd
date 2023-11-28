@@ -1,6 +1,7 @@
 extends Control
 
 @onready var player = global.target
+@onready var itemoption = get_tree().get_first_node_in_group("itemoption")
 @onready var wavebar = $upgrade/wavebar
 
 var secs = 0
@@ -13,12 +14,12 @@ var wave5 = true
 var wave6 = true
 
 func _ready():
-	player.connect("selected_upgrade",upgraded)
+	itemoption.connect("upgrade",upgraded)
 	$wave.text = str(1)
 	pass # Replace with function body.
 
 func upgraded():
-	$upgradeanim.play("")
+	$upgrade/upgradeanim.play("loading")
 
 func upgradeready():
 	$upgrade/upgradeanim.play("upgradeready")

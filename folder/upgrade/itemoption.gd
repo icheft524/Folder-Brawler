@@ -14,6 +14,7 @@ var item = null
 @onready var player = get_tree().get_first_node_in_group("folder")
 
 signal selected_upgrade(upgrade)
+signal upgrade
 
 func _ready():
 	outline.modulate.a = unhighlight
@@ -34,6 +35,7 @@ func _input(event):
 			global.on_upgrade = false
 			outline.modulate.a = unhighlight
 			emit_signal("selected_upgrade",item)
+			emit_signal("upgrade")
 
 func _on_area_2d_mouse_entered():
 	mouse_over = true

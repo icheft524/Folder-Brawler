@@ -23,7 +23,7 @@ font_size = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oc8"]
 size = Vector2(470, 170)
 
-[node name="itemoption" type="ColorRect"]
+[node name="itemoption" type="ColorRect" groups=["itemoption"]]
 custom_minimum_size = Vector2(470, 185)
 offset_right = 470.0
 offset_bottom = 185.0

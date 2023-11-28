@@ -38,38 +38,9 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_0iox0"]
-resource_name = "upgradeready"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("9_dp33i")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.533333, 0.972549, 0.682353, 1), Color(1, 0.698039, 0, 1), Color(0.533333, 0.972549, 0.682353, 1), Color(0.533333, 0.972549, 0.682353, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_58ome"]
 resource_name = "loading"
-length = 0.1
+length = 1.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -90,10 +61,39 @@ tracks/1/path = NodePath(".:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0iox0"]
+resource_name = "upgradeready"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_dp33i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(0.533333, 0.972549, 0.682353, 1), Color(1, 0.698039, 0, 1), Color(0.533333, 0.972549, 0.682353, 1), Color(0.533333, 0.972549, 0.682353, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y2t6b"]
@@ -133,7 +133,7 @@ offset_right = 550.0
 offset_bottom = 501.0
 theme_override_fonts/font = ExtResource("4_k1ifu")
 theme_override_font_sizes/font_size = 75
-text = "time"
+text = "00:00"
 vertical_alignment = 1
 
 [node name="wave" type="Label" parent="."]
@@ -149,7 +149,7 @@ text = "1"
 vertical_alignment = 1
 
 [node name="upgrade" type="TextureRect" parent="."]
-process_mode = 2
+process_mode = 3
 texture_filter = 1
 layout_mode = 2
 offset_left = 55.0
@@ -184,7 +184,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="upgradeanim" type="AnimationPlayer" parent="upgrade"]
-process_mode = 2
+process_mode = 3
 autoplay = "loading"
 libraries = {
 "": SubResource("AnimationLibrary_y2t6b")
