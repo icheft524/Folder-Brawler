@@ -221,3 +221,6 @@ texture = ExtResource("15_waif3")
 
 [node name="popup" parent="." instance=ExtResource("14_2t6tj")]
 position = Vector2(406, 212)
+
+[node name="boss" parent="." instance=ExtResource("13_15cqn")]
+position = Vector2(811, 185)

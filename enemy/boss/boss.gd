@@ -37,17 +37,16 @@ func _ready():
 		#$spawnanim.play("spawn")
 		indicator_finished = true
 		sound.enemyspawn()
-		#speeddown()
+
 	global.enemy_file_drop = false
-	teleport()
+	teleport_ready = false
 	
 
 func _process(delta):
 	
 	if teleport_ready == false:
 		teleport_ready = true
-		await get_tree().create_timer(5,false).timeout
-		teleport()
+		$delay_teleport.start()
 	
 	dead()
 	if indicator_finished:
@@ -69,10 +68,7 @@ func _process(delta):
 		not_respond = false
 		
 
-func speeddown():
-	speed = normal_speed * global.slow_speed
-	await get_tree().create_timer(0.2,false).timeout
-	speed = normal_speed
+
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -87,7 +83,7 @@ func _input(event):
 				sound.enemyhit()
 			_spawn_file(3)
 			teleport()
-			speeddown()
+
 
 func teleport():
 	indicating()
@@ -134,7 +130,6 @@ func indicating():
 	$indicator.visible = false
 	$Sprite2D.visible = true
 	sound.enemyspawn()
-	speeddown()
 
 
 func _on_area_2d_area_entered(area):
@@ -151,3 +146,6 @@ func _postion_random_srceen(set_offset: int):
 	return Vector2(randf_range(200,1300),randf_range(offset,randomy-offset))
 	#return Vector2(randf_range(100,1200),randf_range(offset,randomy-offset) #- Vector2(randf_range(400,900),0)
 
+
+func _on_delay_teleport_timeout():
+	teleport()

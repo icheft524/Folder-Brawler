@@ -71,5 +71,10 @@ libraries = {
 "": SubResource("AnimationLibrary_b8pdm")
 }
 
+[node name="delay_teleport" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="delay_teleport" to="." method="_on_delay_teleport_timeout"]
