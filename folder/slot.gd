@@ -48,6 +48,7 @@ func _on_gui_input(event):
 		#file_visual.position = origin
 		if event.is_pressed() && mouse_in && occupied:
 			get_viewport().set_input_as_handled()
+			global.mouse_inv_drag = true
 			dragging = true
 			global.slot_dragging = true
 			$CenterContainer/Panel/file_display.z_index = 2
@@ -55,6 +56,7 @@ func _on_gui_input(event):
 			
 		elif occupied:
 			dragging = false
+			global.mouse_inv_drag = false
 			global.hand_mouse = false
 			global.slot_dragging = false
 			$CenterContainer/Panel/file_display.z_index = 1
@@ -84,11 +86,19 @@ func _on_gui_input(event):
 				inv.removed(slot_num)
 				drop.respawn_big(ehp,get_global_mouse_position())
 
-func _on_mouse_entered():
+#func _on_mouse_entered():
+	#mouse_in = true
+	#global.mouse_inv_tab = true
+
+
+#func _on_mouse_exited():
+
+
+func _on_center_container_mouse_entered():
 	mouse_in = true
-	global.hand_mouse = true
+	global.mouse_inv_tab = true
 
 
-func _on_mouse_exited():
+func _on_center_container_mouse_exited():
 	mouse_in = false
-	global.hand_mouse = false
+	global.mouse_inv_tab = false

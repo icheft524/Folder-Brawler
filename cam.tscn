@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://wgh1gsmpjc25"]
+[gd_scene load_steps=6 format=3 uid="uid://wgh1gsmpjc25"]
 
 [ext_resource type="Script" path="res://cam.gd" id="1_vk4ox"]
 [ext_resource type="Texture2D" uid="uid://c8mwqta4uhfye" path="res://art/cursor/default.png" id="2_b57tt"]
 [ext_resource type="Texture2D" uid="uid://blo0s6oa1oou2" path="res://art/cursor/pointing.png" id="3_c0vbh"]
+[ext_resource type="Texture2D" uid="uid://bbceas73r3gda" path="res://art/cursor/canhold.png" id="4_375ii"]
+[ext_resource type="Texture2D" uid="uid://b55c0ktg2pnmk" path="res://art/cursor/holding.png" id="5_ygafs"]
 
 [node name="cam" type="Camera2D"]
 z_index = 20
@@ -19,4 +21,18 @@ visible = false
 z_index = 20
 scale = Vector2(0.142857, 0.142857)
 texture = ExtResource("3_c0vbh")
+centered = false
+
+[node name="open_hand" type="Sprite2D" parent="."]
+visible = false
+z_index = 20
+scale = Vector2(0.130841, 0.130841)
+texture = ExtResource("4_375ii")
+centered = false
+
+[node name="drag_hand" type="Sprite2D" parent="."]
+visible = false
+z_index = 20
+scale = Vector2(0.163551, 0.163551)
+texture = ExtResource("5_ygafs")
 centered = false

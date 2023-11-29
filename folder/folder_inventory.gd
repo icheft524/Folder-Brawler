@@ -30,14 +30,17 @@ func _input(event):
 		if event.is_pressed() && mouse_in_tab:
 			get_viewport().set_input_as_handled()
 			dragging_folder = true
+			global.mouse_inv_drag = true
 			dragging = position.distance_to(get_global_mouse_position())
 			dir = (get_global_mouse_position() - position).normalized()
 		else:
 			dragging_folder = false
+			global.mouse_inv_drag = false
 			
 		if event.is_pressed() && mouse_in_esc:
 			get_viewport().set_input_as_handled()
 			mouse_in_esc = false
+			global.hand_mouse = false
 			close()
 		
 		if event.is_pressed() && global.inv_open && !mouse_in:
@@ -81,17 +84,21 @@ func _on_mouse_exited():
 
 func _on_tab_mouse_entered():
 	mouse_in_tab = true
+	global.mouse_inv_tab = true
 
 
 func _on_tab_mouse_exited():
 	mouse_in_tab = false
-
+	global.mouse_inv_tab = false
 
 func _on_esc_button_mouse_entered():
 	mouse_in_esc = true
+	global.mouse_inv_close = true
 	global.hand_mouse = true
 
 
 func _on_esc_button_mouse_exited():
 	mouse_in_esc = false
+	global.mouse_inv_close = false
 	global.hand_mouse = false
+	

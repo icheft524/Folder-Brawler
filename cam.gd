@@ -14,15 +14,34 @@ func _ready():
 
 func _process(delta):
 	if global.hand_mouse:
+		$pointer_mouse.visible = false
 		$hand_mouse.visible = true
 		$hand_mouse.global_position = get_global_mouse_position()
 	if !global.hand_mouse:
 		$hand_mouse.visible = false
-	if !$hand_mouse.visible:
+	if !$hand_mouse.visible and !$open_hand.visible and !$drag_hand.visible:
 		$pointer_mouse.visible = true
 		$pointer_mouse.global_position = get_global_mouse_position()
-	else:
+	if global.mouse_inv_tab:
 		$pointer_mouse.visible = false
+		$hand_mouse.visible = false
+		$open_hand.visible = true
+		$open_hand.global_position = get_global_mouse_position()
+	if !global.mouse_inv_tab:
+		$open_hand.visible = false
+	if global.mouse_inv_drag:
+		$pointer_mouse.visible = false
+		$hand_mouse.visible = false
+		$open_hand.visible = false
+		$drag_hand.visible = true
+		$drag_hand.global_position = get_global_mouse_position()
+	if !global.mouse_inv_drag:
+		$drag_hand.visible = false
+		
+		
+	
+		
+		
 	if global.shaking:
 		shake(delta)
 	if global.big_shaking:
