@@ -89,6 +89,7 @@ func dead():
 	if hp <= 0:
 		global.shaking = true
 		global.hand_mouse = false
+		global.mouse_in_enemy = false
 		queue_free()
 		_spawn_file(3)
 		

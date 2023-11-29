@@ -56,7 +56,7 @@ func _on_timer_timeout():
 				var enemy_spawn = new_enemy.instantiate()
 				var counter = 0
 				while counter < i.enemy_num:
-					var random_pos = Vector2(randf_range(0,1080),randf_range(0,1080))
+					var random_pos = Vector2(randf_range(0,1080),randf_range(0,900))
 					#var enemy_spawn = new_enemy.instantiate()
 					#if global.time >= enemy_upgrade_time:
 						#enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))

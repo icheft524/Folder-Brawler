@@ -85,6 +85,7 @@ func dead():
 	if hp <= 0:
 		global.shaking = true
 		global.hand_mouse = false
+		global.mouse_in_enemy = false
 		queue_free()
 
 func _on_area_2d_area_entered(area):

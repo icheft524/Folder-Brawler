@@ -17,6 +17,7 @@ size = Vector2(43.5, 40)
 size = Vector2(201, 41)
 
 [node name="ads_file" type="CharacterBody2D"]
+z_index = 400
 script = ExtResource("2_7jcnh")
 metadata/Image = SubResource("CompressedTexture2D_84udr")
 

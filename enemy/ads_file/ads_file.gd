@@ -130,11 +130,15 @@ func _process(delta):
 func _on_drag_area_mouse_entered():
 	mouse_in = true
 	global.mouse_in_ads = true
+	if !global.inv_open:
+		global.hand_mouse = true
 
 
 func _on_drag_area_mouse_exited():
 	mouse_in = false
 	global.mouse_in_ads = false
+	if !global.inv_open && !global.mouse_in_enemy:
+		global.hand_mouse = false
 
 
 func _on_close_area_mouse_entered():
