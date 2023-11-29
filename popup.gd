@@ -19,8 +19,7 @@ func _ready():
 	get_tree().paused = true
 	pic_wave1.visible = true
 	close_but.visible = true
-		
-		
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
