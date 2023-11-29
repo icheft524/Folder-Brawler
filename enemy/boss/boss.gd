@@ -39,6 +39,7 @@ func _ready():
 		sound.enemyspawn()
 		#speeddown()
 	global.enemy_file_drop = false
+	teleport()
 	
 
 func _process(delta):
