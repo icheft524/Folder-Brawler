@@ -90,8 +90,8 @@ func _input(event):
 			sound.playeropenfolder()
 	
 	
-	if event.is_action_pressed("ui_accept"): #change to global.time
-		levelup()
+	#if event.is_action_pressed("ui_accept"): #change to global.time
+		#levelup()
 	
 	if global.time == 22 and wave2 == true: #wave2
 		levelup()
