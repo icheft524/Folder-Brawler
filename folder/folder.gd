@@ -236,6 +236,7 @@ func flash():
 
 # delete order = _Upgrade , upgradeOptions
 func levelup():
+	sound.upgrade()
 	global.on_upgrade = true
 	get_tree().paused = true
 	var option_children = UpgradeList.get_children()

@@ -94,7 +94,7 @@ func _on_area_2d_area_entered(area):
 		indicator_finished = false
 		await get_tree().create_timer(0.2,false).timeout
 		target.collect(file,hp,file_size,'big')
-		sound.playerhit()
+		sound.playerhitbig()
 		target.capacity += file_size
 		target.flash()
 		global.big_shaking =true

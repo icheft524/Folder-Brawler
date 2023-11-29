@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=29 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
@@ -20,8 +20,10 @@
 [ext_resource type="AudioStream" uid="uid://et4o046dhslv" path="res://sound/Unzip_Extracted.wav" id="9_yfubi"]
 [ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
 [ext_resource type="AudioStream" uid="uid://cfwxrsig65tcg" path="res://sound/Cant_Delete.wav" id="13_cs5gl"]
-[ext_resource type="AudioStream" uid="uid://80muqof6raso" path="res://sound/Player_Get_hit_01_Big_Damage.wav" id="20_yvasg"]
-[ext_resource type="AudioStream" uid="uid://b52k5ylf5b0kg" path="res://sound/Player_Get_hit_02_Big_Damage.wav" id="21_qt2s4"]
+[ext_resource type="AudioStream" uid="uid://bqefw5b638bra" path="res://sound/player/Player_Get_hit_02_Big_Damage.wav" id="21_k63xf"]
+[ext_resource type="AudioStream" uid="uid://boaivd0bjqhq1" path="res://sound/Player_Crit_Hit.wav" id="21_nxsbw"]
+[ext_resource type="AudioStream" uid="uid://cg8pg8eg7ohdg" path="res://sound/player/Player_Get_hit_01_Big_Damage.wav" id="22_cg5vv"]
+[ext_resource type="AudioStream" uid="uid://8nq4lclhlpow" path="res://sound/player/Player_Upgrade.wav" id="22_qx08p"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1i1y4"]
 streams_count = 4
@@ -50,11 +52,11 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("7_ame8g")
 stream_1/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dr8l8"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k3oh5"]
 streams_count = 2
-stream_0/stream = ExtResource("20_yvasg")
+stream_0/stream = ExtResource("21_k63xf")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("21_qt2s4")
+stream_1/stream = ExtResource("22_cg5vv")
 stream_1/weight = 1.0
 
 [node name="sound" type="Node2D"]
@@ -114,5 +116,13 @@ stream = SubResource("AudioStreamRandomizer_bit5y")
 volume_db = -10.0
 
 [node name="critical" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_dr8l8")
+stream = ExtResource("21_nxsbw")
+volume_db = -15.0
+
+[node name="upgrade" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_qx08p")
+volume_db = -5.0
+
+[node name="playerhitbig" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_k3oh5")
 volume_db = -10.0

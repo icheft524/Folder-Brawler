@@ -47,3 +47,9 @@ func cantdelete():
 
 func critical():
 	$critical.play()
+
+func upgrade():
+	$upgrade.play()
+
+func playerhitbig():
+	$playerhitbig.play()
