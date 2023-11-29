@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 150
-@export var hp = 3
+@export var hp = 20
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -53,7 +53,7 @@ func _process(delta):
 	if indicator_finished:
 		$hp.text = "boss" + str(hp)
 	
-	if hp <= 20 && !phase2:
+	if hp <= 15 && !phase2:
 		phase2 = true
 		print('not res')
 		not_respond = true
