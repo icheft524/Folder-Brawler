@@ -106,12 +106,26 @@ const UPGRADES = {
 		'level': 'level: 3',
 		'prerequisite': ["increasedp2"]
 	},
-	"shock": {
+	"shock1": {
 		"icon": ICON_Path + "shock.png",
 		'displayname': shock_displayname,
 		'details': shock_details,
-		'level': 'N/A',
+		'level': 'level: 1',
 		'prerequisite': []
+	},
+	"shock2": {
+		"icon": ICON_Path + "shock.png",
+		'displayname': shock_displayname,
+		'details': shock_details,
+		'level': 'level: 2',
+		'prerequisite': ["shock1"]
+	},
+	"shock3": {
+		"icon": ICON_Path + "shock.png",
+		'displayname': shock_displayname,
+		'details': shock_details,
+		'level': 'level: 3',
+		'prerequisite': ["shock2"]
 	},
 	"Endtask": {
 		"icon": ICON_Path + "endtask.png",
