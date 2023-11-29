@@ -80,7 +80,6 @@ func _on_area_2d_mouse_entered():
 	global.mouse_in_enemy = true
 	if !global.inv_open && !global.mouse_in_ads:
 		global.hand_mouse = true
-	$Sprite2D.texture = load("res://art/enemy/enemywindow_click.png")
 
 
 func _on_area_2d_mouse_exited():
@@ -88,7 +87,6 @@ func _on_area_2d_mouse_exited():
 	global.mouse_in_enemy = false
 	if !global.inv_open && !global.mouse_in_ads:
 		global.hand_mouse = false
-	$Sprite2D.texture = load("res://art/enemy/enemywindow.png")
 
 func dead():
 	if hp <= 0:

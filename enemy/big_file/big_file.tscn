@@ -1,24 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://boie4qqfj5t4x"]
+[gd_scene load_steps=25 format=3 uid="uid://boie4qqfj5t4x"]
 
 [ext_resource type="Script" path="res://enemy/big_file/big_file.gd" id="1_0mtu7"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_j22nk"]
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_ng7xj"]
 [ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="3_8gost"]
+[ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="4_3vg6h"]
+[ext_resource type="Texture2D" uid="uid://1xkfbc1tj6wl" path="res://art/enemy/enemywindow.png" id="4_qa7t6"]
 [ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_2pwen"]
+[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="6_aojj0"]
 [ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_wwvry"]
 [ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_gx8tn"]
 [ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_h3c7c"]
+[ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="11_20k55"]
 
 [sub_resource type="Resource" id="Resource_y44k8"]
 script = ExtResource("2_j22nk")
 name = "big"
 texture = ExtResource("3_8gost")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2b6st"]
+resource_local_to_scene = true
+shader = ExtResource("4_3vg6h")
+shader_parameter/whiteflashed = true
+shader_parameter/tint = Color(1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37rn3"]
-size = Vector2(115, 116)
+size = Vector2(131, 136)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fxbdd"]
-radius = 87.6926
+radius = 50.01
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001
@@ -56,6 +65,176 @@ _data = {
 "indicate": SubResource("Animation_k3vnd")
 }
 
+[sub_resource type="Animation" id="Animation_usl4e"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rh5h6"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.25, 0.012), Vector2(0.39, 0.5), Vector2(0.45, 0.45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.261799, -0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8wc4"]
+_data = {
+"RESET": SubResource("Animation_usl4e"),
+"spawn": SubResource("Animation_rh5h6")
+}
+
+[sub_resource type="Animation" id="Animation_lnw64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/enemy:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_aojj0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_sasmg"]
+resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/enemy:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_20k55"), ExtResource("6_aojj0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-7, 15), Vector2(-10, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpfo"]
+_data = {
+"RESET": SubResource("Animation_lnw64"),
+"hit": SubResource("Animation_sasmg")
+}
+
 [node name="big_file" type="CharacterBody2D"]
 z_index = -1
 script = ExtResource("1_0mtu7")
@@ -63,16 +242,24 @@ file = SubResource("Resource_y44k8")
 metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 0, 1)
-texture = ExtResource("2_ng7xj")
+material = SubResource("ShaderMaterial_2b6st")
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_qa7t6")
+
+[node name="enemy" type="Sprite2D" parent="Sprite2D"]
+z_as_relative = false
+position = Vector2(-10, 15)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_aojj0")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, 0)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_37rn3")
 
 [node name="hp" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -86,6 +273,16 @@ shape = SubResource("CircleShape2D_fxbdd")
 [node name="indicatoranim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b8pdm")
+}
+
+[node name="spawnanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8wc4")
+}
+
+[node name="hitanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mhpfo")
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

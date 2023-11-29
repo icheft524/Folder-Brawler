@@ -65,6 +65,7 @@ func _input(event):
 			elif percent <= global.crit_chance:
 				sound.enemyhit()
 				hp -= take_normal_dmg
+			$hitanim.play("hit")
 			speeddown()
 
 func _on_area_2d_mouse_entered():
@@ -111,6 +112,7 @@ func indicating():
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true
+	$spawnanim.play("spawn")
 	speeddown()
 	sound.enemyspawn()
 

@@ -1,24 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqf8xs8frecuw"]
+[gd_scene load_steps=25 format=3 uid="uid://dqf8xs8frecuw"]
 
 [ext_resource type="Script" path="res://enemy/encrypted/encrypted_file.gd" id="1_1xyex"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_8jeey"]
 [ext_resource type="Texture2D" uid="uid://dic1mirl72q1" path="res://art/lockicon.png" id="3_80tad"]
-[ext_resource type="Texture2D" uid="uid://ssxhl6wirwhd" path="res://enemy/encrypted/enemy_encrypted.png" id="4_h5u1o"]
+[ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="4_006i5"]
+[ext_resource type="Texture2D" uid="uid://1xkfbc1tj6wl" path="res://art/enemy/enemywindow.png" id="4_khgt7"]
 [ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_2kikq"]
+[ext_resource type="Texture2D" uid="uid://b46y0kf1832t" path="res://art/enemy/enemy_lockB.png" id="5_7uwhc"]
 [ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_wuuux"]
 [ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_iqhag"]
 [ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_3m13r"]
+[ext_resource type="Texture2D" uid="uid://dgy0de7s4kuhe" path="res://art/enemy/enemy_lockBhit.png" id="11_gfw3q"]
 
 [sub_resource type="Resource" id="Resource_d6nso"]
 script = ExtResource("2_8jeey")
 name = "encrypted"
 texture = ExtResource("3_80tad")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wpddq"]
-radius = 42.0119
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04p53"]
+resource_local_to_scene = true
+shader = ExtResource("4_006i5")
+shader_parameter/whiteflashed = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x3klk"]
-radius = 54.1479
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpddq"]
+radius = 41.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qab7m"]
+size = Vector2(116, 119)
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001
@@ -56,6 +65,176 @@ _data = {
 "indicate": SubResource("Animation_k3vnd")
 }
 
+[sub_resource type="Animation" id="Animation_usl4e"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rh5h6"]
+resource_name = "spawn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.25, 0.012), Vector2(0.351, 0.45), Vector2(0.4, 0.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.261799, -0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8wc4"]
+_data = {
+"RESET": SubResource("Animation_usl4e"),
+"spawn": SubResource("Animation_rh5h6")
+}
+
+[sub_resource type="Animation" id="Animation_lnw64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/enemy:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_7uwhc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_sasmg"]
+resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/enemy:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_gfw3q"), ExtResource("5_7uwhc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/whiteflashed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/enemy:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-7, 15), Vector2(-10, 15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhpfo"]
+_data = {
+"RESET": SubResource("Animation_lnw64"),
+"hit": SubResource("Animation_sasmg")
+}
+
 [node name="encryptedFile" type="CharacterBody2D"]
 script = ExtResource("1_1xyex")
 file = SubResource("Resource_d6nso")
@@ -63,8 +242,15 @@ metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(0.357895, 0.357895)
-texture = ExtResource("4_h5u1o")
+material = SubResource("ShaderMaterial_04p53")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_khgt7")
+
+[node name="enemy" type="Sprite2D" parent="Sprite2D"]
+z_as_relative = false
+position = Vector2(-10, 15)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_7uwhc")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -72,6 +258,7 @@ texture = ExtResource("4_h5u1o")
 shape = SubResource("CircleShape2D_wpddq")
 
 [node name="hp" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = 48.0
 offset_right = 18.0
@@ -80,15 +267,26 @@ theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 
 [node name="indicator" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_2kikq")
 
 [node name="body" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_x3klk")
+shape = SubResource("RectangleShape2D_qab7m")
 
 [node name="indicatoranim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b8pdm")
+}
+
+[node name="spawnanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8wc4")
+}
+
+[node name="hitanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mhpfo")
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

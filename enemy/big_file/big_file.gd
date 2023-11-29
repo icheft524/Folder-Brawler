@@ -62,6 +62,7 @@ func _input(event):
 			elif percent <= global.crit_chance:
 				sound.enemyhit()
 				hp -= take_normal_dmg
+			$hitanim.play("hit")
 			speeddown()
 
 func speeddown():
