@@ -45,6 +45,7 @@ var wave5 = true
 
 func _ready():
 	inv.allremoved()
+	global.time = 0
 	global.target = self
 	global.hand_mouse = false
 	pass
@@ -260,3 +261,7 @@ func get_random_item():
 		return randomitem
 	else:
 		return null
+
+
+func _on_timer_timeout():
+	global.time += 1

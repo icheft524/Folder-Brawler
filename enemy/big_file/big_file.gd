@@ -18,6 +18,7 @@ var direction
 var indicator_finished = false
 
 func _ready():
+	global.boss_dies.connect(dead_boss)
 	$indicator.visible = false
 	if !global.enemy_file_drop:
 		indicating()
@@ -85,11 +86,24 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp <= 0:
-		#sound.enemydeath()
+		speed = 0
+		$body.disabled = true
 		global.shaking = true
 		global.hand_mouse = false
 		global.mouse_in_enemy = false
+		$Area2D.monitoring = false
 		queue_free()
+
+func dead_boss():
+	speed = 0
+	$body.disabled = true
+	$spawnanim.play("spawn")
+	$Area2D.monitoring = false
+	global.shaking = true
+	global.hand_mouse = false
+	global.mouse_in_enemy = false
+	await get_tree().create_timer(0.5,false).timeout
+	queue_free()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible and indicator_finished:

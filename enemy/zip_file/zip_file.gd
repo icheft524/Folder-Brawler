@@ -21,6 +21,7 @@ var indicator_finished = false
 const normal_file = preload("res://enemy/normal_file/normal_file.tscn")
 
 func _ready():
+	global.boss_dies.connect(dead_boss)
 	$indicator.visible = false
 	if !global.enemy_file_drop:
 		indicating()
@@ -87,11 +88,25 @@ func _on_area_2d_mouse_exited():
 
 func dead():
 	if hp <= 0:
+		$body.disabled = true
+		speed = 0
 		global.shaking = true
 		global.hand_mouse = false
 		global.mouse_in_enemy = false
+		$Area2D.monitoring = false
 		queue_free()
 		_spawn_file(3)
+		
+func dead_boss():
+	speed = 0
+	$body.disabled = true
+	$spawnanim.play("spawn")
+	$Area2D.monitoring = false
+	global.shaking = true
+	global.hand_mouse = false
+	global.mouse_in_enemy = false
+	await get_tree().create_timer(0.5,false).timeout
+	queue_free()
 		
 func _spawn_file(count: int):
 	for i in range(count):

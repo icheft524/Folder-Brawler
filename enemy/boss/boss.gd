@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 150
-@export var hp = 30
+@export var hp = 3
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -10,6 +10,7 @@ extends CharacterBody2D
 var percent = randf_range(0,1)
 var speed = normal_speed
 var offset = 50
+
 
 @export var file: InvItem
 
@@ -100,6 +101,8 @@ func _on_area_2d_mouse_exited():
 func dead():
 	if hp <= 0:
 		#sound.enemydeath()
+		global.boss_died()
+		#global.boss_dead = true
 		queue_free()
 
 func _spawn_file(count: int):
@@ -149,3 +152,6 @@ func _postion_random_srceen(set_offset: int):
 
 func _on_delay_teleport_timeout():
 	teleport()
+
+
+

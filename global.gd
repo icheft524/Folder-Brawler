@@ -20,3 +20,8 @@ var mouse_inv_tab = false
 var mouse_inv_close = false
 var mouse_inv_drag = false
 var tutorial
+
+signal boss_dies
+
+func boss_died():
+	boss_dies.emit()

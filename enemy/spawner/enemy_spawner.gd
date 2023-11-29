@@ -10,7 +10,12 @@ extends Node2D
 
 #var time = 0
 func _ready():
-	global.time = 0
+	global.boss_dies.connect(boss_dead)
+
+func boss_dead():
+	await get_tree().create_timer(1,false).timeout
+	queue_free()
+
 	
 func respawn_normal(ehp,pos):
 	var normal_enemy = load("res://enemy/normal_file/normal_file.tscn")
@@ -43,7 +48,7 @@ func respawn_big(ehp,pos):
 	
 
 func _on_timer_timeout():
-	global.time += 1
+	#global.time += 1
 	#print(global.time)
 	var enemy_spawns = spawns
 	for i in enemy_spawns:
@@ -98,4 +103,4 @@ func get_random_position():
 	return Vector2(x_spawn,y_spawn)
 
 	
-	
+
