@@ -90,8 +90,8 @@ func _input(event):
 			sound.playeropenfolder()
 	
 	
-	#if event.is_action_pressed("ui_accept"): #change to global.time
-		#levelup()
+	if event.is_action_pressed("ui_accept"): #change to global.time
+		levelup()
 	
 	if global.time == 22 and wave2 == true: #wave2
 		levelup()
@@ -214,12 +214,12 @@ func upgrade_character(upgrade):
 		"increasedp3":
 			speed_x = speed_x * 1.40
 			speed_y = speed_y * 1.40
-		"shock1":
-			global.slow_speed -= 0.25
-		"shock2":
-			global.slow_speed -= 0.25
-		"shock3":
-			global.slow_speed -= 0.25
+		"shock":
+			global.slow_speed = 0
+		#"shock2":
+			#global.slow_speed -= 0.25
+		#"shock3":
+			#global.slow_speed -= 0.25
 		"Endtask":
 			end_task = true
 			inv.allremoved()
