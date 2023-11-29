@@ -36,13 +36,7 @@ const UPGRADES = {
 		'level': 'level: 2',
 		'prerequisite': ["Adblocker1"]
 	},
-	"Adblocker3": {
-		"icon": ICON_Path + "adblocker.png",
-		'displayname': adblocker_displayename,
-		'details': adblocker_details,
-		'level': 'level: 3',
-		'prerequisite': ["Adblocker2"]
-	},
+
 	"Antivirus1": {
 		"icon": ICON_Path + "antivirus.png",
 		'displayname': antivirus_displayname,
@@ -56,13 +50,6 @@ const UPGRADES = {
 		'details': antivirus_details,
 		'level': 'level: 2',
 		'prerequisite': ["Antivirus1"]
-	},
-	"Antivirus3": {
-		"icon": ICON_Path + "antivirus.png",
-		'displayname': antivirus_displayname,
-		'details': antivirus_details,
-		'level': 'level: 3',
-		'prerequisite': ["Antivirus2"]
 	},
 	"Harddisk1": {
 		"icon": ICON_Path + "harddisk.png",
@@ -78,13 +65,6 @@ const UPGRADES = {
 		'level': 'level: 2',
 		'prerequisite': ["Harddisk1"]
 	},
-	"Harddisk3": {
-		"icon": ICON_Path + "harddisk.png",
-		'displayname': harddisk_displayname,
-		'details': harddisk_details,
-		'level': 'level: 3',
-		'prerequisite': ["Harddisk2"]
-	},
 	"increasedpi": {
 		"icon": ICON_Path + "increasedpi.png",
 		'displayname': increasedpi_displayname,
@@ -98,13 +78,6 @@ const UPGRADES = {
 		'details': increasedpi_details,
 		'level': 'level: 2',
 		'prerequisite': ["increasedpi"]
-	},
-	"increasedp3": {
-		"icon": ICON_Path + "increasedpi.png",
-		'displayname': increasedpi_displayname,
-		'details': increasedpi_details,
-		'level': 'level: 3',
-		'prerequisite': ["increasedp2"]
 	},
 	"shock": {
 		"icon": ICON_Path + "shock.png",

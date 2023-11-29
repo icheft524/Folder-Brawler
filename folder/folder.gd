@@ -188,32 +188,27 @@ func collect(file,ehp,file_size,enemy_name):
 func upgrade_character(upgrade):
 	match upgrade:
 		"Adblocker1":
-			global.adstimelock += 20
+			global.adstimelock += 1.5
 		"Adblocker2":
 			global.adstimelock += 2
-		"Adblocker3":
-			global.adstimelock += 2
 		"Antivirus1":
-			global.crit_chance -= 0.10
+			global.crit_chance -= 0.20
 		"Antivirus2":
-			global.crit_chance -= 0.10
-		"Antivirus3":
-			global.crit_chance -= 0.15
+			global.crit_chance -= 0.20
 		"Harddisk1":
 			max_capacity += 2
 		"Harddisk2":
 			max_capacity += 2
-		"Harddisk3":
-			max_capacity += 2
 		"increasedpi":
-			speed_x = speed_x * 1.15
-			speed_y = speed_y * 1.15
+			speed_x = speed_x * 1.20
+			speed_y = speed_y * 1.20
 		"increasedp2":
-			speed_x = speed_x * 1.25
-			speed_y = speed_y * 1.25
-		"increasedp3":
-			speed_x = speed_x * 1.40
-			speed_y = speed_y * 1.40
+			m_fat = 1
+			l_fat = 1
+			xl_fat = 1
+		#"increasedp3":
+			#speed_x = speed_x * 1.40
+			#speed_y = speed_y * 1.40
 		"shock":
 			global.slow_speed = 0
 		#"shock2":
