@@ -35,7 +35,6 @@ func _ready():
 		tween.play()
 		pass
 	
-
 func _physics_process(delta):
 	if indicator_finished:
 		movement()
@@ -71,7 +70,7 @@ func _input(event):
 				sound.enemyhit()
 				hp -= take_normal_dmg
 			speeddown()
-
+			$hitanim.play("hit")
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true

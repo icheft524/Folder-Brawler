@@ -6,11 +6,11 @@
 [ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="4_3vg6h"]
 [ext_resource type="Texture2D" uid="uid://1xkfbc1tj6wl" path="res://art/enemy/enemywindow.png" id="4_qa7t6"]
 [ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_2pwen"]
-[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="6_aojj0"]
 [ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_wwvry"]
 [ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_gx8tn"]
 [ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_h3c7c"]
-[ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="11_20k55"]
+[ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="11_v4m4s"]
+[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="12_qb8k1"]
 
 [sub_resource type="Resource" id="Resource_y44k8"]
 script = ExtResource("2_j22nk")
@@ -162,7 +162,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_aojj0")]
+"values": [ExtResource("12_qb8k1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -202,7 +202,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("11_20k55"), ExtResource("6_aojj0")]
+"values": [ExtResource("11_v4m4s"), ExtResource("12_qb8k1")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -250,7 +250,7 @@ texture = ExtResource("4_qa7t6")
 z_as_relative = false
 position = Vector2(-10, 15)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_aojj0")
+texture = ExtResource("12_qb8k1")
 
 [node name="Area2D" type="Area2D" parent="."]
 
