@@ -56,12 +56,13 @@ func _on_close_pressed():
 		pic_wave2.visible = false
 		close_but.visible = false
 		get_tree().paused = false
-	
+
 	if global.time == 47 and wave3: #wave3
 		global.tutorial = false
 		pic_wave3.visible = false
 		close_but.visible = false
 		get_tree().paused = false
+		
 		
 	if global.time == 72 and wave4: #wave4
 		global.tutorial = false
