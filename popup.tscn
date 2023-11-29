@@ -1,97 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://bovydyeqng22q"]
+[gd_scene load_steps=8 format=3 uid="uid://bovydyeqng22q"]
 
 [ext_resource type="Script" path="res://popup.gd" id="1_k3w5a"]
 [ext_resource type="Texture2D" uid="uid://dtb01en0forhv" path="res://art/playerfolder/closebutton.png" id="3_ko2i3"]
 [ext_resource type="Texture2D" uid="uid://xk5xakv8njmn" path="res://enemy/normal_file/HextechGunblade - Copy.png" id="3_x81ae"]
-[ext_resource type="Texture2D" uid="uid://dyvdnvjmp6q61" path="res://enemy/normal_file/normalfile.PNG" id="4_vtqjt"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvovk"]
-size = Vector2(166, 117.5)
+[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="4_gbvry"]
+[ext_resource type="Texture2D" uid="uid://cgpf8hr324pc5" path="res://art/normalicon.png" id="4_h5jve"]
+[ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="5_vrkyl"]
+[ext_resource type="Texture2D" uid="uid://dpe1tstvmme0m" path="res://art/enemy/icon_lockB.png" id="6_k5u7h"]
 
 [node name="popup" type="Node2D"]
+process_mode = 2
 script = ExtResource("1_k3w5a")
 
-[node name="normal" type="Area2D" parent="."]
+[node name="wave1" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="normal"]
-position = Vector2(406, 14.25)
-shape = SubResource("RectangleShape2D_pvovk")
-
-[node name="Sprite2D" type="Sprite2D" parent="normal"]
-position = Vector2(409, 18)
-scale = Vector2(0.705, 0.722857)
-texture = ExtResource("3_ko2i3")
-
-[node name="Sprite2D2" type="Sprite2D" parent="normal"]
-position = Vector2(272, 144)
-scale = Vector2(15, 15)
+position = Vector2(369, 414)
+scale = Vector2(20.2, 15)
 texture = ExtResource("3_x81ae")
 
-[node name="ads" type="Area2D" parent="."]
+[node name="wave2" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
+position = Vector2(368, 426)
+scale = Vector2(1.71384, 1.31597)
+texture = ExtResource("4_gbvry")
 
-[node name="Sprite2D2" type="Sprite2D" parent="ads"]
-position = Vector2(409, 18)
-scale = Vector2(0.705, 0.722857)
-texture = ExtResource("3_ko2i3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ads"]
-position = Vector2(406, 14.25)
-shape = SubResource("RectangleShape2D_pvovk")
-
-[node name="Sprite2D" type="Sprite2D" parent="ads"]
-position = Vector2(230, 270)
-texture = ExtResource("4_vtqjt")
-
-[node name="big" type="Area2D" parent="."]
+[node name="wave3" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
+position = Vector2(373, 420)
+scale = Vector2(18.6763, 13.5307)
+texture = ExtResource("4_h5jve")
 
-[node name="Sprite2D3" type="Sprite2D" parent="big"]
-position = Vector2(409, 18)
-scale = Vector2(0.705, 0.722857)
-texture = ExtResource("3_ko2i3")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="big"]
-position = Vector2(406, 14.25)
-shape = SubResource("RectangleShape2D_pvovk")
-
-[node name="zip" type="Area2D" parent="."]
+[node name="wave4" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
+position = Vector2(373, 415.943)
+scale = Vector2(19.4025, 14.5057)
+texture = ExtResource("5_vrkyl")
 
-[node name="Sprite2D4" type="Sprite2D" parent="zip"]
-position = Vector2(409, 18)
-scale = Vector2(0.705, 0.722857)
-texture = ExtResource("3_ko2i3")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="zip"]
-position = Vector2(406, 14.25)
-shape = SubResource("RectangleShape2D_pvovk")
-
-[node name="enc" type="Area2D" parent="."]
+[node name="close" type="TextureButton" parent="."]
 process_mode = 2
-visible = false
+offset_left = 519.0
+offset_top = 4.0
+offset_right = 660.0
+offset_bottom = 132.0
+texture_normal = ExtResource("6_k5u7h")
+texture_hover = ExtResource("3_ko2i3")
+ignore_texture_size = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="enc"]
-position = Vector2(409, 18)
-scale = Vector2(0.705, 0.722857)
-texture = ExtResource("3_ko2i3")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="enc"]
-position = Vector2(406, 14.25)
-shape = SubResource("RectangleShape2D_pvovk")
-
-[connection signal="mouse_entered" from="normal" to="." method="_on_normal_mouse_entered"]
-[connection signal="mouse_exited" from="normal" to="." method="_on_normal_mouse_exited"]
-[connection signal="mouse_entered" from="ads" to="." method="_on_ads_mouse_entered"]
-[connection signal="mouse_exited" from="ads" to="." method="_on_ads_mouse_exited"]
-[connection signal="mouse_entered" from="big" to="." method="_on_big_mouse_entered"]
-[connection signal="mouse_exited" from="big" to="." method="_on_big_mouse_exited"]
-[connection signal="mouse_entered" from="zip" to="." method="_on_zip_mouse_entered"]
-[connection signal="mouse_exited" from="zip" to="." method="_on_zip_mouse_exited"]
-[connection signal="mouse_entered" from="enc" to="." method="_on_enc_mouse_entered"]
-[connection signal="mouse_exited" from="enc" to="." method="_on_enc_mouse_exited"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
