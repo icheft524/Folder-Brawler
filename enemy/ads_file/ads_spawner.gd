@@ -61,4 +61,4 @@ func _postion_random_srceen(set_offset: int):
 	var randomx = get_viewport_rect().size.x
 	#var randomx = get_viewport_rect().size.x
 	var randomy = get_viewport_rect().size.y
-	return Vector2(randf_range(100,1200),randf_range(offset,randomy-offset))
+	return Vector2(randf_range(100,1000),randf_range(offset,randomy-offset))
