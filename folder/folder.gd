@@ -69,12 +69,13 @@ func _input(event):
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 		else:
 			dragging_folder = false
-			if mouse_in:
+			if mouse_in and !global.inv_open:
 				global.mouse_inv_tab = true
 			$shadow.visible = false
 			
 	elif event is InputEventMouseMotion:
 		if dragging_folder and !global.inv_open:
+			
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 	
 	if event is InputEventMouseMotion:
@@ -90,6 +91,8 @@ func _input(event):
 			
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_double_click() && mouse_in:
+			global.mouse_inv_tab = false
+			global.mouse_inv_drag = false
 			inventory.open()
 			sound.playeropenfolder()
 	
