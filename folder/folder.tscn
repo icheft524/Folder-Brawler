@@ -265,6 +265,10 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="upgrade_coming" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="upgrade_coming" to="." method="_on_upgrade_coming_timeout"]

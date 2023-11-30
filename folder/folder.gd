@@ -43,6 +43,8 @@ var wave3 = true
 var wave4 = true
 var wave5 = true
 
+var upgrade_coming = false
+
 func _ready():
 	inv.allremoved()
 	global.time = 0
@@ -55,6 +57,24 @@ func _process(delta):
 	$hp.text = "CAP: " + str(capacity)
 	if Input.is_action_just_pressed("leftclick"):
 		sound.click()
+		
+	if global.time == 17 and upgrade_coming == false:
+		$upgrade_coming.start()
+	
+	if global.time == 43:
+		upgrade_coming = false
+		$upgrade_coming.start()
+	
+	if global.time == 67:
+		upgrade_coming == false
+		$upgrade_coming.start()
+		
+	if global.time == 92:
+		upgrade_coming == false
+		$upgrade_coming.start()
+	
+	if upgrade_coming == true:
+		$upgrade_coming.stop()
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -97,21 +117,26 @@ func _input(event):
 			sound.playeropenfolder()
 	
 	
-	if event.is_action_pressed("ui_accept"): #change to global.time
-		levelup()
+	#if event.is_action_pressed("ui_accept"): #change to global.time
+		#levelup()
+		
 	
 	if global.time == 22 and wave2 == true: #wave2
 		levelup()
 		wave2 = false
+		upgrade_coming = true
 	elif global.time == 47 and wave3 == true: #wave3
 		levelup()
 		wave3 = false
+		upgrade_coming = true
 	elif global.time == 72 and wave4 == true: #wave4
 		levelup()
 		wave4 = false
+		upgrade_coming = true
 	elif global.time == 97 and wave5 == true: #wave5
 		levelup()
 		wave5 = false
+		upgrade_coming = true
 	
 func _physics_process(delta):
 	if dragging_folder:
@@ -276,3 +301,8 @@ func get_random_item():
 
 func _on_timer_timeout():
 	global.time += 1
+
+
+func _on_upgrade_coming_timeout():
+	sound.timer()
+	$upgrade_coming.start()

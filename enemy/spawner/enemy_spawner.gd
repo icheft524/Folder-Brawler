@@ -58,7 +58,7 @@ func _on_timer_timeout():
 			else:
 				i.spawn_delay_counter = 0
 				var new_enemy = load(str(i.enemy.resource_path))
-				#var enemy_spawn = new_enemy.instantiate()
+				var enemy_spawn = new_enemy.instantiate()
 				var counter = 0
 				while counter < i.enemy_num:
 					var random_pos = Vector2(randf_range(0,1080),randf_range(0,900))
@@ -67,8 +67,8 @@ func _on_timer_timeout():
 						#enemy_spawn.hp += enemyhpincrease*(floor(global.time/enemy_upgrade_time))
 						#if enemy_spawn.hp > enemyhpcap:
 							#enemy_spawn.hp = enemyhpcap
-					#enemy_spawn.global_position = random_pos
-					#add_child(enemy_spawn)						
+					enemy_spawn.global_position = random_pos
+					add_child(enemy_spawn)						
 					counter += 1
 					
 					
