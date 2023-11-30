@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=31 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://boaivd0bjqhq1" path="res://sound/Player_Crit_Hit.wav" id="21_nxsbw"]
 [ext_resource type="AudioStream" uid="uid://cg8pg8eg7ohdg" path="res://sound/player/Player_Get_hit_01_Big_Damage.wav" id="22_cg5vv"]
 [ext_resource type="AudioStream" uid="uid://8nq4lclhlpow" path="res://sound/player/Player_Upgrade.wav" id="22_qx08p"]
+[ext_resource type="AudioStream" uid="uid://dpxkt6v3pds6h" path="res://sound/Timer.wav" id="25_f4d70"]
+[ext_resource type="AudioStream" uid="uid://cm0len56fkl1l" path="res://sound/You_Win_guide.wav" id="26_spe6f"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1i1y4"]
 streams_count = 4
@@ -141,4 +143,14 @@ bus = &"sfx"
 [node name="playerhitbig" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_k3oh5")
 volume_db = -10.0
+bus = &"sfx"
+
+[node name="timer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_f4d70")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="wintheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_spe6f")
+volume_db = -5.0
 bus = &"sfx"
