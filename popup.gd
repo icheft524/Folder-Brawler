@@ -16,21 +16,21 @@ var close =  Vector2(0.1,0.1)
 
 
 func _ready():
-	global.tutorial = true
-	get_tree().paused = true
-	image.visible = true
-	close_but.visible = true
-	showpo()
+	showpo(global.pop_start_tutorial)
+	global.pop_start_tutorial = true
 	
 
-func showpo():
-	image.scale = normal
-	var tween = create_tween()
-	tween.tween_property(image,"scale",normal + pop,0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tween.play()
+func showpo(is_show: bool):
+	if !is_show:
+		get_tree().paused = true
+		image.visible = true
+		close_but.visible = true
+		image.scale = normal
+		var tween = create_tween()
+		tween.tween_property(image,"scale",normal + pop,0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tween.play()
 
 func closepo():
-	global.tutorial = false
 	image.visible = false
 	close_but.visible = false
 	if !global.on_upgrade:

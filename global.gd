@@ -19,7 +19,8 @@ var mouse_in_enemy = false
 var mouse_inv_tab = false
 var mouse_inv_close = false
 var mouse_inv_drag = false
-var tutorial
+var pop_start_tutorial = false
+var pop_enter_tutorial = false
 
 signal boss_dies
 
