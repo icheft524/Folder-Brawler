@@ -57,7 +57,7 @@ func _process(delta):
 		$hp.text = "encrypted" + str(hp)
 
 func _input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and $Area2D.monitoring == true:
 		if event.is_action_pressed("leftclick") && mouse_in && indicator_finished && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			if percent > global.crit_chance:
