@@ -195,6 +195,7 @@ func _on_area_2d_area_entered(area):
 		
 func collect(file,ehp,file_size,enemy_name):
 	inv.insert(file,ehp,file_size,enemy_name)
+	global.pop_enter_tutorial = true
 
 func upgrade_character(upgrade):
 	match upgrade:

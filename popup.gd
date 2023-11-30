@@ -3,6 +3,10 @@ extends Node2D
 @onready var image = $image
 @onready var close_but = $"image/close"
 
+var howto1 = preload("res://art/howtoplay/howtoplay.png")
+var howto2 = preload("res://art/howtoplay/howtoplay2.png")
+var howto3 = preload("res://art/howtoplay/howtoplay3.png")
+
 var mouse_close_in = false
 var already_clicked = false
 var normal = Vector2(0.369,0.274)
@@ -13,15 +17,21 @@ var wave3 = true
 var wave4 = true
 var pop =  Vector2(0.05,0.05)
 var close =  Vector2(0.1,0.1)
+var is_enter = false
 
 
 func _ready():
-	showpo(global.pop_start_tutorial)
+	if global.pop_enter_tutorial:
+		is_enter = true
+	showpo(global.pop_start_tutorial,howto1)
 	global.pop_start_tutorial = true
 	
 
-func showpo(is_show: bool):
+func showpo(is_show: bool, howtoimage):
 	if !is_show:
+		if global.pop_start_tutorial:
+			is_enter = true
+		image.set_texture(howtoimage)
 		get_tree().paused = true
 		image.visible = true
 		close_but.visible = true
@@ -37,6 +47,8 @@ func closepo():
 		get_tree().paused = false
 
 func _process(delta):
+	if global.pop_enter_tutorial && !is_enter:
+		showpo(is_enter,howto2)
 	if image.scale < Vector2(0.3,0.3):
 		closepo()
 	if global.time == 22 and wave2: #wave2 big
