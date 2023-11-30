@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var image = $image
 @onready var close_but = $"image/close"
+@onready var mouse_cam = $"../cam"
 
 var howto1 = preload("res://art/howtoplay/howtoplay.png")
 var howto2 = preload("res://art/howtoplay/howtoplay2.png")
@@ -9,7 +10,7 @@ var howto3 = preload("res://art/howtoplay/howtoplay3.png")
 
 var mouse_close_in = false
 var already_clicked = false
-var normal = Vector2(0.369,0.274)
+var normal = Vector2(0.369,0.369)
 #@export var close =  Vector2(0.8,0.8)
 
 var wave2 = true
@@ -36,6 +37,7 @@ func showpo(is_show: bool, howtoimage):
 		image.visible = true
 		close_but.visible = true
 		image.scale = normal
+		mouse_cam.popup_mouse()
 		var tween = create_tween()
 		tween.tween_property(image,"scale",normal + pop,0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.play()
@@ -43,6 +45,7 @@ func showpo(is_show: bool, howtoimage):
 func closepo():
 	image.visible = false
 	close_but.visible = false
+	mouse_cam.close_popup()
 	if !global.on_upgrade:
 		get_tree().paused = false
 

@@ -8,9 +8,11 @@ var isShake = false
 var curPos
 var elapsedtime = 0
 var not_responding = false
+var force_pointer = false
 
 func _ready():
 	randomize()
+	force_pointer = false
 	curPos = offset
 	global.not_responding.connect(mouse_not_respond)
 	global.hand_mouse = false
@@ -19,39 +21,47 @@ func _ready():
 	global.not_respond_mouse = false
 
 func _process(delta):
-	if global.hand_mouse:
-		$pointer_mouse.visible = false
-		$hand_mouse.visible = true
-		$hand_mouse.global_position = get_global_mouse_position()
-	if !global.hand_mouse:
-		$hand_mouse.visible = false
-	if !$hand_mouse.visible and !$open_hand.visible and !$drag_hand.visible:
-		$pointer_mouse.visible = true
+	if force_pointer:
 		$pointer_mouse.global_position = get_global_mouse_position()
-	if global.mouse_inv_tab:
-		$pointer_mouse.visible = false
-		$hand_mouse.visible = false
-		$open_hand.visible = true
-		$open_hand.global_position = get_global_mouse_position()
-	if !global.mouse_inv_tab:
-		$open_hand.visible = false
-	if global.mouse_inv_drag:
-		$pointer_mouse.visible = false
-		$hand_mouse.visible = false
-		$open_hand.visible = false
-		$drag_hand.visible = true
-		$drag_hand.global_position = get_global_mouse_position()
-	if !global.mouse_inv_drag:
-		$drag_hand.visible = false
-	if not_responding:
-		$not_res.visible = true
-		$pointer_mouse.visible = false
+		$pointer_mouse.visible = true
 		$hand_mouse.visible = false
 		$open_hand.visible = false
 		$drag_hand.visible = false
-		$not_res.global_position = get_global_mouse_position()
-	if !not_responding:
 		$not_res.visible = false
+	else:
+		if global.hand_mouse:
+			$pointer_mouse.visible = false
+			$hand_mouse.visible = true
+			$hand_mouse.global_position = get_global_mouse_position()
+		if !global.hand_mouse:
+			$hand_mouse.visible = false
+		if !$hand_mouse.visible and !$open_hand.visible and !$drag_hand.visible:
+			$pointer_mouse.visible = true
+			$pointer_mouse.global_position = get_global_mouse_position()
+		if global.mouse_inv_tab:
+			$pointer_mouse.visible = false
+			$hand_mouse.visible = false
+			$open_hand.visible = true
+			$open_hand.global_position = get_global_mouse_position()
+		if !global.mouse_inv_tab:
+			$open_hand.visible = false
+		if global.mouse_inv_drag:
+			$pointer_mouse.visible = false
+			$hand_mouse.visible = false
+			$open_hand.visible = false
+			$drag_hand.visible = true
+			$drag_hand.global_position = get_global_mouse_position()
+		if !global.mouse_inv_drag:
+			$drag_hand.visible = false
+		if not_responding:
+			$not_res.visible = true
+			$pointer_mouse.visible = false
+			$hand_mouse.visible = false
+			$open_hand.visible = false
+			$drag_hand.visible = false
+			$not_res.global_position = get_global_mouse_position()
+		if !not_responding:
+			$not_res.visible = false
 	
 		
 	if global.shaking:
@@ -84,3 +94,13 @@ func mouse_not_respond():
 	await get_tree().create_timer(3,false).timeout
 	global.not_respond_mouse = false
 	not_responding = false
+
+func popup_mouse():
+	force_pointer = true
+
+	
+func close_popup():
+	force_pointer = false
+	if global.not_respond_mouse:
+		$pointer_mouse.visible = false
+		$not_res.visible = true
