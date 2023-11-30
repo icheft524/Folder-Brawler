@@ -65,9 +65,12 @@ func _input(event):
 			draggingDistance = position.distance_to(get_viewport().get_mouse_position())
 			dir = (get_viewport().get_mouse_position() - position).normalized()
 			dragging_folder = true
+			global.mouse_inv_drag = true
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 		else:
 			dragging_folder = false
+			if mouse_in:
+				global.mouse_inv_tab = true
 			$shadow.visible = false
 			
 	elif event is InputEventMouseMotion:
@@ -173,10 +176,14 @@ func check_cap():
 
 func _on_area_2d_mouse_entered():
 	mouse_in = true
+	if !global.inv_open:
+		global.mouse_inv_tab = true
 	$outline.visible = true
 
 func _on_area_2d_mouse_exited():
 	mouse_in = false
+	if !global.inv_open:
+		global.mouse_inv_tab = false
 	$outline.visible = false
 
 func _on_area_2d_area_entered(area):

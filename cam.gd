@@ -11,6 +11,9 @@ var elapsedtime = 0
 func _ready():
 	randomize()
 	curPos = offset
+	global.hand_mouse = false
+	global.mouse_inv_tab = false
+	global.mouse_inv_drag = false
 
 func _process(delta):
 	if global.hand_mouse:

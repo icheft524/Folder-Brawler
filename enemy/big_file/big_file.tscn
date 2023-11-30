@@ -236,12 +236,13 @@ _data = {
 }
 
 [node name="big_file" type="CharacterBody2D"]
-z_index = -1
+z_index = 1
 script = ExtResource("1_0mtu7")
 file = SubResource("Resource_y44k8")
 metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_2b6st")
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_qa7t6")
@@ -264,6 +265,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="indicator" type="Sprite2D" parent="."]
+z_as_relative = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_2pwen")
 

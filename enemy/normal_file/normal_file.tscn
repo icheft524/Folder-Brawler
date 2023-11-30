@@ -159,6 +159,7 @@ _data = {
 }
 
 [node name="normalFile" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_6aj4h")
 file = SubResource("Resource_vyk3c")
 metadata/broken_pos = Vector2(0, 0)
@@ -210,6 +211,7 @@ offset_bottom = 131.0
 
 [node name="indicator" type="Sprite2D" parent="."]
 visible = false
+z_as_relative = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_gh73d")
 
