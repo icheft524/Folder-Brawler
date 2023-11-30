@@ -9,7 +9,7 @@ var newPosition = Vector2()
 @export var speed_y = 7
 @export var inv: Inv
 var capacity = 0
-@export var max_capacity = 10
+@export var max_capacity = 8
 @export var slowness = 0.02
 @export var m_fat = 0.8
 @export var l_fat = 0.5
@@ -175,13 +175,13 @@ func _physics_process(delta):
 
 
 func check_cap():
-	if capacity < 2:
+	if capacity < 1:
 		fatness = 1
 		$Sprite2D.texture = load("res://art/playerfolder/s/playerbody_s_idle.png")
 		$face.texture = load("res://art/playerfolder/s/playerface_S.png")
 		$outline.texture = load("res://art/playerfolder/s/playerbody_s_hover.png")
 		$shadow.texture = load("res://art/playerfolder/s/playerbody_s_dragging.png")
-	elif capacity < 4:
+	elif capacity < 3:
 		fatness = m_fat
 		$Sprite2D.texture = load("res://art/playerfolder/m/playerbody_m_idle.png")
 		$face.texture = load("res://art/playerfolder/m/playerface_M.png")
@@ -193,13 +193,13 @@ func check_cap():
 		$face.texture = load("res://art/playerfolder/l/playerface_L.png")
 		$outline.texture = load("res://art/playerfolder/l/playerbody_l_hover.png")
 		$shadow.texture = load("res://art/playerfolder/l/playerbody_l_dragging.png")
-	elif capacity < 8:
+	elif capacity < 9:
 		fatness = xl_fat
 		$Sprite2D.texture = load("res://art/playerfolder/xl/playerbody_xl_idle.png")
 		$face.texture = load("res://art/playerfolder/xl/playerface_XL.png")
 		$outline.texture = load("res://art/playerfolder/xl/playerbody_xl_hover.png")
 		$shadow.texture = load("res://art/playerfolder/xl/playerbody_xl_dragging.png")
-	else:
+	elif capacity >= max_capacity:
 		get_tree().reload_current_scene()
 
 func _on_area_2d_mouse_entered():
