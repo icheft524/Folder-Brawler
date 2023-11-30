@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=34 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c6u4yboym6qs8" path="res://enemy/boss/boss.tscn" id="13_15cqn"]
 [ext_resource type="PackedScene" uid="uid://bovydyeqng22q" path="res://popup.tscn" id="14_2t6tj"]
 [ext_resource type="Texture2D" uid="uid://ym6v12f8vcmu" path="res://art/ui/Monitor.png" id="15_waif3"]
+[ext_resource type="PackedScene" uid="uid://bd18lqdsm4ns1" path="res://fade.tscn" id="16_nwa8d"]
 
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
@@ -218,6 +219,12 @@ z_index = -5
 position = Vector2(694, 555)
 scale = Vector2(0.547792, 0.547792)
 texture = ExtResource("15_waif3")
+
+[node name="fade" parent="." instance=ExtResource("16_nwa8d")]
+process_mode = 3
+visible = false
+position = Vector2(685, 504.5)
+scale = Vector2(21.5312, 15.8906)
 
 [node name="popup" parent="." instance=ExtResource("14_2t6tj")]
 position = Vector2(406, 212)

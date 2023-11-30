@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd18lqdsm4ns1"]
+
+[ext_resource type="Script" path="res://fade.gd" id="1_sf4hb"]
+
+[sub_resource type="Gradient" id="Gradient_yx3um"]
+colors = PackedColorArray(0, 0, 0, 1, 0.044, 0.1766, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1k3ik"]
+gradient = SubResource("Gradient_yx3um")
+fill_from = Vector2(1, 1)
+
+[node name="fade" type="Sprite2D"]
+position = Vector2(162, 99)
+scale = Vector2(5.1875, 3.21875)
+texture = SubResource("GradientTexture2D_1k3ik")
+script = ExtResource("1_sf4hb")
