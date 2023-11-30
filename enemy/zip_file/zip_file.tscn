@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c76fdqn24ggef"]
+[gd_scene load_steps=24 format=3 uid="uid://c76fdqn24ggef"]
 
 [ext_resource type="Script" path="res://enemy/zip_file/zip_file.gd" id="1_ppmwp"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_k2wnp"]
-[ext_resource type="Texture2D" uid="uid://cpaa3bmk0xr1o" path="res://art/zipicon.png" id="3_tj173"]
 [ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="4_33cii"]
 [ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_1icfe"]
 [ext_resource type="Texture2D" uid="uid://1xkfbc1tj6wl" path="res://art/enemy/enemywindow.png" id="5_ike2s"]
@@ -15,7 +14,7 @@
 [sub_resource type="Resource" id="Resource_lgouq"]
 script = ExtResource("2_k2wnp")
 name = "ZIP"
-texture = ExtResource("3_tj173")
+texture = ExtResource("6_h3lbn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5xkbh"]
 resource_local_to_scene = true

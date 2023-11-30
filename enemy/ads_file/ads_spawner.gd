@@ -24,7 +24,8 @@ var ad_im_l = [
 	]
 var ad_im_s = [
 	"Ads_S_1.png",
-	"Ads_S_2.png"
+	"Ads_S_2.png",
+	"Ads_S_3.png"
 	]
 
 func _ready():
