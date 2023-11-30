@@ -1,5 +1,6 @@
 extends Sprite2D
 
+@onready var cam = $"../cam"
 
 func _ready():
 	modulate.a = 0.75

@@ -23,6 +23,7 @@ var pop_start_tutorial = false
 var pop_enter_tutorial = false
 var not_respond_mouse = false
 
+
 signal boss_dies
 signal not_responding
 

@@ -1,5 +1,6 @@
 extends Camera2D
 
+
 @export var shake_power = 4
 @export var big_shake_power = 10
 @export var shake_time = 0.2
@@ -28,6 +29,10 @@ func _process(delta):
 		$open_hand.visible = false
 		$drag_hand.visible = false
 		$not_res.visible = false
+		global.hand_mouse = false
+		global.mouse_inv_tab = false
+		global.mouse_inv_drag = false
+
 	else:
 		if global.hand_mouse:
 			$pointer_mouse.visible = false

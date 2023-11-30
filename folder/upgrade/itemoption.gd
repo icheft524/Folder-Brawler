@@ -37,15 +37,16 @@ func _input(event):
 			emit_signal("selected_upgrade",item)
 			emit_signal("upgrade")
 
+
 func _on_area_2d_mouse_entered():
 	mouse_over = true
 	if global.on_upgrade:
 		outline.modulate.a = 1
-	pass
+
 
 
 func _on_area_2d_mouse_exited():
 	mouse_over = false
 	if global.on_upgrade:
 		outline.modulate.a = unhighlight
-	pass
+

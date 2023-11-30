@@ -3,6 +3,8 @@ extends Node2D
 @onready var image = $image
 @onready var close_but = $"image/close"
 @onready var mouse_cam = $"../cam"
+@onready var folder = $"../folder"
+@onready var folder_shadow = $"../folder/shadow"
 
 var howto1 = preload("res://art/howtoplay/howtoplay.png")
 var howto2 = preload("res://art/howtoplay/howtoplay2.png")
@@ -19,6 +21,7 @@ var wave4 = true
 var pop =  Vector2(0.05,0.05)
 var close =  Vector2(0.1,0.1)
 var is_enter = false
+var closed = false
 
 
 func _ready():
@@ -29,6 +32,7 @@ func _ready():
 	
 
 func showpo(is_show: bool, howtoimage):
+	closed = false
 	if !is_show:
 		if global.pop_start_tutorial:
 			is_enter = true
@@ -50,7 +54,8 @@ func closepo():
 		get_tree().paused = false
 
 func _process(delta):
-	if global.pop_enter_tutorial && !is_enter:
+	#if global.pop_enter_tutorial && !is_enter:
+	if global.time == 7:
 		showpo(is_enter,howto2)
 	if image.scale < Vector2(0.3,0.3):
 		closepo()
@@ -69,6 +74,23 @@ func _process(delta):
 
 
 func _on_close_pressed():
+	closed = true
+	folder.dragging_folder = false
+	folder_shadow.visible = false
 	var tween_close = create_tween()
 	tween_close.tween_property(image,"scale",normal - close,0.4).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween_close.play()
+	global.hand_mouse = false
+	mouse_cam.force_pointer = false
+
+
+func _on_close_mouse_entered():
+	if !closed:
+		mouse_cam.force_pointer = false
+		global.hand_mouse = true
+
+
+func _on_close_mouse_exited():
+	if !closed:
+		mouse_cam.force_pointer = true
+		global.hand_mouse = false

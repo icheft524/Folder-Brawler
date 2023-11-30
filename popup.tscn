@@ -29,4 +29,6 @@ texture_hover = ExtResource("3_ko2i3")
 ignore_texture_size = true
 stretch_mode = 0
 
+[connection signal="mouse_entered" from="image/close" to="." method="_on_close_mouse_entered"]
+[connection signal="mouse_exited" from="image/close" to="." method="_on_close_mouse_exited"]
 [connection signal="pressed" from="image/close" to="." method="_on_close_pressed"]

@@ -223,6 +223,7 @@ texture = ExtResource("15_waif3")
 [node name="fade" parent="." instance=ExtResource("16_nwa8d")]
 process_mode = 3
 visible = false
+z_index = 1
 position = Vector2(685, 504.5)
 scale = Vector2(21.5312, 15.8906)
 
