@@ -29,8 +29,8 @@ var enc = preload("res://enemy/encrypted/encrypted_file.tscn")
 var normal = preload("res://enemy/normal_file/normal_file.tscn")
 
 var mon = [big, zip, enc]
-var hard_mon = [zip,enc]
-var weak_mon = [big,normal]
+var hard_mon = [zip,enc,big]
+var weak_mon = [normal]
 var not_respond = false
 var teleport_ready
 
@@ -104,7 +104,7 @@ func teleport():
 	self.position = Vector2(_postion_random_srceen(offset))
 	teleport_ready = false
 	await get_tree().create_timer(0.5,false).timeout
-	_spawn_file(2,'hard')
+	_spawn_file(1,'hard')
 	
 
 func _on_area_2d_mouse_entered():
@@ -131,7 +131,7 @@ func _spawn_file(count: int,type):
 	#else:
 	if type == 'weak':
 		for i in range(count):
-			var fileins = weak_mon[randi_range(0,1)].instantiate()
+			var fileins = weak_mon[0].instantiate()
 			global.enemy_file_drop = true
 			fileins.position = position
 			fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))
@@ -139,7 +139,7 @@ func _spawn_file(count: int,type):
 				#await get_tree().create_timer(1,false).timeout
 	if type == 'hard':
 		for i in range(count):
-			var fileins = hard_mon[randi_range(0,1)].instantiate()
+			var fileins = hard_mon[randi_range(0,2)].instantiate()
 			global.enemy_file_drop = true
 			fileins.position = position
 			fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))

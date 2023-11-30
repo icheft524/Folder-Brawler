@@ -1,22 +1,22 @@
 extends Node
 
 const adblocker_displayename = "Adblocker"
-const adblocker_details = "Decrease ad"
+const adblocker_details = "I HATE Ads"
 
 const antivirus_displayname = "Anti Virus"
-const antivirus_details = "Increase Critical\nChance"
+const antivirus_details = "Critical Hit"
 
-const harddisk_displayname = "Hard disk"
-const harddisk_details = "Increase max capacity"
+const harddisk_displayname = "Hard Disk"
+const harddisk_details = "Max Capacity"
 
-const increasedpi_displayname = "increase dpi"
-const increasedpi_details = "Move folder faster"
+const increasedpi_displayname = "DPI"
+const increasedpi_details = "Speedy Folder"
 
-const shock_displayname = "Shock"
-const shock_details = "Virus become slowed\nafter getting click"
+const shock_displayname = "System Shock"
+const shock_details = "Stun Click"
 
 const endtask_displayname = "End Task"
-const endtask_details = "Clear all virus in\nfolder"
+const endtask_details = "Clean Folder!"
 
 const ICON_Path = "res://art/icon/"
 const ART_Path = "res://art/"

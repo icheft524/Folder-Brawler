@@ -22,7 +22,7 @@ shader_parameter/whiteflashed = null
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dprjq"]
-size = Vector2(308.5, 317)
+size = Vector2(212.5, 223)
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001
@@ -196,7 +196,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
-"values": [Vector2(0.3, 0.1), Vector2(0.5, 0.6), Vector2(0.5, 0.5)]
+"values": [Vector2(0.3, 0.1), Vector2(0.35, 0.42), Vector2(0.35, 0.35)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -605,6 +605,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p0wm4")
 
 [node name="hp" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
@@ -614,7 +615,7 @@ libraries = {
 }
 
 [node name="delay_teleport" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 4.0
 autostart = true
 
 [node name="one_sec_spawn" type="Timer" parent="."]
