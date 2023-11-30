@@ -71,7 +71,7 @@ func _input(event):
 			$shadow.visible = false
 			
 	elif event is InputEventMouseMotion:
-		if dragging_folder:
+		if dragging_folder and !global.inv_open:
 			newPosition = get_viewport().get_mouse_position() - draggingDistance * dir
 	
 	if event is InputEventMouseMotion:
