@@ -10,13 +10,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_6prv4"]
 line_spacing = 8.0
 font = ExtResource("2_uxncl")
-font_size = 64
+font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_as3h6"]
 font = ExtResource("2_uxncl")
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cl4w"]
+line_spacing = 0.0
 font = ExtResource("2_uxncl")
 font_size = 32
 
@@ -40,23 +41,23 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ivms6")
 texture_filter = 1
 layout_mode = 0
 offset_left = 160.0
-offset_top = 20.0
+offset_top = 30.0
 offset_right = 460.0
-offset_bottom = 100.0
-text = "Kuy"
+offset_bottom = 110.0
+text = "Kuyyyyyyyyy"
 label_settings = SubResource("LabelSettings_6prv4")
 
 [node name="Label_level" type="Label" parent="box"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 367.0
-offset_top = 23.0
-offset_right = 445.0
-offset_bottom = 62.0
-text = "Level1"
+offset_left = 240.0
+offset_top = 10.0
+offset_right = 448.0
+offset_bottom = 49.0
+text = "Level11"
 label_settings = SubResource("LabelSettings_as3h6")
 horizontal_alignment = 2
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Label_description" type="Label" parent="box"]
 texture_filter = 1
@@ -65,7 +66,7 @@ offset_left = 164.0
 offset_top = 93.0
 offset_right = 447.0
 offset_bottom = 132.0
-text = "Humyai"
+text = "HumyaiHumyaiHumyaiHumyaiHumyaiHumyai"
 label_settings = SubResource("LabelSettings_1cl4w")
 autowrap_mode = 1
 

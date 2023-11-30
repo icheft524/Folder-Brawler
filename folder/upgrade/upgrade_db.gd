@@ -4,7 +4,7 @@ const adblocker_displayename = "Adblocker"
 const adblocker_details = "Decrease ad"
 
 const antivirus_displayname = "Anti Virus"
-const antivirus_details = "Increase Critical Chance"
+const antivirus_details = "Increase Critical\nChance"
 
 const harddisk_displayname = "Hard disk"
 const harddisk_details = "Increase max capacity"
@@ -13,10 +13,10 @@ const increasedpi_displayname = "increase dpi"
 const increasedpi_details = "Move folder faster"
 
 const shock_displayname = "Shock"
-const shock_details = "Virus become slowed after getting click"
+const shock_details = "Virus become slowed\nafter getting click"
 
 const endtask_displayname = "End Task"
-const endtask_details = "Clear all virus in folder"
+const endtask_details = "Clear all virus in\nfolder"
 
 const ICON_Path = "res://art/icon/"
 const ART_Path = "res://art/"
