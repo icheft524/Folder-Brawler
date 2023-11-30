@@ -1,28 +1,28 @@
-[gd_scene load_steps=31 format=3 uid="uid://c6u4yboym6qs8"]
+[gd_scene load_steps=31 format=3 uid="uid://byr410aw1o2k0"]
 
-[ext_resource type="Script" path="res://enemy/boss/boss.gd" id="1_8o72f"]
-[ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="2_dh2t8"]
-[ext_resource type="Texture2D" uid="uid://dycgvoscp7of0" path="res://art/enemy/boss/bosswindow_1.png" id="3_h3kkq"]
-[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="3_p0wm4"]
-[ext_resource type="Texture2D" uid="uid://ou82vw04k56k" path="res://art/enemy/boss/bosshead_top.png" id="4_6qcdl"]
-[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="4_8sd51"]
-[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="5_p1sdm"]
-[ext_resource type="Texture2D" uid="uid://2bgcy8tjkyqp" path="res://art/enemy/boss/bosshead_bot.png" id="5_qutc0"]
-[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="6_kr7fp"]
-[ext_resource type="Texture2D" uid="uid://ba4g8yaaa01qj" path="res://art/enemy/boss/bosswindow_2.png" id="10_h7o7i"]
-[ext_resource type="Texture2D" uid="uid://dtiu70773rudf" path="res://art/enemy/boss/bosswindow_3.png" id="11_hslwd"]
-[ext_resource type="Texture2D" uid="uid://dql0bgvc4nxvo" path="res://art/enemy/boss/bosswindow_4.png" id="12_vtwun"]
-[ext_resource type="Texture2D" uid="uid://mj135fnm8hrb" path="res://art/enemy/boss/bosswindow_freeze.png" id="13_cyp64"]
-[ext_resource type="Texture2D" uid="uid://cxo03dntpqhax" path="res://art/enemy/boss/bosshead_topr.png" id="14_amcga"]
-[ext_resource type="Texture2D" uid="uid://b8cus23wre47t" path="res://art/enemy/boss/bosshead_botr.png" id="15_h45hm"]
+[ext_resource type="Script" path="res://enemy/boss/boss.gd" id="1_vcum3"]
+[ext_resource type="Texture2D" uid="uid://dycgvoscp7of0" path="res://art/enemy/boss/bosswindow_1.png" id="2_8hatn"]
+[ext_resource type="Shader" uid="uid://brbydw16ah10e" path="res://particle/whiteflash.tres" id="2_l8c6o"]
+[ext_resource type="Texture2D" uid="uid://ou82vw04k56k" path="res://art/enemy/boss/bosshead_top.png" id="3_bys2m"]
+[ext_resource type="Texture2D" uid="uid://2bgcy8tjkyqp" path="res://art/enemy/boss/bosshead_bot.png" id="4_ee7ln"]
+[ext_resource type="Texture2D" uid="uid://bwubuumjrtu5m" path="res://art/indicator/signal_1.png" id="5_bona6"]
+[ext_resource type="Texture2D" uid="uid://ckqn1orf2hmym" path="res://art/indicator/signal_2.png" id="6_nh71e"]
+[ext_resource type="Texture2D" uid="uid://cws22w0k20mfl" path="res://art/indicator/signal_4.png" id="7_ofino"]
+[ext_resource type="Texture2D" uid="uid://c2dwj6dnn2dfq" path="res://art/indicator/signal_3.png" id="8_1uxkc"]
+[ext_resource type="Texture2D" uid="uid://ba4g8yaaa01qj" path="res://art/enemy/boss/bosswindow_2.png" id="9_vws8n"]
+[ext_resource type="Texture2D" uid="uid://dtiu70773rudf" path="res://art/enemy/boss/bosswindow_3.png" id="10_wuo5h"]
+[ext_resource type="Texture2D" uid="uid://dql0bgvc4nxvo" path="res://art/enemy/boss/bosswindow_4.png" id="11_x0lep"]
+[ext_resource type="Texture2D" uid="uid://cxo03dntpqhax" path="res://art/enemy/boss/bosshead_topr.png" id="13_2s2lg"]
+[ext_resource type="Texture2D" uid="uid://mj135fnm8hrb" path="res://art/enemy/boss/bosswindow_freeze.png" id="13_ad2i3"]
+[ext_resource type="Texture2D" uid="uid://b8cus23wre47t" path="res://art/enemy/boss/bosshead_botr.png" id="14_4fde6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4iiii"]
-shader = ExtResource("2_dh2t8")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bls8o"]
+shader = ExtResource("2_l8c6o")
 shader_parameter/whiteflashed = null
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dprjq"]
-size = Vector2(126.5, 124)
+size = Vector2(306.5, 304)
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_p0wm4")]
+"values": [ExtResource("5_bona6")]
 }
 
 [sub_resource type="Animation" id="Animation_k3vnd"]
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
 "update": 1,
-"values": [ExtResource("3_p0wm4"), ExtResource("4_8sd51"), ExtResource("5_p1sdm"), ExtResource("6_kr7fp"), ExtResource("3_p0wm4"), ExtResource("4_8sd51"), ExtResource("6_kr7fp"), ExtResource("3_p0wm4"), ExtResource("5_p1sdm"), ExtResource("4_8sd51"), ExtResource("5_p1sdm")]
+"values": [ExtResource("5_bona6"), ExtResource("6_nh71e"), ExtResource("7_ofino"), ExtResource("8_1uxkc"), ExtResource("5_bona6"), ExtResource("6_nh71e"), ExtResource("8_1uxkc"), ExtResource("5_bona6"), ExtResource("7_ofino"), ExtResource("6_nh71e"), ExtResource("7_ofino")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b8pdm"]
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_h3kkq")]
+"values": [ExtResource("2_8hatn")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -196,7 +196,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_h3kkq"), ExtResource("10_h7o7i"), ExtResource("11_hslwd"), ExtResource("12_vtwun"), ExtResource("3_h3kkq")]
+"values": [ExtResource("2_8hatn"), ExtResource("9_vws8n"), ExtResource("10_wuo5h"), ExtResource("11_x0lep"), ExtResource("2_8hatn")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -325,7 +325,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_h3kkq")]
+"values": [ExtResource("2_8hatn")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -390,7 +390,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [ExtResource("3_h3kkq"), ExtResource("10_h7o7i"), ExtResource("11_hslwd"), ExtResource("12_vtwun")]
+"values": [ExtResource("2_8hatn"), ExtResource("9_vws8n"), ExtResource("10_wuo5h"), ExtResource("11_x0lep")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -430,7 +430,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_cyp64")]
+"values": [ExtResource("13_ad2i3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -476,7 +476,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_6qcdl")]
+"values": [ExtResource("3_bys2m")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -488,7 +488,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_qutc0")]
+"values": [ExtResource("4_ee7ln")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -516,7 +516,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("14_amcga"), ExtResource("4_6qcdl")]
+"values": [ExtResource("13_2s2lg"), ExtResource("3_bys2m")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -528,7 +528,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("15_h45hm"), ExtResource("5_qutc0")]
+"values": [ExtResource("14_4fde6"), ExtResource("4_ee7ln")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -550,37 +550,40 @@ _data = {
 }
 
 [node name="boss" type="CharacterBody2D"]
-z_as_relative = false
-script = ExtResource("1_8o72f")
+z_index = 1
+position = Vector2(15, 25)
+script = ExtResource("1_vcum3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_4iiii")
+material = SubResource("ShaderMaterial_bls8o")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_h3kkq")
+texture = ExtResource("2_8hatn")
 
 [node name="enemy" type="Sprite2D" parent="Sprite2D"]
 z_index = 1
 z_as_relative = false
 position = Vector2(0, -50)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("4_6qcdl")
+texture = ExtResource("3_bys2m")
 
 [node name="enemy2" type="Sprite2D" parent="Sprite2D"]
 z_index = 1
 z_as_relative = false
 position = Vector2(-2, 170)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("5_qutc0")
+texture = ExtResource("4_ee7ln")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_dprjq")
 
 [node name="indicator" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_p0wm4")
+texture = ExtResource("5_bona6")
 
 [node name="hp" type="Label" parent="."]
 offset_right = 40.0
@@ -592,10 +595,7 @@ libraries = {
 }
 
 [node name="delay_teleport" type="Timer" parent="."]
-wait_time = 3.5
-autostart = true
-
-[node name="one_sec_spawn" type="Timer" parent="."]
+wait_time = 5.0
 autostart = true
 
 [node name="teleportanim" type="AnimationPlayer" parent="."]
@@ -617,4 +617,3 @@ libraries = {
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="delay_teleport" to="." method="_on_delay_teleport_timeout"]
-[connection signal="timeout" from="one_sec_spawn" to="." method="_on_one_sec_spawn_timeout"]

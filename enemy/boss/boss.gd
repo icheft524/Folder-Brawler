@@ -41,6 +41,7 @@ func _ready():
 	else:
 		#$spawnanim.play("spawn")
 		indicator_finished = true
+		$teleportanim.play("teleport")
 		sound.enemyspawn()
 
 	global.enemy_file_drop = false
@@ -63,14 +64,18 @@ func _process(delta):
 		not_respond = true
 		#_spawn_file(3)
 		global.boss_not_respond()
+		$idleanim.play("notrespond")
 		await get_tree().create_timer(3,false).timeout
+		$idleanim.play("idle")
 		not_respond = false
 		
 	if hp <= 10 && !phase3:
 		phase3 = true
 		not_respond = true
+		$idleanim.play("notrespond")
 		#_spawn_file(3)
 		await get_tree().create_timer(5,false).timeout
+		$idleanim.play("idle")
 		not_respond = false
 		
 
@@ -83,10 +88,12 @@ func _input(event):
 			#hp -= 1
 			if percent > global.crit_chance:
 				sound.critical()
+				$hitanim.play("hit")
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
 				sound.enemyhit()
+				$hitanim.play("hit")
 			#_spawn_file(3)
 			#teleport()
 
@@ -148,6 +155,7 @@ func indicating():
 	$Area2D.monitoring = true
 	$indicator.visible = false
 	$Sprite2D.visible = true
+	$teleportanim.play("teleport")
 	sound.enemyspawn()
 
 
