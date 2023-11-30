@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bovydyeqng22q"]
 
 [ext_resource type="Script" path="res://popup.gd" id="1_k3w5a"]
+[ext_resource type="Texture2D" uid="uid://bf20bvp5rvt8u" path="res://art/howtoplay/howtoplay.png" id="2_8l3el"]
+[ext_resource type="Texture2D" uid="uid://d4adirdpdnev5" path="res://art/howtoplay/howtoplay2.png" id="3_a676d"]
 [ext_resource type="Texture2D" uid="uid://dtb01en0forhv" path="res://art/playerfolder/closebutton.png" id="3_ko2i3"]
-[ext_resource type="Texture2D" uid="uid://xk5xakv8njmn" path="res://enemy/normal_file/HextechGunblade - Copy.png" id="3_x81ae"]
-[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="4_gbvry"]
-[ext_resource type="Texture2D" uid="uid://cgpf8hr324pc5" path="res://art/normalicon.png" id="4_h5jve"]
+[ext_resource type="Texture2D" uid="uid://c0htportrao1r" path="res://art/howtoplay/howtoplay3.png" id="4_qdgwf"]
 [ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="5_vrkyl"]
 [ext_resource type="Texture2D" uid="uid://dpe1tstvmme0m" path="res://art/enemy/icon_lockB.png" id="6_k5u7h"]
 
@@ -15,23 +15,23 @@ script = ExtResource("1_k3w5a")
 [node name="wave1" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
-position = Vector2(369, 414)
-scale = Vector2(20.2, 15)
-texture = ExtResource("3_x81ae")
+position = Vector2(105, 418)
+scale = Vector2(0.369026, 0.274029)
+texture = ExtResource("2_8l3el")
 
 [node name="wave2" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
-position = Vector2(368, 426)
-scale = Vector2(1.71384, 1.31597)
-texture = ExtResource("4_gbvry")
+position = Vector2(105, 418)
+scale = Vector2(0.357, 0.274)
+texture = ExtResource("3_a676d")
 
 [node name="wave3" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
-position = Vector2(373, 420)
-scale = Vector2(18.6763, 13.5307)
-texture = ExtResource("4_h5jve")
+position = Vector2(105, 418)
+scale = Vector2(0.377, 0.274)
+texture = ExtResource("4_qdgwf")
 
 [node name="wave4" type="Sprite2D" parent="."]
 process_mode = 2
