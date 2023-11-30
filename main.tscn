@@ -227,4 +227,5 @@ position = Vector2(685, 504.5)
 scale = Vector2(21.5312, 15.8906)
 
 [node name="popup" parent="." instance=ExtResource("14_2t6tj")]
-position = Vector2(406, 212)
+process_mode = 3
+position = Vector2(139, 224)

@@ -1,53 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://bovydyeqng22q"]
+[gd_scene load_steps=4 format=3 uid="uid://bovydyeqng22q"]
 
 [ext_resource type="Script" path="res://popup.gd" id="1_k3w5a"]
 [ext_resource type="Texture2D" uid="uid://bf20bvp5rvt8u" path="res://art/howtoplay/howtoplay.png" id="2_8l3el"]
-[ext_resource type="Texture2D" uid="uid://d4adirdpdnev5" path="res://art/howtoplay/howtoplay2.png" id="3_a676d"]
 [ext_resource type="Texture2D" uid="uid://dtb01en0forhv" path="res://art/playerfolder/closebutton.png" id="3_ko2i3"]
-[ext_resource type="Texture2D" uid="uid://c0htportrao1r" path="res://art/howtoplay/howtoplay3.png" id="4_qdgwf"]
-[ext_resource type="Texture2D" uid="uid://dmosslnh6hbca" path="res://art/bigicon.png" id="5_vrkyl"]
-[ext_resource type="Texture2D" uid="uid://dpe1tstvmme0m" path="res://art/enemy/icon_lockB.png" id="6_k5u7h"]
 
 [node name="popup" type="Node2D"]
 process_mode = 2
 script = ExtResource("1_k3w5a")
 
-[node name="wave1" type="Sprite2D" parent="."]
+[node name="image" type="Sprite2D" parent="."]
 process_mode = 2
-visible = false
-position = Vector2(105, 418)
+position = Vector2(549, 267)
 scale = Vector2(0.369026, 0.274029)
 texture = ExtResource("2_8l3el")
 
-[node name="wave2" type="Sprite2D" parent="."]
+[node name="close" type="TextureButton" parent="image"]
 process_mode = 2
-visible = false
-position = Vector2(105, 418)
-scale = Vector2(0.357, 0.274)
-texture = ExtResource("3_a676d")
-
-[node name="wave3" type="Sprite2D" parent="."]
-process_mode = 2
-visible = false
-position = Vector2(105, 418)
-scale = Vector2(0.377, 0.274)
-texture = ExtResource("4_qdgwf")
-
-[node name="wave4" type="Sprite2D" parent="."]
-process_mode = 2
-visible = false
-position = Vector2(373, 415.943)
-scale = Vector2(19.4025, 14.5057)
-texture = ExtResource("5_vrkyl")
-
-[node name="close" type="TextureButton" parent="."]
-process_mode = 2
-offset_left = 519.0
-offset_top = 4.0
-offset_right = 660.0
-offset_bottom = 132.0
-texture_normal = ExtResource("6_k5u7h")
+offset_left = 1222.14
+offset_top = -1054.63
+offset_right = 1660.14
+offset_bottom = -505.633
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_ko2i3")
 texture_hover = ExtResource("3_ko2i3")
 ignore_texture_size = true
+stretch_mode = 0
 
-[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="image/close" to="." method="_on_close_pressed"]
