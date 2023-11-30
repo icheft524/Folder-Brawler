@@ -6,6 +6,7 @@ extends Node2D
 var ads = preload("res://enemy/ads_file/ads_file_s.tscn")
 var adm = preload("res://enemy/ads_file/ads_file_m.tscn")
 var adl = preload("res://enemy/ads_file/ads_file_l.tscn")
+var stop_spawn = false
 
 var adscale = [ads,adm,adl]
 
@@ -30,19 +31,21 @@ var ad_im_s = [
 
 func _ready():
 	timer.start()
+	global.boss_dies.connect(boss_dead)
 	pass
 
 func _process(delta):
-	if global.ad_clicked:
+	if global.ad_clicked and !stop_spawn:
 		_spawn()
 		global.ad_clicked = false
 
 
 func _on_ads_time_timeout():
-	_spawn()
-	await get_tree().create_timer(global.adstimelock,false).timeout
-	timer.start()
-	pass
+	if !stop_spawn:
+		_spawn()
+		await get_tree().create_timer(global.adstimelock,false).timeout
+		timer.start()
+	
 
 func _spawn():
 	var random_ad = randi() % adscale.size()
@@ -62,3 +65,6 @@ func _postion_random_srceen(set_offset: int):
 	#var randomx = get_viewport_rect().size.x
 	var randomy = get_viewport_rect().size.y
 	return Vector2(randf_range(100,1000),randf_range(offset,randomy-offset))
+	
+func boss_dead():
+	stop_spawn = true

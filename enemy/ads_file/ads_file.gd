@@ -25,6 +25,7 @@ var drag_back_top = false
 var drag_back_bottom = false
 
 func _ready():
+	global.boss_dies.connect(boss_dead)
 	already_clicked = false
 	sound.adspawn()
 	image.set_texture(get_meta("Image"))
@@ -163,3 +164,8 @@ func _on_panel_mouse_exited():
 	mouse_in_ad = false
 	if !global.inv_open && !global.mouse_in_enemy:
 		global.hand_mouse = false
+
+func boss_dead():
+	var tween_close = create_tween()
+	tween_close.tween_property(self,"scale",close,0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween_close.play()

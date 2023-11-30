@@ -574,7 +574,6 @@ _data = {
 }
 
 [node name="boss" type="CharacterBody2D"]
-z_index = -1
 z_as_relative = false
 script = ExtResource("1_8o72f")
 
