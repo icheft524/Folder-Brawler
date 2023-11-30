@@ -49,3 +49,4 @@ layout_mode = 2
 bus_name = "sfx"
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="value_changed" from="VBoxContainer/sfx" to="." method="_on_sfx_value_changed"]

@@ -15,3 +15,8 @@ func _process(delta):
 func _on_button_button_down():
 	sound.play_gametheme()
 	get_tree().change_scene_to_file("res://main.tscn")
+
+
+
+func _on_sfx_value_changed(value):
+	sound.click()
