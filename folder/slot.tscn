@@ -8,9 +8,9 @@
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 z_index = 12
-custom_minimum_size = Vector2(80, 40)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(80, 65)
+offset_right = 80.0
+offset_bottom = 60.0
 scale = Vector2(2.74374, 2.74374)
 script = ExtResource("1_l3b1d")
 inv = ExtResource("2_fwwxw")

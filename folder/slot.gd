@@ -27,9 +27,9 @@ func update(slot: InvSlot):
 		$".".visible = true
 		file_visual.visible = true
 		file_visual.texture = slot.item.texture
-		name_text.visible = true
-		health_text.visible = true
-		health_text.text = str(slot.ehp)
+		#name_text.visible = true
+		#health_text.visible = true
+		#health_text.text = str(slot.ehp)
 		name_text.text = slot.ename
 		ehp = slot.ehp
 		occupied = true
@@ -52,7 +52,6 @@ func _on_gui_input(event):
 			dragging = true
 			global.slot_dragging = true
 			$CenterContainer/Panel/file_display.z_index = 2
-			print('Slot number',slot_num)
 			
 		elif occupied:
 			dragging = false
