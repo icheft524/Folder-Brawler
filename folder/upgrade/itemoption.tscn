@@ -1,24 +1,24 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7n7l7u22qa23"]
 
 [ext_resource type="Script" path="res://folder/upgrade/itemoption.gd" id="1_jm3ba"]
+[ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="2_5amqe"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_6xvr0"]
-[ext_resource type="FontFile" uid="uid://cnj24b0oilxro" path="res://font/VT323-Regular.ttf" id="2_uxncl"]
 [ext_resource type="Texture2D" uid="uid://d3hkefryfdvxy" path="res://folder/upgrade/select.png" id="3_rvj11"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivms6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6prv4"]
 line_spacing = 8.0
-font = ExtResource("2_uxncl")
-font_size = 60
+font = ExtResource("2_5amqe")
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_as3h6"]
-font = ExtResource("2_uxncl")
-font_size = 32
+font = ExtResource("2_5amqe")
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_1cl4w"]
 line_spacing = 0.0
-font = ExtResource("2_uxncl")
+font = ExtResource("2_5amqe")
 font_size = 32
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7oc8"]
@@ -41,10 +41,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ivms6")
 texture_filter = 1
 layout_mode = 0
 offset_left = 160.0
-offset_top = 30.0
+offset_top = 40.0
 offset_right = 460.0
-offset_bottom = 110.0
-text = "Kuyyyyyyyyy"
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("2_5amqe")
+text = "Name"
 label_settings = SubResource("LabelSettings_6prv4")
 
 [node name="Label_level" type="Label" parent="box"]
@@ -54,7 +55,8 @@ offset_left = 240.0
 offset_top = 10.0
 offset_right = 448.0
 offset_bottom = 49.0
-text = "Level11"
+theme_override_fonts/font = ExtResource("2_5amqe")
+text = "Level 1"
 label_settings = SubResource("LabelSettings_as3h6")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -63,10 +65,11 @@ vertical_alignment = 1
 texture_filter = 1
 layout_mode = 0
 offset_left = 164.0
-offset_top = 93.0
+offset_top = 88.0
 offset_right = 447.0
-offset_bottom = 132.0
-text = "HumyaiHumyaiHumyaiHumyaiHumyaiHumyai"
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("2_5amqe")
+text = "Description"
 label_settings = SubResource("LabelSettings_1cl4w")
 autowrap_mode = 1
 
@@ -94,6 +97,7 @@ patch_margin_bottom = 12
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(235, 85)
 shape = SubResource("RectangleShape2D_u7oc8")
 

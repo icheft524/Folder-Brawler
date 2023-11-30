@@ -202,6 +202,11 @@ libraries = {
 "": SubResource("AnimationLibrary_e8wc4")
 }
 
+[node name="spawnanim2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8wc4")
+}
+
 [node name="speed" type="Label" parent="."]
 visible = false
 offset_left = -21.0

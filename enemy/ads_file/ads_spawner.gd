@@ -21,7 +21,8 @@ var ad_im_m = [
 	]
 var ad_im_l = [
 	"Ads_L_1.png",
-	"Ads_L_2.png"
+	"Ads_L_2.png",
+	"Ads_L_3.png"
 	]
 var ad_im_s = [
 	"Ads_S_1.png",
