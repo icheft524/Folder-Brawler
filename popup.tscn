@@ -6,13 +6,14 @@
 
 [node name="popup" type="Node2D"]
 process_mode = 2
+z_index = 5
 script = ExtResource("1_k3w5a")
 
 [node name="image" type="Sprite2D" parent="."]
 process_mode = 2
 visible = false
 position = Vector2(549, 267)
-scale = Vector2(0.369026, 0.274029)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_8l3el")
 
 [node name="close" type="TextureButton" parent="image"]
