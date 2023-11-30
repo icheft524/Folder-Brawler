@@ -7,10 +7,12 @@ extends Camera2D
 var isShake = false
 var curPos
 var elapsedtime = 0
+var not_responding = false
 
 func _ready():
 	randomize()
 	curPos = offset
+	global.not_responding.connect(mouse_not_respond)
 	global.hand_mouse = false
 	global.mouse_inv_tab = false
 	global.mouse_inv_drag = false
@@ -40,10 +42,16 @@ func _process(delta):
 		$drag_hand.global_position = get_global_mouse_position()
 	if !global.mouse_inv_drag:
 		$drag_hand.visible = false
-		
-		
+	if not_responding:
+		$not_res.visible = true
+		$pointer_mouse.visible = false
+		$hand_mouse.visible = false
+		$open_hand.visible = false
+		$drag_hand.visible = false
+		$not_res.global_position = get_global_mouse_position()
+	if !not_responding:
+		$not_res.visible = false
 	
-		
 		
 	if global.shaking:
 		shake(delta)
@@ -68,3 +76,8 @@ func big_shake(delta):
 		global.big_shaking = false
 		elapsedtime = 0
 		offset = curPos
+		
+func mouse_not_respond():
+	not_responding = true
+	await get_tree().create_timer(3,false).timeout
+	not_responding = false

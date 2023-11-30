@@ -199,6 +199,7 @@ _data = {
 }
 
 [node name="folder" type="CharacterBody2D"]
+z_index = -1
 script = ExtResource("1_jar6q")
 inv = ExtResource("2_m3wq1")
 

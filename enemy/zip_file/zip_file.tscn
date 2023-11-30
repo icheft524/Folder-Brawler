@@ -235,18 +235,19 @@ _data = {
 }
 
 [node name="zipFile" type="CharacterBody2D"]
-z_index = 1
+z_index = -1
+z_as_relative = false
 script = ExtResource("1_ppmwp")
 file = SubResource("Resource_lgouq")
 metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
 material = SubResource("ShaderMaterial_5xkbh")
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("5_ike2s")
 
 [node name="enemy" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
 z_as_relative = false
 position = Vector2(-10, 15)
 scale = Vector2(0.6, 0.6)

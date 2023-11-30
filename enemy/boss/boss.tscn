@@ -47,7 +47,7 @@ _data = {
 }
 
 [node name="boss" type="CharacterBody2D"]
-z_index = 1
+z_as_relative = false
 script = ExtResource("1_8o72f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -73,9 +73,13 @@ libraries = {
 }
 
 [node name="delay_teleport" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.5
+autostart = true
+
+[node name="one_sec_spawn" type="Timer" parent="."]
 autostart = true
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="delay_teleport" to="." method="_on_delay_teleport_timeout"]
+[connection signal="timeout" from="one_sec_spawn" to="." method="_on_one_sec_spawn_timeout"]

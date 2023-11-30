@@ -23,6 +23,10 @@ var pop_start_tutorial = false
 var pop_enter_tutorial = false
 
 signal boss_dies
+signal not_responding
 
 func boss_died():
 	boss_dies.emit()
+
+func boss_not_respond():
+	not_responding.emit()

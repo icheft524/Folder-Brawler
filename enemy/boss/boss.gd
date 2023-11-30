@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 150
-@export var hp = 20
+@export var hp = 30
 @export var file_size = 1
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
@@ -20,13 +20,17 @@ var target_position
 var direction
 var phase2 = false
 var phase3 = false
+var immune = false
 
 @export var offset_spawn = 50
 var big = preload("res://enemy/big_file/big_file.tscn")
 var zip = preload("res://enemy/zip_file/zip_file.tscn")
 var enc = preload("res://enemy/encrypted/encrypted_file.tscn")
+var normal = preload("res://enemy/normal_file/normal_file.tscn")
 
 var mon = [big, zip, enc]
+var hard_mon = [zip,enc]
+var weak_mon = [big,normal]
 var not_respond = false
 var teleport_ready
 
@@ -53,18 +57,19 @@ func _process(delta):
 	if indicator_finished:
 		$hp.text = "boss" + str(hp)
 	
-	if hp <= 15 && !phase2:
+	if hp <= 20 && !phase2:
 		phase2 = true
 		print('not res')
 		not_respond = true
-		_spawn_file(3)
+		#_spawn_file(3)
+		global.boss_not_respond()
 		await get_tree().create_timer(3,false).timeout
 		not_respond = false
 		
 	if hp <= 10 && !phase3:
 		phase3 = true
 		not_respond = true
-		_spawn_file(3)
+		#_spawn_file(3)
 		await get_tree().create_timer(5,false).timeout
 		not_respond = false
 		
@@ -82,14 +87,16 @@ func _input(event):
 			elif percent <= global.crit_chance:
 				hp -= take_normal_dmg
 				sound.enemyhit()
-			_spawn_file(3)
-			teleport()
+			#_spawn_file(3)
+			#teleport()
 
 
 func teleport():
 	indicating()
 	self.position = Vector2(_postion_random_srceen(offset))
 	teleport_ready = false
+	await get_tree().create_timer(0.5,false).timeout
+	_spawn_file(2,'hard')
 	
 
 func _on_area_2d_mouse_entered():
@@ -105,22 +112,31 @@ func dead():
 		#global.boss_dead = true
 		queue_free()
 
-func _spawn_file(count: int):
-	if not_respond == false:
+func _spawn_file(count: int,type):
+	#if not_respond == false:
+		#for i in range(count):
+			#var fileins = mon[i].instantiate()
+			#global.enemy_file_drop = true
+			#fileins.position = position
+			#fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))
+			#get_parent().add_child(fileins)
+	#else:
+	if type == 'weak':
 		for i in range(count):
-			var fileins = mon[i].instantiate()
+			var fileins = weak_mon[randi_range(0,1)].instantiate()
 			global.enemy_file_drop = true
 			fileins.position = position
 			fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))
 			get_parent().add_child(fileins)
-	else:
+				#await get_tree().create_timer(1,false).timeout
+	if type == 'hard':
 		for i in range(count):
-			var fileins = mon[randi_range(0,2)].instantiate()
+			var fileins = hard_mon[randi_range(0,1)].instantiate()
 			global.enemy_file_drop = true
 			fileins.position = position
 			fileins.set_meta("broken_pos",position - Vector2(randf_range(-1,1) * offset_spawn,randf_range(-1,1) * offset_spawn))
 			get_parent().add_child(fileins)
-			await get_tree().create_timer(1,false).timeout
+				#await get_tree().create_timer(1,false).timeout
 	pass
 
 func indicating():
@@ -151,7 +167,10 @@ func _postion_random_srceen(set_offset: int):
 
 
 func _on_delay_teleport_timeout():
-	teleport()
+	if !not_respond:
+		teleport()
+	
 
-
-
+func _on_one_sec_spawn_timeout():
+	if $Sprite2D.visible == true:
+		_spawn_file(1,'weak')
