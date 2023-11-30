@@ -90,7 +90,7 @@ func _input(event):
 			
 			
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.is_double_click() && mouse_in:
+		if event.is_double_click() && mouse_in && !global.not_respond_mouse:
 			global.mouse_inv_tab = false
 			global.mouse_inv_drag = false
 			inventory.open()

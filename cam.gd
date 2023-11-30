@@ -16,6 +16,7 @@ func _ready():
 	global.hand_mouse = false
 	global.mouse_inv_tab = false
 	global.mouse_inv_drag = false
+	global.not_respond_mouse = false
 
 func _process(delta):
 	if global.hand_mouse:
@@ -79,5 +80,7 @@ func big_shake(delta):
 		
 func mouse_not_respond():
 	not_responding = true
+	global.not_respond_mouse = true
 	await get_tree().create_timer(3,false).timeout
+	global.not_respond_mouse = false
 	not_responding = false

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var normal_speed = 150
 @export var hp = 30
 @export var file_size = 1
-@export var take_normal_dmg = 1
+@export var take_normal_dmg = 5
 @export var take_crit_dmg = 2
 #var slow_speed = normal_speed * 0.5
 var percent = randf_range(0,1)
@@ -72,9 +72,10 @@ func _process(delta):
 	if hp <= 10 && !phase3:
 		phase3 = true
 		not_respond = true
+		global.boss_not_respond()
 		$idleanim.play("notrespond")
 		#_spawn_file(3)
-		await get_tree().create_timer(5,false).timeout
+		await get_tree().create_timer(3,false).timeout
 		$idleanim.play("idle")
 		not_respond = false
 		
