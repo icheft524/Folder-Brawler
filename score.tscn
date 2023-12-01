@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb4v7iv0hc5h"]
+[gd_scene load_steps=3 format=3 uid="uid://cb4v7iv0hc5h"]
 
 [ext_resource type="Script" path="res://score.gd" id="1_1tibt"]
+[ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="2_gr6il"]
 
 [node name="score" type="Control"]
 layout_mode = 3
@@ -18,13 +19,19 @@ offset_left = 77.0
 offset_top = 57.0
 offset_right = 302.0
 offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.192157, 0.607843)
+theme_override_fonts/font = ExtResource("2_gr6il")
+theme_override_font_sizes/font_size = 40
 text = "Score:"
 
 [node name="highscore" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 74.0
-offset_top = 96.0
-offset_right = 311.0
-offset_bottom = 122.0
+offset_left = 77.0
+offset_top = 102.0
+offset_right = 314.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.192157, 0.607843)
+theme_override_fonts/font = ExtResource("2_gr6il")
+theme_override_font_sizes/font_size = 40
 text = "High Score:"

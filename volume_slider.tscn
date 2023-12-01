@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://volume_slider.gd" id="1_h6g4b"]
 
 [node name="volume_slider" type="HSlider"]
-offset_right = 475.0
+offset_right = 118.0
 offset_bottom = 16.0
 max_value = 1.0
 step = 0.001

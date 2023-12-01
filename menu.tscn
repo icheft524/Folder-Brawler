@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=39 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
 [ext_resource type="Texture2D" uid="uid://gtmdocyqno45" path="res://art/menu/download.png" id="2_5yrhh"]
 [ext_resource type="Texture2D" uid="uid://8tyxmkrjgrxg" path="res://art/menu/startwindow.png" id="3_0y7ff"]
 [ext_resource type="Texture2D" uid="uid://c8mwqta4uhfye" path="res://art/cursor/default.png" id="3_2lpa7"]
 [ext_resource type="Texture2D" uid="uid://dc2614hhe2wjs" path="res://art/credit.png" id="3_g84rq"]
+[ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="3_lewjp"]
 [ext_resource type="PackedScene" uid="uid://bh0yv7b0k6i04" path="res://volume_slider.tscn" id="4_fm5fv"]
 [ext_resource type="Texture2D" uid="uid://b4fmo4f4rqw4e" path="res://art/menu/glitch1.png" id="5_ecv1y"]
 [ext_resource type="Texture2D" uid="uid://c0qffbvugf7pp" path="res://art/menu/download2.png" id="5_y5xcd"]
@@ -421,6 +422,23 @@ _data = {
 [node name="menu" type="Node2D"]
 script = ExtResource("1_pxkw2")
 
+[node name="master" parent="." instance=ExtResource("4_fm5fv")]
+offset_left = 54.0
+offset_top = 73.0
+offset_right = 199.0
+offset_bottom = 89.0
+bus_name = "Master"
+
+[node name="master_label" type="Label" parent="master"]
+layout_mode = 0
+offset_top = -35.0
+offset_right = 806.0
+offset_bottom = -1.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.192157, 0.607843)
+theme_override_fonts/font = ExtResource("3_lewjp")
+theme_override_font_sizes/font_size = 25
+text = "Volume"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(102, -71.0001)
@@ -476,36 +494,6 @@ position = Vector2(-25, 484)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_hyhgl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 453.0
-offset_top = 93.0
-offset_right = 1259.0
-offset_bottom = 255.0
-
-[node name="master_label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Master"
-
-[node name="master" parent="VBoxContainer" instance=ExtResource("4_fm5fv")]
-layout_mode = 2
-bus_name = "Master"
-
-[node name="music_label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Music"
-
-[node name="music" parent="VBoxContainer" instance=ExtResource("4_fm5fv")]
-layout_mode = 2
-bus_name = "music"
-
-[node name="sfx_label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "SFX"
-
-[node name="sfx" parent="VBoxContainer" instance=ExtResource("4_fm5fv")]
-layout_mode = 2
-bus_name = "sfx"
-
 [node name="tutorial" type="TextureButton" parent="."]
 z_index = -1
 offset_left = 1503.0
@@ -519,12 +507,11 @@ texture_hover = ExtResource("14_rivuc")
 
 [node name="image" type="Sprite2D" parent="tutorial"]
 visible = false
-position = Vector2(-580, -176)
-scale = Vector2(0.361963, 0.361963)
+position = Vector2(-100.282, -626.667)
+scale = Vector2(0.613497, 0.613497)
 texture = ExtResource("7_26d0h")
 
 [node name="close_button" type="TextureButton" parent="tutorial/image"]
-visible = false
 offset_left = 1205.0
 offset_top = -986.0
 offset_right = 1481.0
@@ -558,10 +545,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="score" parent="." instance=ExtResource("11_vraqc")]
-offset_left = 352.0
-offset_top = 306.0
-offset_right = 352.0
-offset_bottom = 306.0
+offset_left = -20.0
+offset_top = 445.0
+offset_right = -20.0
+offset_bottom = 445.0
 
 [node name="viruswindow" type="TextureRect" parent="."]
 visible = false
@@ -604,7 +591,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="window/Button" to="." method="_on_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="tutorial/image/close_button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="tutorial/image/left" to="." method="_on_left_pressed"]
