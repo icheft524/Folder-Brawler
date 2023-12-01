@@ -59,6 +59,7 @@ func _input(event):
 			#hp -= 1
 			if percent > global.crit_chance:
 				sound.critical()
+				critical()
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
 				sound.enemyhit()
@@ -143,3 +144,9 @@ func indicating():
 	$Sprite2D.visible = true
 	speeddown()
 	sound.enemyspawn()
+
+func critical():
+	var crit = load("res://cri.tscn")
+	var crit_spawn = crit.instantiate()
+	crit_spawn.global_position = get_global_mouse_position()
+	add_child(crit_spawn)

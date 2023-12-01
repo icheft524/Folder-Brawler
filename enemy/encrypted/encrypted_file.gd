@@ -61,6 +61,7 @@ func _input(event):
 		if event.is_action_pressed("leftclick") && mouse_in && indicator_finished && !global.inv_open:
 			get_viewport().set_input_as_handled()
 			if percent > global.crit_chance:
+				critical()
 				sound.critical()
 				hp -= take_crit_dmg
 			elif percent <= global.crit_chance:
@@ -143,4 +144,8 @@ func indicating():
 	speeddown()
 	sound.enemyspawn()
 
-
+func critical():
+	var crit = load("res://cri.tscn")
+	var crit_spawn = crit.instantiate()
+	crit_spawn.global_position = get_global_mouse_position()
+	add_child(crit_spawn)
