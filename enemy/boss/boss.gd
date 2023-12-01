@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var normal_speed = 150
 @export var hp = 30
 @export var file_size = 3000
-@export var take_normal_dmg = 5
+@export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
 #var slow_speed = normal_speed * 0.5
 var percent = randf_range(0,1)
@@ -124,6 +124,8 @@ func dead():
 		global.boss_died()
 		#global.boss_dead = true
 		queue_free()
+		global.scene_reloaded = true
+		get_tree().change_scene_to_file("res://menu.tscn")
 
 func _spawn_file(count: int,type):
 	#if not_respond == false:
@@ -183,9 +185,9 @@ func _postion_random_srceen(set_offset: int):
 func _on_delay_teleport_timeout():
 	if !not_respond:
 		teleport()
-	
+
 
 func _on_one_sec_spawn_timeout():
-	file_size -= 200
+	file_size -= 100
 	if $Sprite2D.visible == true:
 		_spawn_file(1,'weak')
