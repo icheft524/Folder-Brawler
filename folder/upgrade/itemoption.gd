@@ -30,7 +30,7 @@ func _process(delta):
 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 
 func _input(event):
-	if event.is_action("leftclick"):
+	if event.is_action("leftclick") and global.on_upgrade:
 		if mouse_over == true:
 			global.on_upgrade = false
 			outline.modulate.a = unhighlight
