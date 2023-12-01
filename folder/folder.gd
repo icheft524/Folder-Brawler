@@ -51,7 +51,15 @@ func _ready():
 	global.time = 0
 	global.target = self
 	global.hand_mouse = false
+	global.bosshp = 40
+	global.boss_enter = false
 	global.score = 0
+	global.normal_score = 0
+	global.encrypt_score = 0
+	global.zip_score = 0
+	global.big_score = 0
+	global.boss_score = 0
+	global.combo = 0
 	$"../win".visible = false
 	$"../lose".visible = false
 
@@ -83,6 +91,7 @@ func _process(delta):
 		$upgrade_coming.stop()
 
 	if global.bosshp <= 0:
+		await get_tree().create_timer(0.3,false).timeout
 		get_tree().paused = true
 		$"../win".visible = true
 

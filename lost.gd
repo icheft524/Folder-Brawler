@@ -13,9 +13,10 @@ func _process(delta):
 func _on_yes_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
-	
+	visible = false
 
 
 func _on_no_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://menu.tscn")
+	visible = false
