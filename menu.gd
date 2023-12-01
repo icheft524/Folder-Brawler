@@ -33,6 +33,7 @@ func _on_sfx_value_changed(value):
 
 
 func _on_tutorial_pressed():
+	$tutorial/image/close_button.disabled = false
 	tutor = true
 	image.visible = true
 	image.set_texture(howtos[page])
@@ -52,6 +53,7 @@ func _on_button_pressed():
 
 
 func _on_close_button_pressed():
+	$tutorial/image/close_button.disabled = true
 	page = 0
 	tutor = false
 	var tween_close = create_tween()

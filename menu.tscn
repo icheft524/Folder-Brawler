@@ -515,10 +515,10 @@ texture = ExtResource("7_26d0h")
 
 [node name="close_button" type="TextureButton" parent="tutorial/image"]
 visible = false
-offset_left = 1205.0
-offset_top = -986.0
-offset_right = 1481.0
-offset_bottom = -732.0
+offset_left = 1230.36
+offset_top = -989.622
+offset_right = 1506.36
+offset_bottom = -735.622
 texture_normal = ExtResource("10_ty4tk")
 ignore_texture_size = true
 stretch_mode = 0
