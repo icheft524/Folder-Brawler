@@ -199,7 +199,7 @@ func check_cap():
 		$face.texture = load("res://art/playerfolder/xl/playerface_XL.png")
 		$outline.texture = load("res://art/playerfolder/xl/playerbody_xl_hover.png")
 		$shadow.texture = load("res://art/playerfolder/xl/playerbody_xl_dragging.png")
-	elif capacity >= max_capacity:
+	elif capacity > max_capacity:
 		get_tree().reload_current_scene()
 
 func _on_area_2d_mouse_entered():

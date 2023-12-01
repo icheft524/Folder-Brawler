@@ -34,6 +34,10 @@ func _process(delta):
 	$capacity.value = player.capacity
 	$capacity.max_value = player.max_capacity
 	$time.text = "%02d:%02d" % [mins,secs]
+	if $capacity.value == $capacity.max_value:
+		$capacity.set_self_modulate('f00000')
+	if $capacity.value != $capacity.max_value:
+		$capacity.set_self_modulate('ffffff')
 	if global.time == 22 and wave2: #wave2
 		upgradeready()
 		$wave.text = str(2)
