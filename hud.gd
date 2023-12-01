@@ -24,6 +24,7 @@ func _ready():
 
 
 func showbossbar():
+	wavebar.visible = false
 	bosshp_bar.visible = true
 
 func upgraded():
