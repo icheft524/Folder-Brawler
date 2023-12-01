@@ -41,6 +41,10 @@ func _physics_process(delta):
 	if dragging == true:
 		global.hand_mouse = true
 		file_visual.position = get_local_mouse_position()
+		if !global.inv_open:
+			dragging = false
+			file_visual.position = origin
+			#occupied = true
 		
 
 func _on_gui_input(event):

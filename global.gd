@@ -73,8 +73,10 @@ func gainscore():
 	
 
 func sumscore():
-	if score > highscore:
+	if score > highscore and boss_rip:
 		highscore = score
+		boss_rip = false
+	pass
 
 func save_game():
 	sumscore()
