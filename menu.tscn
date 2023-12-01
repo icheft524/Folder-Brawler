@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=41 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
 [ext_resource type="Texture2D" uid="uid://gtmdocyqno45" path="res://art/menu/download.png" id="2_5yrhh"]
@@ -15,8 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://sdnlald67hqu" path="res://art/menu/clickhere.png" id="7_w3xi0"]
 [ext_resource type="Texture2D" uid="uid://odd2brrd8eiy" path="res://art/menu/itsafe.png" id="8_hyhgl"]
 [ext_resource type="Texture2D" uid="uid://djee5q703p7jp" path="res://art/download3.png" id="8_vd2qu"]
-[ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="9_6loha"]
-[ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="10_a81dn"]
 [ext_resource type="Texture2D" uid="uid://crmvwdulqu6f1" path="res://art/closebutton.png" id="10_ty4tk"]
 [ext_resource type="PackedScene" uid="uid://cb4v7iv0hc5h" path="res://score.tscn" id="11_vraqc"]
 [ext_resource type="Texture2D" uid="uid://c3patka2raclx" path="res://art/menu/viruswindow.png" id="12_a8fae"]
@@ -27,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://b7e406rvn65wv" path="res://art/menu/menu.png" id="15_43ekk"]
 [ext_resource type="Texture2D" uid="uid://binwq2lo857d8" path="res://art/menu/stable.png" id="17_ehuo4"]
 [ext_resource type="Texture2D" uid="uid://nffsh8ylvgll" path="res://art/menu/unstable.png" id="18_s8rbp"]
+[ext_resource type="Texture2D" uid="uid://cuqdgl5wo6xrw" path="res://art/icon/iconspeed.png" id="18_xwfr0"]
 [ext_resource type="Texture2D" uid="uid://csfkeapygjuyq" path="res://art/menu/glitch2.png" id="24_y4jl5"]
 [ext_resource type="Texture2D" uid="uid://cp1pd18k2gn8w" path="res://art/menu/bigglitch1.png" id="25_yc6or"]
 [ext_resource type="Texture2D" uid="uid://b3ni11lxwjvhl" path="res://art/menu/bigglitch2.png" id="26_ix152"]
@@ -515,6 +514,7 @@ scale = Vector2(0.613497, 0.613497)
 texture = ExtResource("7_26d0h")
 
 [node name="close_button" type="TextureButton" parent="tutorial/image"]
+visible = false
 offset_left = 1205.0
 offset_top = -986.0
 offset_right = 1481.0
@@ -530,10 +530,11 @@ offset_left = -1343.0
 offset_top = 619.0
 offset_right = -1100.0
 offset_bottom = 888.0
-texture_normal = ExtResource("9_6loha")
-texture_pressed = ExtResource("10_a81dn")
+texture_normal = ExtResource("18_xwfr0")
+texture_pressed = ExtResource("18_xwfr0")
 ignore_texture_size = true
 stretch_mode = 0
+flip_h = true
 
 [node name="right" type="TextureButton" parent="tutorial/image"]
 visible = false
@@ -542,8 +543,8 @@ offset_left = 1039.0
 offset_top = 619.0
 offset_right = 1296.0
 offset_bottom = 891.0
-texture_normal = ExtResource("9_6loha")
-texture_pressed = ExtResource("10_a81dn")
+texture_normal = ExtResource("18_xwfr0")
+texture_pressed = ExtResource("18_xwfr0")
 ignore_texture_size = true
 stretch_mode = 0
 
