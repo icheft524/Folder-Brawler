@@ -5,6 +5,7 @@ extends Node2D
 @onready var mouse_cam = $"../cam"
 @onready var folder = $"../folder"
 @onready var folder_shadow = $"../folder/shadow"
+@onready var inventory = $"../folder_inventory"
 
 var howto1 = preload("res://art/howtoplay/howtoplay.png")
 var howto2 = preload("res://art/howtoplay/howtoplay2.png")
@@ -36,6 +37,7 @@ func showpo( howtoimage):
 	#if global.pop_start_tutorial:
 		#is_enter = true
 	if !closed and !global.scene_reloaded:
+		inventory.close()
 		image.set_texture(howtoimage)
 		get_tree().paused = true
 		image.visible = true
