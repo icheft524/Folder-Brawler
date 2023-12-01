@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var normal_speed = 150
 @export var hp = 30
 @export var file_size = 3000
+@export var file_decay = 100
 @export var take_normal_dmg = 1
 @export var take_crit_dmg = 2
 #var slow_speed = normal_speed * 0.5
@@ -188,6 +189,7 @@ func _on_delay_teleport_timeout():
 
 
 func _on_one_sec_spawn_timeout():
-	file_size -= 100
+	if file_size >= file_decay + 500:
+		file_size -= file_decay
 	if $Sprite2D.visible == true:
 		_spawn_file(1,'weak')

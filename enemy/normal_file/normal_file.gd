@@ -104,7 +104,8 @@ func dead():
 		await get_tree().create_timer(0.1,false).timeout
 		queue_free()
 		if !global.boss_enter:
-			global.combo += 1
+			if global.combo < 10:
+				global.combo += 1
 			global.normal_score += file_size + floor(global.combo/2)
 			global.gainscore()
 
