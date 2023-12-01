@@ -37,6 +37,7 @@ func showpo( howtoimage):
 	#if global.pop_start_tutorial:
 		#is_enter = true
 	if !closed and !global.scene_reloaded:
+		$image/close.disabled = false
 		inventory.close()
 		image.set_texture(howtoimage)
 		get_tree().paused = true
@@ -90,6 +91,7 @@ func _process(delta):
 
 func _on_close_pressed():
 	closed = true
+	$image/close.disabled = true
 	folder.dragging_folder = false
 	folder_shadow.visible = false
 	var tween_close = create_tween()
