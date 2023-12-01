@@ -42,6 +42,7 @@ var wave2 = true
 var wave3 = true
 var wave4 = true
 var wave5 = true
+var wave6 = true
 
 var upgrade_coming = false
 
@@ -139,6 +140,10 @@ func _input(event):
 	elif global.time == 97 and wave5 == true: #wave5
 		levelup()
 		wave5 = false
+		upgrade_coming = true
+	elif global.time == 132 and wave6 == true: #wave5
+		levelup()
+		wave6 = false
 		upgrade_coming = true
 	
 func _physics_process(delta):
@@ -289,6 +294,7 @@ func get_random_item():
 		if i in collected_upgrades: #Find already upgrades
 			pass
 		elif i in upgrade_options: #if upgrades is already options
+			#dblist.append(i)
 			pass
 		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #Check for PreRequisites
 			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:

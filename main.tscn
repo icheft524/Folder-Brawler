@@ -220,6 +220,7 @@ process_mode = 3
 position = Vector2(139, 224)
 
 [node name="lose" parent="." instance=ExtResource("17_j8tyr")]
+visible = false
 offset_left = 368.0
 offset_top = 232.0
 offset_right = 408.0
