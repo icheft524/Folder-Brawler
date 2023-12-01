@@ -88,7 +88,7 @@ func _process(delta):
 	if upgrade_coming == true:
 		$upgrade_coming.stop()
 
-	if global.bosshp <= 0:
+	if global.bosshp <= 0 and global.scene_reloaded:
 		global.boss_rip = true
 		get_tree().paused = true
 		$"../win".visible = true

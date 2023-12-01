@@ -126,11 +126,12 @@ func dead():
 		global.boss_score += file_size + floor(global.combo/2)
 		global.gainscore()
 		global.boss_died()
+		global.scene_reloaded = true
 		#global.boss_dead = true
 		$idleanim.play("dead")
 		await get_tree().create_timer(0.2,false).timeout
 		queue_free()
-		global.scene_reloaded = true
+		
 		#get_tree().change_scene_to_file("res://menu.tscn")
 
 func _spawn_file(count: int,type):
