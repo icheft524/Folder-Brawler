@@ -178,6 +178,9 @@ position = Vector2(458, 175)
 [node name="enemy_spawner" parent="." instance=ExtResource("2_1umsp")]
 spawns = Array[ExtResource("4_ojwon")]([SubResource("Resource_dmm1q"), SubResource("Resource_rta2e"), SubResource("Resource_1krlh"), SubResource("Resource_ug5jq"), SubResource("Resource_hyrsx"), SubResource("Resource_1pqkq"), SubResource("Resource_l7ruf"), SubResource("Resource_7baam"), SubResource("Resource_58wyj"), SubResource("Resource_o1mwg"), SubResource("Resource_c8y3o"), SubResource("Resource_gii58"), SubResource("Resource_qrhdn"), SubResource("Resource_2r7ty"), SubResource("Resource_b1x1l"), SubResource("Resource_u05jr"), SubResource("Resource_1q1cm")])
 
+[node name="boss" parent="enemy_spawner" instance=ExtResource("13_15cqn")]
+position = Vector2(160, 200)
+
 [node name="adsSpawner" parent="." instance=ExtResource("3_31pho")]
 
 [node name="folder_inventory" parent="." instance=ExtResource("8_jr5b5")]

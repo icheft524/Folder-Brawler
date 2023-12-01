@@ -93,6 +93,7 @@ func _input(event):
 			#hp -= 1
 			if percent > global.crit_chance:
 				sound.critical()
+				critical()
 				$hitanim.play("hit")
 				global.bosshp -= take_crit_dmg
 			elif percent <= global.crit_chance:
@@ -195,3 +196,9 @@ func _on_one_sec_spawn_timeout():
 		file_size -= file_decay
 	if $Sprite2D.visible == true:
 		_spawn_file(1,'weak')
+
+func critical():
+	var crit = load("res://cri.tscn")
+	var crit_spawn = crit.instantiate()
+	crit_spawn.global_position = get_global_mouse_position()
+	add_child(crit_spawn)

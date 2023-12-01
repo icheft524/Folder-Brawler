@@ -615,7 +615,7 @@ libraries = {
 }
 
 [node name="delay_teleport" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.5
 autostart = true
 
 [node name="one_sec_spawn" type="Timer" parent="."]

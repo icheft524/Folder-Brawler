@@ -67,7 +67,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Color(0, 1, 0.690196, 1), Color(0.027451, 0.67451, 0.447059, 1)]
+"values": [Color(0.956863, 0.843137, 0.333333, 1), Color(0.956863, 0.729412, 0, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -89,6 +89,7 @@ _data = {
 }
 
 [node name="crit" type="Sprite2D"]
+z_index = 10
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("1_bo6p0")
 script = ExtResource("2_i4i2b")

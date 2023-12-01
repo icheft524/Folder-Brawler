@@ -28,7 +28,7 @@ var scene_reloaded = false
 var score = 0
 var highscore
 var boss_enter = false
-var bosshp = 30
+var bosshp = 40
 
 #enemy_score
 var normal_score = 0
