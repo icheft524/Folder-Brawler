@@ -162,6 +162,7 @@ func indicating():
 	$indicator.visible = true
 	$Sprite2D.visible = false
 	$Area2D.monitoring = false
+	$indicatoranim.play("indicate")
 	await get_tree().create_timer(1,false).timeout
 	indicator_finished = true
 	$Area2D.monitoring = true
