@@ -35,7 +35,7 @@ func showpo( howtoimage):
 	#if !is_show:
 	#if global.pop_start_tutorial:
 		#is_enter = true
-	if !closed:
+	if !closed and !global.scene_reloaded:
 		image.set_texture(howtoimage)
 		get_tree().paused = true
 		image.visible = true
