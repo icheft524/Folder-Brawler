@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd5xxr8rastcb"]
+[gd_scene load_steps=7 format=3 uid="uid://cd5xxr8rastcb"]
 
+[ext_resource type="Script" path="res://win.gd" id="1_0mefc"]
 [ext_resource type="Texture2D" uid="uid://cfbvxu6ckw0kd" path="res://art/ui/winwindow.png" id="1_yflvx"]
 [ext_resource type="Texture2D" uid="uid://dbp6w20huaefw" path="res://art/ui/yahoobutton.png" id="2_4u1di"]
 [ext_resource type="Texture2D" uid="uid://cpifymabteivr" path="res://art/ui/yahoobuttonhove.png" id="3_sd6ii"]
 [ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="4_pv06y"]
+[ext_resource type="PackedScene" uid="uid://cb4v7iv0hc5h" path="res://score.tscn" id="6_4getf"]
 
 [node name="win" type="Control"]
+process_mode = 2
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_0mefc")
 
 [node name="window" type="TextureRect" parent="."]
 layout_mode = 1
@@ -43,4 +47,25 @@ offset_bottom = 85.0
 theme_override_colors/font_color = Color(0.0156863, 0.129412, 0.188235, 1)
 theme_override_fonts/font = ExtResource("4_pv06y")
 theme_override_font_sizes/font_size = 50
-text = "Score: 1000 Best Score: 1000"
+text = "Score:"
+
+[node name="best score" type="Label" parent="."]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 21.0
+offset_right = 580.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0.0156863, 0.129412, 0.188235, 1)
+theme_override_fonts/font = ExtResource("4_pv06y")
+theme_override_font_sizes/font_size = 50
+text = " Best Score:"
+
+[node name="score2" parent="." instance=ExtResource("6_4getf")]
+layout_mode = 1
+offset_left = -177.0
+offset_top = 31.0
+offset_right = 32.0
+offset_bottom = 31.0
+scale = Vector2(1.01798, 1)
+
+[connection signal="pressed" from="window/yes" to="." method="_on_yes_pressed"]

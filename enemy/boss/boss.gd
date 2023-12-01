@@ -128,7 +128,7 @@ func dead():
 		#global.boss_dead = true
 		queue_free()
 		global.scene_reloaded = true
-		get_tree().change_scene_to_file("res://menu.tscn")
+		#get_tree().change_scene_to_file("res://menu.tscn")
 
 func _spawn_file(count: int,type):
 	#if not_respond == false:

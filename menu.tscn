@@ -549,10 +549,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="score" parent="." instance=ExtResource("11_vraqc")]
-offset_left = -20.0
-offset_top = 445.0
-offset_right = -20.0
-offset_bottom = 445.0
+offset_left = -38.0
+offset_top = 447.0
+offset_right = -38.0
+offset_bottom = 447.0
 
 [node name="viruswindow" type="TextureRect" parent="."]
 visible = false

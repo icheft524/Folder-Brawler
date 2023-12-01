@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="2_gr6il"]
 
 [node name="score" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,10 +16,8 @@ script = ExtResource("1_1tibt")
 [node name="score" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 77.0
-offset_top = 57.0
-offset_right = 302.0
-offset_bottom = 83.0
+offset_right = 225.0
+offset_bottom = 51.0
 theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.192157, 0.607843)
 theme_override_fonts/font = ExtResource("2_gr6il")
 theme_override_font_sizes/font_size = 40
@@ -27,10 +26,10 @@ text = "Score:"
 [node name="highscore" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 77.0
-offset_top = 102.0
-offset_right = 314.0
-offset_bottom = 153.0
+offset_left = 370.0
+offset_right = 607.0
+offset_bottom = 51.0
+scale = Vector2(0.997227, 1)
 theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.192157, 0.607843)
 theme_override_fonts/font = ExtResource("2_gr6il")
 theme_override_font_sizes/font_size = 40
