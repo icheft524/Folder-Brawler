@@ -127,6 +127,8 @@ func dead():
 		global.gainscore()
 		global.boss_died()
 		#global.boss_dead = true
+		$idleanim.play("dead")
+		await get_tree().create_timer(0.2,false).timeout
 		queue_free()
 		global.scene_reloaded = true
 		#get_tree().change_scene_to_file("res://menu.tscn")
