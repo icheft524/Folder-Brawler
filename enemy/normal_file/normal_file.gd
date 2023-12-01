@@ -114,7 +114,8 @@ func dead_boss():
 	global.shaking = true
 	global.hand_mouse = false
 	global.mouse_in_enemy = false
-	await get_tree().create_timer(0.5,false).timeout
+	$deadanim.play("dead")
+	await get_tree().create_timer(0.1,false).timeout
 	queue_free()
 		
 		
