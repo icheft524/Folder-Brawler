@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1vhh0gbxm27"]
+[gd_scene load_steps=25 format=3 uid="uid://b1vhh0gbxm27"]
 
 [ext_resource type="Script" path="res://enemy/normal_file/normal_file.gd" id="1_6aj4h"]
 [ext_resource type="Script" path="res://folder/inventory_file.gd" id="2_1hj5p"]
@@ -157,6 +157,43 @@ _data = {
 "indicate": SubResource("Animation_k3vnd")
 }
 
+[sub_resource type="Animation" id="Animation_6pip0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_usfk3"]
+resource_name = "dead"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.25, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2cig"]
+_data = {
+"RESET": SubResource("Animation_6pip0"),
+"dead": SubResource("Animation_usfk3")
+}
+
 [node name="normalFile" type="CharacterBody2D"]
 z_index = -1
 z_as_relative = false
@@ -202,11 +239,6 @@ libraries = {
 "": SubResource("AnimationLibrary_e8wc4")
 }
 
-[node name="spawnanim2" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_e8wc4")
-}
-
 [node name="speed" type="Label" parent="."]
 visible = false
 offset_left = -21.0
@@ -226,6 +258,11 @@ shape = SubResource("CircleShape2D_7i8ut")
 [node name="indicatoranim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b8pdm")
+}
+
+[node name="deadanim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l2cig")
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
