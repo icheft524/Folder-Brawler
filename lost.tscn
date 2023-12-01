@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7nae3c0wuktd"]
+[gd_scene load_steps=7 format=3 uid="uid://b7nae3c0wuktd"]
 
 [ext_resource type="Texture2D" uid="uid://b7eip0g1qq2xo" path="res://art/menu/tryagain.png" id="1_cg341"]
+[ext_resource type="Script" path="res://lost.gd" id="1_u18ex"]
 [ext_resource type="Texture2D" uid="uid://bsxo0kwow57bv" path="res://art/menu/yesbutton.png" id="2_86ik6"]
 [ext_resource type="Texture2D" uid="uid://bf77trvsxu37" path="res://art/menu/yesbuttonhover.png" id="3_j2vy8"]
 [ext_resource type="Texture2D" uid="uid://dosj7ep15i0ky" path="res://art/menu/nobutton.png" id="4_nvech"]
 [ext_resource type="Texture2D" uid="uid://et3uye7r0umj" path="res://art/menu/nobuttonhover.png" id="5_3oqve"]
 
 [node name="lose" type="Control"]
+visible = false
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_u18ex")
 
 [node name="window" type="TextureRect" parent="."]
 layout_mode = 1

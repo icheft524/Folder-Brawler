@@ -24,7 +24,7 @@ func _ready():
 
 
 func showbossbar():
-	wavebar.visible = false
+	$upgrade.visible = false
 	bosshp_bar.visible = true
 
 func upgraded():

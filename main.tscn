@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://pyftrwni12pq"]
+[gd_scene load_steps=34 format=3 uid="uid://pyftrwni12pq"]
 
 [ext_resource type="PackedScene" uid="uid://dr0dyvw0s0u0s" path="res://folder/folder.tscn" id="1_enwj4"]
 [ext_resource type="PackedScene" uid="uid://qvdwgcbf2p6c" path="res://enemy/spawner/enemy_spawner.tscn" id="2_1umsp"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bovydyeqng22q" path="res://popup.tscn" id="14_2t6tj"]
 [ext_resource type="Texture2D" uid="uid://ym6v12f8vcmu" path="res://art/ui/Monitor.png" id="15_waif3"]
 [ext_resource type="PackedScene" uid="uid://bd18lqdsm4ns1" path="res://fade.tscn" id="16_nwa8d"]
-[ext_resource type="PackedScene" uid="uid://b7nae3c0wuktd" path="res://lost.tscn" id="17_nqa1l"]
 
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
@@ -172,12 +171,6 @@ enemy_num = 1
 enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
-
-[node name="lose" parent="." instance=ExtResource("17_nqa1l")]
-offset_left = 184.0
-offset_top = 279.0
-offset_right = 2104.0
-offset_bottom = 1411.0
 
 [node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
 visible = false

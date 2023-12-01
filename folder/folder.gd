@@ -204,7 +204,7 @@ func check_cap():
 		$shadow.texture = load("res://art/playerfolder/xl/playerbody_xl_dragging.png")
 	elif capacity > max_capacity:
 		global.scene_reloaded = true
-		get_tree().change_scene_to_file("res://menu.tscn")
+		get_tree().change_scene_to_file("res://lost.tscn")
 		#get_tree().reload_current_scene()
 
 func _on_area_2d_mouse_entered():
