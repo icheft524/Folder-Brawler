@@ -93,6 +93,8 @@ func dead():
 		global.mouse_in_enemy = false
 		$Area2D.monitoring = false
 		queue_free()
+		global.normal_score += file_size
+		global.gainscore()
 
 func dead_boss():
 	speed = 0
