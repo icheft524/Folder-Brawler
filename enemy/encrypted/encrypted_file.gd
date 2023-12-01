@@ -119,6 +119,8 @@ func _on_area_2d_area_entered(area):
 		global.shaking = true
 		if mouse_in:
 			global.hand_mouse = false
+		global.encrypt_score -= file_size
+		global.gainscore()
 		queue_free()
 		
 func indicating():

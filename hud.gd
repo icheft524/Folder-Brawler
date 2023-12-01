@@ -29,7 +29,7 @@ func upgradeready():
 	cam.force_pointer = true
 
 func _process(delta):
-	$score.text = str(global.score)
+	$score.text = 'Score: '+str(global.score)
 	$highscore.text = str(global.highscore)
 	secs = fmod(global.time,60)
 	mins = fmod(global.time,60*60) / 60

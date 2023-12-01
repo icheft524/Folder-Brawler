@@ -53,14 +53,21 @@ func _ready():
 
 func gainscore():
 	score = normal_score + encrypt_score + zip_score + big_score
+	if score <= 0:
+		score = 0
+		normal_score = 0
+		encrypt_score = 0
+		zip_score = 0
+		big_score = 0
 	emit_signal("scored")
 	print("scored")
-	sumscore()
+	
 
 func sumscore():
 	if score > highscore:
 		highscore = score
 
 func save_game():
+	sumscore()
 	var save_file = FileAccess.open("user://save.data", FileAccess.WRITE)
 	save_file.store_32(highscore)

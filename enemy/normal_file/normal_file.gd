@@ -147,6 +147,8 @@ func _on_area_2d_area_entered(area):
 		target.flash()
 		if mouse_in:
 			global.hand_mouse = false
+		global.normal_score -= file_size
+		global.gainscore()
 		queue_free()
 		
 

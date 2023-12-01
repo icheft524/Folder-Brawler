@@ -198,12 +198,15 @@ texture = ExtResource("9_dr005")
 
 [node name="score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 347.0
-offset_top = 366.0
-offset_right = 462.0
-offset_bottom = 394.0
+offset_left = 309.0
+offset_top = 356.0
+offset_right = 423.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 40
+text = "2"
 
 [node name="highscore" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 486.0
 offset_top = 364.0

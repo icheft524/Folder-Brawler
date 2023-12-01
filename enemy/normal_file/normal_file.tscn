@@ -203,7 +203,7 @@ metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_c1aa4")
-scale = Vector2(0.202151, 0.202151)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_vyl71")
 
 [node name="enemy" type="Sprite2D" parent="Sprite2D"]
