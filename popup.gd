@@ -13,7 +13,7 @@ var howto3 = preload("res://art/howtoplay/howtoplay3.png")
 
 var mouse_close_in = false
 var already_clicked = false
-var normal = Vector2(0.369,0.369)
+var normal = Vector2(0.3,0.3)
 #@export var close =  Vector2(0.8,0.8)
 
 var wave2 = true
@@ -58,9 +58,9 @@ func closepo():
 
 func _process(delta):
 	#if global.pop_enter_tutorial && !is_enter:
-	if global.time == 3:
+	if global.time == 1:
 		closed = false
-	if global.time == 4:
+	if global.time == 2:
 		showpo(howto1)
 	if global.time == 11:
 		closed = false
