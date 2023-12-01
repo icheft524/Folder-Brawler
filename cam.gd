@@ -11,11 +11,13 @@ var elapsedtime = 0
 var not_responding = false
 var force_pointer = false
 var force_pointer_on = true
+var phase3 = false
 
 func _ready():
 	randomize()
 	force_pointer = false
 	force_pointer_on = true
+	phase3 = false
 	curPos = offset
 	global.not_responding.connect(mouse_not_respond)
 	global.hand_mouse = false
@@ -98,9 +100,13 @@ func big_shake(delta):
 func mouse_not_respond():
 	not_responding = true
 	global.not_respond_mouse = true
-	await get_tree().create_timer(3,false).timeout
+	if !phase3:
+		await get_tree().create_timer(3,false).timeout
+	elif phase3:
+		await get_tree().create_timer(5,false).timeout
 	global.not_respond_mouse = false
 	not_responding = false
+	phase3 = true
 
 func popup_mouse():
 	if force_pointer_on:
