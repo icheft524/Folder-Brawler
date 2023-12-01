@@ -280,7 +280,7 @@ metadata/broken_pos = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_5xkbh")
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_ike2s")
 
 [node name="enemy" type="Sprite2D" parent="Sprite2D"]

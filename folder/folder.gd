@@ -58,6 +58,8 @@ func _process(delta):
 	$hp.text = "CAP: " + str(capacity)
 	if Input.is_action_just_pressed("leftclick"):
 		sound.click()
+	if Input.is_action_just_pressed("rightclick"):
+		global.time += 1
 		
 	if global.time == 17 and upgrade_coming == false:
 		$upgrade_coming.start()

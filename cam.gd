@@ -60,15 +60,15 @@ func _process(delta):
 			$drag_hand.global_position = get_global_mouse_position()
 		if !global.mouse_inv_drag:
 			$drag_hand.visible = false
-		if not_responding:
-			$not_res.visible = true
-			$pointer_mouse.visible = false
-			$hand_mouse.visible = false
-			$open_hand.visible = false
-			$drag_hand.visible = false
-			$not_res.global_position = get_global_mouse_position()
-		if !not_responding:
-			$not_res.visible = false
+	if not_responding:
+		$not_res.visible = true
+		$pointer_mouse.visible = false
+		$hand_mouse.visible = false
+		$open_hand.visible = false
+		$drag_hand.visible = false
+		$not_res.global_position = get_global_mouse_position()
+	if !not_responding:
+		$not_res.visible = false
 	
 		
 	if global.shaking:
