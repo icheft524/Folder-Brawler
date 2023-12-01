@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd5xxr8rastcb"]
+
+[ext_resource type="Texture2D" uid="uid://cfbvxu6ckw0kd" path="res://art/ui/winwindow.png" id="1_yflvx"]
+[ext_resource type="Texture2D" uid="uid://dbp6w20huaefw" path="res://art/ui/yahoobutton.png" id="2_4u1di"]
+[ext_resource type="Texture2D" uid="uid://cpifymabteivr" path="res://art/ui/yahoobuttonhove.png" id="3_sd6ii"]
+[ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="4_pv06y"]
+
+[node name="win" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="window" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_right = 960.0
+offset_bottom = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yflvx")
+
+[node name="yes" type="TextureButton" parent="window"]
+layout_mode = 0
+offset_left = 616.0
+offset_top = 772.0
+offset_right = 1271.0
+offset_bottom = 974.0
+texture_normal = ExtResource("2_4u1di")
+texture_hover = ExtResource("3_sd6ii")
+
+[node name="score" type="Label" parent="."]
+layout_mode = 0
+offset_left = -316.0
+offset_top = 21.0
+offset_right = 321.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0.0156863, 0.129412, 0.188235, 1)
+theme_override_fonts/font = ExtResource("4_pv06y")
+theme_override_font_sizes/font_size = 50
+text = "Score: 1000 Best Score: 1000"
