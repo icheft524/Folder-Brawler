@@ -53,7 +53,6 @@ func showbossbar():
 	emit_signal("bossready")
 
 func _ready():
-	boss_rip = false
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
 	if save_file != null:
 		highscore = save_file.get_32()
