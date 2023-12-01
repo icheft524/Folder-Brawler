@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dqf8xs8frecuw" path="res://enemy/encrypted/encrypted_file.tscn" id="6_4ht4q"]
 [ext_resource type="PackedScene" uid="uid://boie4qqfj5t4x" path="res://enemy/big_file/big_file.tscn" id="7_7xii8"]
 [ext_resource type="PackedScene" uid="uid://d26xg6dvehwx2" path="res://folder/folder_inventory.tscn" id="8_jr5b5"]
-[ext_resource type="PackedScene" uid="uid://b72g8055fh1f1" path="res://folder/upgrade/upgrade.tscn" id="9_avn3k"]
 [ext_resource type="PackedScene" uid="uid://jxmqkfjngr0t" path="res://hud.tscn" id="10_02sxe"]
 [ext_resource type="PackedScene" uid="uid://wgh1gsmpjc25" path="res://cam.tscn" id="12_0wdna"]
 [ext_resource type="PackedScene" uid="uid://c6u4yboym6qs8" path="res://enemy/boss/boss.tscn" id="13_15cqn"]
 [ext_resource type="PackedScene" uid="uid://bovydyeqng22q" path="res://popup.tscn" id="14_2t6tj"]
 [ext_resource type="Texture2D" uid="uid://ym6v12f8vcmu" path="res://art/ui/Monitor.png" id="15_waif3"]
 [ext_resource type="PackedScene" uid="uid://bd18lqdsm4ns1" path="res://fade.tscn" id="16_nwa8d"]
+[ext_resource type="PackedScene" uid="uid://b7nae3c0wuktd" path="res://lost.tscn" id="17_j8tyr"]
 
 [sub_resource type="Resource" id="Resource_dmm1q"]
 script = ExtResource("4_ojwon")
@@ -172,14 +172,6 @@ enemy_spawn_delay = 1
 
 [node name="main" type="Node2D"]
 
-[node name="upgrade" parent="." instance=ExtResource("9_avn3k")]
-visible = false
-z_index = 6
-offset_left = 700.0
-offset_top = 700.0
-offset_right = 890.0
-offset_bottom = 811.0
-
 [node name="folder" parent="." groups=["folder"] instance=ExtResource("1_enwj4")]
 position = Vector2(458, 175)
 
@@ -226,3 +218,9 @@ scale = Vector2(21.5312, 15.8906)
 [node name="popup" parent="." instance=ExtResource("14_2t6tj")]
 process_mode = 3
 position = Vector2(139, 224)
+
+[node name="lose" parent="." instance=ExtResource("17_j8tyr")]
+offset_left = 368.0
+offset_top = 232.0
+offset_right = 408.0
+offset_bottom = 272.0

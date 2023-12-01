@@ -7,6 +7,7 @@ func play_menumusic():
 	$wintheme.stop()
 	$menumusic.stream = menumusic
 	$menumusic.play()
+	$gametheme.stop()
 
 func play_gametheme():
 	$menumusic.stop()

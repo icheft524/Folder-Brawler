@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://et3uye7r0umj" path="res://art/menu/nobuttonhover.png" id="5_3oqve"]
 
 [node name="lose" type="Control"]
-visible = false
+process_mode = 2
 z_index = 10
 layout_mode = 3
 anchors_preset = 0
@@ -21,9 +21,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -26.0
-offset_right = 960.0
-offset_bottom = 566.0
+offset_right = 1900.0
+offset_bottom = 1112.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -46,3 +45,6 @@ offset_right = 1608.0
 offset_bottom = 975.0
 texture_normal = ExtResource("4_nvech")
 texture_hover = ExtResource("5_3oqve")
+
+[connection signal="pressed" from="window/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="window/no" to="." method="_on_no_pressed"]
