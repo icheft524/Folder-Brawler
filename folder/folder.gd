@@ -9,7 +9,7 @@ var newPosition = Vector2()
 @export var speed_y = 7
 @export var inv: Inv
 var capacity = 0
-@export var max_capacity = 8
+@export var max_capacity = 1000 #8
 @export var slowness = 0.02
 @export var m_fat = 0.8
 @export var l_fat = 0.5
@@ -52,6 +52,8 @@ func _ready():
 	global.target = self
 	global.hand_mouse = false
 	global.score = 0
+	$"../win".visible = false
+	$"../lose".visible = false
 
 
 func _process(delta):
@@ -79,6 +81,11 @@ func _process(delta):
 	
 	if upgrade_coming == true:
 		$upgrade_coming.stop()
+
+	if global.bosshp <= 0:
+		get_tree().paused = true
+		$"../win".visible = true
+
 
 func _input(event):
 	if event is InputEventMouseButton:
