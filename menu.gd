@@ -43,6 +43,9 @@ func _on_tutorial_pressed():
 	tween.play()
 
 func _on_button_pressed():
+	$gamestart.play("start")
+	sound.playerhitbig()
+	await get_tree().create_timer(0.7,false).timeout
 	sound.play_gametheme()
 	get_tree().change_scene_to_file("res://main.tscn")
 	

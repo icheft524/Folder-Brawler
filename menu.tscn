@@ -1,31 +1,346 @@
-[gd_scene load_steps=12 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=34 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
-[ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_7tlck"]
+[ext_resource type="Texture2D" uid="uid://gtmdocyqno45" path="res://art/menu/download.png" id="2_5yrhh"]
+[ext_resource type="Texture2D" uid="uid://8tyxmkrjgrxg" path="res://art/menu/startwindow.png" id="3_0y7ff"]
 [ext_resource type="Texture2D" uid="uid://c8mwqta4uhfye" path="res://art/cursor/default.png" id="3_2lpa7"]
 [ext_resource type="PackedScene" uid="uid://bh0yv7b0k6i04" path="res://volume_slider.tscn" id="4_fm5fv"]
+[ext_resource type="Texture2D" uid="uid://b4fmo4f4rqw4e" path="res://art/menu/glitch1.png" id="5_ecv1y"]
 [ext_resource type="Texture2D" uid="uid://cgykfrgcw66tu" path="res://art/enemy/enemy_zip.png" id="5_os2fl"]
+[ext_resource type="Texture2D" uid="uid://c0qffbvugf7pp" path="res://art/menu/download2.png" id="5_y5xcd"]
+[ext_resource type="Texture2D" uid="uid://ca1q7vcbtbq1r" path="res://art/menu/logo1.png" id="6_th1ar"]
 [ext_resource type="Texture2D" uid="uid://dskq8cwhbgdlp" path="res://art/enemy/enemy_ziphit.png" id="6_y6uu2"]
 [ext_resource type="Texture2D" uid="uid://bf20bvp5rvt8u" path="res://art/howtoplay/howtoplay.png" id="7_26d0h"]
+[ext_resource type="Texture2D" uid="uid://sdnlald67hqu" path="res://art/menu/clickhere.png" id="7_w3xi0"]
+[ext_resource type="Texture2D" uid="uid://odd2brrd8eiy" path="res://art/menu/itsafe.png" id="8_hyhgl"]
 [ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="9_6loha"]
 [ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="10_a81dn"]
 [ext_resource type="Texture2D" uid="uid://crmvwdulqu6f1" path="res://art/closebutton.png" id="10_ty4tk"]
 [ext_resource type="PackedScene" uid="uid://cb4v7iv0hc5h" path="res://score.tscn" id="11_vraqc"]
+[ext_resource type="Texture2D" uid="uid://c3patka2raclx" path="res://art/menu/viruswindow.png" id="12_a8fae"]
+[ext_resource type="Texture2D" uid="uid://bgrse6kbi0bl6" path="res://art/menu/virushead.png" id="13_kwt75"]
+[ext_resource type="Texture2D" uid="uid://3gvmb6j68u5w" path="res://art/menu/virusmouth1.png" id="14_sl6pp"]
+[ext_resource type="Texture2D" uid="uid://b7e406rvn65wv" path="res://art/menu/menu.png" id="15_43ekk"]
+[ext_resource type="Texture2D" uid="uid://binwq2lo857d8" path="res://art/menu/stable.png" id="17_ehuo4"]
+[ext_resource type="Texture2D" uid="uid://nffsh8ylvgll" path="res://art/menu/unstable.png" id="18_s8rbp"]
+[ext_resource type="Texture2D" uid="uid://csfkeapygjuyq" path="res://art/menu/glitch2.png" id="24_y4jl5"]
+[ext_resource type="Texture2D" uid="uid://cp1pd18k2gn8w" path="res://art/menu/bigglitch1.png" id="25_yc6or"]
+[ext_resource type="Texture2D" uid="uid://b3ni11lxwjvhl" path="res://art/menu/bigglitch2.png" id="26_ix152"]
+[ext_resource type="Texture2D" uid="uid://dxoajnyl8r31y" path="res://art/menu/logo2.png" id="27_22de1"]
+
+[sub_resource type="Animation" id="Animation_h4gg3"]
+resource_name = "start"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("viruswindow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.6), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("viruswindow/virushead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.698132, -0.0872665, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stabletext:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("17_ehuo4"), ExtResource("18_s8rbp")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bg:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.803922)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("window:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.55), Vector2(0.4, 0.001)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("window:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("viruswindow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_26lud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("viruswindow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("viruswindow/virushead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stabletext:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_ehuo4")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bg:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("window:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("window:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("viruswindow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye0t2"]
+_data = {
+"RESET": SubResource("Animation_26lud"),
+"start": SubResource("Animation_h4gg3")
+}
+
+[sub_resource type="Animation" id="Animation_nfcpi"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("window/glitch:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_ecv1y"), null, null, ExtResource("24_y4jl5"), ExtResource("5_ecv1y"), null, ExtResource("25_yc6or"), ExtResource("26_ix152"), null, ExtResource("24_y4jl5"), ExtResource("5_ecv1y"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("window/logo:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_th1ar"), null, ExtResource("27_22de1"), ExtResource("6_th1ar")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("window/logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1.1, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(9, -262.2), Vector2(0, -250), Vector2(20, -290), Vector2(-20, -250), Vector2(-55, -200), Vector2(50, -250), Vector2(9, -262.2)]
+}
+
+[sub_resource type="Animation" id="Animation_emx0y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("window/glitch:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ecv1y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("window/logo:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_th1ar")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("window/logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, -262.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbl2t"]
+_data = {
+"RESET": SubResource("Animation_emx0y"),
+"idle": SubResource("Animation_nfcpi")
+}
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_pxkw2")
 
-[node name="Button" type="TextureButton" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-action_mode = 0
-texture_normal = ExtResource("2_7tlck")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
-scale = Vector2(0.17, 0.17)
+position = Vector2(102, -71.0001)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_2lpa7")
 centered = false
+
+[node name="window" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(982, 539)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_0y7ff")
+
+[node name="Button" type="TextureButton" parent="window"]
+offset_left = -324.0
+offset_top = 172.0
+offset_right = 599.0
+offset_bottom = 415.0
+scale = Vector2(0.7, 0.7)
+action_mode = 0
+texture_normal = ExtResource("2_5yrhh")
+texture_hover = ExtResource("5_y5xcd")
+
+[node name="glitch" type="Sprite2D" parent="window"]
+z_index = 1
+position = Vector2(-10, -259.2)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_ecv1y")
+
+[node name="logo" type="Sprite2D" parent="window"]
+position = Vector2(9, -262.2)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_th1ar")
+
+[node name="clickhere" type="Sprite2D" parent="window"]
+position = Vector2(-1, 40)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_w3xi0")
+
+[node name="itfree" type="Sprite2D" parent="window"]
+position = Vector2(7, 448)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_hyhgl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 453.0
@@ -115,7 +430,47 @@ offset_top = 306.0
 offset_right = 352.0
 offset_bottom = 306.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="viruswindow" type="TextureRect" parent="."]
+visible = false
+offset_left = 37.0
+offset_top = -46.0
+offset_right = 1942.0
+offset_bottom = 1075.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(950, 600)
+texture = ExtResource("12_a8fae")
+
+[node name="virushead" type="Sprite2D" parent="viruswindow"]
+position = Vector2(976, 592)
+texture = ExtResource("13_kwt75")
+
+[node name="virusmouth" type="Sprite2D" parent="viruswindow/virushead"]
+position = Vector2(2, 152)
+texture = ExtResource("14_sl6pp")
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(986.758, 539.375)
+scale = Vector2(0.562467, 0.562468)
+texture = ExtResource("15_43ekk")
+
+[node name="gamestart" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ye0t2")
+}
+
+[node name="stabletext" type="Sprite2D" parent="."]
+position = Vector2(1644, 182)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_ehuo4")
+
+[node name="idleanim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_dbl2t")
+}
+
+[connection signal="pressed" from="window/Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="tutorial/image/close_button" to="." method="_on_close_button_pressed"]
