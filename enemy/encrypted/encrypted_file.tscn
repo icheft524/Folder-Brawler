@@ -23,11 +23,11 @@ shader = ExtResource("4_006i5")
 shader_parameter/whiteflashed = true
 shader_parameter/tint = Color(1, 1, 1, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wpddq"]
-radius = 41.05
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0stho"]
+size = Vector2(114, 116)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qab7m"]
-size = Vector2(116, 119)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tm5ck"]
+radius = 48.0416
 
 [sub_resource type="Animation" id="Animation_83k0q"]
 length = 0.001
@@ -294,7 +294,7 @@ texture = ExtResource("5_7uwhc")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_wpddq")
+shape = SubResource("RectangleShape2D_0stho")
 
 [node name="hp" type="Label" parent="."]
 visible = false
@@ -312,7 +312,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_2kikq")
 
 [node name="body" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qab7m")
+shape = SubResource("CircleShape2D_tm5ck")
 
 [node name="indicatoranim" type="AnimationPlayer" parent="."]
 libraries = {

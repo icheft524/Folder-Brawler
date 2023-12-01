@@ -5,6 +5,7 @@ extends Control
 @onready var wavebar = $upgrade/wavebar
 @onready var cam = $"../cam"
 @onready var bosshp_bar = %bosshp
+@onready var inventory = $"../folder_inventory"
 
 var secs = 0
 var mins = 0
@@ -34,6 +35,7 @@ func upgraded():
 func upgradeready():
 	$upgrade/upgradeanim.play("upgradeready")
 	cam.force_pointer = true
+	
 
 func _process(delta):
 	bosshp_bar.value = global.bosshp

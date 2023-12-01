@@ -12,7 +12,7 @@ z_index = 20
 script = ExtResource("1_vk4ox")
 
 [node name="pointer_mouse" type="Sprite2D" parent="."]
-z_index = 12
+z_index = 15
 scale = Vector2(0.169811, 0.169811)
 texture = ExtResource("2_b57tt")
 centered = false
