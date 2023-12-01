@@ -217,11 +217,13 @@ offset_bottom = 387.0
 
 [node name="bosshp" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 120.0
-offset_top = 66.0
-offset_right = 1361.0
-offset_bottom = 146.0
-value = 100.0
+offset_left = 1415.0
+offset_top = 606.0
+offset_right = 1900.0
+offset_bottom = 686.0
+max_value = 30.0
+value = 30.0
 texture_over = ExtResource("11_xout1")
 texture_progress = ExtResource("12_x7jtg")
