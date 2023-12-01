@@ -8,10 +8,9 @@ func set_highscore(value):
 	
 func _process(delta):
 	self.set_score(global.score)
-	if global.boss_rip:
-		highest_score = global.highscore
-		self.set_highscore(highest_score)
-		global.save_game()
-		global.boss_rip = false
+	highest_score = global.highscore
+	self.set_highscore(highest_score)
+	global.save_game()
+	#global.boss_rip = false
 	self.visible = true
 
