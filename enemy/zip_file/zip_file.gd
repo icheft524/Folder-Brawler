@@ -97,8 +97,10 @@ func dead():
 		$deadanim.play("dead")
 		await get_tree().create_timer(0.1,false).timeout
 		queue_free()
-		global.normal_score += file_size
-		global.gainscore()
+		if !global.boss_enter:
+			global.combo += 1
+			global.zip_score += file_size + floor(global.combo/2)
+			global.gainscore()
 		_spawn_file(3)
 		
 		
@@ -134,6 +136,7 @@ func _on_area_2d_area_entered(area):
 		target.flash()
 		if mouse_in:
 			global.hand_mouse = false
+		global.combo = 0
 		global.zip_score -= file_size
 		global.gainscore()
 		queue_free()

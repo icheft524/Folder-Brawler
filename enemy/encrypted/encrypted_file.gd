@@ -93,8 +93,10 @@ func dead():
 		$deadanim.play("dead")
 		await get_tree().create_timer(0.1,false).timeout
 		queue_free()
-		global.normal_score += file_size
-		global.gainscore()
+		if !global.boss_enter:
+			global.combo += 1
+			global.encrypt_score += file_size + floor(global.combo/2)
+			global.gainscore()
 
 func dead_boss():
 	speed = 0
@@ -119,7 +121,8 @@ func _on_area_2d_area_entered(area):
 		global.shaking = true
 		if mouse_in:
 			global.hand_mouse = false
-		global.encrypt_score -= file_size
+		global.combo = 0
+		global.encrypt_score -= file_size 
 		global.gainscore()
 		queue_free()
 		

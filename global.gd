@@ -27,12 +27,15 @@ var not_respond_mouse = false
 var scene_reloaded = false
 var score = 0
 var highscore
+var boss_enter = false
 
 #enemy_score
 var normal_score = 0
 var encrypt_score = 0
 var zip_score = 0
 var big_score = 0
+var boss_score = 0
+var combo = 0
 
 signal boss_dies
 signal not_responding
@@ -52,7 +55,7 @@ func _ready():
 		save_game()
 
 func gainscore():
-	score = normal_score + encrypt_score + zip_score + big_score
+	score = normal_score + encrypt_score + zip_score + big_score + boss_score
 	if score <= 0:
 		score = 0
 		normal_score = 0
@@ -60,7 +63,7 @@ func gainscore():
 		zip_score = 0
 		big_score = 0
 	emit_signal("scored")
-	print("scored")
+	#print("scored")
 	
 
 func sumscore():

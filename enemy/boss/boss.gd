@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target = global.target
 @export var normal_speed = 150
 @export var hp = 30
-@export var file_size = 1
+@export var file_size = 3000
 @export var take_normal_dmg = 5
 @export var take_crit_dmg = 2
 #var slow_speed = normal_speed * 0.5
@@ -35,6 +35,7 @@ var not_respond = false
 var teleport_ready
 
 func _ready():
+	global.boss_enter = true
 	$indicator.visible = false
 	if !global.enemy_file_drop:
 		indicating()
@@ -116,6 +117,10 @@ func _on_area_2d_mouse_exited():
 func dead():
 	if hp <= 0:
 		#sound.enemydeath()
+		global.boss_enter = false
+		global.combo += 1
+		global.boss_score += file_size + floor(global.combo/2)
+		global.gainscore()
 		global.boss_died()
 		#global.boss_dead = true
 		queue_free()
@@ -181,5 +186,6 @@ func _on_delay_teleport_timeout():
 	
 
 func _on_one_sec_spawn_timeout():
+	file_size -= 200
 	if $Sprite2D.visible == true:
 		_spawn_file(1,'weak')

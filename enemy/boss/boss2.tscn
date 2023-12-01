@@ -549,7 +549,7 @@ _data = {
 "hit": SubResource("Animation_boh6e")
 }
 
-[node name="boss" type="CharacterBody2D"]
+[node name="boss" type="CharacterBody2D" groups=["boss"]]
 z_index = 1
 position = Vector2(15, 25)
 script = ExtResource("1_vcum3")
