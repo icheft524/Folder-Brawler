@@ -51,7 +51,7 @@ func _ready():
 	global.target = self
 	global.hand_mouse = false
 	global.score = 0
-	pass
+
 
 func _process(delta):
 	check_cap()

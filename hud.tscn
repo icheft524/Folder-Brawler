@@ -195,3 +195,17 @@ z_index = -1
 position = Vector2(276, 547)
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("9_dr005")
+
+[node name="score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 366.0
+offset_right = 462.0
+offset_bottom = 394.0
+
+[node name="highscore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 364.0
+offset_right = 526.0
+offset_bottom = 387.0

@@ -20,6 +20,8 @@ var direction
 
 
 func _ready():
+	
+	
 	global.boss_dies.connect(dead_boss)
 	$indicator.visible = false
 	if !global.enemy_file_drop:
@@ -100,6 +102,8 @@ func dead():
 		global.mouse_in_enemy = false
 		await get_tree().create_timer(0.5,false).timeout
 		queue_free()
+		global.normal_score += file_size
+		global.gainscore()
 
 func dead_boss():
 	speed = 0

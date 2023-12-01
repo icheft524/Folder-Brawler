@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=12 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
 [ext_resource type="Texture2D" uid="uid://dljrwwfxtpruq" path="res://icon.svg" id="2_7tlck"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="9_6loha"]
 [ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="10_a81dn"]
 [ext_resource type="Texture2D" uid="uid://crmvwdulqu6f1" path="res://art/closebutton.png" id="10_ty4tk"]
+[ext_resource type="PackedScene" uid="uid://cb4v7iv0hc5h" path="res://score.tscn" id="11_vraqc"]
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_pxkw2")
@@ -107,6 +108,12 @@ texture_normal = ExtResource("9_6loha")
 texture_pressed = ExtResource("10_a81dn")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="score" parent="." instance=ExtResource("11_vraqc")]
+offset_left = 352.0
+offset_top = 306.0
+offset_right = 352.0
+offset_bottom = 306.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/sfx" to="." method="_on_sfx_value_changed"]
