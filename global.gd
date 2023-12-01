@@ -23,6 +23,7 @@ var pop_start_tutorial = false
 var pop_enter_tutorial = false
 var not_respond_mouse = false
 var scene_reloaded = false
+var score = 0
 
 signal boss_dies
 signal not_responding

@@ -50,6 +50,7 @@ func _ready():
 	global.time = 0
 	global.target = self
 	global.hand_mouse = false
+	global.score = 0
 	pass
 
 func _process(delta):
@@ -66,11 +67,11 @@ func _process(delta):
 		$upgrade_coming.start()
 	
 	if global.time == 67:
-		upgrade_coming == false
+		upgrade_coming = false
 		$upgrade_coming.start()
 		
 	if global.time == 92:
-		upgrade_coming == false
+		upgrade_coming = false
 		$upgrade_coming.start()
 	
 	if upgrade_coming == true:
