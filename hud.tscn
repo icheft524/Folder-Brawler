@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=17 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
 [ext_resource type="Texture2D" uid="uid://d0casm37k6imv" path="res://art/ui/capbar.png" id="2_1vdmh"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bha38weo7kyti" path="res://art/ui/upgradeready.png" id="9_dp33i"]
 [ext_resource type="Texture2D" uid="uid://cf6bij5ienwoi" path="res://art/ui/rightui.png" id="9_dr005"]
 [ext_resource type="Texture2D" uid="uid://bklyq2gfwsb4k" path="res://art/ui/upgradebarfull.png" id="9_s1n14"]
+[ext_resource type="Texture2D" uid="uid://b0jip4121vgqx" path="res://art/progressbar.png" id="11_xout1"]
+[ext_resource type="Texture2D" uid="uid://d5vm0t7puy67" path="res://art/progressbarin.png" id="12_x7jtg"]
 
 [sub_resource type="Animation" id="Animation_lqmk0"]
 length = 0.001
@@ -116,10 +118,10 @@ script = ExtResource("1_xgmhb")
 [node name="capacity" type="TextureProgressBar" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 55.0
-offset_top = 251.0
-offset_right = 479.0
-offset_bottom = 336.0
+offset_left = 1421.88
+offset_top = 253.77
+offset_right = 1845.88
+offset_bottom = 338.77
 max_value = 10.0
 texture_over = ExtResource("2_1vdmh")
 texture_progress = ExtResource("3_h1aji")
@@ -127,10 +129,10 @@ texture_progress = ExtResource("3_h1aji")
 [node name="time" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 292.0
-offset_top = 398.0
-offset_right = 550.0
-offset_bottom = 501.0
+offset_left = 1658.88
+offset_top = 400.77
+offset_right = 1916.88
+offset_bottom = 503.77
 theme_override_fonts/font = ExtResource("4_k1ifu")
 theme_override_font_sizes/font_size = 75
 text = "00:00"
@@ -139,10 +141,10 @@ vertical_alignment = 1
 [node name="wave" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 2
-offset_left = 213.0
-offset_top = 332.0
-offset_right = 285.0
-offset_bottom = 435.0
+offset_left = 1579.88
+offset_top = 334.77
+offset_right = 1651.88
+offset_bottom = 437.77
 theme_override_fonts/font = ExtResource("4_k1ifu")
 theme_override_font_sizes/font_size = 50
 text = "1"
@@ -152,10 +154,10 @@ vertical_alignment = 1
 process_mode = 3
 texture_filter = 1
 layout_mode = 2
-offset_left = 55.0
-offset_top = 540.0
-offset_right = 458.0
-offset_bottom = 602.0
+offset_left = 1421.88
+offset_top = 542.77
+offset_right = 1824.88
+offset_bottom = 604.77
 texture = ExtResource("5_q2ntr")
 
 [node name="wavebar" type="TextureProgressBar" parent="upgrade"]
@@ -192,16 +194,16 @@ libraries = {
 
 [node name="ui" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(276, 547)
+position = Vector2(1642.88, 549.77)
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("9_dr005")
 
 [node name="score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 309.0
-offset_top = 356.0
-offset_right = 423.0
-offset_bottom = 414.0
+offset_left = 1675.88
+offset_top = 358.77
+offset_right = 1789.88
+offset_bottom = 416.77
 theme_override_font_sizes/font_size = 40
 text = "2"
 
@@ -212,3 +214,14 @@ offset_left = 486.0
 offset_top = 364.0
 offset_right = 526.0
 offset_bottom = 387.0
+
+[node name="bosshp" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 120.0
+offset_top = 66.0
+offset_right = 1361.0
+offset_bottom = 146.0
+value = 100.0
+texture_over = ExtResource("11_xout1")
+texture_progress = ExtResource("12_x7jtg")

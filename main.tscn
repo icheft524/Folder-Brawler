@@ -198,10 +198,6 @@ size_flags_vertical = 4
 
 [node name="hud" parent="." instance=ExtResource("10_02sxe")]
 z_index = 8
-offset_left = 1369.0
-offset_top = -1.0
-offset_right = 1369.0
-offset_bottom = -1.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 7

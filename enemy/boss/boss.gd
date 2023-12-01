@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var target = global.target
 @export var normal_speed = 150
-@export var hp = 30
+#@export var hp = 30
 @export var file_size = 3000
 @export var file_decay = 100
 @export var take_normal_dmg = 1
@@ -36,6 +36,8 @@ var not_respond = false
 var teleport_ready
 
 func _ready():
+	global.showbossbar()
+	global.bosshp = 30
 	global.boss_enter = true
 	$indicator.visible = false
 	if !global.enemy_file_drop:
@@ -58,9 +60,9 @@ func _process(delta):
 	
 	dead()
 	if indicator_finished:
-		$hp.text = "boss" + str(hp)
+		$hp.text = "boss" + str(global.bosshp)
 	
-	if hp <= 20 && !phase2:
+	if global.bosshp <= 20 && !phase2:
 		phase2 = true
 		print('not res')
 		not_respond = true
@@ -71,7 +73,7 @@ func _process(delta):
 		$idleanim.play("idle")
 		not_respond = false
 		
-	if hp <= 10 && !phase3:
+	if global.bosshp <= 10 && !phase3:
 		phase3 = true
 		not_respond = true
 		global.boss_not_respond()
@@ -92,9 +94,9 @@ func _input(event):
 			if percent > global.crit_chance:
 				sound.critical()
 				$hitanim.play("hit")
-				hp -= take_crit_dmg
+				global.bosshp -= take_crit_dmg
 			elif percent <= global.crit_chance:
-				hp -= take_normal_dmg
+				global.bosshp -= take_normal_dmg
 				sound.enemyhit()
 				$hitanim.play("hit")
 			#_spawn_file(3)
@@ -116,7 +118,7 @@ func _on_area_2d_mouse_exited():
 	mouse_in = false
 
 func dead():
-	if hp <= 0:
+	if global.bosshp <= 0:
 		#sound.enemydeath()
 		global.boss_enter = false
 		global.combo += 1
@@ -170,7 +172,7 @@ func indicating():
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("folder") and visible and indicator_finished:
-		target.collect(file,hp,file_size,'normal')
+		target.collect(file,global.bosshp,file_size,'normal')
 		sound.playerhit()
 		target.capacity += file_size
 		queue_free()

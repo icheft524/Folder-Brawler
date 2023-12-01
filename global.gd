@@ -28,6 +28,7 @@ var scene_reloaded = false
 var score = 0
 var highscore
 var boss_enter = false
+var bosshp = 30
 
 #enemy_score
 var normal_score = 0
@@ -39,12 +40,16 @@ var combo = 0
 
 signal boss_dies
 signal not_responding
+signal bossready
 
 func boss_died():
 	boss_dies.emit()
 
 func boss_not_respond():
 	not_responding.emit()
+
+func showbossbar():
+	emit_signal("bossready")
 
 func _ready():
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)

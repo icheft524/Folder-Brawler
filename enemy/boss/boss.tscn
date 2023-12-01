@@ -573,7 +573,7 @@ _data = {
 "hit": SubResource("Animation_boh6e")
 }
 
-[node name="boss" type="CharacterBody2D"]
+[node name="boss" type="CharacterBody2D" groups=["boss"]]
 z_as_relative = false
 script = ExtResource("1_8o72f")
 

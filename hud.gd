@@ -4,6 +4,7 @@ extends Control
 @onready var itemoption = get_tree().get_nodes_in_group("itemoption")
 @onready var wavebar = $upgrade/wavebar
 @onready var cam = $"../cam"
+@onready var bosshp_bar = %bosshp
 
 var secs = 0
 var mins = 0
@@ -18,7 +19,12 @@ func _ready():
 	itemoption[0].connect("upgrade",upgraded)
 	itemoption[1].connect("upgrade",upgraded)
 	$wave.text = str(1)
-	pass # Replace with function body.
+	bosshp_bar.visible = false
+	global.connect("bossready", showbossbar)
+
+
+func showbossbar():
+	bosshp_bar.visible = true
 
 func upgraded():
 	$upgrade/upgradeanim.play("loading")
@@ -29,6 +35,7 @@ func upgradeready():
 	cam.force_pointer = true
 
 func _process(delta):
+	bosshp_bar.value = global.bosshp
 	$score.text = 'Score: '+str(global.score)
 	$highscore.text = str(global.highscore)
 	secs = fmod(global.time,60)
