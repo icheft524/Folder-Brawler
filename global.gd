@@ -29,6 +29,7 @@ var score = 0
 var highscore
 var boss_enter = false
 var bosshp = 40
+var boss_rip = false
 
 #enemy_score
 var normal_score = 0
@@ -52,6 +53,7 @@ func showbossbar():
 	emit_signal("bossready")
 
 func _ready():
+	boss_rip = false
 	var save_file = FileAccess.open("user://save.data", FileAccess.READ)
 	if save_file != null:
 		highscore = save_file.get_32()

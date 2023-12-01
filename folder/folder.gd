@@ -9,7 +9,7 @@ var newPosition = Vector2()
 @export var speed_y = 7
 @export var inv: Inv
 var capacity = 0
-@export var max_capacity = 1000 #8
+@export var max_capacity = 8 #8
 @export var slowness = 0.02
 @export var m_fat = 0.8
 @export var l_fat = 0.5
@@ -91,7 +91,7 @@ func _process(delta):
 		$upgrade_coming.stop()
 
 	if global.bosshp <= 0:
-		await get_tree().create_timer(0.3,false).timeout
+		global.boss_rip = true
 		get_tree().paused = true
 		$"../win".visible = true
 
