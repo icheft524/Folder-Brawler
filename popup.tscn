@@ -19,11 +19,14 @@ texture = ExtResource("2_8l3el")
 
 [node name="close" type="TextureButton" parent="image"]
 process_mode = 2
-offset_left = 1222.14
-offset_top = -1054.63
-offset_right = 1660.14
-offset_bottom = -505.633
+visible = false
+offset_left = 1260.0
+offset_top = -1073.33
+offset_right = 1698.0
+offset_bottom = -524.336
 scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+action_mode = 0
 texture_normal = ExtResource("3_ko2i3")
 texture_hover = ExtResource("3_ko2i3")
 ignore_texture_size = true

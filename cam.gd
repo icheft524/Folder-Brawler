@@ -10,10 +10,12 @@ var curPos
 var elapsedtime = 0
 var not_responding = false
 var force_pointer = false
+var force_pointer_on = true
 
 func _ready():
 	randomize()
 	force_pointer = false
+	force_pointer_on = true
 	curPos = offset
 	global.not_responding.connect(mouse_not_respond)
 	global.hand_mouse = false
@@ -101,8 +103,11 @@ func mouse_not_respond():
 	not_responding = false
 
 func popup_mouse():
-	force_pointer = true
-
+	if force_pointer_on:
+		force_pointer = true
+	if !force_pointer_on:
+		force_pointer = false
+		global.hand_mouse = true
 	
 func close_popup():
 	force_pointer = false

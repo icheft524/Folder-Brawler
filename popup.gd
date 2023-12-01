@@ -27,15 +27,15 @@ var closed = false
 func _ready():
 	if global.pop_enter_tutorial:
 		is_enter = true
-	showpo(global.pop_start_tutorial,howto1)
+	#showpo(howto1)
 	global.pop_start_tutorial = true
 	
 
-func showpo(is_show: bool, howtoimage):
-	closed = false
-	if !is_show:
-		if global.pop_start_tutorial:
-			is_enter = true
+func showpo( howtoimage):
+	#if !is_show:
+	#if global.pop_start_tutorial:
+		#is_enter = true
+	if !closed:
 		image.set_texture(howtoimage)
 		get_tree().paused = true
 		image.visible = true
@@ -52,24 +52,37 @@ func closepo():
 	mouse_cam.close_popup()
 	if !global.on_upgrade:
 		get_tree().paused = false
+	
 
 func _process(delta):
 	#if global.pop_enter_tutorial && !is_enter:
-	if global.time == 7:
-		showpo(is_enter,howto2)
+	if global.time == 3:
+		closed = false
+	if global.time == 4:
+		showpo(howto1)
+	if global.time == 11:
+		closed = false
+	if global.time == 12:
+		showpo(howto2)
+	if global.time == 21:
+		closed = false
+	if global.time == 22 : #wave2 big
+		wave2 = false
+	if global.time == 50:
+		closed = false
+	if global.time == 51 : #wave3 enc
+		showpo(howto3)
+		wave3 = false
+	if global.time == 71:
+		closed = false
+	if global.time == 72 : #wave4 zip
+		wave4 = false
+	
 	if image.scale < Vector2(0.3,0.3):
 		closepo()
-	if global.time == 22 and wave2: #wave2 big
-		_ready()
-		wave2 = false
+		
 
-	if global.time == 47 and wave3: #wave3 enc
-		_ready()
-		wave3 = false
-
-	if global.time == 72 and wave4: #wave4 zip
-		_ready()
-		wave4 = false
+		
 
 
 
@@ -81,16 +94,19 @@ func _on_close_pressed():
 	tween_close.tween_property(image,"scale",normal - close,0.4).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween_close.play()
 	global.hand_mouse = false
-	mouse_cam.force_pointer = false
+	mouse_cam.force_pointer_on = true
+	
 
 
 func _on_close_mouse_entered():
 	if !closed:
-		mouse_cam.force_pointer = false
-		global.hand_mouse = true
+		print(closed)
+		mouse_cam.force_pointer_on = false
+		#global.hand_mouse = true
 
 
 func _on_close_mouse_exited():
 	if !closed:
-		mouse_cam.force_pointer = true
-		global.hand_mouse = false
+		print(closed)
+		mouse_cam.force_pointer_on = true
+		#global.hand_mouse = false
