@@ -75,7 +75,7 @@ func _process(delta):
 		global.boss_not_respond()
 		$idleanim.play("notrespond")
 		#_spawn_file(3)
-		await get_tree().create_timer(3,false).timeout
+		await get_tree().create_timer(5,false).timeout
 		$idleanim.play("idle")
 		not_respond = false
 		
