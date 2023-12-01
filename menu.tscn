@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=42 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
 [ext_resource type="Texture2D" uid="uid://gtmdocyqno45" path="res://art/menu/download.png" id="2_5yrhh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bf20bvp5rvt8u" path="res://art/howtoplay/howtoplay.png" id="7_26d0h"]
 [ext_resource type="Texture2D" uid="uid://sdnlald67hqu" path="res://art/menu/clickhere.png" id="7_w3xi0"]
 [ext_resource type="Texture2D" uid="uid://odd2brrd8eiy" path="res://art/menu/itsafe.png" id="8_hyhgl"]
+[ext_resource type="Texture2D" uid="uid://djee5q703p7jp" path="res://art/download3.png" id="8_vd2qu"]
 [ext_resource type="Texture2D" uid="uid://qghm72kpdoc2" path="res://art/enemy/enemy_strongA.png" id="9_6loha"]
 [ext_resource type="Texture2D" uid="uid://bgi5hikvbvayv" path="res://art/enemy/enemy_stronghit.png" id="10_a81dn"]
 [ext_resource type="Texture2D" uid="uid://crmvwdulqu6f1" path="res://art/closebutton.png" id="10_ty4tk"]
@@ -30,7 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://cp1pd18k2gn8w" path="res://art/menu/bigglitch1.png" id="25_yc6or"]
 [ext_resource type="Texture2D" uid="uid://b3ni11lxwjvhl" path="res://art/menu/bigglitch2.png" id="26_ix152"]
 [ext_resource type="Texture2D" uid="uid://dxoajnyl8r31y" path="res://art/menu/logo2.png" id="27_22de1"]
+[ext_resource type="Texture2D" uid="uid://b4vkxwy82ycx6" path="res://art/menu/viruswindow2.png" id="27_stxdx"]
 [ext_resource type="Texture2D" uid="uid://cagnqn542ao8f" path="res://art/iconevil.png" id="29_4j8k5"]
+[ext_resource type="Texture2D" uid="uid://rpfwdrbsl147" path="res://art/menu/viruswindow4.png" id="29_mvun3"]
 [ext_resource type="Texture2D" uid="uid://c4gdo1xw2vlp4" path="res://art/iconglitch.png" id="30_rbfvb"]
 
 [sub_resource type="Animation" id="Animation_26lud"]
@@ -74,62 +77,62 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("bg:self_modulate")
+tracks/3/path = NodePath("window:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("window:scale")
+tracks/4/path = NodePath("window:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("window:visible")
+tracks/5/path = NodePath("viruswindow:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("viruswindow:visible")
+tracks/6/path = NodePath("window:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(982, 539)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("window:position")
+tracks/7/path = NodePath("viruswindow:texture")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(982, 539)]
+"update": 1,
+"values": [ExtResource("12_a8fae")]
 }
 
 [sub_resource type="Animation" id="Animation_h4gg3"]
@@ -173,62 +176,62 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("bg:self_modulate")
+tracks/3/path = NodePath("window:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.803922)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("window:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.5, 0.55), Vector2(0.1, 0.001)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("window:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("window:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("viruswindow:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("viruswindow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("window:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("window:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.1, 0.2),
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector2(982, 539), Vector2(625, 1000)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("viruswindow:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_a8fae"), ExtResource("27_stxdx"), ExtResource("29_mvun3"), ExtResource("12_a8fae")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ye0t2"]
@@ -465,7 +468,7 @@ offset_bottom = 415.0
 scale = Vector2(0.7, 0.7)
 action_mode = 0
 texture_normal = ExtResource("2_5yrhh")
-texture_hover = ExtResource("5_y5xcd")
+texture_hover = ExtResource("8_vd2qu")
 
 [node name="logo" type="Sprite2D" parent="window"]
 position = Vector2(9, -262.2)

@@ -67,12 +67,12 @@ script = ExtResource("1_i0xcs")
 
 [node name="menumusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_sa6y7")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"music"
 
 [node name="gametheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_5m3is")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"music"
 
 [node name="click" type="AudioStreamPlayer" parent="."]
@@ -148,5 +148,5 @@ bus = &"sfx"
 
 [node name="wintheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_spe6f")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"sfx"

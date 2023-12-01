@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jxmqkfjngr0t"]
+[gd_scene load_steps=15 format=3 uid="uid://jxmqkfjngr0t"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_xgmhb"]
 [ext_resource type="Texture2D" uid="uid://d0casm37k6imv" path="res://art/ui/capbar.png" id="2_1vdmh"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bha38weo7kyti" path="res://art/ui/upgradeready.png" id="9_dp33i"]
 [ext_resource type="Texture2D" uid="uid://cf6bij5ienwoi" path="res://art/ui/rightui.png" id="9_dr005"]
 [ext_resource type="Texture2D" uid="uid://bklyq2gfwsb4k" path="res://art/ui/upgradebarfull.png" id="9_s1n14"]
-[ext_resource type="Texture2D" uid="uid://b0jip4121vgqx" path="res://art/progressbar.png" id="11_xout1"]
-[ext_resource type="Texture2D" uid="uid://d5vm0t7puy67" path="res://art/progressbarin.png" id="12_x7jtg"]
 
 [sub_resource type="Animation" id="Animation_lqmk0"]
 length = 0.001
@@ -200,12 +198,14 @@ texture = ExtResource("9_dr005")
 
 [node name="score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1675.88
-offset_top = 358.77
-offset_right = 1789.88
-offset_bottom = 416.77
-theme_override_font_sizes/font_size = 40
-text = "2"
+offset_left = 54.0
+offset_top = 39.0
+offset_right = 228.0
+offset_bottom = 114.0
+theme_override_colors/font_color = Color(0.533333, 0.972549, 0.682353, 1)
+theme_override_fonts/font = ExtResource("4_k1ifu")
+theme_override_font_sizes/font_size = 60
+text = "Score: "
 
 [node name="highscore" type="Label" parent="."]
 visible = false
@@ -218,12 +218,23 @@ offset_bottom = 387.0
 [node name="bosshp" type="TextureProgressBar" parent="."]
 unique_name_in_owner = true
 visible = false
+self_modulate = Color(1, 0, 1, 1)
 layout_mode = 0
-offset_left = 1415.0
-offset_top = 606.0
-offset_right = 1900.0
-offset_bottom = 686.0
+offset_left = 1422.0
+offset_top = 615.0
+offset_right = 1907.0
+offset_bottom = 695.0
 max_value = 30.0
 value = 30.0
-texture_over = ExtResource("11_xout1")
-texture_progress = ExtResource("12_x7jtg")
+texture_over = ExtResource("8_aef0s")
+texture_progress = ExtResource("9_s1n14")
+
+[node name="Label" type="Label" parent="bosshp"]
+layout_mode = 0
+offset_top = -73.0
+offset_right = 220.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k1ifu")
+theme_override_font_sizes/font_size = 50
+text = "Virus Lord"

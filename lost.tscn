@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7nae3c0wuktd"]
+
+[ext_resource type="Texture2D" uid="uid://b7eip0g1qq2xo" path="res://art/menu/tryagain.png" id="1_cg341"]
+[ext_resource type="Texture2D" uid="uid://bsxo0kwow57bv" path="res://art/menu/yesbutton.png" id="2_86ik6"]
+[ext_resource type="Texture2D" uid="uid://bf77trvsxu37" path="res://art/menu/yesbuttonhover.png" id="3_j2vy8"]
+[ext_resource type="Texture2D" uid="uid://dosj7ep15i0ky" path="res://art/menu/nobutton.png" id="4_nvech"]
+[ext_resource type="Texture2D" uid="uid://et3uye7r0umj" path="res://art/menu/nobuttonhover.png" id="5_3oqve"]
+
+[node name="lose" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="window" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -26.0
+offset_right = 960.0
+offset_bottom = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cg341")
+
+[node name="yes" type="TextureButton" parent="window"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 772.0
+offset_right = 927.0
+offset_bottom = 974.0
+texture_normal = ExtResource("2_86ik6")
+texture_hover = ExtResource("3_j2vy8")
+
+[node name="no" type="TextureButton" parent="window"]
+layout_mode = 0
+offset_left = 953.0
+offset_top = 773.0
+offset_right = 1608.0
+offset_bottom = 975.0
+texture_normal = ExtResource("4_nvech")
+texture_hover = ExtResource("5_3oqve")
