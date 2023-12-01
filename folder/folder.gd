@@ -60,6 +60,7 @@ func _ready():
 	global.big_score = 0
 	global.boss_score = 0
 	global.combo = 0
+	global.scene_reloaded = false
 	$"../win".visible = false
 	$"../lose".visible = false
 

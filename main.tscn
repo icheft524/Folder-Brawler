@@ -233,5 +233,3 @@ offset_left = 990.0
 offset_top = 540.0
 offset_right = 1030.0
 offset_bottom = 580.0
-
-[node name="boss" parent="." instance=ExtResource("13_15cqn")]
