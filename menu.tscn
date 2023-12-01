@@ -443,7 +443,7 @@ theme_override_font_sizes/font_size = 25
 text = "Volume"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 4
 position = Vector2(102, -71.0001)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_2lpa7")
@@ -498,7 +498,6 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_hyhgl")
 
 [node name="tutorial" type="TextureButton" parent="."]
-z_index = -1
 offset_left = 1503.0
 offset_top = 832.0
 offset_right = 2314.0
@@ -510,6 +509,7 @@ texture_hover = ExtResource("14_rivuc")
 
 [node name="image" type="Sprite2D" parent="tutorial"]
 visible = false
+z_index = 1
 position = Vector2(-100.282, -626.667)
 scale = Vector2(0.613497, 0.613497)
 texture = ExtResource("7_26d0h")

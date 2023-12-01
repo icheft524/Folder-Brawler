@@ -20,7 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Sprite2D.global_position = get_global_mouse_position()
-	if image.scale < Vector2(0.3,0.3) and !tutor:
+	if image.scale < Vector2(0.42,0.42) and !tutor:
 		image.visible = false
 		$tutorial/image/close_button.visible = false
 		$tutorial/image/left.visible = false
