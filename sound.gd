@@ -63,3 +63,9 @@ func playerhitbig():
 
 func timer():
 	$timer.play()
+ 
+func fart():
+	$"Fart Sound".play()
+
+func Copter():
+	$Copter.play()
