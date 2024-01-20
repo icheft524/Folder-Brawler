@@ -1,23 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=19 format=3 uid="uid://ddltqegh0oope"]
 
-[ext_resource type="AudioStream" uid="uid://b0r42hc2efoej" path="res://sound/player/Player_Click.wav" id="1_6pbvo"]
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
-[ext_resource type="AudioStream" uid="uid://cgid62ndys1hp" path="res://sound/Folder_Brawler_25_11_23.wav" id="2_5m3is"]
-[ext_resource type="AudioStream" uid="uid://bx6up0yik0uyp" path="res://sound/Menu_Music_25_11_23.wav" id="2_sa6y7"]
-[ext_resource type="AudioStream" uid="uid://ducgh4krk2aqv" path="res://sound/enemy/enemySpawn.wav" id="4_bd2mb"]
-[ext_resource type="AudioStream" uid="uid://dvnl1ae2rhevp" path="res://sound/zipSpawn.wav" id="5_ews0g"]
 [ext_resource type="AudioStream" uid="uid://pah72impy6ul" path="res://sound/adSpawn_01.wav" id="5_mp3xx"]
 [ext_resource type="AudioStream" uid="uid://d2opbvvoig2aa" path="res://sound/adSpawn_02.wav" id="6_k8vkq"]
-[ext_resource type="AudioStream" uid="uid://cqvytf0du782m" path="res://sound/enemy/Enemy_Get_Hit_01.wav" id="6_notwe"]
 [ext_resource type="AudioStream" uid="uid://yqrxm08e2egy" path="res://sound/player/Player_Get_hit_01_Light_Damage.wav" id="6_pn7ry"]
 [ext_resource type="AudioStream" uid="uid://dbit5g3ibssj4" path="res://sound/adSpawn_03.wav" id="7_4e5op"]
 [ext_resource type="AudioStream" uid="uid://b52j2v70tbq0y" path="res://sound/player/Player_Get_hit_02_Light_Damage.wav" id="7_ame8g"]
-[ext_resource type="AudioStream" uid="uid://da6guymohlxyj" path="res://sound/enemy/Enemy_Get_Hit_02.wav" id="7_iaw3r"]
 [ext_resource type="AudioStream" uid="uid://dxth0ljc20lhw" path="res://sound/player/Player_Grab.wav" id="7_pnrr1"]
-[ext_resource type="AudioStream" uid="uid://bfdx88065j25r" path="res://sound/enemy/enemyDeath.wav" id="8_ghmmj"]
-[ext_resource type="AudioStream" uid="uid://bjp1m4krsiat3" path="res://sound/enemy/Enemy_Get_Hit_03.wav" id="8_y85uy"]
-[ext_resource type="AudioStream" uid="uid://doamu62b4cnt7" path="res://sound/enemy/Enemy_Get_Hit_04.wav" id="9_pbnat"]
-[ext_resource type="AudioStream" uid="uid://et4o046dhslv" path="res://sound/Unzip_Extracted.wav" id="9_yfubi"]
 [ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
 [ext_resource type="AudioStream" uid="uid://cfwxrsig65tcg" path="res://sound/Cant_Delete.wav" id="13_cs5gl"]
 [ext_resource type="AudioStream" uid="uid://bqefw5b638bra" path="res://sound/player/Player_Get_hit_02_Big_Damage.wav" id="21_k63xf"]
@@ -26,17 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://8nq4lclhlpow" path="res://sound/player/Player_Upgrade.wav" id="22_qx08p"]
 [ext_resource type="AudioStream" uid="uid://dpxkt6v3pds6h" path="res://sound/Timer.wav" id="25_f4d70"]
 [ext_resource type="AudioStream" uid="uid://cm0len56fkl1l" path="res://sound/You_Win_guide.wav" id="26_spe6f"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1i1y4"]
-streams_count = 4
-stream_0/stream = ExtResource("6_notwe")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("7_iaw3r")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("8_y85uy")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("9_pbnat")
-stream_3/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlsv1"]
 streams_count = 3
@@ -66,42 +44,34 @@ process_mode = 3
 script = ExtResource("1_i0xcs")
 
 [node name="menumusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_sa6y7")
 volume_db = -10.0
 bus = &"music"
 
 [node name="gametheme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_5m3is")
 volume_db = -10.0
 bus = &"music"
 
 [node name="click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_6pbvo")
 volume_db = -15.0
 bus = &"sfx"
 
 [node name="enemyspawn" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_bd2mb")
 volume_db = -10.0
 bus = &"sfx"
 
 [node name="zipspawn" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ews0g")
 volume_db = -20.0
 bus = &"sfx"
 
 [node name="enemyhit" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_1i1y4")
 volume_db = -10.0
 bus = &"sfx"
 
 [node name="enemydeath" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_ghmmj")
 volume_db = -5.0
 bus = &"sfx"
 
 [node name="zipdeath" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_yfubi")
 volume_db = -5.0
 bus = &"sfx"
 
