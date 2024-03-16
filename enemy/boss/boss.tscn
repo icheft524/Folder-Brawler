@@ -730,10 +730,10 @@ libraries = {
 }
 
 [node name="idleanim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_i23i0")
 }
-autoplay = "idle"
 
 [node name="hitanim" type="AnimationPlayer" parent="."]
 libraries = {

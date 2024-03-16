@@ -599,10 +599,10 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_ehuo4")
 
 [node name="idleanim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_dbl2t")
 }
-autoplay = "idle"
 
 [connection signal="pressed" from="window/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
