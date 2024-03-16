@@ -1,14 +1,17 @@
-[gd_scene load_steps=41 format=3 uid="uid://08qmvcofwiok"]
+[gd_scene load_steps=47 format=3 uid="uid://08qmvcofwiok"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_pxkw2"]
 [ext_resource type="Texture2D" uid="uid://gtmdocyqno45" path="res://art/menu/download.png" id="2_5yrhh"]
 [ext_resource type="Texture2D" uid="uid://8tyxmkrjgrxg" path="res://art/menu/startwindow.png" id="3_0y7ff"]
 [ext_resource type="Texture2D" uid="uid://c8mwqta4uhfye" path="res://art/cursor/default.png" id="3_2lpa7"]
-[ext_resource type="Texture2D" uid="uid://dc2614hhe2wjs" path="res://art/credit.png" id="3_g84rq"]
+[ext_resource type="Texture2D" uid="uid://cp2mt8wemfpvu" path="res://UI_mainmenu_sound_marker.png" id="3_a15hv"]
 [ext_resource type="FontFile" uid="uid://d18t2v5iyh0jv" path="res://font/Itim-Regular.ttf" id="3_lewjp"]
 [ext_resource type="PackedScene" uid="uid://bh0yv7b0k6i04" path="res://volume_slider.tscn" id="4_fm5fv"]
+[ext_resource type="Texture2D" uid="uid://bqwq7g36q2l6d" path="res://UI_mainmenu_sound_track.png" id="4_unm7u"]
 [ext_resource type="Texture2D" uid="uid://b4fmo4f4rqw4e" path="res://art/menu/glitch1.png" id="5_ecv1y"]
+[ext_resource type="Texture2D" uid="uid://r70olb36s88m" path="res://credit_normal.png" id="5_fh4r6"]
 [ext_resource type="Texture2D" uid="uid://c0qffbvugf7pp" path="res://art/menu/download2.png" id="5_y5xcd"]
+[ext_resource type="Texture2D" uid="uid://dovy4yqle6inp" path="res://credit_hover.png" id="6_cve4c"]
 [ext_resource type="Texture2D" uid="uid://cl00ec8o7rqbt" path="res://art/icon.png" id="6_e1pe1"]
 [ext_resource type="Texture2D" uid="uid://ca1q7vcbtbq1r" path="res://art/menu/logo1.png" id="6_th1ar"]
 [ext_resource type="Texture2D" uid="uid://bf20bvp5rvt8u" path="res://art/howtoplay/howtoplay.png" id="7_26d0h"]
@@ -34,6 +37,17 @@
 [ext_resource type="Texture2D" uid="uid://cagnqn542ao8f" path="res://art/iconevil.png" id="29_4j8k5"]
 [ext_resource type="Texture2D" uid="uid://rpfwdrbsl147" path="res://art/menu/viruswindow4.png" id="29_mvun3"]
 [ext_resource type="Texture2D" uid="uid://c4gdo1xw2vlp4" path="res://art/iconglitch.png" id="30_rbfvb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edqy2"]
+texture = ExtResource("4_unm7u")
+texture_margin_left = 137.0
+texture_margin_top = 17.0
+texture_margin_right = 137.0
+texture_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hi8or"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxmgg"]
 
 [sub_resource type="Animation" id="Animation_26lud"]
 length = 0.001
@@ -429,6 +443,13 @@ offset_left = 54.0
 offset_top = 73.0
 offset_right = 199.0
 offset_bottom = 89.0
+theme_override_icons/grabber = ExtResource("3_a15hv")
+theme_override_icons/grabber_highlight = ExtResource("3_a15hv")
+theme_override_icons/grabber_disabled = ExtResource("3_a15hv")
+theme_override_icons/tick = ExtResource("3_a15hv")
+theme_override_styles/slider = SubResource("StyleBoxTexture_edqy2")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_hi8or")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_dxmgg")
 bus_name = "Master"
 
 [node name="master_label" type="Label" parent="master"]
@@ -448,10 +469,14 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_2lpa7")
 centered = false
 
-[node name="team" type="Sprite2D" parent="."]
-position = Vector2(356, 804)
+[node name="team" type="TextureButton" parent="."]
+offset_left = 26.0
+offset_top = 618.0
+offset_right = 1123.0
+offset_bottom = 1219.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_g84rq")
+texture_normal = ExtResource("5_fh4r6")
+texture_hover = ExtResource("6_cve4c")
 
 [node name="window" type="Sprite2D" parent="."]
 z_index = -1
@@ -604,6 +629,7 @@ libraries = {
 "": SubResource("AnimationLibrary_dbl2t")
 }
 
+[connection signal="button_down" from="team" to="." method="_on_team_button_down"]
 [connection signal="pressed" from="window/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="tutorial/image/close_button" to="." method="_on_close_button_pressed"]

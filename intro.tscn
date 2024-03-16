@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://c32ype0yokk5t"]
+
+[ext_resource type="Texture2D" uid="uid://u5cpnenx6t78" path="res://itchbanner_Itch Banner.png" id="1_b02ni"]
+[ext_resource type="Script" path="res://intro.gd" id="1_x4wcj"]
+
+[sub_resource type="Animation" id="Animation_7ntwd"]
+resource_name = "intro"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(2, 2, 2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yjrmr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsjb5"]
+_data = {
+"RESET": SubResource("Animation_yjrmr"),
+"intro": SubResource("Animation_7ntwd")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x4wcj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1353.0
+offset_top = -842.0
+offset_right = 1318.0
+offset_bottom = 846.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1001.0
+offset_top = -210.0
+offset_right = 999.0
+offset_bottom = 207.0
+texture = ExtResource("1_b02ni")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_dsjb5")
+}

@@ -80,3 +80,7 @@ func _on_left_pressed():
 		$tutorial/image/left.visible = false
 	if page != 0:
 		$tutorial/image/left.visible = true
+
+
+func _on_team_button_down():
+	OS.shell_open("https://earthquackgames.carrd.co")
