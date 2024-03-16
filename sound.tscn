@@ -1,8 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddltqegh0oope"]
+[gd_scene load_steps=19 format=3 uid="uid://ddltqegh0oope"]
 
 [ext_resource type="Script" path="res://sound.gd" id="1_i0xcs"]
-[ext_resource type="AudioStream" uid="uid://blvec8io6v3n3" path="res://sound/Dash.wav" id="2_itq6y"]
 [ext_resource type="AudioStream" uid="uid://pah72impy6ul" path="res://sound/adSpawn_01.wav" id="5_mp3xx"]
+[ext_resource type="AudioStream" uid="uid://d2opbvvoig2aa" path="res://sound/adSpawn_02.wav" id="6_k8vkq"]
+[ext_resource type="AudioStream" uid="uid://yqrxm08e2egy" path="res://sound/player/Player_Get_hit_01_Light_Damage.wav" id="6_pn7ry"]
+[ext_resource type="AudioStream" uid="uid://dbit5g3ibssj4" path="res://sound/adSpawn_03.wav" id="7_4e5op"]
+[ext_resource type="AudioStream" uid="uid://b52j2v70tbq0y" path="res://sound/player/Player_Get_hit_02_Light_Damage.wav" id="7_ame8g"]
+[ext_resource type="AudioStream" uid="uid://dxth0ljc20lhw" path="res://sound/player/Player_Grab.wav" id="7_pnrr1"]
+[ext_resource type="AudioStream" uid="uid://6f2se8dkpkge" path="res://sound/player/Player_Open_Folder.wav" id="10_7ho6v"]
+[ext_resource type="AudioStream" uid="uid://cfwxrsig65tcg" path="res://sound/Cant_Delete.wav" id="13_cs5gl"]
+[ext_resource type="AudioStream" uid="uid://bqefw5b638bra" path="res://sound/player/Player_Get_hit_02_Big_Damage.wav" id="21_k63xf"]
+[ext_resource type="AudioStream" uid="uid://boaivd0bjqhq1" path="res://sound/Player_Crit_Hit.wav" id="21_nxsbw"]
+[ext_resource type="AudioStream" uid="uid://cg8pg8eg7ohdg" path="res://sound/player/Player_Get_hit_01_Big_Damage.wav" id="22_cg5vv"]
+[ext_resource type="AudioStream" uid="uid://8nq4lclhlpow" path="res://sound/player/Player_Upgrade.wav" id="22_qx08p"]
+[ext_resource type="AudioStream" uid="uid://dpxkt6v3pds6h" path="res://sound/Timer.wav" id="25_f4d70"]
+[ext_resource type="AudioStream" uid="uid://cm0len56fkl1l" path="res://sound/You_Win_guide.wav" id="26_spe6f"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jlsv1"]
+streams_count = 3
+stream_0/stream = ExtResource("5_mp3xx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_k8vkq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_4e5op")
+stream_2/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bit5y"]
+streams_count = 2
+stream_0/stream = ExtResource("6_pn7ry")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_ame8g")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k3oh5"]
+streams_count = 2
+stream_0/stream = ExtResource("21_k63xf")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("22_cg5vv")
+stream_1/weight = 1.0
 
 [node name="sound" type="Node2D"]
 process_mode = 3
@@ -20,10 +55,68 @@ bus = &"music"
 volume_db = -15.0
 bus = &"sfx"
 
-[node name="Fart Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_itq6y")
+[node name="enemyspawn" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = &"sfx"
 
-[node name="Copter" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_mp3xx")
-volume_db = -39.619
-pitch_scale = 1.72
+[node name="zipspawn" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
+bus = &"sfx"
+
+[node name="enemyhit" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="enemydeath" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="zipdeath" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="adspawn" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jlsv1")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="playergrab" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pnrr1")
+bus = &"sfx"
+
+[node name="playeropenfolder" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7ho6v")
+bus = &"sfx"
+
+[node name="cantdelete" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_cs5gl")
+bus = &"sfx"
+
+[node name="playerhit" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bit5y")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="critical" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_nxsbw")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="upgrade" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_qx08p")
+bus = &"sfx"
+
+[node name="playerhitbig" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_k3oh5")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="timer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_f4d70")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="wintheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_spe6f")
+volume_db = -10.0
+bus = &"sfx"
