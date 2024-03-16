@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc2614hhe2wjs"
-path="res://.godot/imported/credit.png-78f8265a205521429fadb97d79590404.ctex"
+uid="uid://dovy4yqle6inp"
+path="res://.godot/imported/credit_hover.png-7484004fe32301348b4fc73c8020d5ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/credit.png"
-dest_files=["res://.godot/imported/credit.png-78f8265a205521429fadb97d79590404.ctex"]
+source_file="res://credit_hover.png"
+dest_files=["res://.godot/imported/credit_hover.png-7484004fe32301348b4fc73c8020d5ac.ctex"]
 
 [params]
 
